@@ -161,12 +161,16 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 
   <!-- 4. GAMIFIED FLOATING COURSE PROGRESS CARD (Para Alunos no Curso) -->
   <div id="student-course-tracker" class="student-course-tracker hidden">
-    <div class="tracker-header">
+    <div class="tracker-header" id="tracker-header">
       <div class="tracker-badge-row">
         <span class="tracker-game-icon">🎮</span>
-        <span class="tracker-tag">CURSO DE APRENDIZADO</span>
+        <span class="tracker-tag">CURSO</span>
+        <span id="tracker-header-mini-stat" class="tracker-header-mini-stat">0%</span>
       </div>
-      <button type="button" id="toggle-tracker-min-btn" class="tracker-min-btn" title="Minimizar">▾</button>
+      <div class="tracker-header-controls">
+        <button type="button" id="mini-mark-btn" class="btn-mini-mark" title="Concluir lição">✓ Concluir (+50 XP)</button>
+        <button type="button" id="toggle-tracker-min-btn" class="tracker-min-btn" title="Expandir/Minimizar">▾</button>
+      </div>
     </div>
 
     <div class="tracker-body" id="tracker-body">
@@ -1122,19 +1126,432 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     }
   }
 
-  /* Responsive Adjustments */
+  /* ==========================================================================
+     Mobile Responsive Suite
+     ========================================================================== */
+
+  /* Mobile Drawer User Card Styles */
+  :global(.mobile-user-drawer-card) {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(67, 160, 71, 0.35);
+    border-radius: 14px;
+    padding: 0.85rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  :global(.drawer-user-header) {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  :global(.drawer-user-avatar) {
+    font-size: 1.6rem;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.08);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  :global(.drawer-user-info) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  :global(.drawer-user-info strong) {
+    font-size: 0.95rem;
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :global(.drawer-user-progress-box) {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  :global(.drawer-stat-row) {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  :global(.drawer-bar-track) {
+    background: rgba(255, 255, 255, 0.1);
+    height: 6px;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  :global(.drawer-bar-fill) {
+    height: 100%;
+    background: linear-gradient(90deg, #43a047, #81c784);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+  }
+
+  :global(.drawer-stat-sub) {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--sl-color-gray-3, #9e9e9e);
+  }
+
+  :global(.drawer-btn-mentor) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.35);
+  }
+
+  :global(.drawer-btn-logout) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: #dc2626;
+    border: 1px solid #ef4444;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.55rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  }
+
+  /* Header Controls on Mobile */
+  .tracker-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-mini-mark {
+    display: none;
+  }
+
+  .tracker-header-mini-stat {
+    display: none;
+  }
+
   @media (max-width: 768px) {
-    .mentor-metrics-row {
-      grid-template-columns: repeat(2, 1fr);
+    /* Header Top Row */
+    .user-header-widget {
+      gap: 0.35rem;
     }
-    .student-course-tracker {
-      bottom: 1rem;
-      right: 1rem;
-      left: 1rem;
-      width: auto;
+
+    .user-info-pill {
+      padding: 0.22rem 0.5rem;
+      gap: 0.35rem;
     }
+
+    .user-avatar {
+      font-size: 0.95rem;
+    }
+
+    .user-name-row strong {
+      font-size: 0.78rem;
+    }
+
+    .role-badge {
+      display: none;
+    }
+
     .user-stats-row {
       display: none;
+    }
+
+    .btn-logout {
+      padding: 0.3rem 0.55rem;
+      font-size: 0.75rem;
+    }
+
+    .btn-mentor-trigger {
+      padding: 0.3rem 0.55rem;
+      font-size: 0.75rem;
+      gap: 0.3rem;
+    }
+
+    .mentor-text {
+      display: none;
+    }
+
+    /* Gamified Tracker Mobile */
+    .student-course-tracker {
+      bottom: 0.75rem;
+      right: 0.75rem;
+      left: 0.75rem;
+      width: auto;
+      padding: 0.65rem 0.85rem;
+      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(22, 24, 29, 0.95);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 16px rgba(67, 160, 71, 0.2);
+    }
+
+    .tracker-header {
+      margin-bottom: 0;
+    }
+
+    .student-course-tracker:not(.is-minimized) .tracker-header {
+      margin-bottom: 0.65rem;
+    }
+
+    .tracker-header-mini-stat {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #81c784;
+      background: rgba(67, 160, 71, 0.2);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    .student-course-tracker.is-minimized .btn-mini-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: #43a047;
+      color: #000000;
+      border: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .student-course-tracker.is-minimized .btn-mini-mark.completed {
+      background: rgba(67, 160, 71, 0.25);
+      color: #81c784;
+      border: 1px solid rgba(67, 160, 71, 0.4);
+    }
+
+    .tracker-min-btn {
+      padding: 0.15rem 0.45rem;
+      font-size: 1.1rem;
+    }
+
+    /* Mentor Modal Mobile */
+    .mentor-modal-overlay {
+      padding: 0.5rem;
+    }
+
+    .mentor-modal-window {
+      max-height: 94vh;
+      border-radius: 16px;
+    }
+
+    .mentor-modal-header {
+      padding: 0.9rem 1rem;
+      gap: 0.6rem;
+    }
+
+    .mentor-title-group {
+      gap: 0.6rem;
+    }
+
+    .mentor-header-icon {
+      font-size: 1.35rem;
+      padding: 0.35rem;
+      border-radius: 10px;
+    }
+
+    .mentor-modal-title {
+      font-size: 1.05rem;
+    }
+
+    .mentor-modal-sub {
+      font-size: 0.75rem;
+    }
+
+    .mentor-metrics-row {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .metric-box {
+      padding: 0.6rem 0.45rem;
+    }
+
+    .metric-value {
+      font-size: 1.15rem;
+    }
+
+    .metric-label {
+      font-size: 0.65rem;
+    }
+
+    .mentor-students-grid {
+      padding: 0.75rem;
+      gap: 0.75rem;
+    }
+
+    :global(.student-mentor-card) {
+      padding: 0.85rem;
+      border-radius: 12px;
+      gap: 0.75rem;
+    }
+
+    :global(.student-top-info) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+
+    :global(.student-avatar-block) {
+      width: 100%;
+    }
+
+    :global(.student-big-avatar) {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    :global(.student-names h4) {
+      font-size: 1.05rem;
+    }
+
+    :global(.student-sub-level) {
+      font-size: 0.75rem;
+    }
+
+    :global(.student-progress-badge) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    :global(.student-percent-big) {
+      font-size: 1.25rem;
+    }
+
+    :global(.student-bar-container) {
+      gap: 0.5rem;
+    }
+
+    :global(.student-location-box) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      padding: 0.5rem 0.7rem;
+    }
+
+    :global(.location-text) {
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .mentor-modal-footer {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .mentor-footer-btns {
+      width: 100%;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary-mentor {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      padding: 0.65rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Screens <= 520px (Compact Mobile) */
+  @media (max-width: 520px) {
+    .user-name-row strong {
+      max-width: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn-logout span {
+      display: none;
+    }
+
+    .btn-logout {
+      padding: 0.35rem;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    /* Login Card Mobile */
+    .login-overlay {
+      padding: 0.65rem;
+    }
+
+    .login-card {
+      padding: 1.4rem 1.15rem;
+      border-radius: 16px;
+      max-width: 100%;
+    }
+
+    .login-title {
+      font-size: 1.45rem;
+    }
+
+    .login-subtitle {
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .input-wrapper input {
+      font-size: 16px !important; /* Prevents iOS auto-zoom */
+      min-height: 48px;
+      padding: 0.75rem 0.9rem;
+    }
+
+    .btn-primary-login {
+      min-height: 48px;
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -1219,6 +1636,100 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     }, 3500);
   }
 
+  // Update Mobile Drawer User Card (Profile inside the mobile slide-out menu)
+  function updateMobileDrawerUserCard(user: any | null) {
+    const mount = document.getElementById('mobile-user-profile-mount');
+    if (!mount) return;
+
+    if (!user) {
+      mount.innerHTML = '';
+      return;
+    }
+
+    const db = getProgressDB();
+    let studentStatsHtml = '';
+    let mentorBtnHtml = '';
+
+    if (user.role === 'student') {
+      const studentData = db[user.id] || { completedLessons: [], xp: 0 };
+      const levelObj = calculateLevel(studentData.xp || 0);
+      const completedCount = (studentData.completedLessons || []).length;
+      const percent = Math.min(100, Math.round((completedCount / TOTAL_COURSE_LESSONS) * 100));
+
+      studentStatsHtml = `
+        <div class="drawer-user-progress-box">
+          <div class="drawer-stat-row">
+            <span>${levelObj.icon} ${levelObj.name}</span>
+            <span style="color: #81c784">${percent}%</span>
+          </div>
+          <div class="drawer-bar-track">
+            <div class="drawer-bar-fill" style="width: ${percent}%"></div>
+          </div>
+          <div class="drawer-stat-sub">
+            <span>${studentData.xp || 0} XP</span>
+            <span>${completedCount}/${TOTAL_COURSE_LESSONS} lições</span>
+          </div>
+        </div>
+      `;
+    } else {
+      // Mentor
+      mentorBtnHtml = `
+        <button type="button" id="drawer-mentor-btn" class="drawer-btn-mentor">
+          <span>📊</span>
+          <span>Abrir Painel da Mentoria</span>
+        </button>
+      `;
+    }
+
+    mount.innerHTML = `
+      <div class="mobile-user-drawer-card">
+        <div class="drawer-user-header">
+          <div class="drawer-user-avatar">${user.avatar}</div>
+          <div class="drawer-user-info">
+            <strong>${user.name}</strong>
+            <span class="role-badge ${user.role}">${user.title}</span>
+          </div>
+        </div>
+        ${studentStatsHtml}
+        ${mentorBtnHtml}
+        <button type="button" id="drawer-logout-btn" class="drawer-btn-logout">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+          </svg>
+          <span>Sair da Conta</span>
+        </button>
+      </div>
+    `;
+
+    // Bind drawer buttons
+    const drawerLogoutBtn = document.getElementById('drawer-logout-btn');
+    if (drawerLogoutBtn) {
+      drawerLogoutBtn.addEventListener('click', () => {
+        if (confirm('Deseja realmente sair da sua conta?')) {
+          clearActiveUser();
+          updateAuthUI();
+        }
+      });
+    }
+
+    const drawerMentorBtn = document.getElementById('drawer-mentor-btn');
+    if (drawerMentorBtn) {
+      drawerMentorBtn.addEventListener('click', () => {
+        const toggle = document.querySelector('[data-mobile-menu-toggle]');
+        const menu = document.querySelector('[data-mobile-menu]');
+        const backdrop = document.querySelector('[data-mobile-backdrop]');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        if (menu) menu.removeAttribute('data-mobile-menu-open');
+        if (backdrop) backdrop.removeAttribute('data-open');
+        document.body.style.overflow = '';
+
+        renderMentorDashboard();
+        const mentorModal = document.getElementById('mentor-modal-overlay');
+        if (mentorModal) mentorModal.classList.remove('hidden');
+      });
+    }
+  }
+
   // Update UI based on active user
   function updateAuthUI() {
     const user = getActiveUser();
@@ -1232,6 +1743,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       loginWall?.classList.remove('hidden');
       headerWidget?.classList.add('hidden');
       studentTracker?.classList.add('hidden');
+      updateMobileDrawerUserCard(null);
       document.body.style.overflow = 'hidden';
       return;
     }
@@ -1297,6 +1809,9 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       statsRow?.classList.add('hidden');
       studentTracker?.classList.add('hidden');
     }
+
+    // Sync mobile drawer profile card
+    updateMobileDrawerUserCard(user);
   }
 
   // Update floating course tracker for student
@@ -1305,6 +1820,15 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     if (!studentTracker) return;
 
     studentTracker.classList.remove('hidden');
+
+    // On mobile (< 768px), initialize minimized by default so it doesn't obstruct reading
+    if (window.innerWidth <= 768 && !studentTracker.dataset.userToggled) {
+      studentTracker.classList.add('is-minimized');
+      const trackerBody = document.getElementById('tracker-body');
+      if (trackerBody) trackerBody.classList.add('hidden');
+      const toggleMinBtn = document.getElementById('toggle-tracker-min-btn');
+      if (toggleMinBtn) toggleMinBtn.textContent = '▴';
+    }
 
     const db = getProgressDB();
     const student = db[studentId] || { completedLessons: [], xp: 0 };
@@ -1321,7 +1845,10 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     const markBtn = document.getElementById('mark-lesson-complete-btn');
     const markBtnText = document.getElementById('mark-btn-text');
     const markBtnIcon = document.getElementById('mark-btn-icon');
+    const miniStatEl = document.getElementById('tracker-header-mini-stat');
+    const miniMarkBtn = document.getElementById('mini-mark-btn');
 
+    if (miniStatEl) miniStatEl.textContent = `${percent}%`;
     if (levelNameEl) levelNameEl.textContent = `${levelObj.icon} ${levelObj.name}`;
     if (xpValEl) xpValEl.textContent = `${student.xp || 0} XP`;
     if (percentText) percentText.textContent = `${percent}% Concluído`;
@@ -1342,6 +1869,16 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
         markBtn.classList.remove('completed');
         markBtnIcon.textContent = '✓';
         markBtnText.textContent = 'Concluir esta Lição (+50 XP)';
+      }
+    }
+
+    if (miniMarkBtn) {
+      if (isCompleted) {
+        miniMarkBtn.classList.add('completed');
+        miniMarkBtn.textContent = '✓ Concluído';
+      } else {
+        miniMarkBtn.classList.remove('completed');
+        miniMarkBtn.textContent = '✓ Concluir (+50 XP)';
       }
     }
   }
@@ -1609,13 +2146,24 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       });
     }
 
-    // 9. Minimize tracker button
+    // 9. Minimize tracker button & mini mark button
     const toggleMinBtn = document.getElementById('toggle-tracker-min-btn');
     const trackerBody = document.getElementById('tracker-body');
-    if (toggleMinBtn && trackerBody) {
+    const studentTracker = document.getElementById('student-course-tracker');
+    if (toggleMinBtn && trackerBody && studentTracker) {
       toggleMinBtn.addEventListener('click', () => {
+        studentTracker.dataset.userToggled = 'true';
         const isHidden = trackerBody.classList.toggle('hidden');
+        studentTracker.classList.toggle('is-minimized', isHidden);
         toggleMinBtn.textContent = isHidden ? '▴' : '▾';
+      });
+    }
+
+    const miniMarkBtn = document.getElementById('mini-mark-btn');
+    if (miniMarkBtn) {
+      miniMarkBtn.addEventListener('click', () => {
+        const markBtn = document.getElementById('mark-lesson-complete-btn');
+        if (markBtn) markBtn.click();
       });
     }
 

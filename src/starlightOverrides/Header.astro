@@ -147,8 +147,13 @@ for (const section of sidebarSections) {
     </div>
   </nav>
 
+  <div class="mobile-nav-backdrop" data-mobile-backdrop></div>
+
   <nav class="mobile-navigation" aria-label="Principal" data-mobile-menu>
     <div class="mobile-navigation-inner">
+      <!-- Perfil do usuário logado na gaveta mobile -->
+      <div id="mobile-user-profile-mount" class="mobile-user-profile-mount"></div>
+
       <div class="mobile-nav-section">
         <span class="mobile-nav-section-title">Navegação</span>
         {navLinks.map((item) => (
@@ -363,27 +368,36 @@ for (const section of sidebarSections) {
     const initMobileMenu = () => {
       const toggle = document.querySelector("[data-mobile-menu-toggle]");
       const menu = document.querySelector("[data-mobile-menu]");
+      const backdrop = document.querySelector("[data-mobile-backdrop]");
 
       if (!toggle || !menu) return;
 
-      toggle.addEventListener("click", () => {
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        const newState = !isOpen;
-
-        toggle.setAttribute("aria-expanded", newState.toString());
-
-        if (newState) {
+      const setMenuState = (open) => {
+        toggle.setAttribute("aria-expanded", open.toString());
+        if (open) {
           menu.setAttribute("data-mobile-menu-open", "true");
+          backdrop?.setAttribute("data-open", "true");
+          document.body.style.overflow = 'hidden';
         } else {
           menu.removeAttribute("data-mobile-menu-open");
+          backdrop?.removeAttribute("data-open");
+          document.body.style.overflow = '';
         }
+      };
+
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        setMenuState(!isOpen);
+      });
+
+      backdrop?.addEventListener("click", () => {
+        setMenuState(false);
       });
 
       const mobileLinks = menu.querySelectorAll(".mobile-nav-link");
       mobileLinks.forEach((link) => {
         link.addEventListener("click", () => {
-          toggle.setAttribute("aria-expanded", "false");
-          menu.removeAttribute("data-mobile-menu-open");
+          setMenuState(false);
         });
       });
     };
@@ -395,6 +409,7 @@ for (const section of sidebarSections) {
       document.addEventListener("click", (e) => {
         const toggle = document.querySelector("[data-mobile-menu-toggle]");
         const menu = document.querySelector("[data-mobile-menu]");
+        const backdrop = document.querySelector("[data-mobile-backdrop]");
         if (!toggle || !menu) return;
         if (
           !toggle.contains(e.target) &&
@@ -403,6 +418,8 @@ for (const section of sidebarSections) {
         ) {
           toggle.setAttribute("aria-expanded", "false");
           menu.removeAttribute("data-mobile-menu-open");
+          backdrop?.removeAttribute("data-open");
+          document.body.style.overflow = '';
         }
       });
     }
@@ -760,13 +777,15 @@ for (const section of sidebarSections) {
     }
 
     .header-actions-section {
-      gap: 0.5rem;
+      gap: 0.4rem;
+      min-width: 0;
+      flex-shrink: 1;
     }
 
     .search-wrapper {
-      flex: 1 1 auto;
-      min-width: 0;
-      max-width: 200px;
+      flex: 0 1 auto;
+      min-width: 32px;
+      max-width: 140px;
     }
 
     .github-link-header {
@@ -775,6 +794,23 @@ for (const section of sidebarSections) {
 
     .navigation-bar {
       display: none;
+    }
+
+    .mobile-nav-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .mobile-nav-backdrop[data-open="true"] {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .mobile-navigation {
@@ -919,6 +955,39 @@ for (const section of sidebarSections) {
     .mobile-sidebar-tree :global(.mobile-sidebar-group-content) {
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header-inner {
+      padding: 0.35rem 0.5rem;
+    }
+
+    .header-top-row {
+      gap: 0.35rem;
+    }
+
+    .header-actions-section {
+      gap: 0.25rem;
+    }
+
+    .search-wrapper {
+      max-width: 75px;
+    }
+
+    .search-wrapper :global(button[data-open-modal]) {
+      padding-inline: 0.35rem;
+      font-size: 0.72rem;
+    }
+
+    .theme-toggle-button {
+      width: 28px;
+      height: 28px;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
     }
   }
 </style>
