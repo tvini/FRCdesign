@@ -3,9 +3,7 @@
  * AuthAndProgress.astro
  * Sistema de Autenticação Obrigatória, Gamificação do Curso para Alunos e Painel de Mentoria.
  */
-import { USERS, TOTAL_COURSE_LESSONS, LEVELS, INITIAL_STUDENT_PROGRESS } from '../../data/users';
-
-const usersList = Object.values(USERS);
+import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 ---
 
 <div id="auth-system-root" data-total-lessons={TOTAL_COURSE_LESSONS}>
@@ -20,29 +18,7 @@ const usersList = Object.values(USERS);
             <h2 class="login-title">FRCDesign.org</h2>
           </div>
         </div>
-        <p class="login-subtitle">Acesso restrito para alunos e mentores. Selecione seu perfil ou digite seus dados para entrar.</p>
-      </div>
-
-      <!-- Quick profile picker -->
-      <div class="profile-picker-section">
-        <span class="picker-label">Selecione seu perfil:</span>
-        <div class="profile-chips">
-          {usersList.map((user) => (
-            <button
-              type="button"
-              class="profile-chip"
-              data-user-id={user.id}
-              data-user-role={user.role}
-              data-user-name={user.name}
-            >
-              <span class="chip-avatar">{user.avatar}</span>
-              <span class="chip-info">
-                <strong class="chip-name">{user.name}</strong>
-                <small class="chip-role">{user.title}</small>
-              </span>
-            </button>
-          ))}
-        </div>
+        <p class="login-subtitle">Acesso restrito para alunos e mentores. Digite seu usuário e senha para acessar.</p>
       </div>
 
       <!-- Login Form -->
@@ -53,7 +29,7 @@ const usersList = Object.values(USERS);
             type="text"
             id="login-username"
             name="username"
-            placeholder="Ex: isa, ana, lucas, liwia, vinicius"
+            placeholder="Digite seu nome de usuário"
             required
             autocomplete="username"
           />
@@ -89,10 +65,6 @@ const usersList = Object.values(USERS);
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
-
-        <div class="login-hint">
-          <span>💡 <strong>Dica de acesso:</strong> a senha inicial de cada um é <code>nome123</code> (ex: <code>isa123</code>, <code>ana123</code>, <code>lucas123</code>, <code>liwia123</code>, <code>vinicius123</code>).</span>
-        </div>
       </form>
     </div>
   </div>
@@ -1389,30 +1361,11 @@ const usersList = Object.values(USERS);
 
   // Event Listeners Initialization
   function initAuthEvents() {
-    // 1. Profile chip click in login wall
-    const chips = document.querySelectorAll('.profile-chip');
     const usernameInput = document.getElementById('login-username') as HTMLInputElement;
     const passwordInput = document.getElementById('login-password') as HTMLInputElement;
     const errorMsg = document.getElementById('login-error-msg');
 
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        chips.forEach((c) => c.classList.remove('selected'));
-        chip.classList.add('selected');
-
-        const userId = chip.getAttribute('data-user-id') || '';
-        if (usernameInput) usernameInput.value = userId;
-
-        // Auto-fill password for convenience
-        const userObj = USERS[userId];
-        if (userObj && passwordInput) {
-          passwordInput.value = userObj.password;
-        }
-        errorMsg?.classList.add('hidden');
-      });
-    });
-
-    // 2. Toggle password visibility
+    // 1. Toggle password visibility
     const togglePassBtn = document.getElementById('toggle-password-btn');
     if (togglePassBtn && passwordInput) {
       togglePassBtn.addEventListener('click', () => {
