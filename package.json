@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/sync-dist.mjs",
     "social-cards": "node scripts/social-cards.mjs",
     "check:links:local": "node scripts/check-local-links.mjs",
     "preview": "astro preview",

@@ -12,7 +12,6 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     <div class="login-card">
       <div class="login-header">
         <div class="login-brand">
-          <img src="/_astro/book.C-iZy4YT.svg" alt="FRCDesign Logo" width="48" height="48" class="login-logo" />
           <div>
             <span class="portal-badge">ÁREA RESTRITA DA EQUIPE</span>
             <h2 class="login-title">FRCDesign.org</h2>
@@ -251,12 +250,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
   .login-brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
     margin-bottom: 0.75rem;
-  }
-
-  .login-logo {
-    filter: drop-shadow(0 4px 8px rgba(67, 160, 71, 0.4));
   }
 
   .portal-badge {
@@ -573,20 +567,28 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--sl-color-gray-3, #9e9e9e);
-    padding: 0.35rem 0.65rem;
+    background: #dc2626;
+    border: 1px solid #ef4444;
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
   }
 
   .btn-logout:hover {
-    background: rgba(244, 67, 54, 0.15);
-    border-color: rgba(244, 67, 54, 0.4);
-    color: #ff8a80;
+    background: #b91c1c;
+    border-color: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-logout:active {
+    transform: translateY(0);
   }
 
   /* 3. PAINEL DE MENTORIA SUSPENSO (MODAL FLOATING) */
