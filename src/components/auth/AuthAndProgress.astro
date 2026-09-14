@@ -81,6 +81,8 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
           <span id="user-xp-display" class="user-xp-display">0 XP</span>
           <span class="meta-separator">•</span>
           <span id="user-level-display" class="user-level-display">Nível 1</span>
+          <span class="meta-separator">•</span>
+          <span id="user-percent-display" class="user-percent-display">0%</span>
         </div>
       </div>
     </div>
@@ -123,15 +125,15 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
         </div>
         <div class="metric-box">
           <span id="team-avg-progress" class="metric-value">0%</span>
-          <span class="metric-label">Média de Conclusão</span>
+          <span class="metric-label">Média Geral (%)</span>
         </div>
         <div class="metric-box">
           <span id="team-total-lessons" class="metric-value">0</span>
           <span class="metric-label">Lições Concluídas</span>
         </div>
         <div class="metric-box highlight">
-          <span id="team-mvp-student" class="metric-value">Ana</span>
-          <span class="metric-label">Destaque Atual 🏆</span>
+          <span id="team-mvp-student" class="metric-value">0% (Início)</span>
+          <span class="metric-label">Destaque Geral 🏆</span>
         </div>
       </div>
 
@@ -143,14 +145,14 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       <!-- Mentor Actions Footer -->
       <div class="mentor-modal-footer">
         <div class="footer-note">
-          <span>💡 <em>Dica:</em> O progresso é sincronizado e atualizado automaticamente sempre que um aluno conclui uma lição no Curso de Aprendizado.</span>
+          <span>💡 <em>Sincronização:</em> O progresso em % e XP é atualizado instantaneamente quando o aluno conclui lições no Curso de Aprendizado.</span>
         </div>
         <div class="mentor-footer-btns">
           <button type="button" id="btn-export-report" class="btn-secondary-mentor">
             📋 Copiar Relatório
           </button>
-          <button type="button" id="btn-reset-demo" class="btn-secondary-mentor" title="Recarregar dados iniciais de demonstração">
-            🔄 Recarregar Dados Iniciais
+          <button type="button" id="btn-reset-demo" class="btn-secondary-mentor" title="Zerar todo o progresso dos alunos para 0%">
+            🔄 Zerar Progresso (0%)
           </button>
         </div>
       </div>
@@ -173,7 +175,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
           <span id="tracker-level-name" class="tracker-level-name">Aprendiz de CAD</span>
           <strong id="tracker-xp-val" class="tracker-xp-val">0 XP</strong>
         </div>
-        <span id="tracker-percent-text" class="tracker-percent-text">0%</span>
+        <span id="tracker-percent-text" class="tracker-percent-text">0% Concluído</span>
       </div>
 
       <div class="progress-bar-track">
@@ -181,7 +183,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       </div>
 
       <div class="tracker-stats-text">
-        <span id="tracker-completed-count">0</span> de <span id="tracker-total-count">{TOTAL_COURSE_LESSONS}</span> lições concluídas
+        <span><strong id="tracker-completed-count">0</strong> de {TOTAL_COURSE_LESSONS} lições concluídas (<strong id="tracker-percent-subtext" style="color: #81c784">0%</strong>)</span>
       </div>
 
       <div class="tracker-actions">
@@ -530,6 +532,15 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     opacity: 0.5;
   }
 
+  .user-percent-display {
+    color: #81c784;
+    font-weight: 700;
+    background: rgba(67, 160, 71, 0.18);
+    border: 1px solid rgba(129, 199, 132, 0.35);
+    padding: 0.05rem 0.45rem;
+    border-radius: 4px;
+  }
+
   /* Mentor Trigger Button */
   .btn-mentor-trigger {
     display: flex;
@@ -567,9 +578,9 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    background: #dc2626;
-    border: 1px solid #ef4444;
-    color: #ffffff;
+    background: #dc2626 !important;
+    border: 1px solid #ef4444 !important;
+    color: #ffffff !important;
     padding: 0.35rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -579,16 +590,34 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
   }
 
+  .btn-logout span,
+  .btn-logout svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
   .btn-logout:hover {
-    background: #b91c1c;
-    border-color: #dc2626;
-    color: #ffffff;
+    background: #b91c1c !important;
+    border-color: #dc2626 !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
     transform: translateY(-1px);
   }
 
+  .btn-logout:hover span,
+  .btn-logout:hover svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
   .btn-logout:active {
+    background: #991b1b !important;
     transform: translateY(0);
+  }
+
+  .btn-logout:focus-visible {
+    outline: 2px solid #f87171 !important;
+    outline-offset: 2px;
   }
 
   /* 3. PAINEL DE MENTORIA SUSPENSO (MODAL FLOATING) */
@@ -780,12 +809,35 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 
   :global(.student-progress-badge) {
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  :global(.student-percent-pill) {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    background: rgba(67, 160, 71, 0.16);
+    border: 1px solid rgba(129, 199, 132, 0.35);
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
   }
 
   :global(.student-percent-big) {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--sl-color-text-accent, #43a047);
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #81c784;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  :global(.student-percent-sub) {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #a5d6a7;
+    letter-spacing: 0.05em;
   }
 
   :global(.student-lesson-count) {
@@ -793,18 +845,34 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     color: var(--sl-color-gray-3, #9e9e9e);
   }
 
+  :global(.student-bar-container) {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
   :global(.student-bar-wrapper) {
+    flex: 1;
     background: rgba(0, 0, 0, 0.45);
-    height: 8px;
+    height: 10px;
     border-radius: 999px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   :global(.student-bar-fill) {
     height: 100%;
-    background: linear-gradient(90deg, #43a047, #81c784);
+    background: linear-gradient(90deg, #2e7d32, #43a047, #81c784);
     border-radius: 999px;
     transition: width 0.4s ease;
+  }
+
+  :global(.student-bar-percent-label) {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #81c784;
+    min-width: 40px;
+    text-align: right;
   }
 
   :global(.student-location-box) {
@@ -1191,6 +1259,11 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 
       if (xpEl) xpEl.textContent = `${studentData.xp || 0} XP`;
       if (levelEl) levelEl.textContent = `Nível ${levelObj.level}`;
+      const percentEl = document.getElementById('user-percent-display');
+      if (percentEl) {
+        const studentPercent = Math.min(100, Math.round(((studentData.completedLessons || []).length / TOTAL_COURSE_LESSONS) * 100));
+        percentEl.textContent = `${studentPercent}%`;
+      }
 
       // Update current location in course
       const currentPath = window.location.pathname;
@@ -1234,6 +1307,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     const levelNameEl = document.getElementById('tracker-level-name');
     const xpValEl = document.getElementById('tracker-xp-val');
     const percentText = document.getElementById('tracker-percent-text');
+    const percentSubText = document.getElementById('tracker-percent-subtext');
     const progressFill = document.getElementById('tracker-progress-fill');
     const countEl = document.getElementById('tracker-completed-count');
     const markBtn = document.getElementById('mark-lesson-complete-btn');
@@ -1242,7 +1316,8 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 
     if (levelNameEl) levelNameEl.textContent = `${levelObj.icon} ${levelObj.name}`;
     if (xpValEl) xpValEl.textContent = `${student.xp || 0} XP`;
-    if (percentText) percentText.textContent = `${percent}%`;
+    if (percentText) percentText.textContent = `${percent}% Concluído`;
+    if (percentSubText) percentSubText.textContent = `${percent}%`;
     if (progressFill) progressFill.style.width = `${percent}%`;
     if (countEl) countEl.textContent = String(completedCount);
 
