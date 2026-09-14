@@ -1144,11 +1144,14 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
 
   // Storage Keys
   const STORAGE_SESSION_KEY = 'frcdesign_auth_session';
-  const STORAGE_PROGRESS_KEY = 'frcdesign_student_progress_db';
+  const STORAGE_PROGRESS_KEY = 'frcdesign_student_progress_v3';
 
   // Initialize DB in localStorage if not exists
   function getProgressDB(): Record<string, any> {
     try {
+      localStorage.removeItem('frcdesign_student_progress_db');
+      localStorage.removeItem('frcdesign_student_progress_v2');
+
       const stored = localStorage.getItem(STORAGE_PROGRESS_KEY);
       if (stored) {
         return JSON.parse(stored);
@@ -1380,8 +1383,8 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     const students = [USERS.isa, USERS.ana, USERS.lucas];
 
     let totalLessonsDone = 0;
-    let highestLessons = -1;
-    let mvpName = 'Ana';
+    let highestLessons = 0;
+    let mvpName = '0% (Equipe iniciando)';
 
     container.innerHTML = '';
 
@@ -1390,12 +1393,13 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       const completedCount = (data.completedLessons || []).length;
       totalLessonsDone += completedCount;
 
-      if (completedCount > highestLessons) {
+      const percent = Math.min(100, Math.round((completedCount / TOTAL_COURSE_LESSONS) * 100));
+
+      if (completedCount > highestLessons && completedCount > 0) {
         highestLessons = completedCount;
-        mvpName = studentUser.name;
+        mvpName = `${studentUser.name} (${percent}%)`;
       }
 
-      const percent = Math.min(100, Math.round((completedCount / TOTAL_COURSE_LESSONS) * 100));
       const levelObj = calculateLevel(data.xp || 0);
 
       const card = document.createElement('div');
@@ -1410,25 +1414,35 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
             </div>
           </div>
           <div class="student-progress-badge">
-            <span class="student-percent-big">${percent}%</span>
-            <div class="student-lesson-count">${completedCount} de ${TOTAL_COURSE_LESSONS} lições</div>
+            <div class="student-percent-pill">
+              <span class="student-percent-big">${percent}%</span>
+              <small class="student-percent-sub">CONCLUÍDO</small>
+            </div>
+            <div class="student-lesson-count">${completedCount} de ${TOTAL_COURSE_LESSONS} lições (${percent}%)</div>
           </div>
         </div>
 
-        <div class="student-bar-wrapper">
-          <div class="student-bar-fill" style="width: ${percent}%"></div>
+        <div class="student-bar-container">
+          <div class="student-bar-wrapper">
+            <div class="student-bar-fill" style="width: ${percent}%"></div>
+          </div>
+          <span class="student-bar-percent-label">${percent}%</span>
         </div>
 
         <div class="student-location-box">
           <div class="location-text">
             <span>📍 <strong>Onde está agora:</strong></span>
-            ${data.lastPage ? `<a href="${data.lastPage}" class="location-link">${data.lastPageTitle || data.lastPage}</a>` : '<span style="color:#9e9e9e">Ainda não iniciou</span>'}
+            ${data.lastPage ? `<a href="${data.lastPage}" class="location-link">${data.lastPageTitle || data.lastPage}</a>` : '<span style="color:#9e9e9e">Ainda não iniciou (0% concluído)</span>'}
           </div>
-          <span class="last-active-time">${data.lastActive || 'Recente'}</span>
+          <span class="last-active-time">${data.lastActive || 'Início'}</span>
         </div>
       `;
       container.appendChild(card);
     });
+
+    if (highestLessons === 0) {
+      mvpName = '0% (Todos zerados)';
+    }
 
     // Update Team Metrics Summary
     const avgProgress = Math.round((totalLessonsDone / (students.length * TOTAL_COURSE_LESSONS)) * 100);
@@ -1437,7 +1451,7 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
     const mvpEl = document.getElementById('team-mvp-student');
 
     if (avgProgressEl) avgProgressEl.textContent = `${avgProgress}%`;
-    if (totalLessonsEl) totalLessonsEl.textContent = String(totalLessonsDone);
+    if (totalLessonsEl) totalLessonsEl.textContent = `${totalLessonsDone} de ${students.length * TOTAL_COURSE_LESSONS} (${avgProgress}%)`;
     if (mvpEl) mvpEl.textContent = mvpName;
   }
 
@@ -1541,15 +1555,15 @@ import { USERS, TOTAL_COURSE_LESSONS } from '../../data/users';
       });
     }
 
-    // 7. Mentor reset demo data button
+    // 7. Mentor reset progress button
     const resetBtn = document.getElementById('btn-reset-demo');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        if (confirm('Deseja recarregar os dados iniciais de demonstração dos alunos?')) {
+        if (confirm('Deseja realmente zerar todo o progresso de todos os alunos (0%)?')) {
           localStorage.setItem(STORAGE_PROGRESS_KEY, JSON.stringify(INITIAL_STUDENT_PROGRESS));
           renderMentorDashboard();
           updateAuthUI();
-          alert('🔄 Dados iniciais recarregados com sucesso!');
+          alert('🔄 Progresso de todos os alunos zerado com sucesso (0%)!');
         }
       });
     }
