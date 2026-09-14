@@ -7,6 +7,7 @@ import ThemeLightFilledIcon from "../assets/header/theme-light-filled.svg";
 import GitIcon from "../assets/header/git-white.svg";
 
 import { getSidebarForPath, type SidebarItem, type SidebarSection } from "../config/sidebarConfig";
+import AuthAndProgress from "../components/auth/AuthAndProgress.astro";
 
 const props = Astro.props;
 
@@ -121,7 +122,7 @@ for (const section of sidebarSections) {
           </div>
 
           <a
-            href="https://github.com/frcdesign/FRCDesign.org"
+            href="https://github.com/tvini/FRCdesign"
             class="github-link-header"
             target="_blank"
             rel="noreferrer"
@@ -129,6 +130,8 @@ for (const section of sidebarSections) {
           >
             <GitIcon class="github-icon" />
           </a>
+
+          <div id="user-header-mount" class="user-header-mount"></div>
         </div>
       </div>
     </div>
@@ -919,3 +922,5 @@ for (const section of sidebarSections) {
     }
   }
 </style>
+
+<AuthAndProgress />
