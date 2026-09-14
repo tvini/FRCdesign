@@ -1,156 +1,154 @@
-﻿---
-title: "Exercise 3: Ball Shooter"
-description: Model a shooter mechanism
+---
+title: "Exercício 3: Shooter de Bola"
+description: Modelar um mecanismo de shooter
 ---
 
+A partir do Exercício 3, os slides de instruções fornecerão apenas orientações peça por peça e detalhes fundamentais.
+Para conferir detalhes exatos de cada feature, consulte o documento de soluções dos exercícios.
+Isso serve para preparar você para os exercícios seguintes, que terão gradualmente menos tutoriais passo a passo.
 
-Starting with exercise 3, the instruction slides will only provide part-by-part instructions and key details.
-For exact feature details, you should refer to the exercise solutions document.
-This is to prepare you for later exercises that are gradually less guided.
+Neste exercício, você modelará um shooter muito simples para bolas de 2,5".
+Este mecanismo apresenta polias impressas em 3D, uma rampa/hood impressa em 3D e nut strips (barras de porcas). Preste bastante atenção aos layout sketches durante a modelagem.
 
-In this exercise, you will be modeling a very simple 2.5" ball shooter.
-This mechanism features 3D-printed pulleys, a 3D-printed ramp, and nut strips. Be sure to pay attention to layout sketches when modeling.
+## Polias Impressas em 3D (3D-printed Pulleys)
+Até agora, você utilizou apenas polias COTS em suas montagens.
+No entanto, polias impressas em 3D são uma alternativa fantástica, pois são mais baratas, facilmente disponíveis (supondo que sua equipe possua uma impressora 3D) e altamente personalizáveis.
 
-## 3D-printed Pulleys
-Thus far, you've only utilized COTS pulleys in your assemblies.
-However, 3D-printed pulleys are a fantastic alternative since they are cheaper, readily available (assuming you have a 3D printer), and highly customizable.
+Polias impressas em 3D podem ser facilmente geradas utilizando geradores de polias, como os incluídos na FRCDesignLib e o Featurescript Robot Pulley.
+No entanto, atenção especial deve ser dada à interface com o eixo. Perfis hexagonais impressos em 3D podem espanar com facilidade sob torque elevado; portanto, um insert metálico (disponível em fornecedores como [WCP](https://wcproducts.com/products/adapters) ou [Thrifty Bot](https://www.thethriftybot.com/products/qty-5-aluminum-insert-for-3d-printed-parts)) deve ser utilizado para transferir o torque de maneira confiável.
+Veja abaixo alguns exemplos de polias impressas em 3D com diferentes tipos de insert.
 
-3D-printed pulleys can easily be generated using pulley generators, such as the ones included in FRCDesignLib and the Robot Pulley Featurescript.
-However, close attention must be paid to the shaft interface. 3D-printed hex profiles can easily strip out, so a metal insert (Available from vendors like [WCP](https://wcproducts.com/products/adapters) or [Thrifty Bot](https://www.thethriftybot.com/products/qty-5-aluminum-insert-for-3d-printed-parts)) should be used to better transfer torque.
-Take a look below at some examples of 3D-printed pulleys with different types of inserts.
-
-<Aside type="example" title="3D-printed Pulley Inserts">
-<ContentFigure src="../img/1c/shooter/3dp-pulleys.webp" alt="3D printed pulleys with various inserts">3D-printed pulleys with hex insert for hex shaft (left), SplineXS insert for Kraken motors (center), and pinion gear insert for NEO/CIM motors (right).</ContentFigure>
+<Aside type="example" title="Inserts para Polias Impressas em 3D">
+<ContentFigure src="../img/1c/shooter/3dp-pulleys.webp" alt="Polias impressas em 3D com vários inserts">Polias impressas em 3D com insert hex para eixo hexagonal (esquerda), insert SplineXS para motores Kraken (centro) e insert de engrenagem pinhão para motores NEO/CIM (direita).</ContentFigure>
 </Aside>
 
 <Aside type="caution">
-Since 3D-printed pulley bores are easily worn out, you should try to always use a metal insert or a pinion gear insert.
-A cheap alternative to buying COTS inserts is to order them from a laser cutting service like [Fabworks](https://www.fabworks.com). In large quantities (~20 pieces), they only cost around $1 each.
+Como os encaixes de polias impressas em 3D sofrem desgaste rápido, você deve tentar sempre utilizar um insert metálico ou um insert de engrenagem pinhão.
+Uma alternativa econômica a comprar inserts COTS é encomendá-los em serviços de corte a laser como o [Fabworks](https://www.fabworks.com). Em quantidades maiores (~20 peças), eles custam cerca de US$ 1 cada.
 </Aside>
 
 ## Nut Strips
-Nut strips are a very versatile structural component often used to connect perpendicular plates or a plate to a tube.
-Vendors like [WCP](https://wcproducts.com/products/nut-strips), [REV](https://www.revrobotics.com/3-8in-nut-strips/), and [Last Anvil](https://lastanvil.com/products/nut-strip) carry nut strips in 6" long segments with either #10-32 or #8-32 tapped holes.
-These nut strips are very robust and can be easily cut to any length.
-In the exercise you just completed, the nut strips would allow you to easily mount the shooter onto any surface.
+Nut strips (barras roscadas de perfil quadrado) são componentes estruturais muito versáteis, comumente usados para conectar placas perpendiculares entre si ou uma placa a um tubo.
+Fornecedores como [WCP](https://wcproducts.com/products/nut-strips), [REV](https://www.revrobotics.com/3-8in-nut-strips/) e [Last Anvil](https://lastanvil.com/products/nut-strip) comercializam nut strips em segmentos de 6" com furos roscados em #10-32 ou #8-32.
+Essas nut strips são extremamente robustas e podem ser facilmente cortadas em qualquer comprimento.
+No exercício que você está prestes a realizar, as nut strips permitirão fixar o shooter facilmente em qualquer superfície plana.
 
 <Aside type="example" title="Nut Strips">
-<ContentFigure src="../img/1c/shooter/nut-strips-real.webp" alt="Nut strips in use" width="50%">Nut strips can be used to connect a plate to a tube or a plate to a perpendicular plate. (Photo Credits: FRC 4414)</ContentFigure>
+<ContentFigure src="../img/1c/shooter/nut-strips-real.webp" alt="Nut strips em uso" width="50%">Nut strips podem ser usadas para conectar uma placa a um tubo ou uma placa a outra chapa perpendicular. (Créditos das fotos: FRC 4414)</ContentFigure>
 </Aside>
 
-## Block Motors
-When creating mechanisms, sometimes you need to reference specific COTS components when creating custom parts. While most of the time construction geometry in sketches will suffice (think motor outlines), sometimes you need to make more complex references. Instead of deriving a full detail component into the part studio (which can significantly slow down load times), you can create or derive "block" geometry, like the "block motor" from FRCDesignLib used in this exercise.
+## Motores em Bloco (Block Motors)
+Ao criar mecanismos, às vezes é necessário referenciar componentes COTS específicos durante a modelagem de peças personalizadas. Embora na maior parte do tempo a geometria de construção em sketches seja suficiente (pense nos contornos de motores), ocasionalmente referências mais complexas são necessárias. Em vez de derivar um componente com todos os detalhes geométricos no part studio (o que tornaria o carregamento muito lento), você pode criar ou derivar uma geometria "em bloco" simplificada, como o "block motor" da FRCDesignLib usado neste exercício.
 
-<ContentFigure src="../img/1c/shooter/block-motor-example.webp" alt="Block motor example" border />
+<ContentFigure src="../img/1c/shooter/block-motor-example.webp" alt="Exemplo de motor em bloco" border />
 
-When inserting a block motor from FRCDesignLib, it is important to use the "Differentiation Variable" because of how Onshape handles derived parts. Assigning a unique value to each block motor prevents these errors in your part studio.
+Ao inserir um block motor a partir da FRCDesignLib, é importante utilizar a "Differentiation Variable" devido à maneira como o Onshape gerencia peças derivadas. Atribuir um valor único a cada block motor previne conflitos e erros no seu part studio.
 
-## Part Studio Instructions
+## Instruções do Part Studio
 
-**Navigate to the "Exercise #3 Part Studio" tab** in your copied document and **follow the instructions in the slides** to complete the part studio for this exercise.
+**Navegue até a aba "Exercise #3 Part Studio"** no seu documento copiado e **siga as instruções nos slides** para concluir o part studio deste exercício.
 
 <Slides>
   ![](../img/1c/shooter/parts-0.webp)
-  Final Part Studio.
+  Part Studio finalizado.
 
   ![](../img/1c/shooter/parts-1.webp)
-  Create the layout sketch on the Right plane. Begin by sketching the 4" shooter wheel, 2" feeder wheel, and the ball path.
+  Crie o layout sketch no plano Right. Comece desenhando a roda do shooter de 4", a roda alimentadora (feeder wheel) de 2" e a trajetória da bola (ball path).
 
   ![](../img/1c/shooter/parts-2.webp)
-  On the right plane, create a new sketch with the belts, pulleys, and motors. The bottom most construction line defines the bottom of our shooter.
+  No plano Right, crie um novo sketch com as correias, polias e motores. A linha de construção mais inferior define a base do nosso shooter.
 
   ![](../img/1c/shooter/parts-3.webp)
-  Using a mate connector offset 1.375" from the layout sketch plane as the sketch plane, sketch the side plate. Use a circular pattern to sketch the #10-32 clearance holes around the shooter hood.
+  Usando como plano de esboço um mate connector com deslocamento de 1,375" a partir do plano do layout sketch, desenhe a placa lateral. Use um padrão circular para esboçar os furos passantes para #10-32 ao redor do hood do shooter.
 
   ![](../img/1c/shooter/parts-4.webp)
-  Extrude the plate as 1/4", then mirror it across the Right plane. We use a mirror because the opposite side plate is the same except for an extra cutout for the motors.
+  Faça a extrusão da placa com 1/4" e espelhe-a através do plano Right. Usamos o espelhamento porque a placa lateral oposta é idêntica, exceto por um recorte adicional para os motores.
 
   ![](../img/1c/shooter/parts-5.webp)
-  Sketch a cutoff boundary to remove the motor mounting from the mirrored plate. Make sure imprinting is enabled. You don't need to sketch the whole region, since the plate outline itself will be used in the extrude.
+  Esboce um limite de corte para remover a região de montagem do motor da placa espelhada. Certifique-se de que o imprinting esteja ativado. Não é necessário desenhar toda a região fechada, pois o próprio contorno da placa será aproveitado na extrusão.
 
   ![](../img/1c/shooter/parts-6.webp)
-  Extrude the motor mounting region on the mirrored part to remove the geometry from the part.
+  Faça a extrusão de remoção na região de montagem do motor na peça espelhada para remover essa geometria.
 
   ![](../img/1c/shooter/parts-7.webp)
-  Model the large 3D print that goes in between the plates. Try to minimize the amount of dimensions you need by using the layout or part geometry. Use an "Up to face" extrude to ensure that the width is parametric.
+  Modele a grande peça impressa em 3D que fica posicionada entre as placas. Tente minimizar a quantidade de cotas manuais utilizando o layout sketch ou as geometrias existentes das placas. Use uma extrusão "Up to face" para garantir que a largura permaneça paramétrica.
 
   ![](https://www.youtube.com/embed/rGf0Vt8ahOQ)
-  Use the `Fillet All Edges` Featurescript to add a 3/16" radius fillet to all of the 3D-printed part edges. To select the face of the part, you can utilize the `Isolate` tool, which will make all other components that are not currently selected transparent or hidden.
+  Use o Featurescript `Fillet All Edges` para aplicar um arredondamento de raio 3/16" em todas as arestas da peça impressa em 3D. Para selecionar a face da peça com facilidade, você pode usar a ferramenta `Isolate`, que torna transparentes ou ocultos todos os componentes não selecionados.
 
   ![](https://www.youtube.com/embed/DUJ8MbPS4Zg)
-  Insert a block motor from FRCDesignLib. Use the `Transform` feature to transform the block motor to the motor bore.
+  Insira um block motor a partir da FRCDesignLib. Use a feature `Transform` para posicionar o block motor alinhado ao furo central do motor.
 
   ![](../img/1c/shooter/parts-10.webp)
-  Add the HTD 5mm pitch belts. Double check that the pitch length is a multiple of 5 mm to ensure that the belt has an integer number of teeth.
+  Adicione as correias HTD de passo 5 mm. Verifique se o pitch length é um múltiplo exato de 5 mm para assegurar que a correia tenha um número inteiro de dentes.
 
   ![](https://www.youtube.com/embed/wFNDLm2Tisc)
-  Model the shooter wheel and feeder wheel shaft using the `Robot Shaft` featurescript.
+  Modele o eixo da roda do shooter e o eixo da roda alimentadora utilizando o Featurescript `Robot Shaft`.
 
   ![](https://www.youtube.com/embed/L8HWApw3luM)
-  Add a mate connector on the layout sketch for fastening the feeder wheel. Set the owner of the mate connector to the feeder shaft. This mate connector marks the center point between the two plates and will help with assembly.
+  Adicione um mate connector no layout sketch para fixação da roda alimentadora. Defina o proprietário (owner) do mate connector como o eixo alimentador (feeder shaft). Esse mate connector marca o ponto central exato entre as duas placas e ajudará na montagem.
 
   ![](../img/1c/shooter/parts-13.webp)
-  Repeat the same steps as before to add a mate connector to the shooter wheel shaft. Make sure you select the shooter wheel shaft as the mate connector owner.
+  Repita os mesmos passos anteriores para adicionar um mate connector ao eixo da roda do shooter. Certifique-se de selecionar o eixo do shooter como o proprietário do mate connector.
 
   ![](../img/1c/shooter/parts-0.webp)
-  Finish the part studio by naming your features and organizing them into folders.
+  Finalize o part studio nomeando suas features e organizando-as em pastas.
 </Slides>
 
-## Assembly Instructions
+## Instruções de Montagem (Assembly)
 
-**Next, navigate to the "Exercise #3 Assembly" tab** in your copied document and **follow the instructions in the slides** to complete this exercise.
+**Em seguida, navegue até a aba "Exercise #3 Assembly"** no seu documento copiado e **siga as instruções nos slides** para concluir este exercício.
 
 <Slides>
   ![](../img/1c/shooter/assy-0.webp)
-  Final assembly.
+  Montagem final.
 
   ![](../img/1c/shooter/assy-1.webp)
-  Insert all the part studio components. Group all the components except for the shafts and belts. Fasten the Origin Cube to the origin.
+  Insira todos os componentes do part studio. Agrupe todos os componentes com Group Mate, exceto os eixos e as correias. Fixe o Origin Cube na origem com Fasten Mate.
 
   ![](https://www.youtube.com/embed/7Zplj3xG83s)
-  Insert and fasten 4.5" long nut strips from the FRCDesignLib app. Pay close attention to which side is fastened to the plate - the nut strip holes on adjacent sides are staggered.
+  Insira e fixe nut strips de 4,5" de comprimento a partir do app FRCDesignLib. Preste bastante atenção a qual face é fixada na placa — os furos das nut strips em faces adjacentes são desencontrados (staggered).
 
   ![](../img/1c/shooter/assy-3.webp)
-  Insert and fasten the two NEO motors. Insert, fasten, and replicate the bearings.
+  Insira e monte os dois motores NEO. Insira, fixe e replique os rolamentos.
 
   ![](https://www.youtube.com/embed/RsCl6xD8tMs)
-  Insert and configure the shooter pulley to be 24T with 1/2" Hex w/ TTB insert. Copy and paste the pulley and TTB insert to create the motor pulley. Using a 3/16" spacer, fasten the shooter pulley to the shooter bearing. Then, fasten the motor pulley to the belt. Finally, use the `Isolate` tool to fasten the 8mm NEO shaft to 1/2" hex adapter.
+  Insira e configure a polia do shooter para 24T com furo 1/2" Hex e insert TTB. Copie e cole a polia e o insert TTB para criar a polia do motor. Usando um espaçador de 3/16", fixe a polia do shooter no rolamento correspondente. Em seguida, posicione a polia do motor na correia. Por fim, use a ferramenta `Isolate` para montar o adaptador de eixo de 8 mm do NEO para hex de 1/2".
 
   ![](https://www.youtube.com/embed/vEuopW1B9r4)
-  Insert and configure the feeder pulley to be 36T with a TTB 1/2" hex insert. Configure the motor pulley to be 18T with a 12T 20DP gear insert. Using a 1/16" spacer, fasten the feeder pulley to the feeder bearing. Then, fasten the motor pulley to the belt. Finally, use the `Isolate` tool to fasten the 12T motor pinion.
+  Insira e configure a polia alimentadora para 36T com insert TTB de 1/2" hex. Configure a polia do motor para 18T com insert de engrenagem de 12T 20DP. Usando um espaçador de 1/16", monte a polia alimentadora no respectivo rolamento. Em seguida, fixe a polia do motor na correia. Por fim, utilize a ferramenta `Isolate` para fixar o pinhão do motor de 12T.
 
   ![](../img/1c/shooter/assy-6.webp)
-  Fasten the shafts to the pulleys.
+  Fixe os eixos nas polias correspondentes.
 
   ![](https://www.youtube.com/embed/GuyhDXkKwho)
-  Insert and fasten the shooter and feeder wheels to the shaft centering mate connectors. Then, Use the `Measure` tool to measure the gaps between the bearings and the wheels. Create spacers to fill the gaps on the sides of the wheels. Finally, use the `Assembly Mirror` tool to mirror the spacers and the shooter wheel across the feeder wheel's mate connector.
+  Insira e fixe as rodas do shooter e do alimentador nos mate connectors de centralização dos eixos. Em seguida, use a ferramenta `Measure` (medir) para verificar as folgas entre os rolamentos e as rodas. Crie espaçadores para preencher esses vãos nas laterais das rodas. Por fim, utilize a ferramenta `Assembly Mirror` para espelhar os espaçadores e a roda do shooter em relação ao mate connector da roda alimentadora.
 
   ![](../img/1c/shooter/assy-8.webp)
-  Insert and fasten the 4" SDS Flywheel to the other side of the shooter.
+  Insira e fixe o Flywheel SDS de 4" no outro lado do shooter.
 
   ![](../img/1c/shooter/assy-9.webp)
-  Insert, fasten, and replicate all of the required fasteners and remaining hardware.
+  Insira, fixe e replique todos os fixadores necessários e os componentes restantes.
 
   ![](../img/1c/shooter/assy-0.webp)
-  Finish your assembly by organizing the parts into folders and naming your replicates. You can also insert and position the ball to visualize it.
+  Finalize sua montagem organizando as peças em pastas e nomeando suas replicações. Você também pode inserir e posicionar a bola para visualizar o mecanismo em funcionamento.
 </Slides>
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Your assembly should have 54 instances.
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Sua montagem deve ter 54 instâncias.
 </Aside>
 
-## Isolate, Hide, and Make Transparent
+## Isolate, Hide e Make Transparent
 
-The Isolate tool hides all other parts except the selected ones, helping focus on specific components.
-The Hide tool removes the selected parts from view, while Make transparent allows you to see through the selected parts without removing it, useful for accessing obscured components.
+A ferramenta Isolate oculta todas as outras peças exceto as selecionadas, ajudando no foco em componentes específicos.
+A ferramenta Hide oculta temporariamente as peças selecionadas da visualização, enquanto Make Transparent torna as peças semitransparentes sem removê-las, o que é excelente para visualizar ou clicar em componentes que estão por trás.
 
-Rather than deleting or moving parts, you should use these tools to access the parts you need for your task. If you hide parts, don't forget to un-hide them for the next person!
+Em vez de deletar ou mover peças para enxergar o interior, acostume-se a usar essas ferramentas visuais. Se você ocultar peças durante o trabalho, não se esqueça de reexibi-las (un-hide) antes de compartilhar o documento!
 
-<Aside type="tip" title="Isolate, Hide, and Make Transparent">
-<ContentFigure src="I1nFphxKVXc">Isolate parts, hide parts, or make parts transparent to help with assembly.</ContentFigure>
+<Aside type="tip" title="Isolate, Hide e Make Transparent">
+<ContentFigure src="I1nFphxKVXc">Isole peças, oculte peças ou torne peças transparentes para facilitar a montagem.</ContentFigure>
 </Aside>
 
-<Aside type="tip" title="Keyboard Shortcuts">
-Just like most other tools and constraints in Onshape, hide/show has a nice keyboard shortcut combination. Hover over a part with your cursor or select it and press `y` to hide it. Hover over the same space and press `shift+y` to unhide the part.
+<Aside type="tip" title="Atalhos de Teclado">
+Assim como a maioria das ferramentas e restrições no Onshape, ocultar/exibir possui um excelente atalho de teclado. Passe o cursor sobre uma peça ou selecione-a e pressione `y` para ocultá-la. Passe o cursor sobre o mesmo local e pressione `shift+y` para exibi-la novamente.
 </Aside>
-

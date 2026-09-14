@@ -1,87 +1,86 @@
 ---
-title: 6328 A-Frame Pivot 2023
-description: A double-jointed A-frame arm with a custom MAXSpline gearbox and mitee-bite dead axle clamping
+title: Pivô em Estrutura A-Frame da 6328 (2023)
+description: Um braço articulado duplo em torre A-frame com caixa de redução customizada MAXSpline e fixação de dead axle por grampos mitee-bite
 socialCard:
   image: ./img/6328/6328_2023_pivot.webp
 ---
 
-
-<a href="https://cad.onshape.com/documents/7b17c8664d1313c397a0fcf3/w/61b5c8329f7f5c6023f50c77/e/58bc5035e6e718d34ade872d"><ContentFigure src="./img/6328/6328_2023_pivot.webp" alt="Mechanical Advantage Pivot" width="40%">This triple pivoted design folded in on itself to start inside frame perimeter, and allowed for a near universal manipulation of the robot's end effector.</ContentFigure></a>
+<a href="https://cad.onshape.com/documents/7b17c8664d1313c397a0fcf3/w/61b5c8329f7f5c6023f50c77/e/58bc5035e6e718d34ade872d"><ContentFigure src="./img/6328/6328_2023_pivot.webp" alt="Pivô da 6328 Mechanical Advantage" width="40%">Este projeto com pivô triplo dobrava sobre si mesmo para iniciar dentro do perímetro dos bumpers e permitia uma manipulação quase universal do end effector do robô.</ContentFigure></a>
 
 ### Links
 
 <LinkButton href="https://cad.onshape.com/documents/7b17c8664d1313c397a0fcf3/w/61b5c8329f7f5c6023f50c77/e/58bc5035e6e718d34ade872d" center>
-  CAD Document
+  Documento CAD no Onshape
 </LinkButton>
 
-- [ChiefDelphi OpenAlliance Build Thread](https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2023-build-thread/420691)
-- [Pivot April Tag Tracking](https://youtu.be/XA15Qq2CXY0)
+- [Tópico da 6328 na OpenAlliance no ChiefDelphi](https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2023-build-thread/420691)
+- [Rastreamento de AprilTags pelo Pivô em Ação](https://youtu.be/XA15Qq2CXY0)
 
-## Behind the Design
+## Por Dentro do Projeto
 
-In many cases, pivoting arms are a fundamental mechanism in the architecture of a robot. Thus, rigid, robust, and fast pivoting mechanisms can make or break a good design. Due to the massive moment load applied on this pivot joint at full arm extension, its essential that this pivots drive mechanism is both powerful and bulletproof.
+Em muitos jogos, braços pivotantes são peças centrais da arquitetura do robô. Dessa forma, mecanismos de pivô rígidos, robustos e rápidos definem o sucesso ou fracasso do design. Devido ao imenso momento fletor gerado na articulação na extensão máxima do braço, é essencial que a transmissão seja ao mesmo tempo potente e indestrutível.
 
-### Force Breakdown on Pivot Arm
+### Decomposição de Forças no Braço Articulado
 
-Torque is a function of two main variables: the magnitude of the applied force, the distance from the axis of rotation to where the force is applied (often referred to as the lever arm or moment arm), as well as the angle at which the force is applied. The force applied across an objects mass by gravity can be equivalently represented by a single force applied to the center of gravity of the object. At full arm extension, the CoG of the lever arm is at its max distance from the pivot axis, and gravity applies a point load at the CoG at a 90 degree angle relative to the lever arm, at which point the torque applied the pivot is this force MULTIPLIED by the distance from the CoG to the pivot.
+O torque é função de três fatores essenciais: a intensidade da força aplicada, a distância do eixo de rotação até o ponto de aplicação dessa força (braço de alavanca / braço de momento) e o ângulo formado entre a linha de ação da força e a alavanca. A força da gravidade distribuída sobre a massa do objeto pode ser representada como uma única carga pontual concentrada no Centro de Gravidade (CoG). Na extensão máxima horizontal do braço, o CoG atinge sua maior distância em relação ao eixo do pivô, e a gravidade atua a 90 graus em relação à alavanca: nesse ponto crítico, o torque exercido no pivô é igual ao peso total MULTIPLICADO pela distância do CoG ao centro do pivô.
 
-<ContentFigure src="./img/6328/6328_forces.webp" alt="6328 Force Breakdown" width="75%" />
+<ContentFigure src="./img/6328/6328_forces.webp" alt="Decomposição de forças da 6328" width="75%" />
 
-This massive moment load on the main pivot joint requires the pivot mechanism to both be built durable enough to handle this large torque without breaking, and also powerful enough to counteract and overcome this torque so that the pivot is able to be driven. When designing drive mechanisms and gearboxes for pivot arms like this, it is generally very useful to get a good estimation of how powerful a mechanism you will need to drive your arm depending on its length and mass, so many designers use simulators such as the [Reca.lc Arm Calculator](https://www.reca.lc/arm) or the [AMB Mechanism Ratio Calculator](https://ambcalc.com/mechanism?=).
+Esse imenso momento fletor sobre o pivô principal exige que o mecanismo seja simultaneamente superdimensionado para suportar essas tensões sem deformação permanente, e suficientemente potente para vencer a inércia e erguer o braço com rapidez. Ao projetar redutores e gearboxes para braços articulados desse tipo, é fundamental simular o comportamento dinâmico com ferramentas como a [Calculadora de Braços do ReCalc](https://www.reca.lc/arm) ou a [Calculadora de Mecanismos AMB](https://ambcalc.com/mechanism?=).
 
-*The following breakdown is an excerpt from the 6328 OpenAlliance thread on ChiefDelphi, written by [Matthew3 of FRC 6328](https://www.chiefdelphi.com/u/Matthew3/summary)*
+*A análise a seguir é um trecho traduzido do tópico oficial da 6328 na OpenAlliance no ChiefDelphi, escrito por [Matthew3 da equipe FRC 6328](https://www.chiefdelphi.com/u/Matthew3/summary)*
 
-## **The Improved Design**
+## **O Projeto Aprimorado**
 
-### Custom Gearbox
+### Caixa de Redução Customizada
 
-Due to the limited availability of MAXPlanetaries and belly pan space constraints, we have re-evaluated the way we are powering the first joint. The gearbox will be placed low in the belly pan powering a dead-axle MAXSpline where we chain that to the two first joints. This has a few major advantages over our previous approach: packaging, mechanically linking the first two joints, limited stick out into the middle of the robot to make it easier to pass through, and eliminating several MAXPlantary cartridges.
+Devido à escassez de caixas planetárias MAXPlanetary no mercado e às restrições de espaço na bellypan, reavaliamos totalmente a forma de acionar a primeira articulação. A caixa de redução foi instalada rebaixada na bellypan tracionando um eixo estriado MAXSpline em dead axle, que transmite torque por correntes para ambos os lados do primeiro elo. Isso trouxe vantagens determinantes: melhor empacotamento espacial, acoplamento mecânico rígido entre os dois lados, menor saliência no vão central do robô (facilitando a passagem do manipulador) e a eliminação de múltiplos cartuchos planetários.
 
-<ContentFigure src="./img/6328/6328_gearbox.webp" alt="6328 Gearbox" width="40%" />
+<ContentFigure src="./img/6328/6328_gearbox.webp" alt="Caixa de redução da 6328" width="40%" />
 
-The two bottom NEOs power the MAXSpline that crosses the width of the robot, while the MAXPlanetary NEO is powering the joint of the cube intake.
+Os dois motores NEO inferiores tracionam o eixo MAXSpline que atravessa a largura do robô, enquanto o NEO com MAXPlanetary aciona a articulação do intake de cubos.
 
-For the new first joint dead axles, we are using 1.25" 0.25 wall tube turned down to 30mm for the bearings. To hold the dead axles, we were inspired by 971's 2018 robot and their use of mitee-bites to hold the dead axle.
+Para os eixos estáticos (dead axles) da primeira articulação, utilizamos tubos de 1,25" com parede de 0,25" torneados para 30 mm de diâmetro nos assentos dos rolamentos. Para prender os eixos fixos sem parafusar as pontas, nos inspiramos no robô de 2018 da equipe 971 e no uso de grampos de fixação excêntricos Mitee-Bite.
 
-<ContentFigure src="./img/6328/6328_1.webp" alt="6328_1" width="40%" />
+<ContentFigure src="./img/6328/6328_1.webp" alt="Fixação do dead axle da 6328 - 1" width="40%" />
 
-For this, we use an 'outside' 0.25 aluminum plate with an interesting profile put into it for clearance around the tube and to be selective about contact points. On the inside plate, the one that can move, this same profile is used but flipped 180 degrees.
+Para isso, usamos uma placa externa de alumínio de 0,25" com um perfil usinado exclusivo para abraçar o tubo e selecionar os pontos exatos de contato. Na placa interna (que tem folga para se mover), esse mesmo perfil é usado, mas espelhado em 180 graus.
 
-<ContentFigure src="./img/6328/6328_2.webp" alt="6328_2" width="30%" />
+<ContentFigure src="./img/6328/6328_2.webp" alt="Fixação do dead axle da 6328 - 2" width="30%" />
 
-This inside plate is mounted with a few bolts in some oversized holes (0.005"). They tap into the outer plate and the clearance holes in the blue plate allow the blue inner plate to have some movement. This means when you tighten the mitee-bite, it clamps the dead-axle in place. We calculated that this system provides around 1800 lbs of clamping force on the dead-axle for secure mounting. This also means it can easily switch out in the somewhat extreme scenario where we need to replace the dead-axle or if we need to replace the joint.
+Essa placa interna é montada com alguns parafusos em furos com folga (0,005"). Eles são rosqueados na placa externa, e a folga nos furos da placa interna azul permite um pequeno deslocamento de aperto. Quando o parafuso Mitee-Bite é apertado, a placa se desloca e prensa firmemente o dead axle no lugar. Calculamos que esse sistema gera cerca de 1.800 lbs (~800 kgf) de força de aperto sobre o eixo, garantindo uma fixação rígida e estável. Esse arranjo também permite desmontar o eixo em minutos na oficina ou arena caso seja necessário substituí-lo.
 
-<ContentFigure src="./img/6328/6328_3.webp" alt="6328_3" width="30%" />
+<ContentFigure src="./img/6328/6328_3.webp" alt="Fixação do dead axle da 6328 - 3" width="30%" />
 
-This stackup is all contained within two snap rings (98541A134). This outermost constraint is for the "worst case scenario" where the mitee-bites fail. The inside snap ring is essential for keeping the stack up together.
+Todo esse conjunto é retido axialmente por dois anéis de retenção (snap rings 98541A134). O anel mais externo funciona como trava de segurança redundante caso o aperto dos grampos Mitee-Bite falhe em um impacto extremo. O anel interno mantém todo o empilhamento unido.
 
-<ContentFigure src="./img/6328/6328_4.webp" alt="6328_4" width="40%" />
+<ContentFigure src="./img/6328/6328_4.webp" alt="Fixação do dead axle da 6328 - 4" width="40%" />
 
-Moving to the joint itself, the previous design for this was a live axle MAXspline, this had a few small issues, but definitely things we would like to fix going forward. With the move to a real dead-axle, we solve all of these problems (hopefully).
+Passando para a articulação em si: o conceito anterior utilizava um eixo giratório (live axle) MAXSpline, o que trazia alguns problemas crônicos de desgaste. Com a migração para um dead axle rígido, eliminamos todos esses problemas.
 
-<ContentFigure src="./img/6328/6328_5.webp" alt="6328_5" width="30%" />
+<ContentFigure src="./img/6328/6328_5.webp" alt="Montagem da articulação da 6328" width="30%" />
 
-Taking a look at the joint itself, you will see the tube of the link, and the joint that connects to that link, this is a drastic improvement in repairability and was a requirement for us. We also switched the link tube into a thick wall MAXtube from the thin wall MAXtube. The joint itself consists of 0.25" aluminum plates captured in PA12-CF nylon 3d prints. In the following picture, you can see the aluminum plate (light blue) captured in the nylon part (light gray). The aluminum plate takes the bearing while the nylon part captures it and locates it in the tube (creating the more complicated geometry of the inside of the MAXtube) and becomes a spacer for the bearings side to side.
+Analisando a junta articulada, você verá o tubo do elo e o bloco de conexão. A manutenção foi imensamente facilitada. Também substituímos o tubo do elo de um MAXtube de parede fina para um MAXtube de parede grossa. A articulação consiste em placas de alumínio de 0,25" encapsuladas em peças impressas em 3D de Nylon PA12 com fibra de carbono (PA12-CF). Na foto a seguir, note a placa de alumínio (azul claro) envolvida pela peça de nylon (cinza claro). A placa de alumínio recebe as pistas dos rolamentos, enquanto a peça de nylon a posiciona dentro do tubo estrutural e atua como espaçador axial.
 
-<ContentFigure src="./img/6328/6328_6.webp" alt="6328_6" width="30%" />
+<ContentFigure src="./img/6328/6328_6.webp" alt="Detalhe do insert em nylon PA12-CF" width="30%" />
 
-The encoder is a 3d printed part that comes off the side of the sprocket and uses the same system as the previous design.
+O suporte do encoder absoluto é uma peça impressa em 3D fixada ao lado da sprocket, repetindo a arquitetura confiável do design anterior.
 
-<ContentFigure src="./img/6328/6328_7.webp" alt="6328_7" width="40%" />
+<ContentFigure src="./img/6328/6328_7.webp" alt="Instalação do encoder na 6328" width="40%" />
 
-### The Second Joint
+### A Segunda Articulação
 
-The second joint was host to most of the issues with the arm. This is mostly due to us taking what seemed to be the easiest design-wise when building it at first. Just as a reminder, the previous joint was a 3 stage max planetary and a 32t to 80t geared reduction. A very simple joint, but an issue ridden one at best. The MAXplanetary has a significant amount of backlash, it is all assembled with press fit tube blocks and such, making it almost impossible to take apart, and the MAXspline itself has a significant amount of spring in it. With these issues in mind, let's take a look at the new design.
+A segunda articulação concentrava a maioria dos problemas da versão preliminar do braço, decorrentes de termos escolhido inicialmente o caminho que parecia mais simples de montar. Como retrospecto, a junta anterior contava com uma MAXPlanetary de 3 estágios e uma redução por engrenagens de 32t para 80t. Era um conjunto aparentemente simples, mas cheio de folga (backlash) acumulada na planetária, difícil de desmontar por usar blocos de tubo prensados e com excesso de torção elástica no MAXSpline.
 
-<ContentFigure src="./img/6328/6328_8.webp" alt="6328_8" width="40%" />
+<ContentFigure src="./img/6328/6328_8.webp" alt="Segunda articulação da 6328" width="40%" />
 
-This joint looks fairly similar to the first joint. The dead axle is clamped by a very similar system as the first joint, with the sub plate (light blue) clamping the dead axle onto the first tube. The shaft has snap rings on the outside for the worst case scenario where the tube slips.
+Esta nova articulação segue uma filosofia parecida com a da primeira junta. O dead axle é preso por um sistema de aperto similar, onde a subplaca (azul claro) abraça o dead axle contra o primeiro tubo estrutural. O eixo possui anéis de retenção externos de segurança para conter qualquer deslizamento sob impacto.
 
-<ContentFigure src="./img/6328/6328_9.webp" alt="6328_9" width="40%" />
+<ContentFigure src="./img/6328/6328_9.webp" alt="Dead axle da segunda articulação" width="40%" />
 
-The dead axle tube (orange) has thin wall aluminum tube (1.25 OD 0.028 wall) acting as spacers, contacting the inner race of the bearing and the outer tube. The dead axle (orange tube) has a length of it turned 0.005" less than the 30mm OD of the rest of the tube (the length where no bearings are in contact) for assembly reasons.
+O tubo do dead axle (em laranja) utiliza tubos finos de alumínio (1,25" OD com parede de 0,028") atuando como espaçadores axiais, apoiando diretamente nas pistas internas dos rolamentos. O tubo do dead axle possui um trecho rebaixado 0,005" mais fino que os 30 mm nominais dos assentos de rolamento para facilitar o deslizamento das peças na montagem.
 
-This system will (hopefully) reduce spring and separate the joints from the tubes, aiding repairability.
+Esse conjunto elimina torções elásticas e desacopla as articulações dos tubos estruturais, agilizando reparos de emergência.
 
 <Slides>
   ![6328_10](./img/6328/6328_10.webp)
@@ -89,18 +88,17 @@ This system will (hopefully) reduce spring and separate the joints from the tube
   ![6328_11](./img/6328/6328_11.webp)
 </Slides>
 
-The gearbox is 3 stages (+ chain) to a total of 228:1 of reduction. While this will add weight to the arm, it is located relatively low when compared to the previous solution and we are willing to trade weight for lower backlash. The output of the gearbox is chained to the sprocket attached to the second link. The sprocket is a Rev 64t maxspline sprocket with the center enlarged to 1.375 for clearance around the dead axle. The sprocket is spaced off of the joint with a 3d printed spacer made in Pa12-CF nylon filament bolted to the joint with through bolts.
+A caixa de redução possui 3 estágios de engrenagens (+ corrente final) totalizando uma redução de 228:1. Embora adicione peso ao braço, a gearbox está montada em uma posição muito baixa na estrutura em comparação à solução anterior, e preferimos aceitar o acréscimo de massa em troca de uma folga mecânica (backlash) drasticamente menor. A saída da caixa é conectada por corrente a uma sprocket REV MAXSpline de 64 dentes com o furo central alargado para 1,375" para passar com folga pelo dead axle. A sprocket é espaçada da articulação com um espaçador impresso em nylon PA12-CF parafusado com parafusos passantes.
 
-<ContentFigure src="./img/6328/6328_12.webp" alt="6328_12" width="30%" />
+<ContentFigure src="./img/6328/6328_12.webp" alt="Caixa de redução da segunda articulação" width="30%" />
 
-The second joint has significantly more bracing in the previous design. We will now have full 1/16 wall 2x1s going across the second link, compared to the previous ½ hex going across. The gussets will be riveted onto the cross 2x1 and bolted onto the MAXtube to allow for repairability.
+A segunda articulação ganhou reforços estruturais maciços: tubos inteiros de 2" x 1" com parede de 1/16" agora cruzam o segundo elo (em vez de um simples eixo sextavado de 1/2" como no protótipo). Os gussets são rebitados no tubo transversal e parafusados nos MAXtubes para permitir desmontagem rápida.
 
-<ContentFigure src="./img/6328/6328_13.webp" alt="6328_13" width="30%" />
+<ContentFigure src="./img/6328/6328_13.webp" alt="Reforços e gussets estruturais do braço" width="30%" />
 
-The wrist stackup will be the exact same as the previous, with the same end effector and encoder/chain system.
+O conjunto do punho (wrist) manteve a mesma arquitetura do protótipo validado, com o mesmo manipulador (end effector) e o mesmo sistema de leitura de encoder por corrente.
 
-
-## See this Pivot in Action
+## Veja este Pivô em Ação
 
 <ContentFigure src="3cXXOSFAnJU" />
 

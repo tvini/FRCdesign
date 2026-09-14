@@ -1,33 +1,32 @@
-﻿---
-title: Assembly
-description: Assembling the pivot
+---
+title: Montagem
+description: Montando o pivô
 ---
 
+## Montagem (Assembly)
 
-## Assembly
+Como este subsistema contém uma parte estática e uma parte móvel articulada, queremos separá-las em montagens rígidas (sem movimento interno) e, em seguida, combiná-las no nível superior. Isso torna o tempo de carregamento e reconstrução do CAD muito mais rápido.
 
-Because this subsystem contains a static part and a moving part, we want to separate them into rigid (no movement) assemblies, then combine them at the top level. This makes load times significantly faster.
+### Montagem da Base (Base Assembly)
 
-### Base Assembly
+Crie uma montagem para as peças estáticas, insira as peças e o Origin Cube a partir do part studio clicando na marca de seleção verde e agrupe-as com Group Mate. Fixe o Origin Cube na origem com Fasten Mate. Adicione as demais peças do part studio, da FRCDesignLib e do Standard Content, utilizando Replicate e padrões quando possível.
 
-Create an assembly for the static parts, insert the parts and origin cube from the part studio with the green checkmark, and group them together. Fasten the origin cube to the origin. Add the rest of the parts from the part studio, FRCDesignLib, and standard content, using replicate and patterns when you can.
+<ContentFigure src="../img/2b/Dead Axle Subassembly.webp" alt="Submontagem da base concluída" />
 
-<ContentFigure src="../img/2b/Dead Axle Subassembly.webp" alt="Finished Base Subassembly" />
+### Montagem do Braço (Arm Assembly)
 
-### Arm Assembly
+Crie uma montagem separada para a parte articulada do braço e repita o mesmo procedimento acima para concluir a montagem e torná-la rígida.
 
-Create an assembly for the arm portion of the mechanism and do the same thing as above to complete the assembly and make it rigid.
-
-<ContentFigure src="../img/2b/Arm Subassembly.webp" alt="Finished Arm Subassembly" />
+<ContentFigure src="../img/2b/Arm Subassembly.webp" alt="Submontagem do braço concluída" />
 
 <Aside type="tip">
-Below is an example of the instance list of a rigid assembly. Notice the icon in the top left indicating it's rigid. You can tell what can still move in the assembly by a "degree of freedom" icon (3 arrows to indicate the 3 axis.)
+Abaixo está um exemplo da lista de instâncias de uma montagem rígida. Observe o ícone no canto superior esquerdo indicando que ela é rígida. Você pode identificar o que ainda pode se mover na montagem pelo ícone de "grau de liberdade" (3 setas indicando os 3 eixos).
 
-<ContentFigure src="../img/2b/deadAxleInstanceList.webp" alt="Instance list of a rigid assembly" />
+<ContentFigure src="../img/2b/deadAxleInstanceList.webp" alt="Lista de instâncias de uma montagem rígida" />
 </Aside>
 
-### Top Level Assembly
+### Montagem de Nível Superior (Top Level Assembly)
 
-Now create a top level assembly and insert the static assembly (fasten to the origin) and intake arm assembly. Create a revolute mate between the mate connectors from the origin cubes in both assemblies and add a limit to it. This completes the deadaxle pivot assembly.
+Agora crie uma montagem de nível superior e insira a montagem estática da base (fixando seu Origin Cube na origem) e a montagem do braço articulado. Crie um mate do tipo `Revolute` entre os mate connectors dos Origin Cubes de ambas as montagens e adicione limites angulares (limits) de rotação. Isso conclui a montagem do pivô em dead axle.
 
-<ContentFigure src="../img/2b/Top Level Pivot.webp" alt="Finished Top Level Pivot Assembly" />
+<ContentFigure src="../img/2b/Top Level Pivot.webp" alt="Montagem finalizada de nível superior do pivô" />

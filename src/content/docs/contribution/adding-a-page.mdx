@@ -1,13 +1,13 @@
 ---
-title: Adding a Page
-description: Everything you need to know to create and publish a new page on FRCDesign.org.
+title: Adicionando uma Página
+description: Tudo o que você precisa saber para criar e publicar uma nova página no FRCDesign.org.
 ---
 
-This page covers the full technical process of adding a new page. File structure, frontmatter, images, components, and making the page appear in the sidebar.
+Esta página cobre todo o processo técnico de criação de novas páginas: estrutura de pastas, frontmatter, tratamento de imagens, componentes visuais e registro na barra lateral.
 
-## File Structure
+## Estrutura de Arquivos
 
-All content lives inside `src/content/docs/`. Each section of the site maps to a subfolder:
+Todo o conteúdo reside na pasta `src/content/docs/`. Cada seção do site corresponde a uma subpasta:
 
 ```
 src/content/docs/
@@ -19,9 +19,9 @@ src/content/docs/
   contribution/
 ```
 
-Name files with lowercase letters and hyphens: `my-new-page.mdx`. Use `index.mdx` for section landing pages.
+Nomeie os arquivos em minúsculas separadas por hífens: `minha-nova-pagina.mdx`. Utilize `index.mdx` para as páginas de abertura de cada seção.
 
-Images for a page go in an `img/` folder next to the `.mdx` file:
+As imagens de cada página devem ser guardadas em uma pasta `img/` ao lado do respectivo arquivo `.mdx`:
 
 ```
 src/content/docs/best-practices/
@@ -31,96 +31,96 @@ src/content/docs/best-practices/
     originCubeFeature.webp
 ```
 
-## Frontmatter
+## Frontmatter (Cabeçalho da Página)
 
-Every page starts with a frontmatter block. `title` and `description` are required:
+Toda página deve iniciar com um bloco de frontmatter YAML. Os campos `title` e `description` são obrigatórios:
 
 ```yaml
 ---
-title: Page Title
-description: One or two sentence summary for search engines and meta tags.
+title: Título da Página
+description: Resumo de uma ou duas frases para mecanismos de busca e pré-visualizações.
 ---
 ```
 
-Optional fields:
+Campos opcionais comuns:
 
-- **`tableOfContents: false`**: hide the table of contents (useful for overview/index pages)
-- **`prev: false`** / **`next: false`**: remove the previous/next navigation buttons
-- **`template: splash`**: full-width layout with no sidebar (used for mechanism example pages)
+- **`tableOfContents: false`**: oculta o índice da página (útil para páginas de visão geral/índice)
+- **`prev: false`** / **`next: false`**: remove os botões de navegação para página anterior/próxima
+- **`template: splash`**: layout de largura total sem barra lateral (usado nas páginas principais de mecanismos e início)
 
-## Updating the Sidebar
+## Atualizando a Barra Lateral (Sidebar)
 
-Creating the file is not enough, you must also register the page in `src/config/sidebarConfig.ts` or it won't appear in navigation.
+Apenas criar o arquivo `.mdx` não é suficiente: você também deve cadastrar a nova página em `src/config/sidebarConfig.ts`, caso contrário ela não aparecerá na barra de navegação.
 
-Find the section that matches your page's location and add an entry:
-
-```ts
-{ label: 'Your Page Title', slug: 'section/your-filename' }
-```
-
-For example, adding a page at `src/content/docs/best-practices/wiring.mdx`:
+Localize a seção correspondente à localização do seu arquivo e adicione a entrada:
 
 ```ts
-// In the '/best-practices' section:
-{ label: 'Wiring Best Practices', slug: 'best-practices/wiring' }
+{ label: 'Título da Sua Página', slug: 'secao/seu-arquivo' }
 ```
 
-To add a collapsible group of pages, use the `collapsed` property:
+Por exemplo, para adicionar uma página em `src/content/docs/best-practices/fiacao.mdx`:
+
+```ts
+// Na seção '/best-practices':
+{ label: 'Boas Práticas de Fiação', slug: 'best-practices/fiacao' }
+```
+
+Para criar um grupo retrátil de páginas, utilize a propriedade `collapsed`:
 
 ```ts
 {
-  label: 'Group Name',
+  label: 'Nome do Grupo',
   collapsed: true,
   items: [
-    { label: 'First Page', slug: 'section/first-page' },
-    { label: 'Second Page', slug: 'section/second-page' },
+    { label: 'Primeira Página', slug: 'secao/primeira-pagina' },
+    { label: 'Segunda Página', slug: 'secao/segunda-pagina' },
   ],
 },
 ```
 
-Run `npm run dev` and confirm the page appears in the sidebar before submitting.
+Execute `npm run dev` e confirme se a página aparece corretamente na barra lateral antes de submeter sua contribuição.
 
-### Renaming or Moving a Page
+### Renomeando ou Movendo Páginas
 
-1. Rename or move the file
-2. Update the slug in `src/config/sidebarConfig.ts`
-3. Search for internal links pointing to the old path and update them
+1. Renomeie ou mova o arquivo `.mdx`
+2. Atualize o `slug` correspondente em `src/config/sidebarConfig.ts`
+3. Pesquise no projeto por links internos que apontavam para o caminho antigo e atualize-os
 
-Avoid renaming pages without good reason! It breaks external links, bookmarks, and search engine results.
+Evite renomear páginas sem um motivo forte, pois isso quebra links externos, favoritos e indexação de buscas!
 
-## Images
+## Imagens
 
-Compress all images to `.webp` format using [squoosh](https://squoosh.app/) before adding them.
+Comprima todas as imagens para o formato `.webp` utilizando o [Squoosh](https://squoosh.app/) antes de adicioná-las ao repositório.
 
-Place images in an `img/` folder next to your `.mdx` file and reference them with a relative path:
+Coloque as imagens na pasta `img/` adjacente ao arquivo `.mdx` e referencie-as com caminho relativo:
 
 ```mdx
-<ContentFigure src="./img/my-image.webp" alt="Description of the image" />
+<ContentFigure src="./img/minha-imagem.webp" alt="Descrição clara da imagem" />
 ```
 
-Add a caption by putting text between the tags:
+Adicione uma legenda inserindo o texto entre as tags de abertura e fechamento:
 
 ```mdx
-<ContentFigure src="./img/my-image.webp" alt="Description" width="80%">
-  Caption text here. Supports **markdown** and [links](url).
+<ContentFigure src="./img/minha-imagem.webp" alt="Descrição" width="80%">
+  Texto da legenda aqui. Suporta formatação em **markdown** e [links](url).
 </ContentFigure>
 ```
 
-## Videos
+## Vídeos
 
-Upload all videos to YouTube and embed them using the video ID or full URL:
+Hospede vídeos no YouTube e incorpore-os utilizando o ID do vídeo ou a URL completa:
 
 ```mdx
-<ContentFigure src="VIDEO_ID" />
+<ContentFigure src="ID_DO_VIDEO" />
 
-<ContentFigure src="https://youtu.be/VIDEO_ID">
-  Optional caption
+<ContentFigure src="https://youtu.be/ID_DO_VIDEO">
+  Legenda opcional do vídeo
 </ContentFigure>
 ```
 
-## Components
+## Componentes Disponíveis
 
-`ContentFigure`, `Aside`, `Slides`, `LinkButton`, and `ImageTable` are available in all `.mdx` files without importing. All other components require an explicit import at the top of the file:
+Os componentes `ContentFigure`, `Aside`, `Slides`, `LinkButton` e `ImageTable` estão disponíveis globalmente em todos os arquivos `.mdx` sem necessidade de importação explícita. Outros componentes requerem um import manual no topo da página:
 
 ```mdx
 import ContributorList from '@components/content/ContributorList.astro';
@@ -128,99 +128,99 @@ import ContributorList from '@components/content/ContributorList.astro';
 
 ### ContentFigure
 
-Displays images, YouTube videos, and animated WebP files.
+Renderiza imagens, vídeos do YouTube e animações WebP.
 
 ```mdx
-<ContentFigure src="./img/example.webp" alt="Alt text" />
-<ContentFigure src="./img/example.webp" alt="Alt text" width="60%" border />
-<ContentFigure src="VIDEO_ID" width="80%">Caption</ContentFigure>
-<ContentFigure src="./img/animation.webp" gif />
+<ContentFigure src="./img/exemplo.webp" alt="Texto alternativo" />
+<ContentFigure src="./img/exemplo.webp" alt="Texto alternativo" width="60%" border />
+<ContentFigure src="ID_DO_VIDEO" width="80%">Legenda</ContentFigure>
+<ContentFigure src="./img/animacao.webp" gif />
 ```
 
-Use `align` to change horizontal positioning (default is `center`):
+Utilize `align` para ajustar o alinhamento horizontal (padrão é `center`):
 
 ```mdx
-<ContentFigure src="./img/example.webp" alt="Alt text" align="left" width="50%" />
+<ContentFigure src="./img/exemplo.webp" alt="Texto alternativo" align="left" width="50%" />
 ```
 
-Use `captionPosition` to place the caption beside the image instead of below it:
+Utilize `captionPosition` para posicionar a legenda ao lado da imagem em vez de abaixo dela:
 
 ```mdx
-<ContentFigure src="./img/example.webp" alt="Alt text" width="60%" captionPosition="right">
-  Caption appears to the right of the image.
+<ContentFigure src="./img/exemplo.webp" alt="Texto alternativo" width="60%" captionPosition="right">
+  A legenda é exibida à direita da imagem.
 </ContentFigure>
 ```
 
-### Aside
+### Aside (Caixas de Destaque)
 
-Callout boxes for tips, notes, warnings, and examples.
+Caixas estilizadas para dicas, notas, avisos de atenção e exemplos.
 
 ```mdx
-<Aside type="tip">A helpful tip.</Aside>
-<Aside type="note">Extra context.</Aside>
-<Aside type="caution">Pay attention to this.</Aside>
-<Aside type="danger">Important warning.</Aside>
-<Aside type="example">An example.</Aside>
+<Aside type="tip">Uma dica útil e prática.</Aside>
+<Aside type="note">Contexto adicional importante.</Aside>
+<Aside type="caution">Atenção a este ponto crítico.</Aside>
+<Aside type="danger">Aviso de perigo ou risco grave.</Aside>
+<Aside type="example">Um exemplo prático.</Aside>
 ```
 
-Add a custom title with the `title` prop. Add `collapse` to make it collapsible:
+Adicione um título customizado com a propriedade `title`. Use `collapse` para torná-la retrátil:
 
 ```mdx
-<Aside type="note" title="Custom Title" collapse>
-  Hidden by default.
+<Aside type="note" title="Título Personalizado" collapse>
+  Conteúdo recolhido por padrão.
 </Aside>
 ```
 
-### Slides
+### Slides (Apresentações Interativas)
 
-Step-by-step slideshow with a lightbox. Each item is a slide; the line after it is the caption. Slides supports images, YouTube videos, and local video files.
+Slideshow passo a passo com lightbox ampliado. Cada linha com imagem é um slide; a linha seguinte é sua legenda. Suporta imagens, vídeos do YouTube e arquivos locais.
 
 ```mdx
 <Slides>
-  ![Alt text](./img/step1.webp)
-  Caption for step 1.
+  ![Texto alternativo](./img/passo1.webp)
+  Legenda detalhada do passo 1.
 
-  ![Alt text](./img/step2.webp)
-  Caption for step 2.
+  ![Texto alternativo](./img/passo2.webp)
+  Legenda detalhada do passo 2.
 
-  ![](https://www.youtube.com/watch?v=VIDEO_ID)
-  Caption for the video slide.
+  ![](https://www.youtube.com/watch?v=ID_DO_VIDEO)
+  Legenda do slide com vídeo.
 </Slides>
 ```
 
-YouTube URLs, `youtu.be/` short links, and bare video IDs (11 characters) all work. Local `.webm` and `.mp4` files are also supported.
+Links completos do YouTube, links curtos `youtu.be/` e IDs de 11 caracteres funcionam perfeitamente. Arquivos locais `.webm` e `.mp4` também são aceitos.
 
-Use the `scale` prop (0–1, default `0.8`) to control how much of the column width the slideshow occupies:
+Utilize `scale` (0 a 1, padrão `0.8`) para definir a largura proporcional ocupada pelo slideshow:
 
 ```mdx
 <Slides scale={0.6}>
-  ![Alt text](./img/step1.webp)
-  Caption for step 1.
+  ![Texto alt](./img/passo1.webp)
+  Legenda do passo 1.
 </Slides>
 ```
 
 ### ContentRow
 
-Places multiple `ContentFigure` elements side by side in a row.
+Posiciona múltiplos elementos `ContentFigure` lado a lado em uma mesma linha.
 
 ```mdx
 <ContentRow>
-  <ContentFigure src="./img/a.webp" alt="A">Caption A</ContentFigure>
-  <ContentFigure src="./img/b.webp" alt="B">Caption B</ContentFigure>
+  <ContentFigure src="./img/a.webp" alt="A">Legenda A</ContentFigure>
+  <ContentFigure src="./img/b.webp" alt="B">Legenda B</ContentFigure>
 </ContentRow>
 ```
 
-Use `mediaHeight` to normalize all images in the row to the same height so their captions line up, and `gap` to control spacing between them:
+Use `mediaHeight` para padronizar todas as imagens na mesma altura para que as legendas fiquem alinhadas, e `gap` para controlar o espaçamento:
 
 ```mdx
 <ContentRow mediaHeight="18rem" gap="1rem">
   <ContentFigure src="./img/a.webp" alt="A" />
   <ContentFigure src="./img/b.webp" alt="B" />
-  <ContentRowCaption>Shared caption for both images. Supports **markdown**.</ContentRowCaption>
+  <ContentRowCaption>Legenda compartilhada para ambas as imagens. Suporta **markdown**.</ContentRowCaption>
 </ContentRow>
 ```
 
-`ContentRow` requires a manual import:
+`ContentRow` requer importação explícita:
 
 ```mdx
 import ContentRow from '@components/content/ContentRow.astro';
@@ -229,71 +229,66 @@ import ContentRowCaption from '@components/content/ContentRowCaption.astro';
 
 ### LinkButton
 
-Prominent link, typically used for CAD documents.
+Botão destacado em verde, normalmente usado para links de documentos CAD no Onshape.
 
 ```mdx
-<LinkButton href="https://cad.onshape.com/...">CAD Document</LinkButton>
-<LinkButton href="https://cad.onshape.com/..." center>Centered Button</LinkButton>
+<LinkButton href="https://cad.onshape.com/...">Documento no Onshape</LinkButton>
+<LinkButton href="https://cad.onshape.com/..." center>Botão Centralizado</LinkButton>
 ```
 
 ### ImageTable
 
-Wraps a markdown table that has images in its last column. Handles horizontal scrolling on narrow screens and consistent image sizing.
+Envolve tabelas em Markdown que contêm imagens na última coluna, garantindo rolagem horizontal em celulares e dimensionamento uniforme das miniaturas.
 
 ```mdx
 <ImageTable>
-| Type | Description | Image |
+| Tipo | Descrição | Imagem |
 |---|---|---|
-| **SHCS** | Standard bolt | <ContentFigure src="./img/shcs.webp" alt="SHCS" /> |
-| **BHCS** | Low-profile rounded head | <ContentFigure src="./img/bhcs.webp" alt="BHCS" /> |
+| **SHCS** | Parafuso sextavado padrão | <ContentFigure src="./img/shcs.webp" alt="SHCS" /> |
+| **BHCS** | Parafuso de cabeça abaulada | <ContentFigure src="./img/bhcs.webp" alt="BHCS" /> |
 </ImageTable>
 ```
 
-Use the optional props to adjust sizing for tables with larger or smaller images:
+Propriedades opcionais para ajuste de dimensões:
 
 ```mdx
 <ImageTable minWidth="760px" imageMaxWidth="8rem" imageMaxHeight="6.5rem" imageMinHeight="5rem">
 ```
 
-Props:
-- `minWidth`: minimum table width before horizontal scroll activates, default `560px`
-- `imageMaxWidth`: max width of images in the last column, default `7rem`
-- `imageMaxHeight`: max height of images in the last column, default `6rem`
-- `imageMinHeight`: minimum cell height in the image column to keep rows uniform, default `4rem`
+Propriedades:
+- `minWidth`: largura mínima antes de ativar a rolagem horizontal, padrão `560px`
+- `imageMaxWidth`: largura máxima das imagens na coluna final, padrão `7rem`
+- `imageMaxHeight`: altura máxima das imagens na coluna final, padrão `6rem`
+- `imageMinHeight`: altura mínima das células de imagem para manter linhas alinhadas, padrão `4rem`
 
-## Centered Content
+## Conteúdo Centralizado
 
-Use the `:::center` directive to center text or other inline content:
+Utilize a diretiva `:::center` para centralizar textos, equações ou legendas:
 
 ```md
 :::center
-**Centered text or formula**
+**Texto ou fórmula centralizada**
 :::
 ```
 
-## Links
+## Links e Referências
 
-- **Internal links**: use root-relative paths: `[Link Text](/section/page/)`
-- **External links**: open in a new tab by default when using `LinkButton`; for markdown links, they open in the same tab unless you add the target manually: `[Link Text](https://example.com){target="_blank" rel="noopener"}`
-- **CAD documents**: always use `LinkButton` so they stand out
+- **Links internos**: utilize caminhos relativos à raiz: `[Texto do Link](/secao/pagina/)`
+- **Links externos**: abrem em nova aba por padrão com `LinkButton`; em links markdown tradicionais, abrem na mesma aba a menos que especificado com atributos adicionais.
+- **Modelos Onshape**: utilize sempre `<LinkButton>` para garantir destaque visual.
 
-## Table of Contents
+## Sumário / Índice da Página (Table of Contents)
 
-TOC is off by default, it usually doesnt need re-enabling. It can be enabled at three levels, applied in this priority order:
+O índice lateral está desativado globalmente por padrão na maioria das páginas. Pode ser ativado em três níveis de prioridade:
 
-1. **Per-page frontmatter** (highest priority):
+1. **Frontmatter da página** (maior prioridade):
    ```yaml
-   tableOfContents: false  # force hide
-   tableOfContents: true   # force show
+   tableOfContents: false  # força ocultação
+   tableOfContents: true   # força exibição
    ```
 
-2. **Per-directory config** (`src/config/tocConfig.ts`): enables TOC for all pages under a path. Currently enabled for `/design-handbook`. To enable for another section, add an entry:
-   ```ts
-   '/your-section': true,
-   // or with custom heading levels:
-   '/your-section': { minHeadingLevel: 2, maxHeadingLevel: 4 },
-   ```
+2. **Configuração por diretório** (`src/config/tocConfig.ts`): ativa o índice para todas as páginas sob determinada rota. Atualmente habilitado para `/design-handbook`.
 
-3. **Global default** (lowest priority): TOC is disabled site-wide.
+3. **Padrão global** (menor prioridade): desativado em todo o site.
 
-TOC shows `##` (h2) and `###` (h3) headings by default.
+O sumário exibe cabeçalhos de nível `##` (h2) e `###` (h3) por padrão.

@@ -1,37 +1,35 @@
-﻿---
-title: Top Down Design
-description: Introduction to top down design methodology
+---
+title: Projeto Top-Down
+description: Introdução à metodologia de projeto top-down
 sidebar:
   order: 1
 ---
 
+## Metodologia de Projeto Top-Down
 
-## Top Down Design Methodology
+Ao projetar um modelo em CAD, existem duas estratégias de alto nível que podem ser adotadas: top-down (de cima para baixo) e bottom-up (de baixo para cima). O projeto top-down utiliza esboços abrangentes de alto nível e baixo detalhe para nortear toda a arquitetura, refinando posteriormente os detalhes e componentes individuais dentro dessa estrutura. Por outro lado, o projeto bottom-up envolve criar componentes e peças isoladamente de forma separada e, depois, montá-los para formar o produto final.
 
-When designing a model in CAD, there are two high level strategies that can be employed: top-down and bottom-up. Top-down design employs high level, low detail sketches to dictate the design, and then refining details and components within that framework. Conversely, bottom-up design involves creating individual components or parts separately and then assembling them to form the final product.
+O projeto top-down oferece uma abordagem integrada e holística, permitindo melhor integração de sistemas, consistência e alta parametrização. O projeto bottom-up oferece flexibilidade e independência no desenho de peças avulsas. No projeto de robôs da FRC, a abordagem top-down é amplamente preferida, pois a integração entre mecanismos é quase sempre o aspecto mais desafiador. O fluxo top-down garante que a arquitetura geral do robô determine o projeto de cada peça.
 
-Top-down design offers a holistic approach, allowing for better system integration, consistency, and is more parametric. Bottom-up design offers flexibility and independence in designing individual parts. In FRC robot design, top-down approach is favored as system integration is often the most challenging aspect. Top-down ensures that the robot architecture dictates part design.
+### Layout Sketch Principal (Main Layout Sketch)
 
-### Main Layout Sketch
+Para viabilizar isso, utiliza-se um ***layout sketch principal*** (frequentemente chamado de "master sketch"). O layout sketch principal é uma série de esboços que capturam as principais dimensões de cada mecanismo, as interações com elementos de campo e as restrições de tamanho do perímetro do robô. Em seguida, esses sketches mestres são derivados ou inseridos no part studio de cada mecanismo, e os componentes individuais são modelados diretamente ao redor da geometria importada. Mais informações sobre layout sketches podem ser encontradas na página de [Melhores Práticas de Master Sketch](/best-practices/master-sketch-setup/).
 
-To achieve this, a ***main layout sketch*** is utilized. Sometimes these are also referred to as "master" sketches. The main layout sketch is a series of sketches that capture the major dimensions of each mechanism, field element interactions, and robot size constraints. Then, the main layout sketch(es) are inserted into each mechanism's part studio and the individual components are then modeled around the imported layout sketch. More information on layout sketches can be found on the [Layout Sketch Best Practices](/best-practices/master-sketch-setup/) page.
-
-<Aside type="example" title="Example Main Layout Sketch">
-<ContentFigure src="../img/1d/example-master-sketch.webp" alt="Example main layout sketch" width="50%">Example of robot main layout sketches. Each mechanism has a number of layout sketches that capture the important details. (Photo Credit: FRC 3647)</ContentFigure>
+<Aside type="example" title="Exemplo de Layout Sketch Principal">
+<ContentFigure src="../img/1d/example-master-sketch.webp" alt="Exemplo de layout sketch principal" width="50%">Exemplo de sketches de layout principal de um robô. Cada mecanismo possui sketches de layout que capturam os parâmetros cruciais. (Crédito da foto: FRC 3647)</ContentFigure>
 </Aside>
 
+### Posicionamento da Origem e o Origin Cube
 
-### Origin Placement and Origin Cube
+Para aproveitar ao máximo o projeto top-down baseado em layout sketch, devemos escolher uma origem unificada para todos os part studios. A vantagem de compartilhar a mesma origem do layout sketch mestre em todos os part studios e montagens é dupla:
 
-To fully utilize layout sketch top-down design, we must choose a unified origin for all part studios. Utilizing the same origin as the main layout sketch across all part studios and assemblies is twofold:
-
-1. The origin will always be a consistent central point you can reference. This helps keep things parametric too.
-2. To unify the robot CAD and robot software origin point. By having the same origin in CAD and code, the robot can be seamlessly exported to [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope) and camera transformations more easily measured.
+1. A origem será sempre um ponto de referência central e consistente. Isso também mantém tudo perfeitamente paramétrico.
+2. Unificar a origem do CAD do robô com a origem do software do robô. Ao compartilhar a mesma origem no CAD e na programação, o modelo do robô pode ser exportado diretamente para o [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope) e as transformações de coordenadas das câmeras de visão computacional tornam-se muito mais fáceis de medir.
 
 <Aside type="note">
-Although definitions may vary from team to team, the origin of an FRC robot is typically defined as ***the center of the drivebase, on floor level***.
+Embora definições possam variar de equipe para equipe, a origem padrão de um robô da FRC é tipicamente definida como ***o centro do chassi (drivebase), no nível do chão***.
 </Aside>
 
-To achieve this, we use the [`Origin Cube` Featurescript](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/df3afdbec8d1356c2af15e4b?renderMode=0&uiState=6637caa6ccbcaa36badca03a) you used throughout 1C. This generates a transparent 2" cube at the origin and provides several useful constants and functions that have already been used in previous stage.
+Para implementar isso, usamos o Featurescript [`Origin Cube`](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/df3afdbec8d1356c2af15e4b?renderMode=0&uiState=6637caa6ccbcaa36badca03a), que você já utilizou ao longo do Stage 1C. Ele cria um cubo transparente de 2" na origem e disponibiliza diversas constantes e funções matemáticas úteis.
 
-The Origin Cube will become very useful later on for assembly mating but for now all you need to remember is that **the Origin Cube should be the first feature in all part studios**. You can read more about the Origin Cube on the [assembly best practices page](/best-practices/assembly-setup/).
+O Origin Cube se tornará indispensável nas montagens, mas, por enquanto, tudo o que você precisa lembrar é que **o Origin Cube deve ser a primeiríssima feature em todos os part studios**. Você pode ler mais sobre ele na página de [melhores práticas de montagem](/best-practices/assembly-setup/).

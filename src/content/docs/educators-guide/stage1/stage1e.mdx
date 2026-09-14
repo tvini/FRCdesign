@@ -1,99 +1,99 @@
 ---
-title: Stage 1E - Subsystem Workflow
-description: Educator's guide for teaching Stage 1E
+title: Estágio 1E - Fluxo de Trabalho de Subsistemas
+description: Guia do educador para o ensino do Estágio 1E
 ---
 
-Stage 1E teaches students how to fully detail a drivetrain assembly by adding necessary components like battery mounting, electronics, and bumpers. This stage bridges the gap between basic modeling and creating manufacture-ready designs. This allows students to learn and practice the typical workflow of detailing a subsystem.
+O Estágio 1E ensina aos estudantes como detalhar completamente a montagem de um chassi, adicionando componentes fundamentais como suporte de bateria, eletrônica de controle e bumpers (para-choques). Esse estágio faz a ponte indispensável entre a modelagem conceitual básica e a criação de projetos 100% prontos para fabricação, permitindo que os alunos compreendam o fluxo real de detalhamento de um subsistema de robô de competição.
 
-## Learning Objectives
+## Objetivos de Aprendizado
 
-Students who complete Stage 1E will:
-- Understand requirements for core robot systems (battery, electronics, bumpers)
-- Learn practical design considerations for component mounting
-- Practice creating complete, manufacture-ready assemblies
-- Develop systematic approaches to detailing assemblies
-- Apply FRC rules and requirements to designs
+Os estudantes que completarem o Estágio 1E irão:
+- Compreender os requisitos regulamentares e funcionais para sistemas centrais do robô (bateria, rádio, roboRIO, disjuntor e bumpers)
+- Aprender critérios práticos de projeto para fixação e montagem de componentes elétricos e pneumáticos
+- Praticar a criação de montagens completas e prontas para o chão de fábrica
+- Desenvolver abordagens metódicas para o detalhamento de subsistemas
+- Aplicar as regras oficiais do manual da temporada da FIRST diretamente ao modelo CAD
 
-## Teaching Structure
+## Estrutura de Ensino
 
-### Project Phases
+### Fases do Projeto
 
-1. **Battery Mounting**
-   - Safety requirements
-   - Center of gravity considerations
-   - Mounting methods
-   - Access requirements
+1. **Fixação da Bateria**
+   - Requisitos rigorosos de segurança contra impactos e tombamento
+   - Considerações sobre centro de gravidade (baixo e centralizado)
+   - Métodos de retenção mecânica e facilidade de troca rápida entre partidas
+   - Espaço para cabeamento e conector SB50
 
-2. **Electronics Layout**
-   - Core components overview
-   - Wiring considerations
-   - Accessibility needs
+2. **Disposição dos Componentes Eletrônicos (Electronics Layout)**
+   - Mapeamento dos componentes vitais (roboRIO, PDH/PDP, rádio, disjuntor principal)
+   - Rotas de cabeamento de potência e sinal (CAN bus, ethernet)
+   - Facilidade de inspeção e acesso no pit
 
-3. **Bumper Design**
-   - Game manual requirements
-   - Mounting systems
-   - Material considerations
+3. **Projeto dos Bumpers (Para-choques)**
+   - Requisitos dimensionais e de altura estabelecidos no Game Manual
+   - Sistemas de fixação rápida e estrutural aos tubos do chassi
+   - Especificação de materiais (madeira compensada, tubos de espuma maciça, tecido reforçado)
 
-## Teaching Tips
+## Dicas para o Educador
 
-### Practical Considerations
+### Fatores Práticos da Competição
 
-Emphasize real-world factors:
-- Maintenance access
-- Wire routing paths
-- Quick replacement needs
-- Competition considerations
+Destaque fatores essenciais da rotina de eventos:
+- Facilidade de manutenção e reparo sob pressão no pit (menos de 5 minutos entre partidas eliminatórias)
+- Passagem de cabos protegida de peças móveis e arestas afiadas
+- Troca de bateria sem necessidade de desmontar outros subsistemas
+- Acesso visual imediato aos LEDs de diagnóstico da eletrônica e ao disjuntor principal
 
-### FRC-Specific Requirements
+### Requisitos e Regras da FRC
 
-Review relevant rules:
-- Battery mounting requirements
-- Electronics placement rules
-- Bumper specifications
-- Safety considerations
+Revise as regras oficiais pertinentes:
+- Fixação da bateria que impeça seu desprendimento mesmo se o robô capotar
+- Visibilidade obrigatória do disjuntor principal para os juízes de campo
+- Zona de bumper (Bumper Zone), espessura e suporte contínuo da estrutura
+- Padrões de segurança elétrica
 
-### Design Validation
+### Validação do Projeto
 
-Teach students to verify:
-- Component clearances
-- Access for maintenance
-- Rule compliance
+Ensine os alunos a checarem sistematicamente:
+- Folgas dimensionais entre peças móveis e fios
+- Espaço real para a inserção e aperto de chaves de fenda e chaves Allen
+- Conformidade estrita com o livro de regras (Game Manual)
 
-## Common Challenges
+## Dificuldades Típicas
 
-Address typical issues:
-- Overcrowded electronics layouts
-- Poor maintenance access
-- Bad mounting options
+Pontos de atenção comuns:
+- Disposição superlotada e caótica de placas eletrônicas
+- Componentes montados em posições inacessíveis para manutenção
+- Fixações frágeis que não resistem aos choques violentos da defesa
 
-## Assessment Strategies
+## Estratégias de Avaliação
 
-Evaluate understanding through:
-- Practical accessibility
-- Assembly organization
-- Documentation quality
-- Design justification
+Avalie o aprendizado através de:
+- Acessibilidade prática e ergonomia da montagem
+- Organização e hierarquia dos componentes no CAD
+- Qualidade do detalhamento e modelagem
+- Justificativa técnica das escolhas de posicionamento
 
-## Resources
+## Recursos
 
-Provide access to:
-- FRC Game Manual
-- Electronics documentation
-- COTS component specs
+Disponibilize para consulta:
+- Manual de Regras da Temporada (FRC Game Manual)
+- Documentação técnica do sistema de controle (WPILib / REV / CTR Electronics)
+- Folhas de dados (datasheets) dos componentes COTS
 
-## Extension Activities
+## Atividades de Extensão
 
-For advanced students:
-- Design alternative mounting solutions
-- Try out different battery positions
-- Compare bumper mounting methods
+Para alunos mais avançados:
+- Projetar suportes customizados impressos em 3D para o rádio e disjuntor
+- Explorar diferentes orientações e localizações para a bateria
+- Comparar sistemas de montagem de bumpers (pinos de engate rápido vs parafusos borboleta)
 
-## Success Indicators
+## Indicadores de Sucesso
 
-Students demonstrate competency when they:
-- Meet all FRC requirements
-- Create serviceable designs
-- Provide adequate access to all critical components
-- Justify design decisions
+Os estudantes demonstram maturidade quando:
+- Atendem a 100% das normas técnicas e regras oficiais de segurança
+- Entregam projetos com manutenção rápida e viável
+- Deixam acesso desobstruído a conexões, fusíveis e botões vitais
+- Sabem defender com clareza cada detalhe do projeto
 
-This framework helps students understand the practical aspects of robot design while maintaining focus on creating competition-ready solutions. Regular design reviews and practical considerations help ensure designs are both functional and compliant.
+Essa estrutura garante que os alunos internalizem os aspectos práticos da engenharia de robôs, focando sempre em soluções prontas para a dureza da competição oficial.

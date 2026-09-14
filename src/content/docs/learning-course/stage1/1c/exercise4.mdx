@@ -1,139 +1,138 @@
-﻿---
-title: "Exercise 4: Telescoping Hook"
-description: Model a telescoping hook
+---
+title: "Exercício 4: Gancho Telescópico"
+description: Modelar um gancho telescópico
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-In this exercise, you will be modeling a telescoping climber. This mechanism features [WCP GreyT telescoping bearing blocks](https://wcproducts.com/products/greyt-telescope) and [REV MAXPlanetary](https://www.revrobotics.com/frc/maxplanetary-system/) mounting gearbox plates. Be sure to pay close attention to hook and gearbox sketches when modeling.
+Neste exercício, você modelará um climber telescópico. Este mecanismo apresenta [blocos de rolamento para telescópio WCP GreyT](https://wcproducts.com/products/greyt-telescope) e placas de montagem para a gearbox planetária [REV MAXPlanetary](https://www.revrobotics.com/frc/maxplanetary-system/). Preste bastante atenção aos sketches do gancho e da gearbox durante a modelagem.
 
 <Aside type="caution">
-From this point on the specific lengths of shafts and offsets of belts may not be provided, you should consider what components are going on the shafts when setting distances. It is always ok to go back and change these lengths later if needed. When you get to making your own mechanisms there wont be a step by step guide for it! These exercises try and gradually pull back the guard rails as your progress to get you ready for build season. If you get stuck feel free to refer to the [solution doc](https://cad.onshape.com/documents/99b4fd36c41bdb5b3e6d5ceb/w/f8e04439667e38aedb8f8196/e/8843ec3a6b3828f461343955), or ask a mentor for help!
+A partir deste ponto, os comprimentos específicos de eixos e offsets de correias podem não ser informados explicitamente; você deve analisar quais componentes serão instalados nos eixos ao definir essas medidas. Não há problema algum em voltar e ajustar esses comprimentos mais tarde, se necessário. Quando você for criar seus próprios mecanismos na temporada real, não haverá um guia passo a passo! Estes exercícios reduzem gradualmente o nível de tutela para preparar você para a build season. Se tiver dúvidas ou travar em alguma etapa, consulte o [documento de soluções](https://cad.onshape.com/documents/99b4fd36c41bdb5b3e6d5ceb/w/f8e04439667e38aedb8f8196/e/8843ec3a6b3828f461343955) ou peça ajuda a um mentor!
 </Aside>
 
-## Leveraging COTS Components
-Using COTS components is crucial in a time-constrained build season.
-Even if you have the capability to fabricate every part, relying on COTS parts allows you to spend your time on more important tasks - like refining designs or testing.
-This helps ensure your time is spent where it makes the most impact, rather than on re-inventing parts that are already readily available.
+## Aproveitando Componentes COTS
+O uso de componentes COTS (comerciais de prateleira) é fundamental durante uma temporada de construção com prazo restrito.
+Mesmo que sua equipe tenha a capacidade de fabricar todas as peças, recorrer a peças COTS permite direcionar o tempo para tarefas mais estratégicas — como refinar o projeto de mecanismos críticos ou realizar testes de campo.
+Isso garante que o esforço seja aplicado onde ele gera maior impacto, em vez de "reinventar a roda" em peças que já estão prontas no mercado.
 
-<Aside type="example" title="Exercise 4 COTS Components">
+<Aside type="example" title="Componentes COTS do Exercício 4">
 <ContentRow>
-  <ContentFigure src="../img/1c/telescope/greyt.webp" alt="GreyT Telescope" />
+  <ContentFigure src="../img/1c/telescope/greyt.webp" alt="Telescópio GreyT" />
   <ContentFigure src="../img/1c/telescope/maxplanetary.webp" alt="MAXPlanetary" />
 </ContentRow>
 
-The telescoping bearing blocks have complex geometry that would be difficult and time consuming to manufacture for most teams. The REV MAXPlanetary is an easy way to get a large gearbox reduction without the need for a custom gearbox. (Photo Credits: WCP, REV)
+Os blocos de rolamento para telescópio possuem geometrias complexas cuja usinagem seria difícil e demandaria muito tempo para a maioria das equipes. A gearbox REV MAXPlanetary é uma forma rápida e confiável de obter grandes reduções sem a necessidade de projetar uma caixa de engrenagens personalizada do zero. (Créditos das fotos: WCP, REV)
 </Aside>
 
-## Crush Blocks
+## Crush Blocks (Blocos Anti-Esmagamento)
 
-3D-printed crush blocks can be used to reinforce thin-walled tubing in assemblies where bolts pass through without a plate.
-Since the strength of bolts comes from their clamping force, without anything to support the thin walls, the tube can collapse before achieving proper clamping force.
-Crush blocks distribute the load, allowing for full clamping force while maintaining the tube's structural integrity.
+Crush blocks impressos em 3D podem ser usados para reforçar tubos de parede fina em montagens onde parafusos atravessam o tubo de lado a lado sem o apoio de uma chapa externa.
+Como a força de retenção dos parafusos vem do aperto por compressão (clamping force), sem suporte interno as paredes finas do tubo podem colapsar antes que o torque ideal do parafuso seja atingido.
+Crush blocks distribuem essa carga de aperto, permitindo o aperto completo enquanto preservam a integridade estrutural do tubo.
 
-Alternatively, a "crush plate" can also be utilized to distribute the fastener force to achieve a similar effect as a crush block.
+Como alternativa, uma "crush plate" (chapa de apoio) externa também pode ser utilizada para distribuir a pressão dos fixadores e atingir efeito semelhante ao de um crush block.
 
-<ContentFigure src="../img/1c/telescope/crush-block-plate.webp" alt="Crush block and crush plate" width="30%">Example of a crush block (left) and crush plate (right)</ContentFigure>
+<ContentFigure src="../img/1c/telescope/crush-block-plate.webp" alt="Crush block e crush plate" width="30%">Exemplo de crush block interno (esquerda) e crush plate externa (direita)</ContentFigure>
 
-## Part Studio Instructions
+## Instruções do Part Studio
 
-**Navigate to the "Exercise #4 Part Studio" tab** in your copied document and **follow the instructions in the slides** to complete the part studio for this exercise.
+**Navegue até a aba "Exercise #4 Part Studio"** no seu documento copiado e **siga as instruções nos slides** para concluir o part studio deste exercício.
 
 <Slides>
   ![](../img/1c/telescope/parts-0.webp)
-  Final Part Studio.
+  Part Studio finalizado.
 
   ![](../img/1c/telescope/parts-1.webp)
-  Begin by creating a side profile sketch of the telescope tubes on the right plane.
+  Comece criando o sketch do perfil lateral dos tubos do telescópio no plano Right.
 
   ![](../img/1c/telescope/parts-2.webp)
-  Use two extrudes to create the solid bodies for the tubes. Then, use the Tube Converter Featurescript (or shell feature) to convert the solid bodies into two thin-wall tubes with no hole pattern.
+  Use duas extrusões para criar os corpos sólidos dos tubos. Em seguida, use o Featurescript Tube Converter (ou o comando Shell) para converter os corpos sólidos em dois tubos de parede fina sem padrão de furos.
 
   ![](../img/1c/telescope/parts-3.webp)
-  Add the holes for the WCP bearing blocks to the inner and outer tubes. The dimensions are from [WCP's documentation](https://docs.wcproducts.com/greyt-telescope/overview-and-features/tubing-hole-pattern).
+  Adicione os furos para os blocos de rolamento WCP nos tubos interno e externo. As cotas são baseadas na [documentação da WCP](https://docs.wcproducts.com/greyt-telescope/overview-and-features/tubing-hole-pattern).
 
   ![](../img/1c/telescope/parts-4.webp)
-  Model the crush block at the top of the inner tube. Make sure to account for 3D-printing tolerances by giving a little bit of clearance for the crush block inside of the tube. You will add the holes that go through the crush block after you model the hook.
+  Modele o crush block no topo do tubo interno. Certifique-se de prever tolerâncias de impressão 3D, deixando uma pequena folga para o crush block deslizar dentro do tubo. Você adicionará os furos que atravessam o crush block após modelar o gancho.
 
   ![](../img/1c/telescope/parts-5.webp)
-  Sketch the hook. Pay attention to the sketch relations in the solution document.
+  Desenhe o sketch do gancho (hook). Preste atenção às relações geométricas no documento de soluções.
 
   ![](../img/1c/telescope/parts-6.webp)
-  Extrude the hook, then extrude the mounting holes to cut through the tube and the crush block. Also add the hook spacer.
+  Faça a extrusão do gancho e, em seguida, extrude os furos de montagem para cortar o tubo e o crush block. Adicione também o espaçador do gancho.
 
   ![](https://www.youtube.com/embed/Kt2l8vujAUE)
-  Model the hook 3d printed spacer. With sketch imprinting enabled, we only need to draw the line for where the 3d printed block starts. There is no need to use the `Use` feature to copy the hook profile into the sketch.
+  Modele o espaçador impresso em 3D do gancho. Com o sketch imprinting ativado, só precisamos desenhar a linha divisória de onde o bloco impresso em 3D começa. Não é necessário usar o recurso `Use` para copiar o contorno do gancho no sketch.
 
   ![](../img/1c/telescope/parts-8.webp)
-  Sketch the gearbox mounting plate on the outside of the tube. There should be a small 0.01" gap between the 3/8" clamping spacers and the tube to make sure that the gearbox can be assembled properly. The 13.75 mm construction circle represents the rounded hex spool. A hole will be placed on the point on the left side of the plate.
+  Esboce a placa de montagem da gearbox na face externa do tubo. Deve haver um pequeno vão de 0,01" entre os espaçadores de aperto de 3/8" e o tubo para garantir que a gearbox seja montada e fixada firmemente por pressão. O círculo de construção de 13,75 mm representa o carretel rounded hex (spool). Um furo será posicionado sobre o ponto no lado esquerdo da placa.
 
   ![](../img/1c/telescope/parts-9.webp)
-  Sketch the pull down string by creating a line tangent to the rounded hex spool. Note that we will use this line to create a sweep of the rope, therefore this line cannot be construction geometry.
+  Esboce a corda de descida criando uma linha tangente ao carretel rounded hex. Observe que usaremos essa linha para criar uma varredura (sweep) da corda; portanto, essa linha não pode ser de construção.
 
   ![](../img/1c/telescope/parts-10.webp)
-  Extrude the plate. This plate will not be pocketed so that the surface clamped to the tube is spreads out the force. Optionally, you could partially pocket it and leave 1/16" of material on the side of the plate clamped against the tube.
+  Faça a extrusão da placa. Esta placa não receberá alívio (pocketing) para que a superfície comprimida contra o tubo distribua a pressão de fixação uniformemente. Opcionalmente, você poderia aliviar parcialmente deixando 1/16" de espessura de material no lado apoiado contra o tubo.
 
   ![](../img/1c/telescope/parts-11.webp)
-  Add a 10-32 hole for the bolt that is threaded into the gearbox plate, then mirror the plate to the other side.
+  Adicione um furo com rosca 10-32 para o parafuso rosqueado diretamente na chapa da gearbox e, em seguida, espelhe a placa para o outro lado.
 
   ![](../img/1c/telescope/parts-12.webp)
-  Model the gearbox spacer and the shaft.
+  Modele o espaçador da gearbox e o eixo.
 
   ![](../img/1c/telescope/parts-13.webp)
-  Use the mate connector at the end of the sketched rope line to create a sketch of a 3mm circle lined up with the center of the shaft.
+  Use o mate connector na ponta da linha da corda para criar um sketch de um círculo de 3 mm alinhado ao centro do eixo.
 
   ![](../img/1c/telescope/parts-14.webp)
-  Sweep the circle along the vertical line from the gearbox to create a model of the rope.
+  Faça a varredura (sweep) do círculo ao longo da linha vertical da gearbox para gerar o modelo 3D da corda.
 
   ![](../img/1c/telescope/parts-0.webp)
-  Finish the part studio by naming your features and putting them into folders. Also assign materials according to the reference design.
+  Finalize o part studio nomeando suas features e agrupando-as em pastas. Atribua também os materiais de acordo com o modelo de referência.
 </Slides>
 
-## Assembly Instructions
+## Instruções de Montagem (Assembly)
 
-**Next, navigate to the "Exercise #4 Assembly" tab** in your copied document and **follow the instructions in the slides** to complete this exercise.
+**Em seguida, navegue até a aba "Exercise #4 Assembly"** no seu documento copiado e **siga as instruções nos slides** para concluir este exercício.
 
 <Slides>
   ![](../img/1c/telescope/assy-0.webp)
-  Final assembly.
+  Montagem final.
 
   ![](https://www.youtube.com/embed/ch1kZ_IOCjs)
-  Insert the climber components and group only the base stage components together to the Origin Cube. This is because the inner stage moves relative to the base stage, so we cannot group them together.
+  Insira os componentes do climber e agrupe via Group Mate somente os componentes do estágio base com o Origin Cube. Fazemos isso porque o estágio interno precisa se movimentar em relação ao estágio base, portanto não podemos agrupá-los todos juntos.
 
   ![](../img/1c/telescope/assy-2.webp)
-  Fasten the inner stage components together.
+  Fixe os componentes do estágio interno uns aos outros com Fasten Mate.
 
   ![](https://www.youtube.com/embed/Vt1ld7z8ovI)
-  Insert and fasten the WCP GreyT telescope bearing blocks from the [WCP GreyT telescope document](https://cad.onshape.com/documents/3f21b4b70302525a1e1f2c29/w/8a0cc0fbacf79d2c4a8d3c83/e/4646e6fc60ff8c4fe2a9d4dd), or from FRCDesignLib.
+  Insira e fixe os blocos de rolamento WCP GreyT a partir do [documento do telescópio WCP GreyT](https://cad.onshape.com/documents/3f21b4b70302525a1e1f2c29/w/8a0cc0fbacf79d2c4a8d3c83/e/4646e6fc60ff8c4fe2a9d4dd) ou da FRCDesignLib.
 
   ![](https://www.youtube.com/embed/i4Kcsdnsk8A)
-  Use two `Slider` mates to constrain the inner stage. By using two slider mates, one for the bottom and one for the top, the inner stage motion constraint is parametric to length changes in the base stage. We do not need to explicitly specify a travel length.
+  Use dois mates do tipo `Slider` para restringir o estágio interno. Ao usar dois slider mates (um para a base e outro para o topo), o curso do estágio interno se torna paramétrico em relação a variações de comprimento do estágio base, dispensando a necessidade de definir um limite de curso manualmente.
 
   ![](../img/1c/telescope/assy-5.webp)
-  Fasten the spacer and replicate it. Insert and fasten the shaft bearing to the plate and shaft. Note that we only require one bearing on the plate since the MAXPlanetary gearbox has another bearing at its output as we do not want to overconstrain the shaft.
+  Fixe o espaçador e replique-o. Insira e fixe o rolamento do eixo na placa e no eixo. Observe que precisamos de apenas um rolamento na placa, pois a gearbox MAXPlanetary já possui um rolamento na sua saída e não queremos hiper-restringir o eixo.
 
   ![](../img/1c/telescope/assy-6.webp)
-  Insert and fasten the MAXPlanetary gearbox and NEO Vortex from FRCDesignLib. We will use the 90 degree output with a 25:1 gear ratio.
+  Insira e fixe a gearbox MAXPlanetary e o motor NEO Vortex a partir da FRCDesignLib. Utilizaremos a saída de 90 graus com redução de 25:1.
 
   ![](../img/1c/telescope/assy-7.webp)
-  Insert, fasten, and replicate all of the required fasteners.
+  Insira, monte e replique todos os fixadores necessários.
 
   ![](../img/1c/telescope/assy-8.webp)
-  Close up of the bolt used to pin the gearbox in place. This bolt keeps the gearbox from sliding up and down.
+  Detalhe aproximado do parafuso usado para travar a posição da gearbox. Esse parafuso impede que a caixa deslize para cima ou para baixo.
 
   ![](../img/1c/telescope/assy-0.webp)
-  Finish your assembly by organizing the parts into folders and naming your replicates.
+  Finalize sua montagem organizando as peças em pastas e nomeando suas replicações.
 </Slides>
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Your assembly should have 27 instances.
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Sua montagem deve ter 27 instâncias.
 </Aside>
 
-## Section Views
+## Vistas de Seção (Section Views)
 
-Section views are a helpful tool that allow you to reveal the internal features of a part or assembly by slicing through it along a specified plane. You can select a plane, planar face, cylinder, cone, or mate connector to use as the sectioning plane. You can also choose to include or exclude specific parts from the section view.
+As vistas de seção são uma ferramenta extremamente útil que permite revelar os detalhes internos de uma peça ou montagem cortando o modelo ao longo de um plano definido. Você pode selecionar um plano, face plana, cilindro, cone ou mate connector como plano de corte. Também é possível optar por incluir ou excluir peças específicas do corte da seção.
 
-<Aside type="tip" title="Creating a Section View">
-<ContentFigure src="6oiVBMGkCOs">Creating a section view to get a better view of the pinning bolt.</ContentFigure>
+<Aside type="tip" title="Criando uma Vista de Seção">
+<ContentFigure src="6oiVBMGkCOs">Criando uma vista de seção para visualizar com clareza o parafuso de travamento interno.</ContentFigure>
 </Aside>
-

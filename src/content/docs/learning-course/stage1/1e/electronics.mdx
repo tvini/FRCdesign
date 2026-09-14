@@ -1,34 +1,32 @@
-﻿---
-title: Electronics
-description: Learn about robot electronics
+---
+title: Eletrônica
+description: Aprenda sobre a eletrônica do robô
 ---
 
+## Montagem dos Componentes Eletrônicos
 
-## Electronics Mounting
-
-To make wiring the robot and later inspecting the wiring easier, enough space should be left around each electrical component. You should work with your electrical teammates to determine the best location for the various control system parts. Teams typically try to mount their electronics on the bellypan, permitted there is space.
+Para facilitar a passagem de fios no robô e inspeções elétricas posteriores, deve-se reservar espaço suficiente ao redor de cada componente elétrico. Você deve trabalhar em conjunto com seus colegas da equipe de elétrica para definir a melhor disposição dos diversos itens do sistema de controle. As equipes normalmente procuram fixar a maioria dos componentes eletrônicos no bellypan, desde que haja espaço físico disponível.
 
 <Aside type="example">
-<ContentFigure src="../img/1e/elec/elec-example.webp" alt="Example layout of various different electronic components on a bellypan" width="50%">Example layout of various different electronic components on a bellypan. (Photo Credit: FRC 3647)</ContentFigure>
+<ContentFigure src="../img/1e/elec/elec-example.webp" alt="Exemplo de layout de vários componentes eletrônicos diferentes em um bellypan" width="50%">Exemplo de disposição de vários componentes eletrônicos diferentes em um bellypan. (Crédito da foto: FRC 3647)</ContentFigure>
 </Aside>
 
-### Electronic Components
+### Componentes Eletrônicos
 
-A list of typical electrical components found on FRC robots is provided below, as well as a recommended mounting location. Again, mounting locations are highly dependent on the rest of your robot, make sure to always coordinate with your electrical team to decide what is best.
-
+Abaixo é fornecida uma lista dos componentes elétricos típicos encontrados em robôs da FRC, juntamente com o local de montagem recomendado. Novamente, os locais de fixação dependem muito do restante do seu robô; certifique-se de coordenar sempre com sua equipe de elétrica para decidir a melhor estratégia.
 
 <ImageTable minWidth="760px" imageMaxWidth="8rem" imageMaxHeight="6.5rem" imageMinHeight="5rem">
-| **Component** | **Function** | **Suggested Location** | **Image** |
+| **Componente** | **Função** | **Local Sugerido** | **Imagem** |
 |---|---|---|---|
-| REV Power Distribution Hub (PDH) or  CTRE Power Distribution Panel (PDP) | Distributes power to all other components | Bellypan | <ContentFigure src="../img/1e/elec-components/pdh.webp" alt="PDH" /> |
-| Main Breaker | Is used to turn on/off the robot and protect electronics from events with extremely high current drawn | Somewhere easily accessible and close to the PDH and Battery | <ContentFigure src="../img/1e/elec-components/mbreak.webp" alt="Main Breaker" /> |
-| RoboRIO (Retired for 2027)| Central controller for all robot operations | Bellypan | <ContentFigure src="../img/1e/elec-components/rio.webp" alt="RoboRIO" /> |
-| SystemCore | Central controller for all robot operations | Bellypan | <ContentFigure src="../img/1e/elec-components/systemcore.webp" alt="SystemCore" /> |
-| Integrated motor controller (eg: Falcon 500, Kraken X60) | Powers and controls the  integrated motor | No electrical mounting required | <ContentFigure src="../img/1e/elec-components/kx60.webp" alt="Integrated motor controller" /> |
-| Discrete motor controller  (eg: Spark Max, Talon SRX) | Required to power and control some motors  (eg: NEO, CIM) | Near the controlled motor  or on the bellypan | <ContentFigure src="../img/1e/elec-components/smax.webp" alt="Discrete motor controller" /> |
-| Robot Radio | Allows the robot to establish wireless connections to the field or driver station | Follow Vivid Hosting's [radio mounting guidelines](https://frc-radio.vivid-hosting.net/getting-started/usage/mounting-your-radio "Vivid Hosting Radio Mounting Guidelines"). | <ContentFigure src="../img/1e/elec-components/vh109.webp" alt="Robot Radio" /> |
-| Robot Signal Light (RSL) | Indicates whether the robot is on and enabled/disabled | Somewhere easily visible | <ContentFigure src="../img/1e/elec-components/rsl.webp" alt="Robot Signal Light" /> |
-| Inertial Measurement Unit (IMU) | Used to determine robot heading and acceleration | Close to the center is best practice (on Bellypan or VHB tape to attach to RoboRIO) | <ContentFigure src="../img/1e/elec-components/imu.webp" alt="Inertial Measurement Unit" /> |
-| Voltage Regulator Module | Can be used for custom circuits | Bellypan | <ContentFigure src="../img/1e/elec-components/vrm.webp" alt="Voltage Regulator Module" /> |
-| Pneumatics Hub | Controls pneumatic components | Bellypan | <ContentFigure src="../img/1e/elec-components/pcm.webp" alt="Pneumatics Hub" /> |
+| REV Power Distribution Hub (PDH) ou CTRE Power Distribution Panel (PDP) | Distribui energia para todos os outros componentes | Bellypan | <ContentFigure src="../img/1e/elec-components/pdh.webp" alt="PDH" /> |
+| Disjuntor Principal (Main Breaker) | Usado para ligar/desligar o robô e proteger os eletrônicos contra picos de corrente extremos | Em local de fácil acesso e próximo ao PDH e à bateria | <ContentFigure src="../img/1e/elec-components/mbreak.webp" alt="Main Breaker" /> |
+| RoboRIO (Descontinuado para 2027) | Controlador central de todas as operações do robô | Bellypan | <ContentFigure src="../img/1e/elec-components/rio.webp" alt="RoboRIO" /> |
+| SystemCore | Novo controlador central de operações do robô | Bellypan | <ContentFigure src="../img/1e/elec-components/systemcore.webp" alt="SystemCore" /> |
+| Controlador de motor integrado (ex.: Falcon 500, Kraken X60) | Alimenta e controla o motor integrado | Não requer montagem elétrica separada | <ContentFigure src="../img/1e/elec-components/kx60.webp" alt="Controlador de motor integrado" /> |
+| Controlador de motor discreto (ex.: Spark Max, Talon SRX) | Necessário para alimentar e controlar certos motores (ex.: NEO, CIM) | Próximo ao motor controlado ou no bellypan | <ContentFigure src="../img/1e/elec-components/smax.webp" alt="Controlador de motor discreto" /> |
+| Rádio do Robô (Robot Radio) | Permite ao robô estabelecer conexão sem fio com a arena ou a Driver Station | Siga as [diretrizes de fixação de rádio](https://frc-radio.vivid-hosting.net/getting-started/usage/mounting-your-radio "Diretrizes de Fixação de Rádio da Vivid Hosting") da Vivid Hosting. | <ContentFigure src="../img/1e/elec-components/vh109.webp" alt="Rádio do Robô" /> |
+| Luz de Sinalização do Robô (RSL) | Indica se o robô está ligado e habilitado/desabilitado | Em local visível de múltiplos ângulos | <ContentFigure src="../img/1e/elec-components/rsl.webp" alt="Luz de Sinalização do Robô (RSL)" /> |
+| Unidade de Medição Inercial (IMU) | Mede orientação angular (heading) e aceleração do robô | O mais próximo possível do centro de rotação (no Bellypan ou com fita VHB sobre o RoboRIO) | <ContentFigure src="../img/1e/elec-components/imu.webp" alt="Unidade de Medição Inercial (IMU)" /> |
+| Módulo Regulador de Tensão (VRM) | Usado para alimentar circuitos auxiliares personalizados | Bellypan | <ContentFigure src="../img/1e/elec-components/vrm.webp" alt="Voltage Regulator Module" /> |
+| Hub Pneumático (Pneumatics Hub / PH / PCM) | Controla solenoides e o compressor pneumático | Bellypan | <ContentFigure src="../img/1e/elec-components/pcm.webp" alt="Pneumatics Hub" /> |
 </ImageTable>

@@ -1,50 +1,49 @@
-﻿---
-title: Layout Sketch Best Practices
-description: The best practices to follow when creating main layout sketches.
+---
+title: Boas Práticas de Esboço de Layout (Layout Sketch)
+description: As melhores práticas a seguir ao criar esboços mestres de layout e arquitetura no Onshape.
 ---
 
+Um esboço de layout principal (Layout Sketch ou Master Sketch) é uma série de esboços que captura as dimensões críticas de cada mecanismo, as interações com os elementos de campo e as restrições de volume do robô (perímetro e limites de expansão). Esses esboços mestres são então inseridos (via *Derived*) no Part Studio de cada mecanismo, e os componentes individuais são modelados diretamente sobre essa geometria de referência. Isso viabiliza um fluxo de integração muito mais eficiente na metodologia top-down.
 
-A main layout sketch is a series of sketches that capture the major dimensions of each mechanism, field element interactions, and robot size constraints. Then, the main layout sketch(es) are inserted into each mechanism's part studio and the individual components are then modeled around the imported layout sketch. This enables much easier integration with a top-down design approach.
-
-| **Always Include**                                                          | **Sometimes Include**                               | **Never Include**                                           |
+| **Sempre Incluir**                                                           | **Às Vezes Incluir**                                | **Nunca Incluir**                                           |
 |:----------------------------------------------------------------------------|:----------------------------------------------------|:------------------------------------------------------------|
-| Drivebase dimensions                                                        | Gears                                               | Specific details like the shape of plates                   |
-| End-effector wheel locations based off of prototyping                       | Belts                                               | Gussets                                                     |
-| Field elements and extension limits                                         | Chain                                               | Mounting holes                                              |
-| Mechanism motion paths                                                      | Motor locations                                     |                                                             |
-| Gamepiece path                                                              |                                                     |                                                             |
+| Dimensões do chassi / drivebase                                             | Engrenagens                                         | Detalhes específicos de peças (formato exato de chapas)     |
+| Posições das rodas e roletes do manipulador baseadas em prototipagem        | Correias                                            | Gussets                                                     |
+| Elementos da arena e limites de expansão de regras                          | Correntes                                           | Furos de montagem e parafusos                               |
+| Trajetórias de movimento dos mecanismos                                     | Posicionamento de motores                           |                                                             |
+| Trajetória e caminho da peça de jogo (gamepiece)                            |                                                     |                                                             |
 
-This isn't an extensive list, and things can vary from team to team and from architecture to architecture. Detail can easily be added or removed later if necessary.
+Esta não é uma lista definitiva; os detalhes podem variar dependendo da equipe e da arquitetura do robô. Novos níveis de detalhe podem ser adicionados ou removidos conforme o projeto amadurece.
 
-All important measurements that drive the geometry of the robot exist in the layout sketches part studio. They can all be easily viewed and changed together, as opposed to if you had to go through each subsystem to make changes to the geometry to try to make things fit in the top-level robot assembly.
+Todas as medidas críticas que definem a geometria do robô residem no Part Studio de layout. Dessa forma, qualquer cota pode ser visualizada e ajustada em conjunto, ao invés de exigir a edição manual de peça por peça em cada subsistema para tentar fazer tudo se encaixar na montagem final.
 
-<ContentFigure src="./img/1778-2024-MS-Part-Studio.webp" alt="1778 Chill Out's 2024 Robot Main Layout Sketches" border>1778 Chill Out's 2024 Robot Main Layout Sketches</ContentFigure>
+<ContentFigure src="./img/1778-2024-MS-Part-Studio.webp" alt="Esboço mestre de layout do robô da equipe 1778 Chill Out em 2024" border>Esboços mestres de layout do robô de 2024 da equipe 1778 Chill Out</ContentFigure>
 
-Main layout sketches always start with your drivetrain, bumpers, initial configuration, and extension limits. Field elements are sketched next. You can use hard alignment against bumpers to ensure your geometry can score pieces without much software or mechanical complexity.
+Os esboços principais sempre começam pelo drivetrain, para-choques (bumpers), configuração inicial de partida e perímetros máximos de expansão. Em seguida, desenham-se os elementos do campo. O alinhamento mecânico encostando os para-choques diretamente nos elementos da arena é uma excelente estratégia para pontuar com alta repetibilidade, sem depender de sensores ou códigos complexos.
 
 <Aside type="tip">
-Directly after kickoff, you can create a part studio with layout sketches of the drivetrain, extension limits, and field elements. This can be copied and used to test out the geometries of several different robot architectures to then decide between.
+Logo após o Kickoff, crie um Part Studio contendo o chassi básico, os limites de expansão e os elementos da arena. Faça cópias desse arquivo para explorar e comparar rapidamente diferentes arquiteturas de robô antes de escolher a definitiva.
 </Aside>
 
-Your robot should be designed specifically to interact with the field elements and gamepieces. For the main layout sketches, this means making every dimension of every subsystem intentional, whether it's based off of field elements, extension limits, or each other.
+O robô deve ser projetado especificamente para interagir com os elementos do campo e as peças de jogo. No esboço de layout, isso significa tornar cada cota intencional e justificada — seja pelas regras da arena, limites de tamanho ou pela relação entre mecanismos adjacentes.
 
 <Aside type="example">
-The length of an elevator would be driven by the start and end positions of the manipulator being moved, since those positions are based on how it interacts with the field elements.
+O curso e a altura de um elevador devem ser determinados pelas posições inicial e final necessárias para o manipulador recolher ou pontuar a peça de jogo no campo.
 </Aside>
 
 <Aside type="tip">
-You can make construction circles representing the range of motion of a pivoting subsystem, and dimension a subsystem a distance away from that circle to make sure there's clearance between them.
+Você pode traçar arcos ou círculos de construção que representem o raio de rotação de um mecanismo articulado e posicionar outros mecanismos com folga segura em relação a essa trajetória para evitar colisões internas.
 </Aside>
 
-Effective layout sketching requires you to stay organized. This means:
+Para que o esboço mestre seja realmente eficaz, a organização é fundamental:
 
-- Multiple sketches, usually one per subsystem, within the main layout sketch part studio. Keep everything separate!
-- Name your sketches accordingly
-- You can also give your sketches [different colors](https://www.youtube.com/watch?v=ZG_gVeGdI5c) to differentiate between them
-- Sketch all the possible states of each moving subsystem
+- Mantenha múltiplos sketches, geralmente um para cada subsistema, dentro do mesmo Part Studio de layout. Mantenha cada ideia separada!
+- Nomeie cada esboço de forma clara e descritiva
+- Você também pode aplicar [cores distintas a cada sketch](https://www.youtube.com/watch?v=ZG_gVeGdI5c) para facilitar a visualização
+- Desenhe todos os estados críticos possíveis de cada mecanismo móvel (recolhido, pontuando baixo, pontuando alto, etc.)
 
-<ContentFigure src="./img/example-master-sketch.webp" alt="3647's 2024 Robot Main Layout Sketches" width="70%" border>3647's 2024 Robot Main Layout Sketches</ContentFigure>
+<ContentFigure src="./img/example-master-sketch.webp" alt="Esboço mestre do robô de 2024 da equipe 3647" width="70%" border>Esboços mestres de layout do robô de 2024 da equipe 3647</ContentFigure>
 
-Layout sketching is an art that can require some practice to get the hang of. While Stage 3 will help you learn and practice doing full layout sketches, [this tutorial](https://www.youtube.com/watch?v=Bd_XzBw5V_U) can help you get started if you are unsure.
+Dominar esboços de layout exige prática. Embora a Etapa 3 do curso se aprofunde nesse processo, [este tutorial em vídeo](https://www.youtube.com/watch?v=Bd_XzBw5V_U) oferece uma excelente demonstração prática.
 
-A presentation of an example: [8177 Vector 2023 Robot](https://docs.google.com/presentation/d/1IwjXvcAZFVcEUFSZZDHlTYlLA_5PbI3wPJzbfAOTz8Y/edit?usp=sharing)
+Apresentação de exemplo: [Robô 2023 da Equipe 8177 Vector](https://docs.google.com/presentation/d/1IwjXvcAZFVcEUFSZZDHlTYlLA_5PbI3wPJzbfAOTz8Y/edit?usp=sharing)

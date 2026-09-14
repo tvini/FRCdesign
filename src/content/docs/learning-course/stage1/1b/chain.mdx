@@ -1,54 +1,52 @@
-﻿---
-title: Chain and Sprocket Basics
-description: Introduction to chain and sprockets
+---
+title: Fundamentos de Correntes e Sprockets
+description: Introdução a correntes e sprockets
 ---
 
+## Fundamentos de Correntes e Sprockets (Chain & Sprockets)
 
-## Chain and Sprocket Basics
+Transmissões por corrente de rolos (roller chain) e sprockets são muito semelhantes às transmissões por correia e polia. Elas consistem em dois componentes principais: uma corrente, que é uma série de elos (links) interligados, e sprockets (rodas dentadas), que se acoplam à corrente. À medida que os sprockets giram, eles tracionam a corrente, transmitindo movimento e potência de um eixo para o outro. Bicicletas são um objeto do dia a dia que usa corrente para transmitir potência. Correntes são excelentes para transmitir forças elevadas em distâncias maiores.
 
-Roller chain and sprocket drives are very similar to belt and pulley transmissions. They consist of two main components: a chain, which is a series of interconnected links, and sprockets, which are toothed wheels that mesh with the chain. As the sprockets rotate, they engage with the chain, causing it to move and transmit power from one shaft to another. Bikes are an everyday object that use chain to transmit power. Chains excel at transmitting high force over long distances.
+<ContentFigure src="../img/1b/chain/chain-animation.webp" gif width="40%" alt="Animação de corrente e sprocket">Uma animação simples de corrente e sprocket. Observe que os sprockets giram no mesmo sentido.</ContentFigure>
 
-<ContentFigure src="../img/1b/chain/chain-animation.webp" gif width="40%" alt="Chain and sprocket animation">A simple animation of chain and sprocket. Notice that the sprockets will spin in the same direction.</ContentFigure>
+Para alterar o torque e a velocidade da entrada para a saída, sprockets de tamanhos diferentes devem ser usados. A vantagem mecânica para transmissões por corrente, semelhante às engrenagens e polias, é baseada na razão entre o número de dentes do sprocket de saída e o número de dentes do sprocket de entrada. Assim como nas polias, os sprockets giram na mesma direção.
 
-In order to change the torque and speed from the input to the output, different sized sprockets must be used. The mechanical advantage for chain transmissions, similar to gears and pulleys, is based on the ratio between the number of teeth of the output sprocket to the number of teeth of the input sprocket. Similar to pulleys, the sprockets will spin in the same direction.
+### Tipos de Corrente
 
-### Types of Chain
+Os dois tamanhos de corrente de rolos comumente usados na FRC são correntes #25 e #35, com passos (pitch) de 0,25" e 0,375", respectivamente. Para correntes, o **passo (pitch)** é o comprimento de cada elo. O *comprimento primitivo (pitch length)* da corrente é o passo (0,25" ou 0,375") multiplicado pelo número de elos (links). Procure usar um número par de elos para evitar o uso de um "half-link" (meio-elo), que é mecanicamente mais fraco que um elo completo. Isso significa que o pitch length da sua corrente deve ser um múltiplo de 0,5".
 
-The two commonly used sizes of roller chain in FRC is #25 and #35 chain, with 0.25" and 0.375" pitch respectively. For chain, the **pitch** is the length of each link. The *pitch length* of the chain is then the pitch (0.25" or 0.375") multiplied by the number of links. Try to use an even number of links to avoid the use of a "half-link" which is weaker than a full-link. This means your chain pitch length should be a multiple of 0.5".
-
-Additionally, the **chain clearance diameter** describes the diameter of the sprocket with the chain wrapped around it. The following equation can be used:
+Além disso, o **diâmetro de folga da corrente (chain clearance diameter)** descreve o diâmetro do sprocket com a corrente enrolada em torno dele. A seguinte equação pode ser utilizada:
 
 :::center
 **`Clearance Diameter = PD + Pitch`**
 :::
 
-Below is an illustration of the pitch, pitch diameter, outside diameter, and chain clearance diameter of a sprocket.
+Abaixo está uma ilustração do passo (pitch), diâmetro primitivo (pitch diameter), diâmetro externo (outside diameter) e diâmetro de folga da corrente de um sprocket.
 
-<ContentFigure src="../img/1b/chain/chain-diagram.webp" alt="Chain sprocket diagram" width="70%">Illustration of chain sprocket diameter measures. (Image source: WCP)</ContentFigure>
+<ContentFigure src="../img/1b/chain/chain-diagram.webp" alt="Diagrama de sprocket de corrente" width="70%">Ilustração das medidas de diâmetro de um sprocket de corrente. (Fonte da imagem: WCP)</ContentFigure>
 
-In FRC, #25 chain is most commonly used as it is strong yet relatively lightweight. #35 is sometimes used on very high torque transmissions, but it is heavy and bulky.
+Na FRC, a corrente #25 é a mais comum, pois é forte e ao mesmo tempo relativamente leve. A corrente #35 é às vezes usada em transmissões de torque muito elevado, mas é mais pesada e volumosa.
 
-### Modeling Chain Transmissions
+### Modelando Transmissões por Corrente
 
-The modeling workflow for chain is the exact same as for belts in the previous page. You will need the pitch diameter of the two sprockets and a correct center-to-center distance.
+O fluxo de trabalho de modelagem para correntes é exatamente o mesmo que para correias na página anterior. Você precisará do pitch diameter dos dois sprockets e da distância correta de centro a centro (C-C).
 
-Utilize the [`Origin Cube` Featurescript](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/2b321cb91b74224b9c14b433) function to dimension the pitch diameters of two sprockets on points you want connected with a chain.
+Utilize as funções do Featurescript [`Origin Cube`](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/2b321cb91b74224b9c14b433) para cotar os pitch diameters de dois sprockets nos pontos que deseja conectar com uma corrente.
 
-* `#SprocketPD_25(n)`: Calculates the pitch diameter of a #25 pitch sprocket with `n` teeth.
-    * Ex: `#SprocketPD_25(16)` returns the pitch diameter of an 16T #25 pitch sprocket.
+* `#SprocketPD_25(n)`: Calcula o pitch diameter de um sprocket de passo #25 com `n` dentes.
+    * Ex: `#SprocketPD_25(16)` retorna o pitch diameter de um sprocket #25 de 16T.
 
-Generate a 3D model of the chain with the same [`Belt & Chain Gen` Featurescript](https://cad.onshape.com/documents/53c0b14cad92676c14e04e97/w/1271c254ccb0a79563210195/e/7394c4a86d8d6c35c9a12041) that you used for belts, check the chain link count that it generates, then  go back to the sketch and dimension your center-to-center distance using that chain link count to get the correct center-to-center distance. Use the following Origin Cube function:
+Gere o modelo 3D da corrente com o mesmo Featurescript [`Belt & Chain Gen`](https://cad.onshape.com/documents/53c0b14cad92676c14e04e97/w/1271c254ccb0a79563210195/e/7394c4a86d8d6c35c9a12041) usado para correias, verifique a contagem de elos que ele gerou e, em seguida, retorne ao esboço para cotar a distância de centro a centro usando essa contagem de elos para obter o espaçamento exato. Use a seguinte função do Origin Cube:
 
-* `#ChainCTC_25(n1, n2, n3)`: Calculates the c-c distance of a `n1` link #25 pitch chain connecting sprocket with tooth count `n2` and sprocket with tooth count `n3`.
-    * Ex: `#ChainCTC_25(80,16,48)` returns the center distance for an 80 link #25 pitch chain connecting a 16T sprocket to a 48T sprocket.
+* `#ChainCTC_25(n1, n2, n3)`: Calcula a distância C-C de uma corrente de passo #25 com `n1` elos conectando um sprocket de contagem de dentes `n2` a um sprocket de contagem de dentes `n3`.
+    * Ex: `#ChainCTC_25(80,16,48)` retorna a distância entre centros para uma corrente #25 de 80 elos conectando um sprocket de 16T a um sprocket de 48T.
 
+### Esticadores de Corrente (Chain Tensioners)
 
-### Chain Tensioners
+Uma dificuldade ao projetar com correntes é que elas sofrem desgaste/alongamento com o uso ("esticam"). Isso significa que a distância entre cada elo aumenta ligeiramente, tornando a corrente como um todo mais frouxa de forma perceptível. Correntes frouxas podem ser difíceis de corrigir se a transmissão não for projetada prevendo esticamento de corrente. Embora você ainda não vá aprender métodos específicos de tensionamento nesta fase, mantenha esse conceito em mente.
 
-One difficulty when designing with chain is that it will physically stretch as it is used. This means the distance between each link will slightly increase, making the overall chain longer in a non-insignificant way. Loose chain can be difficult to fix if the chain transmission is not designed with chain tensioning in mind. Although you will not be learning about chain tensioning methods quite yet, you should keep this idea in the back of your mind.
+No Stage 2, diferentes métodos de tensionamento de corrente serão introduzidos no contexto de diversos tipos de mecanismos de robô. A [página do Design Handbook](/design-handbook/) também se aprofunda nesse assunto.
 
-In Stage 2, different chain tensioning methods are introduced in the context of different types of robot mechanisms. The [Design Handbook page](/design-handbook/) also dives deeper into this topic.
-
-<Aside type="example" title="Example of Chain Tensioning">
-<ContentFigure src="../img/1b/chain/turnbuckle.webp" alt="Turnbuckle chain tensioner" width="40%">A "turnbuckle" or "inline" chain tensioner. The turnbuckle acts as a variable-length link in the chain that can be adjusted to keep the chain tight. (Photo Credit: FRC 1538)</ContentFigure>
+<Aside type="example" title="Exemplo de Tensionamento de Corrente">
+<ContentFigure src="../img/1b/chain/turnbuckle.webp" alt="Tensionador de corrente esticador" width="40%">Um esticador de corrente do tipo "turnbuckle" (ou inline). O turnbuckle atua como um elo de comprimento ajustável na corrente, que pode ser regulado para mantê-la esticada. (Crédito da foto: FRC 1538)</ContentFigure>
 </Aside>

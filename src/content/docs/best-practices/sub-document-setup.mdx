@@ -1,41 +1,40 @@
-﻿---
-title: Sub-Document Setup
-description: The best practices to follow with organizing your mechanism documents in Onshape.
+---
+title: Configuração de Sub-Documentos
+description: Melhores práticas para organizar os documentos de mecanismos e subsistemas no Onshape.
 ---
 
+Cada documento de subsistema deve conter pelo menos um Part Studio e uma montagem (Assembly) associada.
 
-Each subsystem document should have at least one part studio and one assembly associated with it.
-
-The Stage 2A Basic Shooter is a simple subsystem with no moving parts. This contains only a part studio and a rigid assembly.
+O Shooter Básico da Etapa 2A é um exemplo de subsistema simples sem graus de liberdade móveis adicionais. Ele contém apenas um Part Studio e uma montagem rígida.
 
 <LinkButton href="https://cad.onshape.com/documents/8f093edaad44b5702e92ddd9/w/fefbb7a7af099fc237c1513a/e/84d7075719d34c35b3be9410" center>
-  Stage 2A - Basic Shooter
+  Etapa 2A - Shooter Básico
 </LinkButton>
 
 <ContentFigure src="./img/shooterAssembly.webp" />
 
-### Subsystems with Multiple Degrees of Freedom
+### Subsistemas com Múltiplos Graus de Liberdade
 
-You may want to split subsystems with multiple degrees of freedom into multiple rigid assemblies. Each separate moving part of the subsystem should have a 'rigid' assembly (no degrees of freedom allowed for any part), while the top-level subsystem assembly only defines the motion between them.
+Quando um subsistema possui múltiplos graus de liberdade (partes que se movem de forma independente), a recomendação é dividir as partes móveis em montagens rígidas separadas. Cada conjunto que se move como um corpo único deve formar uma montagem "rígida" (sem folgas nem relações móveis internas), enquanto a montagem de nível superior do subsistema apenas define os mates de movimento (revolute, slider, etc.) entre esses blocos.
 
 <Aside type="note">
-A rigid assembly, when inserted, is treated as a solid body with no mates calculated. It decreases load time in top-level assemblies greatly. You will learn how to integrate the origin cube into this system for easy parametric mates in [assembly best practices](../assembly-setup/).
+Uma montagem rígida, ao ser inserida em outra, é tratada como um corpo único sem necessidade de recalcular relações internas. Isso acelera imensamente o tempo de carregamento das montagens superiores. No guia de [boas práticas de montagem](../assembly-setup/), você aprenderá a usar o cubo de origem (*origin cube*) para fixações paramétricas instantâneas.
 </Aside>
 
-For example, you could split an elevator document into one part studio and corresponding rigid assembly for each stage. The top-level elevator assembly would thus include each of the stage subassemblies within it and the slider mates.
+Por exemplo, em um elevador de múltiplos estágios, pode-se criar uma submontagem rígida para o estágio estático, uma para o primeiro estágio e uma para o carrinho (carriage). A montagem superior do elevador apenas une essas três submontagens usando relações deslizantes (*slider mates*).
 
-The Stage 2C Slapdown Intake is a subsystem with a static portion and a pivoting portion. Functionally, this contains a part studio, a static assembly for the gearboxes and pivot, a rigid assembly for the arms and rollers, and a top-level assembly combining the two subassemblies.
+O Intake Slapdown da Etapa 2C é um subsistema composto por uma parte estática e uma parte articulada (pivô). Estruturalmente, ele contém um Part Studio, uma montagem estática para as redutoras e base do pivô, uma montagem rígida para os braços móveis e roletes, e uma montagem superior combinando ambas com uma junta rotativa (*revolute mate*).
 
 <LinkButton href="https://cad.onshape.com/documents/17302d787e092ce11015f7ee/w/f7cf5c02c7655f0328a3a74a/e/f1456325e0175c4c081008c2" center>
-  Stage 2C - Slapdown Intake
+  Etapa 2C - Intake Slapdown
 </LinkButton>
 
 <ContentFigure src="./img/subassembly.webp" />
 
-The Stage 2D Cascade Elevator is a subsystem with a static portion and two subassemblies that slide linearly. This contains a part studio, a static frame/gearbox assembly, assemblies for the first stage and carriage, and a top-level assembly combining the 3 subassemblies with slider mates.
+O Elevador em Cascata da Etapa 2D possui uma parte estática e duas partes que deslizam linearmente. Ele reúne um Part Studio, uma montagem estática da estrutura e redutora, montagens para o primeiro estágio e carrinho, e uma montagem superior que une as 3 partes com relações de deslizamento.
 
 <LinkButton href="https://cad.onshape.com/documents/da5aef9e6bf6e869f4a51a45/w/5a0f4a3426876db0ba214277/e/f8fd8133abcb12800eacb5d1" center>
-  Stage 2D Cascade Elevator
+  Etapa 2D - Elevador em Cascata
 </LinkButton>
 
 <ContentFigure src="./img/elevatorAssembly.webp" />

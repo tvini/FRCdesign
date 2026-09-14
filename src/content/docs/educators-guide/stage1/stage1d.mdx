@@ -1,109 +1,107 @@
 ---
-title: Stage 1D - Design Methodology
-description: Educator's guide for teaching Stage 1D
+title: Estágio 1D - Metodologia de Projeto
+description: Guia do educador para o ensino do Estágio 1D
 ---
 
-Stage 1D introduces students to top-down design methodology through creating a swerve drivebase. This stage represents a significant shift from modeling individual mechanisms to understanding holistic robot design principles.
+O Estágio 1D introduz os estudantes à metodologia de projeto top-down (de cima para baixo) por meio da criação de um chassi swerve completo. Esse estágio representa uma mudança fundamental: da modelagem de peças ou mecanismos isolados para a compreensão dos princípios de arquitetura global de robôs.
 
-## Learning Objectives
+## Objetivos de Aprendizado
 
-Students who complete Stage 1D will:
-- Understand and apply top-down design methodology using layout sketches
-- Learn to use layout sketches to drive parametric part design
-- Practice integrating COTS components (swerve modules) into a larger assembly
-- Develop systematic approaches to complex mechanism design
-- Learn proper origin placement and reference geometry techniques
+Os estudantes que completarem o Estágio 1D irão:
+- Compreender e aplicar a metodologia top-down utilizando sketches de layout (layout sketches)
+- Aprender a utilizar sketches de layout como guia geométrico paramétrico para a modelagem de peças
+- Praticar a integração de componentes COTS complexos (módulos swerve) em uma montagem de grande porte
+- Desenvolver abordagens sistemáticas e organizadas para o projeto de mecanismos complexos
+- Dominar o posicionamento consistente da origem e o uso de geometrias de referência
 
-## Teaching Structure
+## Estrutura de Ensino
 
-### Design Process Introduction
+### Introdução ao Processo de Projeto
 
-Begin with a thorough introduction to top-down design methodology:
-1. Explain the concept of layout sketches and their importance
-2. Demonstrate how layout sketches drive part geometry
-3. Show examples of good vs poor design intent capture
-4. Review the importance of consistent origin placement
+Inicie com uma apresentação abrangente sobre a metodologia top-down:
+1. Explique o conceito de sketches de layout e por que são o coração do projeto do robô
+2. Demonstre como um layout sketch direciona automaticamente a geometria de múltiplos tubos e placas
+3. Mostre exemplos reais de captura de intenção de projeto eficaz versus abordagens frágeis
+4. Reforce a importância crítica de posicionar a origem no mesmo local de referência em todos os subsistemas
 
-### Project Phases
+### Fases do Projeto
 
-1. **Layout Sketching**
-   - Creating reference geometry
-   - Understanding drive layout requirements
-   - Practicing parametric dimensioning
+1. **Sketch de Layout**
+   - Criação de geometrias de referência e eixos de simetria
+   - Definição dos requisitos de perímetro do chassi e posição dos módulos
+   - Aplicação de cotas paramétricas e restrições geométricas
 
-2. **Part Modeling**
-   - Deriving geometry from layout sketches
-   - Creating frame components
-   - Modeling the bellypan
+2. **Modelagem das Peças**
+   - Derivação de perfis a partir do layout sketch
+   - Criação dos tubos da estrutura do chassi
+   - Modelagem da chapa de piso (bellypan) com furação padronizada
 
-3. **Assembly Creation**
-   - Organizing assembly structure
-   - Integrating COTS components
-   - Proper constraint techniques
+3. **Criação da Montagem**
+   - Estruturação lógica e submontagens
+   - Importação e fixação de componentes COTS
+   - Aplicação correta de conectores de montagem (mates)
 
-## Teaching Tips
+## Dicas para o Educador
 
-### Key Concepts to Emphasize
+### Conceitos-Chave para Enfatizar
 
-**Layout Sketches**
-- Importance of fully defined sketches
-- Using construction geometry effectively
-- Creating parametric relationships
-- Proper dimension placement
+**Sketches de Layout**
+- Importância absoluta de sketches 100% definidos (completamente pretos)
+- Uso intensivo de linhas e geometrias de construção (construction geometry)
+- Estabelecimento de relações paramétricas (por exemplo, fórmulas ou igualdades)
+- Posicionamento claro e limpo das cotas dimensionais
 
-**Origin Placement**
-- Consistent origin location across documents
-- Using the Origin Cube properly
-- Importance for robot code integration
+**Posicionamento da Origem**
+- Manter a origem consistente em todos os documentos e subsistemas
+- Uso correto do Origin Cube
+- Por que a origem do CAD é fundamental para a programação autônoma e odometria do robô
 
-**Design Intent**
-- Making designs parametric
-- Capturing mechanical relationships
-- Planning for future modifications
+**Intenção de Projeto (Design Intent)**
+- Garantir que o modelo seja flexível a alterações dimensionais
+- Capturar relações mecânicas funcionais
+- Projetar pensando em possíveis revisões futuras sem quebrar a árvore de features
 
-### Common Challenges
+### Dificuldades Típicas
 
-Watch for these typical stumbling points:
-- Over-complicated layout sketches
-- Incorrect origin placement
-- Non-parametric modeling approaches
-- Disorganized assembly structure
+Observe e oriente os seguintes pontos críticos:
+- Layout sketches excessivamente poluídos ou complexos demais
+- Origem posicionada em cantos arbitrários em vez do centro do robô
+- Peças desenhadas com medidas fixas em vez de vinculadas ao sketch de layout
+- Montagens desorganizadas sem uso de submontagens
 
-### Assessment Strategies
+### Estratégias de Avaliação
 
-Monitor understanding through:
-- Quality of layout sketches
-- Parametric nature of models
-- Assembly organization
-- Design intent capture
-- Ability to modify designs efficiently (How hard is it to change frame perimeter)
+Verifique o domínio dos conceitos analisando:
+- A clareza e robustez dos sketches de layout
+- O comportamento paramétrico do modelo (ao alterar a largura do chassi de 28" para 26", tudo se ajusta sem erros?)
+- A organização e hierarquia da montagem
+- A capacidade do aluno de explicar e justificar sua estrutura de modelagem
 
-## Troubleshooting Guide
+## Guia de Resolução de Problemas
 
-Common Issues and Solutions:
-- Layout sketch breaks when modified: Review constraint relationships
-- Parts don't update with layout changes: Check derived geometry setup
-- Assembly constraints fail: Review mating scheme and origin placement
-- Poor performance: Check assembly organization and feature tree structure
+Problemas Comuns e Como Corrigir:
+- O layout sketch quebra ao alterar uma medida: Revise as relações de restrição geométrica conflitantes
+- As peças não atualizam com mudanças no layout: Verifique a amarração geométrica com o sketch mestre
+- Conectores de montagem (mates) quebram na montagem: Revise o esquema de fixação e a consistência da origem
+- Lentidão do modelo: Verifique a quantidade excessiva de features em um único Part Studio ou submontagens faltantes
 
-## Success Criteria
+## Critérios de Sucesso
 
-Students demonstrate mastery when they can:
-- Create clear, parametric layout sketches
-- Model parts that update properly with layout changes
-- Organize assemblies efficiently
-- Explain their design decisions
-- Make modifications without breaking relationships
+Os alunos demonstram domínio quando conseguem:
+- Criar sketches de layout paramétricos, elegantes e totalmente definidos
+- Modelar peças estruturais que se adaptam automaticamente a revisões dimensionais
+- Organizar montagens com alto nível de legibilidade
+- Modificar o perímetro do robô sem quebrar nenhuma operação anterior
 
-## Implementation Tips
+## Dicas de Implementação
 
-**Document Setup**
-- Create template files with proper origin setup
-- Establish naming conventions
-- Set up standard folder structures
+**Configuração do Documento**
+- Crie modelos de arquivo padrão com o setup correto de origem
+- Estabeleça convenções de nomenclatura para a equipe
+- Defina uma estrutura padrão de pastas no Onshape
 
-**Workflow Management**
-- Break tasks into manageable chunks
-- Use checkpoints to verify progress
+**Gerenciamento do Fluxo**
+- Divida o projeto em marcos de entrega intermediários
+- Estabeleça pontos de controle para checagem com o mentor antes de passar para a montagem
 
-Top-down design is core to FRC Design and CAD, these fundamentals will be expanded upon later in the course.
+O projeto top-down é a espinha dorsal do design moderno na FRC, e esses fundamentos serão aprofundados nos estágios subsequentes.

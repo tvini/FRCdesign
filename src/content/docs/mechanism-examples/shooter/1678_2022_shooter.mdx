@@ -1,50 +1,47 @@
-﻿---
-title: 1678's Rapid React Shooter
-description: A ball shooter with rack gear actuated hood
+---
+title: Shooter da 1678 no Rapid React
+description: Um shooter de bolas com capô ajustável acionado por cremalheira
 socialCard:
   image: ./img/1678/1678_2022_shooter.webp
 ---
 
-
-<ContentFigure src="./img/1678/1678_2022_shooter.webp" alt="Citrus Shooter" width="65%">Integrated hooded shooter and indexer for simplicity. This design is optimized to shoot large balls as accurately and consistently as possible.</ContentFigure>
+<ContentFigure src="./img/1678/1678_2022_shooter.webp" alt="Shooter da Citrus Circuits" width="65%">Shooter integrado com capô curvado (hood) e indexer para máxima simplicidade. Esse design foi otimizado para disparar bolas grandes com a maior precisão e repetibilidade possíveis.</ContentFigure>
 
 ### Links
 
 <LinkButton href="https://cad.onshape.com/documents/5171f477c0b2b518f0252641/w/cbf30882b3a7cbd588a0ad5a/e/a8d11c6d37daaefe163e2d01" center>
-  CAD Document
+  Documento CAD no Onshape
 </LinkButton>
 
-## Behind the Design
+## Por Dentro do Projeto
 
-Hooded ball shooters all follow the same fundamental design principles, in an effort to produce the most consistent and accurate shots possible. These can be broken down to the following ideas:
+Lançadores com capô (hooded ball shooters) compartilham os mesmos princípios fundamentais de projeto para produzir trajetórias idênticas e precisas a cada disparo. Esses pilares podem ser resumidos da seguinte forma:
 
-- Maximize contact time with the game piece you are shooting. This benefits shot consistency as it gives the gamepiece more time to match the speed of the flywheels.
-- Ensure your shooter can aim with adequate precision.
-- Ensure your flywheels have enough mass to hold a consistent speed throughout the shot.
-- *In some cases,* spin can be beneficial.
+- Maximize o tempo e a distância de contato com a peça de jogo durante o lançamento. Isso aumenta drasticamente a consistência do tiro, dando tempo para a bola acelerar até atingir a velocidade periférica da flywheel.
+- Garanta que o mecanismo de mira e inclinação do capô tenha rigidez e resolução angular precisa.
+- Garanta que os volantes de inércia (flywheels) tenham massa suficiente para manter velocidade constante durante todo o tempo de passagem da bola.
+- *Em certos cenários,* o efeito de rotação (spin) pode ser extremamente benéfico.
 
-Learn more about the 2022 game: [Rapid React Game Reveal](https://www.youtube.com/watch?v=LgniEjI9cCM)
+Saiba mais sobre a temporada de 2022: [Anúncio oficial do Rapid React](https://www.youtube.com/watch?v=LgniEjI9cCM)
 
-<ContentFigure src="./img/1678/1678backrollers.webp" alt="1678 Backrollers" width="40%" captionPosition="right">
-  Hooded shooters in 2022 featured backrollers for one main purpose: Controlling backspin. A unique aspect of the 2022 game was the high goal that robots were required to shoot into. The geometry of the goal led many teams to find that their shots bounced out with high backspin. As a remedy, teams added backrollers to their shooters that were geared to spin in the opposite direction as the main flywheel.
+<ContentFigure src="./img/1678/1678backrollers.webp" alt="Backrollers da 1678" width="40%" captionPosition="right">
+  Os shooters de 2022 contavam com roletes superiores (backrollers) com uma função principal: controlar o efeito de rotação reversa (backspin). Um aspecto particular do jogo era o cesto do alvo alto (Upper Hub): com efeito backspin excessivo, as bolas batiam no fundo e quicavam para fora. Como solução, as equipes instalaram backrollers superiores configurados para girar na direção oposta à roda motriz principal (flywheel).
 
-  This reduced backspin on the balls to a manageable amount, but in some cases left just a little bit. This is due to the aerodynamics of spinning balls; thanks to the [Magnus effect](https://youtu.be/T9xsTO6ujqM?feature=shared&t=594), backspin on rapid react balls helped them arc better into the high goal, and increased their stability in flight for long distance shots.
+  Isso reduzia o backspin para níveis controláveis, mantendo uma quantidade ideal de giro. Graças à aerodinâmica e ao [Efeito Magnus](https://youtu.be/T9xsTO6ujqM?feature=shared&t=594), um nível controlado de backspin ajuda a bola a planar com trajetória parabólica estável em tiros de longa distância.
 </ContentFigure>
 
+<ContentFigure src="./img/1678/1678 flywheel.webp" alt="Flywheel da 1678" width="35%" captionPosition="left">
+  As rodas de lançamento de shooters costumam usar rodas de poliuretano maciço [TTB Urethane Wheels](https://www.thethriftybot.com/products/4-solid-urethane-wheel-1-2-hex-bore-45a-durometer) ou rodas [Stealth Wheels da AndyMark](https://www.andymark.com/products/stealth-wheels-options). É imperativo que o conjunto giratório tenha massa suficiente para que a rotação não caia bruscamente com a compressão da bola. Aumentar a massa da flywheel eleva seu [momento de inércia](https://www.youtube.com/watch?v=CHQOctEvtTY), estabilizando a velocidade de saída.
 
-<ContentFigure src="./img/1678/1678 flywheel.webp" alt="1678 Flywheel" width="35%" captionPosition="left">
-  Hooded shooter flywheels typically use [TTB Urethane Wheels](https://www.thethriftybot.com/products/4-solid-urethane-wheel-1-2-hex-bore-45a-durometer) or [Stealth Wheels](https://www.andymark.com/products/stealth-wheels-options). It is important that your flywheels maintain enough mass to hold a constant speed throughout the shot, to ensure consistent shots. Increasing the mass of your flywheel will increase its [moment of inertia](https://www.youtube.com/watch?v=CHQOctEvtTY), which in turn will increase its consistency.
-
-  Games in which you can hold and shoot multiple pieces at a time such as Rapid React and [Infinite Recharge](https://www.youtube.com/watch?v=gmiYWTmFRVE) especially necessitate massed flywheels. The 1678 shooter in 2022 utilized two SDS flywheels for its mass.
+  Jogos onde o robô dispara múltiplas bolas em sequência rápida (como Rapid React e [Infinite Recharge](https://www.youtube.com/watch?v=gmiYWTmFRVE)) tornam os volantes de inércia com alta massa indispensáveis. O shooter da 1678 em 2022 adicionou dois discos maciços de aço da SDS no eixo da flywheel.
 </ContentFigure>
 
-
-<ContentFigure src="./img/1678/1678pivot.webp" alt="1678 Pivot" width="35%" captionPosition="right">
-  The most common method of pivoting a hooded shooter is a rack and pinion. 1678 utilized a 3DP rack integrated with their shooter's "hood," and a smaller gear that "climbed" the hood gear. This simple design allows for precise actuation of the hood to a wide range of angles.
+<ContentFigure src="./img/1678/1678pivot.webp" alt="Pivô da 1678" width="35%" captionPosition="right">
+  O método mais comum e robusto para articular o capô de um shooter é o sistema de cremalheira e pinhão (rack and pinion). A equipe 1678 utilizou uma cremalheira curva impressa em 3D integrada à lateral do capô ("hood"), com uma engrenagem menor que "escala" o setor dentado. Esse arranjo simples proporciona controle angular suave e preciso em uma grande faixa de inclinação.
 </ContentFigure>
 
 ---
 
-## See this Shooter in Action
+## Veja este Shooter em Ação
 
 <ContentFigure src="ijiDMVvGc_E"/>

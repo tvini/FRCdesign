@@ -1,73 +1,70 @@
-﻿---
-title: Belt and Pulley Basics
-description: Introduction to belts and pulleys
+---
+title: Fundamentos de Correias e Polias
+description: Introdução a correias e polias
 ---
 
+## Fundamentos de Correias e Polias (Belts & Pulleys)
 
-## Belts and Pulley Basics
+Transmissões por correias sincronizadoras (timing belts) e polias são sistemas mecânicos usados para transmitir movimento e potência entre eixos rotativos através de correias flexíveis e polias dentadas. O sistema consiste em dois componentes principais: a correia, que é um laço contínuo flexível feito de material como borracha, e as polias, que são rodas com ranhuras/dentes em torno das quais a correia se apoia. Quando uma polia gira, ela aciona a correia, que por sua vez aciona a outra polia, transferindo movimento e potência de um eixo para o outro.
 
-Timing belt and pulley drives are mechanical systems used to transmit motion and power between rotating shafts using flexible belts and pulleys. The system consists of two main components: the belt, which is a flexible loop made of a material like rubber, and the pulleys, which are wheels with grooves that the belt wraps around. As one pulley rotates, it drives the belt, which in turn drives the other pulley, transferring motion and power from one shaft to another.
+<ContentFigure src="../img/1b/belt/belt-and-pulley.webp" alt="Transmissão por correia e polia" width="50%">Uma transmissão por correia e polia. (Fonte da imagem: [ReCalc](https://www.reca.lc/belts))</ContentFigure>
 
+Para alterar o torque e a velocidade da entrada para a saída, polias de tamanhos diferentes devem ser usadas. A vantagem mecânica para transmissões por correia, semelhante às engrenagens, é baseada na razão entre o número de dentes da polia de saída e o número de dentes da polia de entrada. Observe que, diferentemente das engrenagens, as polias conectadas giram no mesmo sentido.
 
-<ContentFigure src="../img/1b/belt/belt-and-pulley.webp" alt="Belt and pulley transmission" width="50%">A belt and pulley transmission. (Image Source: [ReCalc](https://www.reca.lc/belts))</ContentFigure>
+### Tipos de Correia
 
-In order to change the torque and speed from the input to the output, different sized pulleys must be used. The mechanical advantage for belt transmissions, similar to gears, is based on the ratio between the number of teeth of the output pulley to the number of teeth of the input pulley. Note that unlike gears, pulleys will spin in the same direction.
+Assim como as engrenagens, as correias também possuem um passo (pitch). O passo é definido como a distância entre cada dente da correia. Na FRC, esse passo é tipicamente de 5 mm (HTD / GT2 / RT25). O *comprimento primitivo (pitch length)* da correia é então o passo (5 mm) multiplicado pelo número de dentes. As correias sempre possuem um número inteiro de dentes, portanto o pitch length será um múltiplo de 5 mm.
 
-### Types of Belt
+Por exemplo, uma correia de 80T terá um comprimento de 400 mm.
 
-Like gears, belts also have a pitch. The pitch is defined as the distance between each tooth on the belt. In FRC, this is typically 5 mm. The *pitch length* of the belt is then the pitch (5 mm) multiplied by the number of teeth. Belts will always have an integer number of teeth so the pitch length will be a multiple of 5mm.
+As correias também estão disponíveis em várias larguras. Na FRC, você normalmente usará correias de 9 mm ou 15 mm de largura.
 
-For example, an 80T belt will have a length of 400 mm.
+### Modelando Transmissões por Correia
 
-Belts also come in various widths. In FRC, you will typically use either 9 mm or 15 mm wide belts.
-
-### Modeling Belt Transmissions
-
-To model belts, you will need two featurescripts, the [`Origin Cube` Featurescript](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/2b321cb91b74224b9c14b433) and the [`Belt & Chain Gen` Featurescript](https://cad.onshape.com/documents/53c0b14cad92676c14e04e97/w/1271c254ccb0a79563210195/e/7394c4a86d8d6c35c9a12041). In order for the `Belt & Chain Gen` Featurescript to create the belt, it needs the pitch diameter of at least two pulleys or sprockets and a correct center to center distance, both of which will use the functions from the `Origin Cube` featurescript.
+Para modelar correias, você precisará de dois Featurescripts: o Featurescript [`Origin Cube`](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/2b321cb91b74224b9c14b433) e o Featurescript [`Belt & Chain Gen`](https://cad.onshape.com/documents/53c0b14cad92676c14e04e97/w/1271c254ccb0a79563210195/e/7394c4a86d8d6c35c9a12041). Para que o Featurescript `Belt & Chain Gen` crie a correia, ele precisa do pitch diameter de pelo menos duas polias ou sprockets e da distância correta de centro a centro (C-C), ambos calculados utilizando funções do Featurescript `Origin Cube`.
 
 <Aside type="note">
-The Origin Cube also has additional functionality for robot and mechanism assemblies that will be discussed in later stages. You can also check out these practices on the [assembly best practices page](/best-practices/assembly-setup). The Origin Cube feature must be **the first feature in all part studios** from here on out in order for the functions to be available.
+O Origin Cube também possui funcionalidades adicionais para montagens de robôs e mecanismos que serão discutidas em etapas posteriores. Você também pode conferir essas práticas na página de [melhores práticas de montagem](/best-practices/assembly-setup). A feature Origin Cube deve ser **a primeira feature em todos os part studios** daqui em diante para que suas funções fiquem disponíveis.
 </Aside>
 
-1. Insert the `Origin Cube` feature using the `Origin Cube` Featurescript. The exercises in 1B do not require the cube generated by the feature so we will uncheck it.
+1. Insira a feature `Origin Cube` usando o Featurescript correspondente. Os exercícios do Stage 1B não necessitam do cubo visual gerado pela feature, por isso podemos desmarcá-lo.
 
-<ContentFigure src="../img/1b/belt/origin-cube.webp" alt="Origin Cube feature options">Origin Cube Feature Options</ContentFigure>
+<ContentFigure src="../img/1b/belt/origin-cube.webp" alt="Opções da feature Origin Cube">Opções da Feature Origin Cube</ContentFigure>
 
-2. In your layout sketch, draw two circles to represent pulley pitch diameters. Dimension the circles using the `#PulleyPD_5mm(# of teeth)` function.
+2. No seu layout sketch, desenhe dois círculos para representar os pitch diameters das polias. Cote os círculos usando a função `#PulleyPD_5mm(# de dentes)`.
 
-    - `#PulleyPD_5mm(n)`: Calculates the pitch diameter of a 5 mm pitch pulley with `n` teeth.
-    - Ex: `#PulleyPD_5mm(18)` returns the pitch diameter of an 18T 5mm pitch pulley.
+    - `#PulleyPD_5mm(n)`: Calcula o pitch diameter de uma polia de passo 5 mm com `n` dentes.
+    - Ex: `#PulleyPD_5mm(18)` retorna o pitch diameter de uma polia de 18T com passo de 5 mm.
 
     <Aside type="tip">
-    This is typically done in your layout sketch because distances between shafts connected by belts will be driven by the center-to-center distance for the closest belt size.
+    Isso é tipicamente feito no seu layout sketch porque as distâncias entre eixos conectados por correias serão definidas pela distância entre centros do tamanho de correia COTS mais próximo.
     </Aside>
 
-
-3. Draw the center line to connect the pulleys and set your target c-c distance. In this example, our target c-c distance is 5". Make sure all sketch entities are construction. Optionally connect the circles with tangent lines. Confirm the sketch.
+3. Desenhe a linha de centro conectando as polias e defina sua distância C-C alvo. Neste exemplo, nossa distância C-C alvo é de 5". Certifique-se de que todas as entidades do esboço sejam de construção. Opcionalmente, conecte os círculos com linhas tangentes. Confirme o sketch.
 
 <ContentFigure src="oPpArFaYajI" />
 
-4. Use the `Belt & Chain Gen` Featurescript to generate a 3D model of the belt. The reference plane mate connector sets the location of the centerline of the belt. You can modify the selected mate connector to offset the location of the belt. You can also choose to generate belt teeth, but this will significantly increase rebuild time and is not recommended.
+4. Use o Featurescript `Belt & Chain Gen` para gerar um modelo 3D da correia. O mate connector de plano de referência define a posição da linha de centro da correia. Você pode modificar o mate connector selecionado para deslocar (offset) a localização da correia. Você também pode optar por gerar os dentes da correia, mas isso aumentará significativamente o tempo de reconstrução do CAD e não é recomendado.
 
 <ContentFigure src="jvtz9Y9FEGo" />
 
-5. The `Belt & Chain Gen` Featurescript will return the closest whole number belt size and the pitch length. Assuming that you only stock belts in 5T increments, the next closest belt size is 80T.
+5. O Featurescript `Belt & Chain Gen` indicará o tamanho de correia inteiro mais próximo e o comprimento primitivo (pitch length). Supondo que você mantenha em estoque correias em incrementos de 5T, o tamanho mais próximo é 80T.
 
-<ContentFigure src="../img/1b/belt/belt-cad-3.webp" alt="Belt generation result" />
+<ContentFigure src="../img/1b/belt/belt-cad-3.webp" alt="Resultado da geração de correia" />
 
-6. Modify the c-c dimension to use the `#BeltCTC_5mm()` function to get an exact c-c distance for the 80T belt. Checking the `Show Expressions` box enables you to see the belt pitch, pulley tooth counts, and belt tooth count.
+6. Modifique a cota C-C para usar a função `#BeltCTC_5mm()` a fim de obter a distância exata de centro a centro para a correia de 80T. Marcar a caixa `Show Expressions` permite visualizar o passo da correia, as contagens de dentes das polias e a contagem de dentes da correia.
 
-    - `#BeltCTC_5mm(n1, n2, n3)`: Calculates the c-c distance of a `n1` tooth 5 mm pitch belt connecting pulleys with tooth count `n2` and pulley with tooth count `n3`.
-    - Ex: `#BeltCTC_5mm(80,18,36)` returns the center distance for an 80T 5 mm pitch belt connecting an 18T pulley to a 36T pulley.
+    - `#BeltCTC_5mm(n1, n2, n3)`: Calcula a distância C-C de uma correia de `n1` dentes e passo 5 mm conectando polias com contagens de dentes `n2` e `n3`.
+    - Ex: `#BeltCTC_5mm(80,18,36)` retorna a distância entre centros para uma correia de 80T e 5 mm conectando uma polia de 18T a uma polia de 36T.
 
 <ContentFigure src="6BdXizZ0am4" />
 
-<Aside type="note" title="Capturing Design Intent">
-Before the advent of these two Featurescripts, designers would need to use online calculators, such as [ReCalc](https://www.reca.lc/belts), to calculate c-c distances. However, this method does not capture design intent as it relies on copy-pasting a calculated value into the layout sketch.
+<Aside type="note" title="Capturando a Intenção do Projeto (Design Intent)">
+Antes do surgimento desses dois Featurescripts, os projetistas precisavam usar calculadoras online, como o [ReCalc](https://www.reca.lc/belts), para calcular distâncias C-C. No entanto, esse método não captura a intenção do projeto no CAD, pois depende de copiar e colar um número fixo calculado dentro do layout sketch.
 
-<ContentFigure src="../img/1b/belt/design-intent-1.webp" alt="Design intent comparison" width="75%">Design intent is captured in the top sketch but not the bottom.</ContentFigure>
+<ContentFigure src="../img/1b/belt/design-intent-1.webp" alt="Comparação de intenção de projeto" width="75%">A intenção do projeto é capturada no esboço superior, mas não no inferior.</ContentFigure>
 </Aside>
 
-7. The `Belt & Chain Gen` feature automatically updates and we can see that the belt tooth count is correct (80T) and the pitch length is a multiple of 5 mm, meaning that the belt tooth count is exact and not being rounded.
+7. A feature `Belt & Chain Gen` é atualizada automaticamente e podemos confirmar que a contagem de dentes da correia está correta (80T) e o comprimento primitivo é um múltiplo exato de 5 mm, o que significa que o comprimento da correia é exato e não está sendo arredondado.
 
-<ContentFigure src="../img/1b/belt/belt-cad-5.webp" alt="Final belt generation" />
+<ContentFigure src="../img/1b/belt/belt-cad-5.webp" alt="Geração final da correia" />

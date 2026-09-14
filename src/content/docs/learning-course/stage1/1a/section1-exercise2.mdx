@@ -1,59 +1,58 @@
-﻿---
-title: "1A: Onshape Fundamentals - Section 1"
-description: Adding cross rails to a drivetrain
+---
+title: "1A: Fundamentos do Onshape - Seção 1"
+description: Adicionando vigas transversais a um chassi de tração
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-## Drivetrains
+## Chassis de Tração (Drivetrains)
 
-Drivetrains are pretty important — they let the robot move.
-They're usually built out of box tube and have to be strong enough to survive to not explode when running into things.
+O chassi de tração é de suma importância — é ele que permite a movimentação do robô pela arena.
+Normalmente são construídos com tubos estruturais de alumínio e precisam ser resistentes o bastante para suportar impactos diretos sem quebrar ou empenar.
 
-Check out the video below to see a drivetrain in action. Spot where box tube is used.
+Assista ao vídeo abaixo para ver um chassi em ação na competição. Observe atentamente onde os tubos estruturais são utilizados.
 
-<ContentFigure src="iDWhp80-axc">Drivetrain in action</ContentFigure>
+<ContentFigure src="iDWhp80-axc">Chassi de tração em ação</ContentFigure>
 
 ---
 
-## Exercise 2: Adding Cross Rails
+## Exercício 2: Adicionando Vigas Transversais (Cross Rails)
 
-In the document you copied previously, navigate to the part studio for Exercise 2.
+No documento de exercícios duplicado, navegue até a aba de Part Studio do Exercício 2.
 
-You will be adding extra cross rails to the drivetrain in the part studio. This will create extra structure for subsystems to attach to.
+Você adicionará vigas transversais extras à estrutura do chassi. Elas fornecem ancoragem rígida para a fixação de subsistemas como a torre, o shooter ou a bateria.
 
-**Use the `extrude` tool and `tube converter` to create cross rails for the drivetrain**. Use what you learned in the previous exercise to try to figure it out. Good luck!
+**Utilize a ferramenta `Extrude` e o FeatureScript `Tube Converter` para criar as vigas transversais do chassi**. Aplique o que aprendeu no exercício anterior para deduzir a melhor forma de modelagem. Boa sorte!
 
 <ContentRow>
-  <ContentFigure src="../img/1a/dt-top.webp" alt="Missing Cross Rails">Missing Cross Rails</ContentFigure>
-  <ContentFigure src="../img/1a/drivetrain-example.webp" alt="Complete Drivetrain">Complete Drivetrain</ContentFigure>
+  <ContentFigure src="../img/1a/dt-top.webp" alt="Chassi com vigas transversais faltando">Vigas transversais faltando</ContentFigure>
+  <ContentFigure src="../img/1a/drivetrain-example.webp" alt="Chassi de tração completo">Chassi completo com vigas</ContentFigure>
 </ContentRow>
 
-<Aside type="tip" title="Think About This While You Work">
-Which extrude setting makes sure the cross rails end up in the right spot?
+<Aside type="tip" title="Pense Nisso Enquanto Modela">
+Qual condição de término de extrusão garante que as vigas transversais terminem exatamente encostadas na face interna dos tubos laterais, sem sobrar nem faltar material?
 </Aside>
 
-After the extrude is complete, turn the blocks into tubes using `Tube Converter`.
+Após concluir a extrusão, transforme os blocos sólidos em tubos ocos com furação utilizando o `Tube Converter`.
 
 <Aside type="tip">
-Use the same settings for `Tube Converter` as you did for the previous exercise.
+Utilize os mesmos parâmetros do `Tube Converter` definidos no exercício anterior.
 </Aside>
 
-### Quick Part Studio Check
+### Checagem Rápida no Part Studio
 
-Your Part Studio should match what you'd build in real life. If it overlaps like this, how do you fix it?
+O modelo no Part Studio deve refletir com exatidão como as peças serão montadas no mundo real. Se os tubos estiverem se atravessando ou colidindo como na imagem abaixo, como você conserta?
 
-<ContentFigure src="../img/1a/noclipping.webp" alt="Make sure your parts don't overlap!" width="70%">Make sure your parts don't overlap!</ContentFigure>
+<ContentFigure src="../img/1a/noclipping.webp" alt="Certifique-se de que suas peças não colidam ou se sobreponham!" width="70%">Certifique-se de que suas peças não colidam ou se sobreponham!</ContentFigure>
 
-Always check that your CAD makes sense physically.
+Sempre verifique se o modelo em CAD faz sentido físico antes de avançar.
 
 ---
 
-### Make It Look Nicer
+### Personalizando a Aparência das Peças
 
-Once the two tubes are created, the appearance of the drivetrain tubes can be changed so it looks nicer. Watch the video, then change all of the tubes to a color of your choosing.
+Assim que os dois tubos forem criados, a aparência visual do chassi pode ser alterada para ficar mais agradável e fácil de identificar. Assista ao vídeo e aplique uma cor de sua preferência aos tubos estruturais.
 
-<ContentFigure src="Wr5-n--PbuI">Changing part appearance</ContentFigure>
+<ContentFigure src="Wr5-n--PbuI">Alterando a aparência e cor de peças</ContentFigure>
 
-
-When you're done changing the appearance of the tubes, move on to the next exercise.
+Assim que concluir a customização das cores dos tubos, avance para o próximo exercício.

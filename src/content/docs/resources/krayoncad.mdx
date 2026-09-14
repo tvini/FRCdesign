@@ -1,41 +1,40 @@
-﻿---
+---
 title: KrayonCAD
-description: KrayonCAD is a collection of simplified, configurable Onshape assemblies for the most common FRC subsystems.
+description: O KrayonCAD é uma coleção de montagens simplificadas e configuráveis do Onshape para os subsistemas mais comuns da FRC.
 ---
 
+<ContentFigure src="./img/krayonCAD/krayoncad.webp" alt="Logo do KrayonCAD" width="90%" />
 
-<ContentFigure src="./img/krayonCAD/krayoncad.webp" alt="KrayonCAD Logo" width="90%" />
+## O que é o KrayonCAD?
 
-## What is KrayonCAD?
+O KrayonCAD é uma biblioteca de montagens simplificadas e totalmente configuráveis para Onshape dos subsistemas mais populares da FRC. Esses mecanismos podem ser adaptados alterando apenas algumas poucas variáveis dimensionais, permitindo esboçar a arquitetura completa de um robô de maneira incrivelmente rápida e eficiente. As montagens do KrayonCAD contêm apenas os volumes e componentes necessários para transmitir a intenção de projeto, minimizando o número de peças para garantir tempos instantâneos de carregamento.
 
-KrayonCAD is a collection of simplified, configurable Onshape assemblies for the most common FRC subsystems. These subsystems can be modified by changing just a few variables, allowing you to piece together a robot concept extremely quickly and efficiently. KrayonCAD Assemblies only contain the necessary parts to communicate design intent, while minimizing detail and part count to ensure quick load times.
+<ContentFigure src="./img/krayonCAD/6657krayon.webp" alt="Exemplo de KrayonCAD da equipe 6657" width="60%" />
 
-<ContentFigure src="./img/krayonCAD/6657krayon.webp" alt="6657 KrayonCAD Example" width="60%" />
+## Por que devo usar o KrayonCAD?
+Após o kickoff e as sessões de brainstorming de um novo jogo da temporada, a primeira iteração em CAD geralmente é um modelo conceitual altamente simplificado em blocos, frequentemente chamado pela comunidade de "Crayola CAD". Esse método de trabalho ágil é adotado por várias equipes de ponta da FRC, incluindo a equipe 254 (The Cheesy Poofs). É exatamente aqui que o KrayonCAD brilha; com sua biblioteca de subsistemas inteligentes, o KrayonCAD permite:
 
-## Why should I use KrayonCAD?
-After brainstorming ideas for a new game, the first CAD iteration is sometimes a heavily simplified design, commonly referred to as "Crayola CAD." This workflow is used by many teams, including team 254. This is where KrayonCAD comes in; using a library of configurable subsystems, KrayonCAD allows you to:
+- Avaliar diferentes arquiteturas de robô
+- Reservar e planejar o espaço interno (budgeting de volume)
+- Validar geometrias e alcances dos mecanismos no campo
+- Amadurecer o conceito do robô em escala real e em 3D antes de desenhar cada chapa ou parafuso
 
-- Investigate robot architectures
-- Budget space
-- Verify geometries for robot designs
-- Further flesh out robot designs to scale and in 3D
+O KrayonCAD é extremamente rápido: você pode passar de uma ideia no papel ou quadro branco para um modelo 3D articulável em questão de minutos!
 
-KrayonCAD is fast! You can go from an idea in your head or a sketch to a 3D model in minutes!
+## Como usar o KrayonCAD?
+Utilizar o KrayonCAD é tão simples quanto 1, 2, 3:
 
-## How do I use KrayonCAD?
-KrayonCAD is a simple as 1, 2, 3:
+1. **Inserir**: Em qualquer montagem (Assembly) do Onshape, use a extensão FRCDesignApp para inserir uma montagem do KrayonCAD. Você pode pré-configurar dimensões antes de inserir.
 
-1. Insert: From any Onshape assembly, use the FRCDesignApp to insert a KrayonCAD Assembly. You can configure the Assembly before inserting.
+    <ContentFigure src="./img/krayonCAD/krayoncad-insert.webp" gif alt="Inserindo montagem do KrayonCAD" />
 
-    <ContentFigure src="./img/krayonCAD/krayoncad-insert.webp" gif alt="KrayonCAD Insert" />
+2. **Configurar**: Clique com o botão direito na montagem do KrayonCAD na árvore de peças > "Configure" > modifique cotas, marque ou desmarque caixas de seleção e alterne opções nos menus suspensos para deixar o subsistema sob medida.
 
-2. Configure: Right click a KrayonCAD Assembly in the parts list > Configure > change dimensions, check or uncheck boxes, and choose options from drop down lists to configure the assembly to your liking.
+    <ContentFigure src="./img/krayonCAD/krayoncad-configure.webp" gif alt="Configurando montagem do KrayonCAD" />
 
-    <ContentFigure src="./img/krayonCAD/krayoncad-configure.webp" gif alt="KrayonCAD Configure" />
+3. **Montar (Mate)**: As montagens do KrayonCAD já vêm com conectores de montagem (Mate Connectors) estrategicamente posicionados, facilitando a fixação e articulação com mates do tipo Fastened ou Revolute.
 
-3. Mate: KrayonCAD Assemblies have mate connectors placed in strategic places to allow for easy mating using the Fasten and Revolute mate types.
+    <ContentFigure src="./img/krayonCAD/krayoncad-mate.webp" gif alt="Montando componentes do KrayonCAD" />
 
-    <ContentFigure src="./img/krayonCAD/krayoncad-mate.webp" gif alt="KrayonCAD Mate" />
-
-## Credit
-[ChiefDelphi release post and contributors](https://www.chiefdelphi.com/t/announcing-krayoncad-a-robot-planning-library-for-onshape/444484)
+## Créditos
+[Post oficial de lançamento no ChiefDelphi e lista de contribuidores](https://www.chiefdelphi.com/t/announcing-krayoncad-a-robot-planning-library-for-onshape/444484)

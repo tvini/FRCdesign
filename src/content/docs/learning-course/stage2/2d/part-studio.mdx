@@ -1,45 +1,44 @@
-﻿---
-title: Part Studio
-description: Modeling the elevator in Part Studio
 ---
-
+title: Part Studio
+description: Modelagem do elevador no Part Studio
+---
 
 ## Part Studio
 
-1. Add the `Origin Cube` feature and derive the main layout sketches if you made them in a separate part studio.
-2. Use extrude individual to create the tubes (without creating only duplicates; this means only the bottoms of stages on one side).
-3. Convert the extrusions into tubes.
+1. Adicione a feature `Origin Cube` e derive os layout sketches mestres caso os tenha criado em um part studio separado.
+2. Use Extrude Individual para criar os tubos (sem criar corpos duplicados desnecessários; isto é, apenas a base dos estágios em um dos lados).
+3. Converta as extrusões sólidas em tubos ocos.
 
-<Aside type="tip" title="Converting Extrusions into Tubes">
-Tube converter is the easiest way to do this, as demonstrated before, but the hole pattern can break things and be misaligned pretty easily if the dimensions of the elevator end up changing. The most parametric way is to shell the tubes manually, then use a mix of sketches and linear patterns to create the hole pattern. This way you can build design intent into the hole pattern so it won't be misaligned with anything when dimensions change.
+<Aside type="tip" title="Convertendo Extrusões em Tubos">
+O Featurescript Tube Converter é o caminho mais rápido para isso, como demonstrado anteriormente, mas o padrão automático de furação pode quebrar com facilidade se as dimensões do elevador mudarem mais tarde. A maneira mais puramente paramétrica é aplicar o comando Shell manualmente aos tubos e, em seguida, usar uma combinação de sketches e padrões lineares para perfurar os furos. Dessa forma, você incorpora a intenção do projeto diretamente no padrão de furos para que ele nunca desalinhe em alterações dimensionais.
 
-To create parametric hole patterns, you can start by using the [Measure Value featurescript](https://cad.onshape.com/documents/77baa8153589a7fc5f289829/w/cffd0f2a7077380d5378a885/e/d3174bf5315e6aafcb889367) from CADSHARP to measure the length of the tube. You create your first hole at the top of the tube, then create a feature pattern or sketch pattern down the length of the tube with the distance of 0.5" and the instance count set to `((#frame_side_tube/inch)*2)-1`. This method keeps the hole count parametric to the length of the tube.
+Para criar padrões paramétricos de furos, você pode usar o [Featurescript Measure Value](https://cad.onshape.com/documents/77baa8153589a7fc5f289829/w/cffd0f2a7077380d5378a885/e/d3174bf5315e6aafcb889367) da CADSHARP para medir o comprimento do tubo. Crie o primeiro furo no topo do tubo e, em seguida, crie um padrão linear ao longo do comprimento com espaçamento de 0,5" e contagem de instâncias definida como `((#frame_side_tube/inch)*2)-1`. Esse método mantém o número de furos perfeitamente paramétrico em relação ao comprimento do tubo.
 </Aside>
 
-4. Transform and copy the tubes to complete the structure.
+4. Use Transform e Mirror para copiar e posicionar os tubos e completar a estrutura dos estágios.
 
 <Aside type="tip">
-At this point, as design lead, you could create mate connectors, subassemblies, and top level assembly, and hand off the elevator to other people to parallelize the process if that's how your team works.
+Neste estágio do projeto, como líder de design, você já poderia criar os mate connectors, submontagens e a montagem de nível superior, distribuindo o detalhamento dos subsistemas para outros membros da equipe para paralelizar o trabalho.
 </Aside>
 
-5. Model any unique crushblocks
+5. Modele quaisquer crush blocks específicos necessários nos tubos.
 
 <Aside type="note">
-Crushblocks and tube plugs are commonly used for most superstructures and elevators nowadays. Find out what they are and why they're useful on [the design handbook page about structure](/design-handbook/structure/structure/).
+Crush blocks e tube plugs são amplamente utilizados em superestruturas e elevadores modernos. Descubra sua finalidade e vantagens na [página do Design Handbook sobre estruturas](/design-handbook/structure/structure/).
 </Aside>
 
-<ContentFigure src="../img/2d/tubesAndCrushblocks.webp" alt="Finished elevator tubes" />
+<ContentFigure src="../img/2d/tubesAndCrushblocks.webp" alt="Tubos estruturais finalizados do elevador" />
 
-6. Decide where you want your rigging (rope) and model it with a path, profile, and sweep.
-7. Derive the [TTB chain comb](https://www.thethriftybot.com/products/elevator-25h-chain-drive-kit) into place on a first stage tube. This is for knowing how much to space the chain off from the tubes.
-8. Sketch the chain transmission and crossmember, including the bearing holes for the sprockets.
-9. Create the plates and tube for the crossmember. The clamp for the rigging will be mounted to the crossmember, but it's also for the rigidity of the base stage.
-10. Derive the [TTB cable clamp](https://www.thethriftybot.com/products/elevator-dyneema-pulley-kit) into place on the crossmember and create mounting holes for it, and a crushblock if bolting all the way through the tube.
-11. Add holes for the tube plugs on the crossmember.
-12. Create the chain transmission, including the chain, any custom spacers, and axles
-13. Derive some maxplanetary parts to build the gearbox around. Create spacers and mounting for both maxplanetaries. Make sure to leave them easily accessible and replaceable
-14. Add plates at the bottom of the elevator to support the MAXplanetary shafts.
-15. Optionally, derive nut strips and a ratchet plate for the carriage and create the shaft for the rigging to be tied to.
-16. Create a reference mate in the middle of the base tube, owned by the origin cube, to later mate the subassemblies together with.
+6. Decida o trajeto do seu cabeamento (rigging / corda de Dyneema) e modele-o com uma curva guia (path), perfil circular e o comando Sweep (varredura).
+7. Derive o [pente de fixação de corrente da TTB (TTB chain comb)](https://www.thethriftybot.com/products/elevator-25h-chain-drive-kit) na posição correta sobre o tubo do primeiro estágio. Isso serve para saber exatamente a que distância posicionar a corrente em relação aos tubos.
+8. Esboce a transmissão por corrente e a travessa estrutural (crossmember), incluindo os furos de rolamento para os sprockets.
+9. Crie as placas e o tubo para a travessa estrutural. A braçadeira do cabo (cable clamp) será parafusada nessa travessa, que também confere rigidez torsional ao estágio estático da base.
+10. Derive a [braçadeira de cabo TTB](https://www.thethriftybot.com/products/elevator-dyneema-pulley-kit) na travessa e gere os furos de montagem correspondentes (e um crush block interno se parafusar de lado a lado).
+11. Adicione os furos para tube plugs na travessa.
+12. Crie a transmissão por corrente, incluindo a corrente 3D, eixos e espaçadores.
+13. Derive peças da MAXPlanetary para modelar a caixa de redução. Crie espaçadores e a placa de fixação para os dois motores, deixando-os facilmente acessíveis e substituíveis.
+14. Adicione placas de reforço na parte inferior do elevador para apoiar as pontas dos eixos da MAXPlanetary.
+15. Opcionalmente, derive nut strips e a placa de catraca (ratchet plate) para o carrinho (carriage), criando o eixo onde o cabo será amarrado e enrolado.
+16. Crie um mate connector de referência no centro do tubo base, atribuído ao Origin Cube, para unir as submontagens posteriormente.
 
-<ContentFigure src="../img/2d/elevatorPartStudio.webp" alt="Finished elevator part studio" />
+<ContentFigure src="../img/2d/elevatorPartStudio.webp" alt="Part Studio do elevador finalizado" />

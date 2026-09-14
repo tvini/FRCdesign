@@ -1,99 +1,116 @@
 ---
-title: "Materials"
-description: "An overview of raw materials commonly found on FRC robots."
+title: "Materiais"
+description: "Visão geral das matérias-primas e ligas mais comuns em robôs da FRC, características e aplicações."
 ---
 
-An overview of raw materials commonly found on FRC robots, including tips for handling them and use cases. This is specifically on materials used to make custom plates and parts, not necessarily COTS items. 
+Uma visão geral das matérias-primas mais comuns em robôs da FRC, incluindo dicas de manuseio, usinagem e principais aplicações práticas. Foco em materiais para fabricação de chapas e peças personalizadas.
 
 <Aside type="note">
-For more information on materials used in 3D printing, like TPU or PLA, refer to the <a href="https://www.frcdesign.org/design-handbook/structure/intro-to-3d-printing/"target="_blank" rel="noopener noreferrer">Intro to 3D Printing</a> page for more information.
+Para saber mais sobre filamentos utilizados em impressão 3D (como TPU, PLA, PETG ou Nylon), consulte a página [Introdução à Impressão 3D](/design-handbook/structure/intro-to-3d-printing/).
 </Aside>
-## Aluminum
 
-Aluminum is one of the most versatile materials in FRC. It is both durable and easy to work with which means it's perfect for many applications. It's great for its cost; compared to other metals, it is relatively affordable. They are ideal for many applications where strength and structure are needed. In applications where this support isn't important, it may be more optimal to use a cheaper material like polycarbonate or to cut weight with SRPP. In addition, aluminum is not ideal for places where it extends beyond frame perimeter like intakes as it can easily bend or fail catastrophically. 
+## Alumínio
 
-This section focuses on aluminum plates and blocks, however they are used everywhere in COTS and stock items like shafts, extrusions, etc. The thickness of the metal and type (6061 vs 7075) are important considerations as they each have different use cases. 
+O alumínio é o material mais versátil e dominante na FRC. É leve, durável, resistente e muito fácil de usinar em fresadoras CNC tipo router, além de ter excelente custo-benefício comparado a outros metais. É ideal para elementos estruturais onde rigidez e resistência são fundamentais.
 
-<ContentFigure src="../img/structure/materials/examplegusset.webp" alt="" width="50%">
-  Example of gusset made out of aluminum. Credit: CTRE.
+Em aplicações sem grande solicitação mecânica, materiais mais econômicos como policarbonato ou alternativas para alívio de peso como o SRPP podem ser preferíveis. Além disso, chapas finas de alumínio não são indicadas para peças que se projetam para fora do perímetro do robô (como braços de intake), pois colisões intensas podem dobrá-las permanentemente ou rompê-las.
+
+Esta seção foca em chapas e blocos usinados, mas o alumínio também está presente em perfis tubulares, eixos hexagonais e engrenagens COTS. A espessura e a liga (6061 vs. 7075) definem o uso correto.
+
+<ContentFigure src="../img/structure/materials/examplegusset.webp" alt="Exemplo de gusset em alumínio" width="50%">
+  Exemplo de gusset de reforço em chapa de alumínio. Crédito: CTRE.
 </ContentFigure>
 
-### Sheet Thickness
+### Espessuras de Chapa
 
-Aluminum sheets can come in many thicknesses. The following are common thicknesses, however consider them as more ranges than single values.
+As chapas de alumínio são vendidas em diversas espessuras nominais:
 
-**1/16" or 0.090":** Such thin metal is almost exclusively used for supports, like gussets or bellypans. Easy to route and use, it is very helpful in many cases.
+**1/16" (~1,6 mm) ou 0.090" (~2,3 mm):** Chapas finas usadas quase exclusivamente para reforços estruturais (*gussets*) e chapas de suporte de eletrônica (*bellypans*). Fáceis e rápidas de usinar em CNC router.
 
-**1/8":** 1/8" aluminum can play a variety of roles, from structural pieces to gussets. It can be more beneficial than 1/4" material because of its lower weight, however in cases involving high loads and forces, 1/4" is preferred.
+**1/8" (~3,17 mm):** Espessura muito versátil, usada tanto para peças estruturais de mecanismos quanto para placas de montagem de caixas de redução intermediárias. Apresenta excelente equilíbrio entre rigidez e baixo peso.
 
 <Aside type="tip">
-For outer frame tubes on a drivetrain, it is best practice that they are 1/8" rather than 1/16" because of the large forces they'd experience from robot collisions.
+Para os tubos periféricos externos do chassi (drivetrain), é boa prática utilizar perfis com parede de 1/8" em vez de 1/16", devido aos impactos frontais violentos de colisões em partidas.
 </Aside>
-**1/4":** Best thickness for anything structural, where strength is needed (i.e. high load pivots).
 
-### Alloy
+**1/4" (~6,35 mm):** Espessura robusta recomendada para partes estruturais de alta carga mecânica, como suportes principais de pivô, placas de redutoras primárias e apoios de eixos de rotação elevada.
 
-Although many types of aluminum alloys exist, the most commonly used in FRC is **6061-T6** followed by **7075**. 6061 is best because of its ability to be both strong and easy to machine with. For most applications, it works well. However, in applications where more strength to handle higher loads is wanted, 7075 aluminum can be helpful. For more information on alloys aside from the two discussed, visit <a href="https://www.allmetalsfab.com/understanding-aluminum-alloys/"target="_blank" rel="noopener noreferrer">this website</a> to learn more.
+### Ligas de Alumínio
+
+Embora existam várias ligas, as mais importantes na FRC são a **6061-T6** e a **7075**:
+
+- **6061-T6**: A liga padrão por excelência. Oferece alta resistência mecânica, excelente usinabilidade sem empastamento e ótima relação custo-benefício. É a escolha ideal para praticamente todas as chapas usinadas.
+- **7075-T6**: Liga de qualidade aeronáutica, com resistência à tração muito superior (comparável a alguns tipos de aço), mas mais cara e difícil de soldar. É comumente encontrada em peças comerciais COTS críticas, como eixos hexagonais sólidos e engrenagens de alto torque.
 
 <Aside type="note">
-7075 aluminum is used in many COTS items, notably solid hex shafts and gears. It is important to note the alloy on vendor websites if attempting to machine or modify COTS items.
+Ao usinar ou modificar peças comerciais COTS (como eixos ou engrenagens), verifique no site do fabricante se a liga é 7075, pois ela exige parâmetros de corte mais lentos e ferramentas de metal duro apropriadas.
 </Aside>
-### Billet
 
-Billet parts are blocks of metal that are machined through milling to remove part of it. They are usually made of 6061 aluminum. It is rare to see custom billet because of the difficulty in manufacturing for many teams, however they can be an important tool for many teams. Many COTS parts are made of billet material, such as tube plugs. 
+### Peças Usinadas em Bloco Maciço (Billet)
 
-<ContentFigure src="../img/structure/materials/coolbillet29102023.webp" alt="" width="50%">
-  Billet part used on the end of 2910's 2023 telescoping tube. These parts can range wildly in complexity, and depends significantly on your team's capabilities.
+Peças *billet* são componentes usinados por fresamento 3D a partir de um bloco sólido maciço de alumínio (geralmente 6061). Embora poucas equipes tenham maquinário e tempo para usinar blocos complexos na temporada, elas oferecem precisão incomparável. Diversas peças COTS de alto desempenho são fabricadas em *billet*, como *tube plugs* e cubos de fixação.
+
+<ContentFigure src="../img/structure/materials/coolbillet29102023.webp" alt="Peça maciça usinada em CNC da equipe 2910" width="50%">
+  Peça usinada em bloco maciço usada na extremidade do tubo telescópico da equipe 2910 em 2023.
 </ContentFigure>
 
-## Polycarbonate
+## Policarbonato (Polycarbonate)
 
-Also known as Lexan, polycarbonate or "polycarb" is a very versatile and useful material used in applications where less strength is needed and where aluminum is overkill/not optimal. Polycarbonate plastic is used in high impact applications such as subsystems that are exposed beyond the robot frame perimeter. Typically 1/4" thickness is used. 1/8 or 1/16" polycarbonate can be used for dust covers, sponsor panels, etc. - it will almost never shatter, and looks great.
+Frequentemente chamado pelo nome comercial **Lexan**, o policarbonato é um termoplástico incrivelmente tenaz e resiliente. Sua grande vantagem sobre o alumínio é que ele **dobra e absorve impactos elásticos sem quebrar ou sofrer deformação plástica permanente**. Por isso, é o material padrão para braços de intake, placas de proteção externa e barreiras que operam além do perímetro dos para-choques (*bumpers*).
 
-<ContentFigure src="/mechanism-examples/intake/linkage/img/1678_2022_intake.webp" alt="" width="50%">
-  Example of polycarbonate plates on 1678's 2022 intake.
+Para braços de intake de impacto, a espessura típica recomendada é de **1/4" (~6 mm)**. Chapas mais finas de **1/16" a 1/8"** são perfeitas para proteções contra poeira, rampas de passagem de peças de jogo e painéis de patrocinadores.
+
+<ContentFigure src="/mechanism-examples/intake/linkage/img/1678_2022_intake.webp" alt="Chapas de policarbonato no intake da equipe 1678" width="50%">
+  Exemplo de chapas de policarbonato no intake articulado da equipe 1678 em 2022.
 </ContentFigure>
 
 <Aside type="caution">
-Do not use loctite around polycarbonate! This can cause the plate to crack irreversibly. For bolts that are susceptible to vibrating out of plate, be sure to tighten them regularly and take care when assembling.
+**Nunca use trava-rosca líquido (Loctite) em contato direto com policarbonato!** Os compostos químicos do cianoacrilato e anaeróbicos atacam as cadeias do policarbonato, causando fissuração sob tensão (*stress cracking*) e quebra catastrófica imediata. Em furações com policarbonato, use porcas autotravantes de nylon (*Nyloc*) ou arruelas de pressão.
 </Aside>
-### Sheet Thickness
 
-**1/32"-1/8":** Often used where strength is not important, such as in dust covers or sponsor plates. Can be great as a material for floors, for example the polycarbonate backing of shooters. 
+### Espessuras Comuns de Policarbonato
 
-**1/4":** Great for applications where more strength is needed. For maximum strength, switching to aluminum instead may be better. 
+- **1/32" a 1/8":** Usado onde resistência estrutural pesada não é necessária, como rampas internas, dutos de condução de bolas e placas decorativas.
+- **1/4":** Ideal para mecanismos expostos a batidas, como suportes de roletes de intake. Se for necessária rigidez extrema sem flexão, substitua por alumínio ou SRPP.
 
 <Aside type="tip">
-"Smoked" or "tinted" polycarbonate can provide a more aesthetic look than clear. While making smoked polycarbonate is difficult, making frosted is easy! 30 seconds of sanding with an orbital sander using 240 grit will give the material a nice, glassy finish. In addition, stickers (i.e. sponsor stickers) on the plate will stand out much more on tinted polycarbonate.
+Quer um acabamento visual fosco profissional? Lixar levemente o policarbonato transparente por 30 segundos com lixa grão 240 em uma lixadeira roto-orbital cria um acabamento jateado translúcido espetacular, onde adesivos de patrocinadores se destacam muito mais.
 </Aside>
+
 <Aside type="caution">
-Make sure to check your supplier's thickness and tolerance for each material. Sometimes, something marketed as in imperial measurements is actually manufactured to fit metric tolerances. For instance: 1/4" polycarbonate is actually sometimes manufactured as 6mm, which is 14 thousandths of an inch off of 1/4in. Account for these actual stock measurements when designing to make sure things end up fitting together!
+Verifique as tolerâncias reais do fornecedor: muitas vezes uma chapa vendida nominalmente como 1/4" é fabricada em 6 mm (uma diferença de quase 0,35 mm). Considere essa variação real no CAD para garantir que os encaixes de rolamentos e rebaixos entrem perfeitos!
 </Aside>
-## Steel
 
-Steel is a useful alternative to aluminum when maximum strength is needed or for ballast. Some teams may opt to have a steel bellypan instead of aluminum, for example, in order to lower their center of gravity. It is also used in some COTS items like steel hex axles or bolts. Custom machined steel plates or parts are rare in FRC because of how difficult it is to machine with (steel saws and sanders are needed to work with steel). In almost all cases, teams will have to reach out to an outside manufacturer in order to make it. 
+## Aço
 
-## Self-Reinforced Polypropylene (SRPP)
+O aço é usado quando se exige resistência extrema ao desgaste e à tração ou para adicionar lastro (*ballast*). Algumas equipes optam por confeccionar o *bellypan* em chapa de aço cortada a laser em vez de alumínio para abaixar o centro de gravidade (COG) do robô ao máximo, prevenindo capotamentos em manobras rápidas de swerve.
 
-SRPP is an increasingly popular material in FRC for its weight savings and strength compared to polycarbonate. It is a less toxic compound used in plates, and it is composed of fibers woven into a "fabric" (similar to carbon fiber). It is both stiffer and significantly more impact resistant than polycarbonate. Plus, it also weighs much less, which can be hugely important for weight savings. It is a great material for mechanisms that are often outside of frame perimeter, like intakes; where polycarbonate might be used, SRPP can often be slotted in.
+O aço também é o material padrão de parafusos de alta resistência, correntes, rolamentos e eixos de alta solicitação. Fabricar peças customizadas em aço na oficina é incomum devido à dificuldade de usinagem em ferramentas de alumínio, exigindo quase sempre corte a laser ou jato d'água terceirizado.
 
-The major drawback is its expense: it costs $250 a sheet compared to $80 for polycarbonate. In addition, machining it is slightly different than polycarbonate. Laser cutting is the preferred method for clean, precise cuts. However, it can also be routed with a CNC machine, though extra precaution should be taken. It is fine to cut sheets, i.e. with a table saw. More information on manufacturing can be found at a vendor's website, for example <a href="https://docs.revrobotics.com/ion-build/structure/maxcomposite"target="_blank" rel="noopener noreferrer">REV Robotics guide for SRPP</a>.
+## Polipropileno Autorreforçado (SRPP - MaxComposite)
 
-<ContentFigure src="../img/structure/materials/srppexample.webp" alt="" width="50%">
-  SRPP sheet. Credit: REV Robotics.
+O **SRPP** (Self-Reinforced Polypropylene) é um material moderno que vem conquistando equipes de ponta na FRC. Trata-se de um composto termoplástico com fibras de polipropileno tecidas sob alta pressão (semelhante ao aspecto da fibra de carbono).
+
+Ele é simultaneamente mais rígido e mais resistente a impactos que o policarbonato tradicional, além de ser significativamente mais leve — proporcionando grande economia de peso na ponta de braços móveis.
+
+A principal desvantagem é o custo elevado por chapa e a necessidade de técnicas corretas de corte (corte a laser é o ideal, embora possa ser usinado em CNC router com ferramentas afiadas e refrigeração adequada).
+
+<ContentFigure src="../img/structure/materials/srppexample.webp" alt="Chapa de SRPP MaxComposite" width="50%">
+  Chapa de material composto SRPP (MaxComposite). Crédito: REV Robotics.
 </ContentFigure>
 
 <Aside type="tip">
-SRPP is resistant to many chemicals, including loctite! This means you can loctite bolts around SRPP, unlike polycarbonate, with no issues.
+Diferente do policarbonato, o SRPP possui excelente resistência química a solventes e suporta o uso de trava-rosca líquido (Loctite) sem quebrar!
 </Aside>
-## Carbon Fiber
 
-**Coming Soon**
+## Fibra de Carbono
 
-## Wood
+*(Seção em desenvolvimento)*
 
-Wood is a useful material for prototyping or testing ideas before creating it out of the intended (and more expensive) material. Due to its brittleness, it should almost never be on an FRC robot. It is easy to source, machine, and use, and can be an essential tool for prototyping whole mechanisms before they're put on the robot.
+## Madeira (Compensado e MDF)
 
-<ContentFigure src="../img/structure/materials/1540woodprototypes.webp" alt="" width="50%">
-  The usefulness of wood for prototyping, especially if you have a laser cutter. Can make many prototypes quickly. Credit: Team 1540.
+A madeira é o melhor material para **prototipagem rápida inicial**. Devido à sua fragilidade e baixa resistência ao impacto, quase nunca deve ser colocada no robô oficial de competição. No entanto, cortar chapas de compensado na cortadora a laser permite testar geometrias de intake, arcos de shooter e mecanismos completos em poucas horas antes de cortar o alumínio definitivo.
+
+<ContentFigure src="../img/structure/materials/1540woodprototypes.webp" alt="Protótipos em madeira da equipe 1540" width="50%">
+  A agilidade da madeira para prototipagem rápida, especialmente com cortadora a laser. Crédito: Equipe 1540.
 </ContentFigure>

@@ -1,41 +1,39 @@
-﻿---
+---
 title: Layout Sketch
-description: Creating a layout sketch
+description: Criando um layout sketch
 sidebar:
   order: 3
 ---
 
+## Layout Sketches do Drivetrain
 
-## Drivetrain Layout Sketches
+Para começar, você criará um layout sketch do chassi (drivetrain). Ele ditará as dimensões e as posições dos tubos estruturais. O layout será desenhado a partir das vistas lateral e superior do drivetrain. Para o seu chassi swerve, usaremos a dimensão de 26" x 26".
 
-To begin, you will be creating a layout sketch of the drivetrain. This will dictate the size and position of the drive tubes. The layout will be drawn from the side and top view of the drivetrain. For your swerve drivebase, you will make it 26" x 26".
+### Instruções
 
-### Instructions
-
-Start by **creating a new Onshape Document called `Stage 1D Robot`** and within it, **a new part studio called `Main Layout Sketch`**. Then, use the `Origin Cube` Featurescript to create an origin cube. **Follow the instructions in the slides** to complete the layout sketch.
+Comece **criando um novo Documento no Onshape chamado `Stage 1D Robot`** e, dentro dele, **um novo part studio chamado `Main Layout Sketch`**. Em seguida, use o Featurescript `Origin Cube` para criar o cubo de origem. **Siga as instruções nos slides** para concluir o layout sketch.
 
 <Slides>
   ![](../img/1d/layout-sketches/layout-0.webp)
-  The final layout sketch.
+  O layout sketch final.
 
   ![](../img/1d/layout-sketches/layout-1.webp)
-  Draw the side profile of the drivetrain on the Right Plane. We place the tube 1.75" from the ground, which is the offset from the ground to the bottom of the tube for the MK4i modules. Then, draw the wheel clearance box, which represents the area that the wheel takes up. For the MK4i modules, the box is 4.625" wide.
+  Desenhe o perfil lateral do drivetrain no plano Right. Posicionamos o tubo a 1,75" do chão, que é a distância do chão até a face inferior do tubo para os módulos SDS MK4i. Em seguida, desenhe o retângulo de folga da roda (wheel clearance box), que representa a área ocupada pela roda. Para os módulos MK4i, essa caixa tem 4,625" de largura.
 
   ![](https://www.youtube.com/embed/fE7Zhv1DYt0?controls=1&rel=0&showinfo=0&vq=hd1080)
-  Create the top layout sketch by using the bottom mate connector on the vertical line of the side layout. Utilizing auto-generated mate connectors for sketch planes is a very useful tool to have. Press the "Top" button on the view cube to get a top view.
+  Crie o layout sketch superior utilizando o mate connector inferior sobre a linha vertical do layout lateral. Utilizar mate connectors gerados automaticamente como planos de esboço é uma técnica extremamente útil. Pressione o botão "Top" no cubo de visualização (view cube) para obter a vista superior.
 
   ![](https://www.youtube.com/embed/HfoS699wNPc?controls=1&rel=0&showinfo=0&vq=hd1080)
-  Sketch the top outline of the drive base. Make the rectangle a square and set the side length equal to the length of the side layout tube. This ensures that the size of the top layout always matches the side layout, which makes the design parametric. Notice that the sketch is fully defined despite having no sketch dimensions.
+  Esboce o contorno superior do chassi. Faça o retângulo ser um quadrado e defina o comprimento dos lados como igual ao comprimento do tubo do layout lateral. Isso assegura que o tamanho do layout superior sempre acompanhe o layout lateral, tornando o projeto paramétrico. Observe que o sketch fica totalmente definido (linhas pretas) mesmo sem cotas numéricas explícitas.
 
   ![](../img/1d/layout-sketches/layout-4.webp)
-  To sketch the tubes, draw a square 1" smaller than the previous square. This will represent the four 2"x1" tubes that make up the outer frame. Then, draw the top profile of the 2"x2" tube. At the bottom right corner, draw two lines, each offset by 4.25" from the edge. This is the required offset for MK4i modules. Other modules will differ.
+  Para desenhar os tubos, trace um quadrado 1" menor do que o quadrado anterior. Isso representará os quatro tubos 2"x1" que formam o perímetro externo. Em seguida, desenhe o perfil superior do tubo 2"x2". No canto inferior direito, trace duas linhas, cada uma com offset de 4,25" a partir da aresta externa. Esse é o deslocamento necessário para os módulos MK4i (outros modelos de swerve exigirão medidas diferentes).
 
   ![](https://www.youtube.com/embed/5st3BiDfGdY?controls=1&rel=0&showinfo=0&vq=hd1080)
-  To apply the cutout for all four tubes, we use the Circular Pattern sketch tool to copy the lines to all four corners. For a Circular Pattern we first define the number of instances and then the axis of rotation.
+  Para aplicar o recorte nos quatro cantos dos tubos, usamos a ferramenta de sketch Circular Pattern para copiar as linhas para os quatro cantos. Em um padrão circular, definimos primeiro o número de instâncias e, em seguida, o eixo de rotação.
 
   ![](../img/1d/layout-sketches/layout-0.webp)
-  Finally, name your sketches and organize them into folders in the feature tree. Your sketches should all be fully defined.
-
+  Por fim, nomeie seus sketches e organize-os em pastas na árvore de features. Seus sketches devem estar todos totalmente definidos (totalmente pretos).
 </Slides>
 
-As previously explained, this method of top-down modeling is extremely powerful as it enables you to capture the most important dimensions all in one place. However, you should be careful to not over-detail layout sketches. You will be practicing layout sketches all throughout Stage 2, and use them in Stage 3 alongside multi-document practices to design a whole robot.
+Como explicado anteriormente, esse método de modelagem top-down é extremamente poderoso, pois permite centralizar as variáveis dimensionais mais críticas em um único local. No entanto, tome cuidado para não sobrecarregar os layout sketches com detalhes excessivos. Você praticará layout sketches ao longo de todo o Stage 2 e os usará no Stage 3 junto com práticas de múltiplos documentos para projetar um robô completo.

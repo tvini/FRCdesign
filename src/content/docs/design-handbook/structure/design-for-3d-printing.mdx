@@ -1,128 +1,112 @@
-﻿---
-title: Design for 3D Printing
-description: Techniques and examples of 3D printing for use in FRC
+---
+title: Design para Impressão 3D
+description: Técnicas, boas práticas e exemplos de aplicação de manufatura aditiva na FRC
 ---
 
+Este guia apresenta técnicas essenciais e exemplos de como projetar peças otimizadas para impressão 3D em robôs da FRC.
 
-This guide serves to provide techniques and examples of 3D printing for use in FRC.
+## Introdução
 
-## Introduction
-
-Designing parts for 3D printing means understanding how to optimize your part for the way 3D printers work. Having an understanding of these ideas will help you reduce wasted material, make stronger parts, and reduce printing time.
+Projetar peças para impressão 3D exige entender a física do processo de deposição em camadas. Dominar esses conceitos ajuda a evitar desperdício de material, eliminar suportes desnecessários, produzir peças muito mais resistentes e reduzir o tempo de fatiamento e impressão.
 
 <Aside type="note">
-If you're new to 3D printing check out the [Intro to 3D Printing](/design-handbook/structure/intro-to-3d-printing/) page.
+Se você está começando com manufatura aditiva, leia antes a página [Introdução à Impressão 3D](/design-handbook/structure/intro-to-3d-printing/).
 </Aside>
 
-## Versatility of 3D Printed Parts in FRC
+## A Versatilidade de Peças Impressas na FRC
 
-3D printed parts can be used all over an FRC robot. From pulleys and sensor mounts to brackets and structural parts, 3D printing can be a powerful solution for creating almost anything.
+Componentes impressos em 3D podem ser aplicados em praticamente todos os subsistemas de um robô de competição: desde polias de correia dentada e suportes angulados de câmeras até suportes de sensores, blocos antiesmagamento e peças estruturais complexas.
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-604-robot.png" alt="604 Quixilver 2024" width="40%">604 Quixilver 2024 - Extensive use of 3D printed parts</ContentFigure>
+<ContentFigure src="../img/design-for-3d-printing/3dp-604-robot.png" alt="Robô de 2024 da equipe 604 Quixilver" width="40%">604 Quixilver 2024 - Uso extensivo de peças impressas em 3D</ContentFigure>
 
-## When to Choose 3D Printing over Machining
+## Quando Escolher Impressão 3D em Vez de Usinagem Metálica
 
-The first step to using 3D printing in FRC is understanding when is best to use it, in general it's best when:
+A impressão 3D é especialmente recomendada quando:
 
-1. There is no COTS part available for your needs.
-2. You can print a functionally equivalent solution faster or for less money than CNC milling/other processes that are available to you.
-3. The geometry needed would be impossible to machine on equipment you have.
-4. You need to prototype or test concepts quickly, especially when tuning dimensions like camera angles, game piece compression etc.
-5. You don't need the part to be as strong as an equivalent metal part would be.
+1. Não existe peça comercial COTS pronta para a sua necessidade específica.
+2. É possível imprimir uma peça funcionalmente equivalente de forma mais rápida ou econômica do que usinar em CNC router ou fresadora manual.
+3. A geometria necessária envolve curvas orgânicas tridimensionais impossíveis de usinar em fresadoras convencionais de 3 eixos.
+4. Você precisa prototipar e validar ângulos de sensores ou compressão de peças de jogo rapidamente.
+5. A solicitação mecânica não exige a resistência extrema de uma chapa metálica de alumínio.
 
-## Part Types Covered in This Guide
+## Tipos de Peças Abordados Neste Guia
 
-1. **Spacers**: Shaft spacers or offset block spacers to space out plates or parts.
-2. **Crush Blocks:** Prevent the force of tightening bolts from crushing tubes.
-3. **Power Transmission:** Print custom pulleys, gears, or sprockets.
-4. **Custom Brackets:** Create structural components or motor brackets.
-5. **Sensor Mounts:** Create mounts to attach sensors, cameras, or other components precisely to your robot chassis.
-6. **Enclosures for Electronics:** Design custom housings to protect sensitive electronics (e.g., Orange Pi, Arduino) from dust, debris, and impact.
-7. **Tools and Jigs:** Create custom tools, jigs, and fixtures to help with robot assembly, calibration, or maintenance.
+1. **Espaçadores**: Espaçadores para eixos hexagonais ou blocos de offset entre chapas.
+2. **Crush Blocks**: Blocos internos que impedem o colapso de tubos ocos ao apertar parafusos.
+3. **Transmissão de Potência**: Polias de correia dentada, engrenagens e rodas dentadas personalizadas.
+4. **Suportes Estruturais (Brackets)**: Conexões estruturais anguladas e berços de motores.
+5. **Suportes de Câmeras e Sensores**: Fixação angular precisa de câmeras de visão (AprilTags) e sensores de feixe óptico.
+6. **Gabinetes e Proteções Eletrônicas**: Caixas protetoras para computadores de bordo (Orange Pi, Raspberry Pi, Arduino) e placas de circuito.
+7. **Gabaritos e Ferramentas (Jigs)**: Guias de furação e ferramentas de alinhamento para a oficina.
 
-## Spacers
+## Espaçadores (Spacers)
 
-One of the most straightforward use cases for 3D printing in FRC is to make custom spacers for hex shafts. Using FRCDesignLib you can quickly make different types of spacers and customize the length. These are very easy to print at very low cost. You may notice in the dialogue box an option for additional tolerance (Tolerance Adder). 3D printers generally can produce very precise parts, but factors like thermal expansion, filament inconsistencies, poor calibration, and other error sources can lead to part dimensions that are either larger or smaller than intended. To address this we can add tolerance (gap between two parts) so that parts will fit together well. You likely will need to find the best tolerance your specific printer can achieve, but a reasonable starting tolerance will typically be about 0.004"-0.020" (0.1mm-0.5mm) depending on the type of fit desired (interference, close, clearance).
+Uma das aplicações mais comuns na FRC é a impressão de espaçadores sob medida para eixos hexagonais de 1/2". Com a biblioteca FRCDesignLib, é possível gerar espaçadores em qualquer comprimento em segundos, a um custo irrisório.
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-spacer-example.png" alt="Configurable Spacer" width="40%">Configurable Spacer</ContentFigure>
+Ao configurar o modelo, você verá a opção de tolerância adicional (*Tolerance Adder*). Fatores como contração térmica do plástico e fluxo de extrusão fazem com que furos impressos fiquem ligeiramente menores que o nominal no CAD. Adicionar uma folga dimensional de **0,1 mm a 0,5 mm (0.004" a 0.020")** garante que o espaçador deslize suavemente pelo eixo hexagonal sem necessidade de lixar ou alargar na furadeira.
 
-## Crush Blocks
+<ContentFigure src="../img/design-for-3d-printing/3dp-spacer-example.png" alt="Espaçador configurável" width="40%">Espaçador hexagonal configurável</ContentFigure>
 
-When adding bolts through box tubes, especially 1/16" tube, the force of the bolt can crush the tube. Crush blocks help to spread out the force from tightening the bolt and prevent the tube from crushing. FRCDesignLib has a configurable crush block part to quickly make crush blocks with settings for a variety of tube types and thicknesses.
+## Blocos Antiesmagamento (Crush Blocks)
 
-### Tricks for Printing Crush Blocks
+Ao passar parafusos através de tubos de alumínio (especialmente com parede fina de 1/16"), o aperto da porca pode esmagar e deformar o perfil. Os *crush blocks* distribuem a pressão e evitam esse problema. A FRCDesignLib possui modelos paramétricos configuráveis para todos os tamanhos de tubo padrão da FRC.
 
-Due to the way 3D printers work through printing layer by layer, holes can end up becoming distorted when printed with their axis parallel to the build plate. This is because gravity will pull down on the hot filament as it's printed, creating a "squished" circle hole. One solution is printing with supports, but these supports can often be difficult to get out especially in longer holes. An easy solution to this problem is to use teardrop geometry to allow for printing without supports.
+### Dica para Furos Horizontais sem Suporte
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-crush-block.png" alt="Crush block with teardrop geometry" width="40%">Example crush block with teardrop geometry (100 degrees at top of circle)</ContentFigure>
+Furos horizontais impressos paralelos à mesa tendem a ficar achatados no topo devido à gravidade atuando sobre o filamento quente em balanço. Uma solução elegante que dispensa suportes é desenhar o topo do furo com **geometria de gota (teardrop)**, usando um ângulo de 90° a 100° no ápice para que o bico deposite o plástico em pontes retas perfeitas.
 
-## Power Transmission
+<ContentFigure src="../img/design-for-3d-printing/3dp-crush-block.png" alt="Bloco com furos em formato de gota (teardrop)" width="40%">Exemplo de bloco antiesmagamento com geometria de gota (sem suportes)</ContentFigure>
 
-### Pulleys
+## Transmissão de Potência
 
-Pulleys can be a great option for 3D printing. 3D printing allows you to make any number of teeth and customize how the pulley will mount to other geometry.
+### Polias de Correia Dentada (Pulleys)
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-custom-pulley.png" alt="Configurable HTD Pulley" width="40%">Configurable HTD Pulley</ContentFigure>
+A impressão 3D é fantástica para polias com perfis HTD ou RT25, permitindo criar qualquer contagem de dentes e integrar cubos de fixação customizados.
 
-### Tips for Printing Pulleys
+<ContentFigure src="../img/design-for-3d-printing/3dp-custom-pulley.png" alt="Polia dentada HTD configurável" width="40%">Polia dentada HTD configurável</ContentFigure>
 
-**Infill:** Power transmission parts may need to be printed with more walls and higher infill percentage (density of the inside of the part). Depending on the use case it might even be necessary to print at 100% infill. Using lower infill will decrease print time and decrease weight, but might increase risk of the part breaking.
+### Dicas para Impressão de Polias
 
-**Hex Shaft Inserts:** Compared to metal, plastic is relatively soft and can be worn down over time. High amounts of torque from a hex shaft (especially Thunderhex, which has rounded edges) can turn the hexagonal hole of a 3D printed pulley into a round hole, eventually eliminating power transmission between the shaft and pulley. One way to fix this is by using metal inserts that help to distribute the forces of the hex shaft into the printed part away from the hex bore.
+- **Perímetros e Preenchimento:** Aumente o número de paredes (4 a 6 perímetros) e utilize preenchimento denso (40% a 100%) para resistir aos esforços de cisalhamento nos dentes.
+- **Insertos Metálicos para Eixos Hexagonais:** Sob alto torque, eixos hexagonais de alumínio (especialmente ThunderHex com cantos arredondados) podem desgastar e espanar o furo plástico hexagonal de uma polia impressa, transformando-o em um furo circular liso. Para evitar isso, utilize insertos metálicos hexagonais (como os da The Thrifty Bot) que transmitem o torque através de parafusos distribuídos no corpo da polia.
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-pulley-insert.png" alt="Thriftybot metal insert" width="40%">Thriftybot metal insert inside of a 3D printed pulley</ContentFigure>
+<ContentFigure src="../img/design-for-3d-printing/3dp-pulley-insert.png" alt="Inserto metálico hexagonal The Thrifty Bot" width="40%">Inserto metálico em polia impressa em 3D</ContentFigure>
 
-### Gears
+### Engrenagens
 
-Gears can be 3D printed depending on their use case. In general applications with high torque requirements are not well suited for 3D printed gears. However things like claws or secondary mechanisms can benefit from the weight savings and flexibility of 3D printing.
+Engrenagens impressas em 3D funcionam muito bem em mecanismos de torque moderado (como garras de manipuladores e roletes de indexação), proporcionando enorme redução de peso.
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-3005.png" alt="3005 Robochargers 2023 Claw" width="40%">3005 Robochargers 2023 - Claw with 3D printed structure and gears</ContentFigure>
+<ContentFigure src="../img/design-for-3d-printing/3dp-3005.png" alt="Garra da equipe 3005 Robochargers em 2023" width="40%">3005 Robochargers 2023 - Garra com engrenagens e estrutura impressas em 3D</ContentFigure>
 
-### Tips for Gears
-
-**Face Width:** Face width refers to how much surface area is in contact between two gears. Having a larger face width reduces the stress on the gear and makes it less likely to break.
-
-**Tooth Strength:** Using a lower diametral pitch (fewer teeth per pitch circle length) will make the teeth thicker, in turn making the gear stronger.
+- **Largura de Face (Face Width):** Aumente a largura da engrenagem para distribuir a força de contato por uma área maior dos dentes.
+- **Passo Diametral (DP):** Utilize passos menores com dentes maiores (como 20 DP em vez de 32 DP) para obter dentes mais robustos.
 
 <Aside type="caution">
-3D printed gears must be used with caution in high torque applications like motor pinions or drive gears, using 3D prints in these applications can lead to the gears becoming worn out quickly.
+Não utilize engrenagens impressas em 3D no primeiro estágio de motores de alta potência (pinhões de motor) ou em reduções primárias de drivetrain, onde o atrito e a temperatura causam desgaste imediato.
 </Aside>
 
-## Custom Brackets and Structure
+## Suportes e Peças Estruturais Personalizadas
 
-3D printing is an exceptionally good solution when oddly shaped geometry is required.
+Para peças com ângulos compostos ou montagens complexas, a impressão 3D permite soluções integradas muito superiores a chapas dobradas:
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-5460-arm.png" alt="5460 Strike Zone 2023 Arm" width="40%">5460 Strike Zone 2023 - Extensive use of 3D printing for complex arm parts</ContentFigure>
+<ContentFigure src="../img/design-for-3d-printing/3dp-5460-arm.png" alt="Braço da equipe 5460 Strike Zone em 2023" width="40%">5460 Strike Zone 2023 - Uso avançado de peças impressas no braço articulado</ContentFigure>
 
-Caution needs to be exercised for most structural parts, however. Parts that are prone to shock loads will be at risk of breaking or shattering.
+### Orientações Críticas de Design
 
-### Tips for Custom Brackets
+- **Orientação na Mesa (Anisotropia):** Sempre posicione a peça na mesa de modo que os maiores esforços de tração e flexão atuem ao longo dos eixos X e Y (plano das camadas), nunca no eixo Z (onde a peça pode se separar entre camadas).
+- **Escolha do Material:** Peças sujeitas a choques mecânicos exigem materiais tenazes como PETG, Nylon (PA) ou TPU de alta dureza (Shore 95A).
 
-When designing custom brackets, it's critical to think about how the part will be assembled on the robot. Making parts easily serviceable will make your robot more reliable during competition.
+## Suportes de Câmeras e Sensores
 
-**Part Orientation:** Part orientation on the build plate greatly affects strength, support needs, and print time. Prints are typically strongest in the x-y plane of the printer as in the z direction the layers can delaminate (pull apart).
+Câmeras de visão computacional (como Orange Pi, Limelight ou PhotonVision) precisam ser fixadas em ângulos e alturas precisos para mirar nos marcadores AprilTag da arena. A impressão 3D permite ajustar o suporte no ângulo exato do projeto em poucas iterações.
 
-**Material Choice:** Material choice can lead to a massive difference in the performance and reliability of your part. For example, PETG offers significant improvement in impact strength and tensile strength over PLA. Polycarbonate has nearly **double** the tensile strength and bending strength of PLA (when properly annealed).
+<ContentFigure src="../img/design-for-3d-printing/3dp-camera-mount.png" alt="Suporte de câmera da equipe 6328" width="40%">6328 Mechanical Advantage 2024 - Suporte impresso para câmera de visão</ContentFigure>
 
-## Sensor Mounts
+<Aside type="tip">
+Para suportes de sensores expostos a impactos de peças de jogo, imprimir em **TPU semi-flexível** torna a peça praticamente indestrutível!
+</Aside>
 
-3D printing is a great solution for mounting sensors or cameras as these devices often need to be located very precisely at specific angles. 3D printing makes it very easy to iterate and optimize things like camera angles to see particular April Tags or game elements.
+## Dicas Finais de Fabricação
 
-<ContentFigure src="../img/design-for-3d-printing/3dp-camera-mount.png" alt="6328 Camera Mount" width="40%">6328 Mechanical Advantage 2024 Camera mount</ContentFigure>
-
-### Tips for Sensors and Strain Relief
-
-For sensor mounts that may get hit by game pieces or other robots, consider more durable materials, specifically materials that have high impact strength. TPU (Thermoplastic Polyurethane) is a rubber-like material that can be a great choice for very high impact resistance.
-
-## Final Notes
-
-**Holes and Tolerances:** Holes designed to exact CAD dimensions often print smaller due to material expansion/cooling. You can make test prints with varying hole tolerances to find optimal tolerances for your specific printer and material.
-
-**Optimize for Overhangs and Supports:** An overhang is anywhere on a part that isn't supported from below. Reducing overhangs will reduce filament wasted on support, improve the surface quality and accuracy of the part, and can reduce print time.
-
-**Fillets vs Chamfers:** Fillets are a great way to make your parts smooth. However, fillets on the part surface touching the print bed can lead to part warping. Replacing the fillet with a chamfer at an angle your printer can print without supports can fix this problem.
-
-## Additional Resources
-
-1. [604 Robotics Scrappy Not Crappy Presentation](https://resources.604robotics.com/presentations/2024-fmc-scrappy-not-crappy)
-2. [Design for 3D Printing Guide](https://blog.rahix.de/design-for-3d-printing/)
+- **Chanfros em vez de Raios na Base:** Evite colocar filetes arredondados (*fillets*) na face inferior em contato com a mesa de impressão, pois isso gera cantos finos que provocam descolamento e empenamento (*warping*). Substitua por um chanfro de 45° (*chamfer*).
+- **Furações para Parafusos:** Projete orifícios com folga calculada (+0,2 a 0,4 mm) ou utilize insertos roscados a quente de latão (*heat-set inserts*) para fixações duráveis que podem ser parafusadas e desparafusadas repetidas vezes sem espanar.

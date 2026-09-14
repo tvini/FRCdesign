@@ -1,67 +1,67 @@
-﻿---
-title: "1A: Onshape Fundamentals - Section 1"
-description: Learn to create box tubes in Onshape
+---
+title: "1A: Fundamentos do Onshape - Seção 1"
+description: Aprenda a modelar tubos estruturais (box tubes) no Onshape
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-## Exercise 1: Making Your First Tube
+## Exercício 1: Modelando seu Primeiro Tubo
 
-In this exercise you'll be:
+Neste exercício você irá:
 
-1. Following along with the video to learn how we can make box tubes in Onshape
-2. Playing with the tools you learned to explore how the concepts work
-3. Understanding how these parts interact in 3D Space
+1. Acompanhar o vídeo passo a passo para aprender como criamos tubos de alumínio no Onshape
+2. Explorar as ferramentas apresentadas para fixar os conceitos
+3. Compreender como essas peças interagem no espaço 3D
 
-### Video Tutorial
+### Tutorial em Vídeo
 
-Inside of the document you copied and navigated through previously, follow along with this video to create your box tubes and finish the exercise. The `extrude` tool will be introduced through this.
+No documento copiado e aberto na aba do exercício anterior, siga o vídeo para criar os tubos estruturais e concluir a atividade. A ferramenta de extrusão (`Extrude`) será apresentada nesta etapa.
 
-<ContentFigure src="FdD1BTQndEo">Making your first tube in Onshape</ContentFigure>
+<ContentFigure src="FdD1BTQndEo">Modelando seu primeiro tubo estrutural no Onshape</ContentFigure>
 
-<Aside type="note" title="As you work through the exercise, notice how:">
+<Aside type="note" title="Enquanto trabalha no exercício, observe como:">
 
-- Changing the extruded length affects the box tube.
-- The dimensions of the sketch translate directly into the dimensions of the tube.
+- Alterar o comprimento da extrusão modifica diretamente a extensão do tubo.
+- As medidas do sketch retangular determinam o perfil externo exato do tubo.
 
 </Aside>
 
 ---
 
-### Reference Images
+### Imagens de Referência
 
 <ContentRow>
-  <ContentFigure src="../img/1a/extrude-setup.webp" alt="Extrude your rectangles to create box tubes.">Extrude your rectangles to create box tubes.</ContentFigure>
-  <ContentFigure src="../img/1a/tube-result.webp" alt="Completed box tube geometry.">Completed box tube geometry.</ContentFigure>
+  <ContentFigure src="../img/1a/extrude-setup.webp" alt="Extrusão de retângulos para criar os blocos dos tubos.">Extrude os retângulos para dar volume aos tubos.</ContentFigure>
+  <ContentFigure src="../img/1a/tube-result.webp" alt="Geometria final dos tubos concluída.">Geometria final dos tubos concluída.</ContentFigure>
 </ContentRow>
 
-### Extrude Tool Info
+### Detalhes da Ferramenta de Extrusão (Extrude)
 
-<Aside type="note" title="Boolean Options">
-Every extrude has options for `new`, `add`, `remove`, and `intersect` that define how your extrude interacts with other parts in the part studio. **If you extrude a tube next to another tube**, you might notice that **they merge together**. Make sure to select the `new` option in your extrude menu, as **sometimes Onshape will default to `add`**.
+<Aside type="note" title="Opções Booleanas">
+Toda operação de extrusão possui as opções `New` (Novo sólido), `Add` (Adicionar/fundir), `Remove` (Cortar material) e `Intersect` (Interseção), que definem como o novo sólido se relaciona com outras peças existentes no Part Studio. **Se você extrudar um tubo colado em outro**, notará que **eles podem se fundir em uma única peça**. Certifique-se de selecionar a opção `New` para mantê-los separados, pois **o Onshape frequentemente assume `Add` como padrão**.
 </Aside>
 
-<Aside type="note" title="Endpoint Options">
-You can define the end of the extrude depending on an arbitrary length or by using other parts as reference. `Up to face` is pretty commonly used alongside `Blind`.
+<Aside type="note" title="Condições de Término (End Conditions)">
+Você pode definir o comprimento da extrusão com um valor numérico fixo (`Blind`) ou utilizando referências geométricas de outras peças. A opção `Up to face` (Até a face) é amplamente utilizada para amarrações paramétricas precisas.
 </Aside>
 
-### Tube Converter Settings
+### Configurações do Tube Converter
 
-When using the Tube Converter (as shown in the video), make sure your settings match:
+Ao utilizar o FeatureScript Tube Converter (conforme demonstrado no vídeo), certifique-se de que os parâmetros correspondam aos seguintes:
 
-<ContentFigure src="../img/1a/tube-converter-settings.webp" alt="Tube Converter settings example">Tube Converter settings example</ContentFigure>
+<ContentFigure src="../img/1a/tube-converter-settings.webp" alt="Exemplo de parâmetros do Tube Converter">Exemplo de parâmetros do Tube Converter</ContentFigure>
 
-If the Tube Converter isn't behaving as expected:
+Se o Tube Converter apresentar comportamento inesperado:
 
-- Only select the rectangles that are not touching, as shown in the video.
-- You can remove a selection by clicking the `x` next to the part in the Tube Converter menu.
+- Selecione apenas retângulos que não estejam se tocando ou fundidos, como mostrado no vídeo.
+- Você pode desmarcar uma seleção clicando no `x` ao lado da peça na lista do Tube Converter.
 
-If you forget the name of a tool, you can press `Alt+C` to search for it.
+Lembre-se: se esquecer o nome ou localização de qualquer ferramenta, basta pressionar `Alt + C` para abrir a barra de busca rápida de comandos.
 
 ---
 
-## Done following along?
+## Terminou o passo a passo?
 
-Mess around with the tubes a bit more, try extruding different lengths, using different extrude offsets and settings, and play to see how they relate to your final box tube.
+Explore um pouco mais os tubos: experimente extrudar comprimentos diferentes, testar opções de simetria e offsets e veja como isso reflete na peça final furada.
 
-After 5 minutes or so, move on to the next exercise.
+Após cerca de 5 minutos de experimentação livre, avance para o próximo exercício.

@@ -1,38 +1,37 @@
-﻿---
-title: Document Setup
-description: The best practices for document setup for an FRC robot.
+---
+title: Configuração do Documento
+description: Melhores práticas para organização e estrutura de documentos no Onshape para um robô da FRC.
 ---
 
+Em geral, um robô de FRC é complexo demais e contém peças em excesso para ser construído dentro de um único documento do Onshape. Fazer isso até é possível, mas causará lentidão severa no carregamento e problemas de organização entre os integrantes da equipe.
 
-In general, an FRC robot is too complicated and has too many parts to be created entirely within a single document. Doing so is possible, but will result in bad loading times, and likely poor organization.
+Para solucionar esse desafio, dividimos o robô em múltiplos documentos conectados, cada um gerenciado com seu versionamento:
 
-To alleviate these challenges, we generally split FRC robots into several documents, each with an individual version number:
+- **Documento de Conceito ("Concept")**: contém o layout sketch principal (esboço mestre de arquitetura), que define a geometria e arquitetura geral do robô, juntamente com o modelo de blocos volumétricos (KrayonCAD / Crayon CAD).
+- **Documentos de Subsistemas ("Subsystems")**: documentos individuais para cada mecanismo (ex: Intake, Shooter, Elevador), contendo seus Part Studios, submontagens e a montagem final daquele mecanismo.
+- **Documento Principal do Robô ("Main Robot")**: contém a montagem completa de nível superior do robô (Top-Level Assembly), montada a partir das submontagens importadas de cada documento de subsistema.
 
-- "Concept" document: contains the main layout sketch, which determines the overall architecture and geometry for the robot, alongside the Crayon CAD (a simplistic model of your robot archetype)
-- Several "Subsystem" documents, which contain the part studios, subassemblies and top-level assembly for each subsystem, such as an Intake
-- "Main Robot" document, which contains the top-level full robot assembly. This assembly is comprised of the top-level assembly from each of the subsystem documents.
+Para conectar esses documentos de forma paramétrica, usamos recursos essenciais do Onshape:
 
-To connect these documents to each other, we make use of a few key Onshape features:
+- Ferramenta **Derived (Derivar)**: importa o layout sketch principal do documento de conceito para dentro do documento do subsistema, permitindo modelar as peças sobre as referências geométricas mestras.
+- **Import (Inserir/Importar)**: as montagens de cada subsistema são inseridas no documento principal para montar o robô completo.
 
-- **Derive** feature: brings your main layout sketch from the concept document into the subsystem document, so you can design your parts on top of it.
-- **Import**: Subassemblies are imported from each subsystem document so they can be assembled in the main robot document.
-
-Here is a diagram showing the full file structure:
+Abaixo está o diagrama demonstrando essa estrutura de arquivos:
 
 <ContentFigure src="./img/docsetup2.webp" />
 
 :::center
-*Blue: Derive, Red: Import*
+*Azul: Derived (Derivar), Vermelho: Inserir em Montagem*
 :::
 
 <Aside type="note">
-Sometimes the "main robot" document is combined with the "concept" document. In this case nothing really changes, the file structure just becomes a sort of loop, and there is one less document.
+Em algumas equipes, o documento do robô principal é unificado com o documento de conceito. Nesse caso, o fluxo lógico é mantido e a estrutura economiza um documento.
 </Aside>
 
-You can see an example of this document structure here. Note the combination of the framework and main documents.
+Veja um exemplo real dessa organização:
 
 <ContentFigure src="./img/docsetup3.webp" />
 
 <ContentFigure src="./img/docsetup4.webp" />
 
-The document structure isn't set in stone; as long as it helps your team fulfill the goal of top-down design and uses separate documents to split up the versions of mechanisms, you can place your main layout sketches wherever you want (main document, concept document, or the drivetrain document).
+Essa estrutura de documentos não é rígida: desde que atenda ao objetivo do design top-down e divida os mecanismos para evitar lentidão e conflitos entre membros, sua equipe pode posicionar os esboços mestres onde for mais conveniente (no documento mestre, no de conceito ou no do drivetrain).

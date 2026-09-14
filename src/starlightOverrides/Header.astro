@@ -11,15 +11,15 @@ import { getSidebarForPath, type SidebarItem, type SidebarSection } from "../con
 const props = Astro.props;
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/feature-guide/", label: "Website Feature Guide" },
-  { href: "/learning-course/", label: "Learning Course" },
-  { href: "/educators-guide/introduction/", label: "Educator's Guide" },
-  { href: "/design-handbook/", label: "Design Handbook" },
-  { href: "/mechanism-examples/", label: "Mechanism Examples" },
-  { href: "/best-practices/", label: "Best Practices" },
-  { href: "/resources/", label: "Other Resources" },
-  { href: "/contribution/methods-of-contributing/", label: "Contribution" },
+  { href: "/", label: "Início" },
+  { href: "/feature-guide/", label: "Guia de Recursos" },
+  { href: "/learning-course/", label: "Curso de Aprendizado" },
+  { href: "/educators-guide/introduction/", label: "Guia do Educador" },
+  { href: "/design-handbook/", label: "Manual de Projeto" },
+  { href: "/mechanism-examples/", label: "Exemplos de Mecanismos" },
+  { href: "/best-practices/", label: "Boas Práticas" },
+  { href: "/resources/", label: "Outros Recursos" },
+  { href: "/contribution/methods-of-contributing/", label: "Contribuição" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -94,7 +94,7 @@ for (const section of sidebarSections) {
         <button
           type="button"
           class="mobile-menu-toggle"
-          aria-label="Toggle navigation menu"
+          aria-label="Alternar menu de navegação"
           aria-expanded="false"
           data-mobile-menu-toggle
         >
@@ -109,7 +109,7 @@ for (const section of sidebarSections) {
               type="button"
               class="theme-toggle-button"
               data-theme-toggle
-              aria-label="Toggle dark / light theme"
+              aria-label="Alternar tema claro/escuro"
             >
               <ThemeLightIcon class="theme-icon theme-icon-outline" />
               <ThemeLightFilledIcon class="theme-icon theme-icon-filled" />
@@ -125,7 +125,7 @@ for (const section of sidebarSections) {
             class="github-link-header"
             target="_blank"
             rel="noreferrer"
-            aria-label="Open FRCDesign.org on GitHub"
+            aria-label="Abrir FRCDesign.org no GitHub"
           >
             <GitIcon class="github-icon" />
           </a>
@@ -134,7 +134,7 @@ for (const section of sidebarSections) {
     </div>
   </div>
 
-  <nav class="navigation-bar" aria-label="Primary">
+  <nav class="navigation-bar" aria-label="Principal">
     <div class="navigation-bar-inner">
       <div class="primary-navigation">
         {navLinks.map((item) => (
@@ -144,10 +144,10 @@ for (const section of sidebarSections) {
     </div>
   </nav>
 
-  <nav class="mobile-navigation" aria-label="Primary" data-mobile-menu>
+  <nav class="mobile-navigation" aria-label="Principal" data-mobile-menu>
     <div class="mobile-navigation-inner">
       <div class="mobile-nav-section">
-        <span class="mobile-nav-section-title">Navigation</span>
+        <span class="mobile-nav-section-title">Navegação</span>
         {navLinks.map((item) => (
           <a href={item.href} class="mobile-nav-link">{item.label}</a>
         ))}
@@ -155,7 +155,7 @@ for (const section of sidebarSections) {
 
       {mobileSidebarItems.length > 0 && (
         <div class="mobile-nav-section mobile-sidebar-section">
-          <span class="mobile-nav-section-title">Page Navigation</span>
+          <span class="mobile-nav-section-title">Navegação da Página</span>
           <div class="mobile-sidebar-tree" id="mobile-sidebar-tree" data-items={JSON.stringify(mobileSidebarItems)} data-current-path={currentPath}></div>
         </div>
       )}
@@ -224,7 +224,7 @@ for (const section of sidebarSections) {
         lightbox.id = 'global-image-lightbox';
         lightbox.className = 'global-image-lightbox';
         lightbox.innerHTML = `
-          <button class="global-lightbox-close" aria-label="Close lightbox">
+          <button class="global-lightbox-close" aria-label="Fechar visualização">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>

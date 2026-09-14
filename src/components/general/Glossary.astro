@@ -17,7 +17,7 @@ const { term } = Astro.props;
 
 const glossaryEntry = getGlossaryTerm(term);
 const slotContent = await Astro.slots.render('default');
-const definition = slotContent?.trim() || glossaryEntry?.definition || 'Definition not found';
+const definition = slotContent?.trim() || glossaryEntry?.definition || 'Definição não encontrada';
 ---
 
 <span class="glossary-term" data-tooltip={definition}>

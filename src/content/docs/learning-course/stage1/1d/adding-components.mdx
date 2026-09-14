@@ -1,65 +1,63 @@
-﻿---
-title: Adding More Components
-description: Adding additional components to the design
+---
+title: Adicionando Mais Componentes
+description: Adicionando componentes adicionais ao projeto
 sidebar:
   order: 6
 ---
 
+## Adicionando Mais Componentes
 
-## Adding More Components
+Ao modelar novas peças no part studio, você pode inseri-las na montagem de forma semelhante a antes. Clique em Insert e imediatamente confirme no ícone de seleção verde (green checkmark). Em seguida, edite o `Group` inicial criado anteriormente e adicione a nova peça ao grupo. Fazendo isso, você garante que as peças adicionadas permaneçam rigorosamente na mesma posição em que foram modeladas no part studio.
 
-When you model more parts in the part studio, you can insert them into the assembly in a similar to fashion to before. Hit insert and immediately click on the green checkmark. Then, edit the initial `Group` you made and add the part to the group. By doing this, you ensure that added parts will always stay in the same place it was modeled in the part studio.
+Vamos adicionar um gusset para conectar o tubo transversal 2"x2" ao tubo perimetral 2"x1".
 
-Let's add a gusset to connect the 2"x2" tube to the 2"x1" tube.
+### Instruções
 
-### Instructions
+Comece **navegando até o Part Studio `Drivetrain`** dentro da pasta `Drivetrain`. **Siga as instruções nos slides** para adicionar o gusset.
 
-Start by **navigating to the `Drivetrain` Part Studio** in the `Drivetrain` folder. **Follow the instructions in the slides** to add the gusset.
+<Aside type="tip" title="Defina Furos de Montagem Manualmente">
+Quando você projeta furos a partir do tubo ou usa o Featurescript de gusset referenciando a furação do tubo, essas referências podem quebrar com facilidade se o Tube Converter ou o comprimento do tubo forem alterados. Procure cotar furos definidos manualmente em relação à aresta do tubo ou projete apenas um único furo e use um padrão linear, minimizando os elementos que precisariam de conserto em caso de mudanças dimensionais.
 
-<Aside type="tip" title="Manually Define Mounting Holes">
-When you project the holes off of the tube or use the gusset featurescript, those references can break easily if the tube converter or length of the tube gets changed. Try to dimension manually defined holes from the edge of the tube or only project one hole and use a linear pattern to minimize the amount of things you need to fix if something changes.
-
-<ContentFigure src="../img/1d/define-holes.webp" alt="Manually defined mounting holes" width="60%" border />
+<ContentFigure src="../img/1d/define-holes.webp" alt="Furos de montagem definidos manualmente" width="60%" border />
 </Aside>
 
 <Slides>
   ![](../img/1d/drivetrain/add-0.webp)
-  Finished drivetrain assembly.
+  Montagem final do drivetrain.
 
   ![](../img/1d/drivetrain/add-1.webp)
-  Sketch and extrude a 1/8" thick gusset to connect the crosstube to the top of the frame using the holes shown.
+  Desenhe o sketch e faça a extrusão de um gusset de 1/8" de espessura para conectar o tubo transversal ao topo do chassi usando os furos mostrados.
 
   ![](https://www.youtube.com/embed/n8lWSdOV-Ks?controls=1&rel=0&showinfo=0&vq=hd1080)
-  Insert the gusset into the assembly and add it to the Group.
+  Insira o gusset na montagem e adicione-o ao Group existente.
 
   ![](../img/1d/drivetrain/add-3.webp)
-  Add 2-1/2" #10-32 bolts to the three holes in the bellypan on each side so they go through the gusset holes on the other side. Add nylock nuts to the holes on the gusset. As you learned in 1C, this is to help prevent rivets from loosening and falling out over time.
+  Adicione parafusos #10-32 de 2-1/2" aos três furos no bellypan em cada lado para que atravessem os furos do gusset no outro lado. Adicione porcas autotravantes (nylock) aos parafusos no gusset. Como você aprendeu no 1C, isso serve para evitar que rebites afrouxem e caiam com a vibração ao longo do tempo.
 
   ![](https://www.youtube.com/embed/CC017qPw2Mk?controls=1&rel=0&showinfo=0&vq=hd1080)
-  Edit the replicate feature to add rivets to the gusset.
+  Edite a feature de replicação para adicionar os rebites no gusset.
 
   ![](https://www.youtube.com/embed/0O1ojhHTgMI?controls=1&rel=0&showinfo=0&vq=hd1080)
-  Mirror the gusset, bolts, and rivets to the other side of the drivetrain using a mate connector on the origin cube.
+  Espelhe o gusset, parafusos e rebites para o outro lado do drivetrain usando um mate connector posicionado no Origin Cube.
 
   ![](../img/1d/drivetrain/add-0.webp)
-  Finished drivetrain assembly.
-
+  Montagem finalizada do drivetrain.
 </Slides>
 
-Make sure you sort the instances in your assembly into folders (i.e. frame, swerve modules) and name any patterns and replicates used. This will help you locate components in the assembly later down the line.
+Certifique-se de organizar as instâncias na sua montagem em pastas (por exemplo: estrutura/frame, módulos swerve) e nomear devidamente os padrões e replicações criados. Isso facilitará muito localizar componentes na montagem mais tarde.
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement/)
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement/)
 
-Your assembly should weigh approximately 37.2lbs.
+Sua montagem deve pesar aproximadamente 37,2 lbs.
 
-Your tab manager should have the following tabs and folder:
+Seu gerenciador de abas (tab manager) deve conter as seguintes abas e pasta:
 
-<ContentFigure src="../img/1d/tab-manager.webp" alt="Tab manager view" />
+<ContentFigure src="../img/1d/tab-manager.webp" alt="Visualização do gerenciador de abas" />
 </Aside>
 
-### Level of Detail
+### Nível de Detalhe (Level of Detail - LOD)
 
-It should be noted that while modeling every detail of the robot hardware (bolts, rivets, nuts) is beneficial for purchasing and real life assembly purposes, it isn't strictly necessary. Time is a precious resource, especially during build season, so you should spend it on what will give you the biggest return.
+Vale destacar que, embora modelar cada detalhe dos fixadores do robô (parafusos, rebites, porcas) seja útil para listas de compras (BOM) e montagem física real, isso nem sempre é estritamente necessário em todas as fases do projeto. O tempo é um recurso escasso — principalmente durante a build season —, portanto você deve aplicá-lo onde ele trouxer o maior retorno técnico.
 
-More details about best practices for Onshape assemblies are included on the [Assembly Best Practices Page](/best-practices/assembly-setup/).
+Mais detalhes sobre as melhores práticas para montagens no Onshape estão incluídos na página de [Melhores Práticas de Montagem](/best-practices/assembly-setup/).

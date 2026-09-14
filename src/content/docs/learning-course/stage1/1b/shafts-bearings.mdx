@@ -1,32 +1,28 @@
-﻿---
-title: Shafts and Bearings
-description: Understanding shafts and bearings
+---
+title: Eixos e Rolamentos
+description: Compreendendo eixos e rolamentos
 ---
 
+### Eixos (Shafts)
+Eixos transmitem potência rotacional ao longo de um eixo de rotação, sendo os eixos hexagonais (hex shafts) os mais comuns na FRC. Esses eixos hexagonais, tipicamente em diâmetros de 1/2" e 3/8" (medidos de face a face plana), às vezes podem ter cantos arredondados, conhecidos como "rounded hex" ou "Thunderhex".
 
-### Shafts
-Shafts transmit rotational power along an axis, with hex shafts being the most common in FRC. These hexagonal shafts, typically in 1/2" and 3/8" diameters (measured from flat to flat), may sometimes have rounded corners, known as "rounded hex" or "Thunderhex."
+### Rolamentos (Bearings)
+Rolamentos permitem que eixos girem independentemente de placas e/ou que componentes girem independentemente de eixos. Eixos hex padrão usam rolamentos hex de 1/2", enquanto eixos rounded hex podem usar rolamentos redondos para facilitar a montagem.
 
-### Bearings
-Bearings allow shafts to spin independently of plates and/or things to spin independently of shafts. Standard hex shafts use 1/2" hex bearings, while rounded hex shafts can use round bearings for easier assembly.
+<ContentFigure src="../img/1b/examples/bearing-and-shaft.webp" alt="Rolamento e eixo">Um rolamento rounded hex de 1/2" (esquerda) e um eixo rounded hex de 1/2" (direita) (Fonte da imagem: WCP)</ContentFigure>
 
-<ContentFigure src="../img/1b/examples/bearing-and-shaft.webp" alt="Bearing and shaft">A 1/2" rounded hex bearing (Left) and 1/2" rounded hex shaft (Right) (Image Source: WCP)</ContentFigure>
+### Exemplo
 
-
-
-### Example
-
-<Aside type="example" title="Example of a Shaft Spinning in a Bearing">
-<ContentFigure src="../img/1b/examples/shaft-spinning.webp" gif alt="Shaft spinning in bearings">A spinning shaft in bearings</ContentFigure>
+<Aside type="example" title="Exemplo de um Eixo Girando em um Rolamento">
+<ContentFigure src="../img/1b/examples/shaft-spinning.webp" gif alt="Eixo girando em rolamentos">Um eixo girando apoiado em rolamentos</ContentFigure>
 </Aside>
 
-### Bushings
-Bushings are a cheap and low friction alternative to bearings and are used with metal shafts such as shoulder bolts, hex shafts, and round tube, mainly to save space. They are made out of a self-lubricating material such as bronze or acetal/delrin and typically used in applications with relatively low RPM, such as for pivots and linkage joints.
+### Buchas (Bushings)
+Buchas são uma alternativa barata e de baixo atrito aos rolamentos, sendo usadas com eixos metálicos como shoulder bolts (parafusos de ressalto), eixos hex e tubos redondos, principalmente para economizar espaço. São feitas de materiais autolubrificantes como bronze ou acetal/delrin, e tipicamente empregadas em aplicações de RPM relativamente baixo, como pivôs e articulações de linkage.
 
-<ContentFigure src="../img/1b/examples/bushing.webp" alt="Bronze bushing" width="50%">A Bronze Bushing (Image Source: WCP)</ContentFigure>
+<ContentFigure src="../img/1b/examples/bushing.webp" alt="Bucha de bronze" width="50%">Uma bucha de bronze (Fonte da imagem: WCP)</ContentFigure>
 
+### Modelagem
+A maneira mais fácil e paramétrica de modelar eixos é usar o [Featurescript `Robot Shaft`](https://cad.onshape.com/documents/9cffa92db8b62219498f89af/w/06b332ccabc9d2e0aa0abf88/e/2e6e4b559832eeff8391e933), que você aprenderá a utilizar nos exercícios a seguir.
 
-### Modeling
-The easiest and most parametric way to model shafts is to use the [`Robot Shaft` Featurescript](https://cad.onshape.com/documents/9cffa92db8b62219498f89af/w/06b332ccabc9d2e0aa0abf88/e/2e6e4b559832eeff8391e933), which you learn how to use in the following exercises.
-
-For bearings, insert your desired bearing from FRCDesignLib.
+Para rolamentos, insira o rolamento desejado a partir da biblioteca FRCDesignLib.

@@ -1,27 +1,26 @@
-﻿---
-title: Assembly
-description: Assembling the intake
+---
+title: Montagem
+description: Montando o intake
 ---
 
+## Montagem (Assembly)
 
-## Assembly
+Assim como no pivô em dead axle, este subsistema é composto por uma porção estática e uma porção móvel articulada. Novamente, queremos separá-las em montagens rígidas (sem movimento interno livre) e depois reuni-las na montagem de nível superior.
 
-Just like the dead axle pivot, this subsystem contains a static part and a moving part. Again, we want to separate them into rigid (no movement) assemblies, then combine them at the top level.
+### Montagem da Base (Base Assembly)
 
-### Base Assembly
+Crie uma montagem para as partes estáticas, insira as peças e o Origin Cube do part studio com a marca de seleção verde e agrupe-as com Group Mate. Fixe o Origin Cube na origem com Fasten Mate. Adicione as demais peças do part studio, da FRCDesignLib e do Standard Content, utilizando Replicate e padrões sempre que possível.
 
-Create an assembly for the static parts, insert the parts and origin cube from the part studio with the green checkmark, and group them together. Fasten the origin cube to the origin. Add the rest of the parts from the part studio, FRCDesignLib, and standard content, using replicate and patterns when you can.
+<ContentFigure src="../img/2c/staticAssembly.webp" alt="Montagem Estática Finalizada" width="60%"/>
 
-<ContentFigure src="../img/2c/staticAssembly.webp" alt="Finished Static Assembly" width="60%"/>
+### Montagem dos Braços (Arm Assembly)
 
-### Arm Assembly
+Crie uma montagem para os braços do intake e repita o procedimento acima para concluir o conjunto e torná-lo rígido. Para os roletes, insira-os a partir da FRCDesignLib (Latheless Roller).
 
-Create an assembly for the intake arms and do the same thing as above to complete the assembly and make it rigid. For the rollers, insert them from FRCDesignLib (Latheless Roller).
+<ContentFigure src="../img/2c/intakeArms.webp" alt="Montagem Finalizada dos Braços do Intake" width="60%"/>
 
-<ContentFigure src="../img/2c/intakeArms.webp" alt="Finished Intake Arms Assembly" width="60%"/>
+### Montagem de Nível Superior (Top Level Assembly)
 
-### Top Level Assembly
+Agora crie uma montagem de nível superior e insira a montagem estática (fixando seu Origin Cube na origem da montagem) e a montagem dos braços do intake. Crie um mate do tipo `Revolute` entre os mate connectors dos Origin Cubes de ambas as montagens e adicione limites angulares de curso. Isso conclui a montagem completa do intake slapdown.
 
-Now create a top level assembly and insert the static assembly (fasten to the origin) and intake arm assembly. Create a revolute mate between the mate connectors from the origin cubes in both assemblies and add a limit to it. This completes the slapdown intake assembly.
-
-<ContentFigure src="../img/2c/intakeTopLevel.webp" alt="Finished Top Level Intake Assembly" width="60%"/>
+<ContentFigure src="../img/2c/intakeTopLevel.webp" alt="Montagem Finalizada de Nível Superior do Intake" width="60%"/>

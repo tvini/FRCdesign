@@ -1,25 +1,24 @@
-﻿---
-title: Pivot
-description: Understanding pivot design in intakes
+---
+title: Pivô
+description: Compreendendo o projeto do pivô em intakes
 ---
 
+## Pivô (Pivot)
 
-## Pivot
+### Relação de Redução (Gear Ratio)
 
-### Gear Ratio
+O movimento de articulação do pivô é acionado por um único motor Kraken acoplado a uma caixa planetária MAXPlanetary de 2 estágios. Os estágios de 4:1 na MAXPlanetary (16:1) somados à redução por sprockets de 12:48 resultam em uma redução total de aproximadamente 42:1 para o pivô.
 
-The pivot is powered by a single Kraken motor on a 2-stage MAXplanetary gearbox. The 4:1 stages in the MAXplanetary (16:1) and the 12:48 sprocket reduction make a total of 42:1 overall reduction for the pivot.
+Você pode avaliar se necessita de tanta redução no seu próprio mecanismo utilizando calculadoras de braço rotativo (como no ReCalc), mas uma relação entre 30:1 e 42:1 funciona com excelência para a grande maioria dos intakes slapdown da FRC.
 
-You can assess whether you want this much reduction on your own mechanism by using an arm calculator, but around 30:1 to 42:1 should be good for most intakes.
+### Projeto Mecânico do Pivô
 
-### Pivot Design
+A saída da MAXPlanetary utiliza uma transmissão por correia/polia de 1:1 para transferir a rotação até um eixo transversal longo (cross-axle). Todas as polias personalizadas possuem alojamentos para receber inserts metálicos COTS para evitar que espanem sob esforço. Há sprockets em ambas as extremidades desse eixo transversal, com correntes subindo para sprockets parafusados diretamente nos braços laterais do intake. Essa configuração assegura que ambos os lados do intake subam e desçam de forma perfeitamente sincronizada, evitando qualquer torção indesejada na estrutura.
 
-The MAXplanetary uses a 1:1 belt/pulley to transfer rotation to a long cross-axle. All custom pulleys have pockets for COTS metal inserts to prevent them from stripping. There are sprockets on either end of this cross axle, with chain going up to sprockets attached to the arm. This setup is to ensure both sides of the intake are moved up and down equally so there's no weird twisting forces on the intake.
+### Backlash e Feedback de Sensores
 
-### Backlash and Sensor Feedback
+Para minimizar a folga angular (backlash) no sistema, a transmissão de correia 1:1 utiliza a distância exata de centro a centro e as correntes são reguladas com esticadores em linha (inline tensioners). Utilizar sprockets grandes fixados na articulação dos braços também é excelente para aumentar a quantidade de dentes engrenados com a corrente.
 
-To reduce backlash in the system, the 1:1 belt/pulley is exact center-center distance and the chains are tensioned with inline tensioners. Large sprockets on the output of the arms are good as well for more teeth engagement with the chain.
+Para o controle de malha fechada da posição do intake, nem sempre é obrigatório um encoder absoluto. Você pode zerar a posição relativa (zeroing) quando o intake estiver recolhido contra o batente mecânico rígido (hardstop) ou apoiado no chão ao ligar o robô, utilizando o encoder relativo integrado do motor brushless para comandar as posições com altíssima repetibilidade.
 
-For controlling the intake position, no absolute encoder is needed. You can zero the position when it is stowed and against the hardstop or have it rest on the ground when the robot is turned on, and use the relative encoder to take it to a specific position down.
-
-<ContentFigure src="../img/2c/pivot.webp" alt="Reference Design Intake Pivot" width="20%"/>
+<ContentFigure src="../img/2c/pivot.webp" alt="Pivô do Intake do Projeto de Referência" width="20%"/>

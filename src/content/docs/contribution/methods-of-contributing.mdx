@@ -1,130 +1,111 @@
-﻿---
-title: Methods of Contributing
-description: A guide to publicly contributing to the website, including setting up an IDE and local preview for editing.
+---
+title: Formas de Contribuir
+description: Guia para contribuir com o site, incluindo configuração de ambiente (IDE) e pré-visualização local para edição.
 ---
 
+## Contribuição Pública
 
-## Public Contribution
+Qualquer pessoa pode criar conteúdo para o site, mesmo sem conhecimento prévio de Markdown ou GitHub — embora aprender a utilizar ambos ajude a agilizar o processo da equipe.
 
-Anyone can create content for the website without markdown knowledge or GitHub, though it is preferred you learn how to use both to lessen the workload of other contributors.
-
-In [the discord server](https://discord.gg/25pk6Mnh8k), go to the "website-feedback" forum channel and make a post about what you want to contribute by filling out this template:
+No [servidor do Discord](https://discord.gg/25pk6Mnh8k), vá até o canal de fórum "website-feedback" e crie uma postagem descrevendo o que deseja contribuir preenchendo o modelo abaixo:
 
 ```
-Issue/content:
-Solution or Notes about the execution of the content:
-When do you plan on finishing?:
-Using an alternate platform or forking on Github?:
+Problema/conteúdo:
+Solução ou notas sobre a execução do conteúdo:
+Quando você planeja terminar?:
+Usando uma plataforma alternativa ou fazendo fork no GitHub?:
 ```
 
-This is to make sure you don't waste your time if it's not something that won't get put on the website or something that someone has already started working on.
+Isso evita que você gaste tempo em algo fora do escopo do site ou em um tema que já esteja sendo desenvolvido por outra pessoa.
 
-If you're given approval to start working on it, an internal contributor will mark the post as "green-lit" or direct you to an existing post to work with and supplement another contributor if the content or issue has already started to be addressed.
+Após aprovação dos mantenedores, a postagem receberá a tag de aprovado ("green-lit") ou você será orientado a somar forças em uma discussão já existente.
 
-When you start on your work, you may choose to either:
+Ao começar a produzir, você pode escolher:
 
-1. Fork the repository on GitHub and submit pull requests for your work to be accepted (if you're more programming-savvy)
-2. Work on an alternate platform such as Google Docs or Notion and let an internal contributor port it over to the website when you're done
+1. Fazer um fork do repositório no GitHub e enviar Pull Requests com as alterações (recomendado para quem tem familiaridade com Git/código).
+2. Redigir em uma plataforma alternativa (como Google Docs ou Notion) para que um colaborador da equipe faça a inclusão no site.
 
-## Setting up GitHub and VS Code For Contributing
+## Configurando GitHub e VS Code para Contribuir
 
-### Install Prerequisites
+### Instalar Pré-requisitos
 
-Make sure to download the correct versions for the OS that you have (Windows, Mac, or Linux).
+Baixe as versões adequadas para seu sistema operacional (Windows, Mac ou Linux). No Windows, prefira quase sempre a versão de 64 bits.
 
-Windows installers will almost always need to be the 64-bit version if there is a distinction.
-
-- The latest version of [Git](https://git-scm.com/downloads)
-  - Follow instructions for your OS
-  - Use all default options for installation
+- A versão mais recente do [Git](https://git-scm.com/downloads)
+  - Siga as instruções do instalador mantendo as opções padrão
 - [Node.js LTS](https://nodejs.org/)
-  - Download the LTS version for your OS
-  - Use all default options for installation
-- [VSCode](https://code.visualstudio.com/)
-  - Download the stable build for your OS
-  - Use all default options for installation, except creating a desktop icon if you want
-- [GitHub Desktop](https://desktop.github.com/) (Optional - you can also use git interface in VSCode)
-  - After installing, select "Sign in to GitHub.com"
-  - Sign in or sign up for a new GitHub account, then click "Authorize Desktop"
-    - If you choose to sign up, you must verify your account with a captcha at the end of the registration and an emailed code
-    - If the captcha fails, try disabling a privacy extension that might be interfering
-    - Set up the rest of your account (you may choose to sign up for GitHub education but that isn't required, the free version is fine)
-    - If it doesn't take you to the authorization page after signing up, go back to the GitHub Desktop application, press "Cancel", then select "Sign in to GitHub.com" again
-  - Allow your browser to open GitHub Desktop
-  - Click "Finish"
+  - Baixe a versão estável (LTS) recomendada para seu sistema operacional
+  - Mantenha as opções padrão na instalação
+- [VS Code](https://code.visualstudio.com/)
+  - Baixe a versão estável para seu OS
+- [GitHub Desktop](https://desktop.github.com/) (Opcional - você também pode usar a aba de controle de versão nativa do VS Code)
+  - Após instalar, selecione "Sign in to GitHub.com"
+  - Faça login ou crie sua conta no GitHub e autorize o GitHub Desktop
+  - Conclua a configuração inicial
 
-### Steps to Start Writing Contributions
+### Passos para Começar a Escrever Contribuições
 
-**For Public Contributors:**
+**Para Colaboradores Públicos:**
 
-1. Go to the repository website
-2. Click "Fork" near the top right, then click "Create Fork" on the next screen
-3. Open GitHub Desktop and select "Clone a repository from the Internet..." or go to `file -> Clone repository...` in the very top left
-4. Under "GitHub.com", select your forked `[username]/FRCDesign.org` repository and click "Clone"
-5. After it clones the repository (downloads a copy of it to your computer), it will ask how you plan to use the fork. Select "To contribute to the parent project" and click "Continue"
+1. Acesse o repositório oficial no GitHub.
+2. Clique no botão "Fork" no canto superior direito e confirme em "Create Fork".
+3. Abra o GitHub Desktop e selecione "Clone a repository from the Internet..." (ou menu `File -> Clone repository...`).
+4. Na aba "GitHub.com", selecione seu repositório bifurcado `[seu-usuario]/FRCDesign.org` e clique em "Clone".
+5. Quando o clone for concluído, selecione "To contribute to the parent project" e clique em "Continue".
 
-**For Internal Contributors (added to the main repository):**
+**Para Mantenedores Internos:**
 
-1. Open GitHub Desktop and select "Clone a repository from the Internet..." or go to `file -> Clone repository...` in the very top left
-2. Under "GitHub.com", select the main repository and click "Clone"
-3. After it clones the repository (downloads a copy of it to your computer), it will ask how you plan to use the fork. Select "To contribute to the parent project" and click "Continue"
+1. Abra o GitHub Desktop e vá em `File -> Clone repository...`.
+2. Em "GitHub.com", selecione o repositório principal e clique em "Clone".
 
-**How to Write and Pull Request Contributions**
+**Como Criar Branches e Enviar Pull Requests:**
 
-1. Create a new branch by going to the "Current branch" dropdown at the top of GitHub Desktop, pressing "New branch", naming it and clicking "Create branch".
-   - Typically you want to make changes in branches (not main), then do what's called a "pull request" to get those changes "pulled" and merged over to the original main branch
-   - Name the branch something related to the overall changes you're making, e.g. "contributors-guide" or "3A-cleanup". You should expect to delete the branch after a pull request, so keep it specific enough to your changes
-   - Make sure to publish the branch by clicking the button for it that shows up after you create a new branch
-2. Click "Open in Visual Studio Code" to open VS Code.
-3. If you get a pop-up that says "Do you trust the authors of the files in this folder?", check the box next to "Trust the authors of all files in the parent folder 'GitHub'" (for no further popups when you clone repositories in the future) and click "Yes, I trust the authors".
-4. Set up VS Code how you like if this is your first time running it (themes, extensions).
-   - The "Code Spell Checker" extension is suggested
-   - Enable autosave in the `file` menu by toggling it on
-5. Make a set of changes.
+1. Crie uma nova branch clicando no menu "Current branch" no topo do GitHub Desktop, clique em "New branch", escolha um nome descritivo (ex: `melhorias-intake` ou `guia-estilo`) e clique em "Create branch".
+   - Sempre faça alterações em branches dedicadas (nunca diretamente na `main`).
+   - Clique em "Publish branch" para enviar sua nova branch ao GitHub.
+2. Clique em "Open in Visual Studio Code" para abrir a pasta do projeto.
+3. Se aparecer a mensagem "Do you trust the authors of the files in this folder?", marque a opção de confiar e confirme.
+4. Ajuste suas preferências no VS Code (extensões como "Code Spell Checker" são muito úteis).
+5. Faça as alterações desejadas.
 
 <Aside type="tip">
-All the website files and folders are contained in the `src/content/docs` folder.
+Todas as páginas e pastas de conteúdo do site ficam localizadas em `src/content/docs`.
 </Aside>
 
-<Aside type="note" title="Adding a new page">
-If you create a new `.mdx` file you must also add an entry for it in `src/config/sidebarConfig.ts`, otherwise the page will exist but won't appear in the navigation. See [Adding a Page](/contribution/adding-a-page/) for full details.
+<Aside type="note" title="Adicionando uma nova página">
+Se você criar um novo arquivo `.mdx`, deve adicionar a entrada correspondente em `src/config/sidebarConfig.ts` para que a página apareça na barra de navegação lateral. Veja o guia [Adicionando uma Página](/contribution/adding-a-page/) para instruções completas.
 </Aside>
 
-6. Whenever you reach a good point to stop where you want to save your changes to the cloud, you want to make what's called a "commit", which is where the changes are saved to the branch. You then have to "push" any commits to get them uploaded to the cloud, otherwise they will remain local. You can do this through VS Code or GitHub Desktop, but we'll go through GitHub Desktop to keep all version control actions centralized there.
-7. Open GitHub Desktop and make sure "Changes" on the sidebar is selected. All changes selected in the sidebar will be added to the commit (the changes are "staged" for the commit). Type a summary of the commit (description optional) and press "Commit to [branch]".
-8. Click the button to push the commit(s) you've made to the cloud (either up above or in the middle of the screen).
+6. Ao concluir uma etapa de trabalho, faça um "commit" com uma mensagem clara resumindo o que foi feito.
+7. No GitHub Desktop, confirme o commit clicando em "Commit to [sua-branch]".
+8. Clique em "Push origin" para subir seus commits para a nuvem.
 
 <Aside type="tip">
-Clicking the "Fetch origin" button will fetch any commits to the current branch that anyone else has made and pushed to the cloud.
+Clicar no botão "Fetch origin" sincroniza qualquer alteração recente feita por outros colaboradores no repositório.
 </Aside>
 
-9. To keep your branch up to date with the original repository's main branch, open the "branch" menu at the top of the screen and click "Update from main". If some commits get pulled to your branch from main, you can push to update your branch in the cloud again.
+9. Para manter sua branch atualizada com as mudanças recentes da branch `main`, clique no menu "Branch" e selecione "Update from main".
 
 <Aside type="tip">
-Make sure to update your branch from main frequently! If you don't, you may have to resolve big conflicts between your changes and changes someone else made to main. If you encounter conflicts, just follow the prompts in GitHub Desktop to open the conflicts in VS Code and solve them there. Once all conflicts are resolved, switch back to GitHub Desktop to complete the merge.
+Atualize sua branch frequentemente com a `main` para evitar conflitos de mesclagem (merge conflicts).
 </Aside>
 
-10. Once you're satisfied enough with your set of changes to request to add them to the main website, and have committed all changes, checked for updates, and pushed all commits, create a pull request through the menu in the middle of GitHub Desktop. This will bring you to the website where you can describe the changes you made and want to pull to the website and assign an issue that it will fix. One of the internal contributors will review your pull request after you submit it and will either approve it and merge it with the main branch or make comments about things that need fixed before it can get merged.
+10. Quando suas alterações estiverem concluídas e testadas, clique em "Create Pull Request" no GitHub Desktop. Isso abrirá o GitHub no seu navegador para que você descreva suas melhorias e envie para revisão. Um dos mantenedores revisará suas alterações antes de aceitá-las na branch principal.
 
-To recap the contribution steps, do the combination of creating and publishing a branch, making changes and commits, updating from main, pushing commits, and creating a pull request.
+### Como Executar a Pré-visualização Local do Site
 
-### How to Get The Local Preview of the Website Running
+Você pode rodar o site no seu próprio computador para ver as alterações em tempo real:
 
-You can get a local hosted version of the website to have a live preview of the site while editing.
-
-1. Open the repository in VS Code (doesn't matter which branch)
-2. Toggle the bottom panel on if there isn't one with the shortcut `Ctrl + J`
-3. Click the dropdown next to the + on the top righthand side of the bottom panel and click "Terminal"
-4. Run the command `npm install` to install all needed packages (FIRST TIME)
-5. Run the command `npm run dev` to start the development server
-6. If everything went smoothly it should say its serving on something like `http://localhost:4321`
-
-Make sure to run `npm run dev` every time you open VS Code to edit.
+1. Abra a pasta do repositório no VS Code.
+2. Abra o terminal integrado com o atalho `Ctrl + J` (ou `Ctrl + '`).
+3. No terminal, execute `npm install` para instalar as dependências do projeto (necessário apenas na primeira vez).
+4. Execute `npm run dev` para iniciar o servidor de desenvolvimento.
+5. Quando a inicialização concluir, acesse `http://localhost:4321` no seu navegador.
 
 <Aside type="tip">
-After clicking on the terminal in the bottom panel, you can use Ctrl + C to terminate the local website hosting.
+Para encerrar a execução do servidor local, clique no terminal e pressione `Ctrl + C`.
 </Aside>
 
 <Aside type="note">
-When you switch branches using GitHub Desktop, the local preview will follow without any problems.
+Ao trocar de branch no GitHub Desktop, o servidor de desenvolvimento local atualiza o conteúdo automaticamente.
 </Aside>

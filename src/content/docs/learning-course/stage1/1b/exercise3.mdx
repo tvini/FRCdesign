@@ -1,156 +1,153 @@
-﻿---
-title: "Exercise 3: Gear and Belt Gearbox"
-description: Model a gear and belt gearbox
+---
+title: "Exercício 3: Transmissão por Correia e Engrenagens"
+description: Modelar uma gearbox com engrenagens e correia
 ---
 
+## Exercício 3: Transmissão por Correia e Engrenagens
 
-## Exercise 3: Belt and Gear Transmission
+Neste exercício, você modelará uma gearbox de dois estágios combinando engrenagens e correias. Essa caixa de redução também incluirá elementos estruturais como tubos de chassi e gussets, conceitos aprendidos no Stage 1A. O objetivo deste exercício é continuar desenvolvendo suas habilidades de modelagem no Onshape.
 
-In this exercise, you will be modeling a two stage gearbox that uses gears and belts. This gearbox will also include elements like frame and gussets, which you previously learned in Stage 1A. The goal of this exercise is to continue to ramp up your modeling skills.
-
-<Aside type="caution" title="Remember!">
-Always make sure to fully **define** your sketches, **rename** your features, and keep your feature and instance trees organized with **folders**.
+<Aside type="caution" title="Lembre-se!">
+Certifique-se sempre de **definir completamente** seus sketches (totalmente restringidos em preto), **renomear** suas features e manter suas árvores de features e instâncias organizadas em **pastas**.
 </Aside>
 
-### Part Studio Instructions
+### Instruções do Part Studio
 
-**Navigate to the "Exercise #3 Part Studio" tab** in your copied document and **follow the instructions in the slides** to complete the part studio for this exercise.
+**Navegue até a aba "Exercise #3 Part Studio"** no seu documento copiado e **siga as instruções nos slides** para concluir o part studio deste exercício.
 
 <Slides>
   ![](../img/1b/exercises/exercise3/parts-0.webp)
-  Final part studio.
+  Part Studio finalizado.
 
   ![](../img/1b/exercises/exercise3/parts-1.webp)
-  Begin by using the Origin Cube feature (so the belt functions can be used later). Then draw the tube profiles for the frame. There is a an 1/8" gap between the slanted tube and the vertical tube to allow for assembly tolerances.
+  Comece inserindo a feature Origin Cube (para que as funções de correia fiquem disponíveis depois). Em seguida, desenhe os perfis dos tubos para a estrutura. Há um vão de 1/8" entre o tubo inclinado e o tubo vertical para acomodar tolerâncias de montagem.
 
   ![](../img/1b/exercises/exercise3/parts-2.webp)
-  Use the Extrude Individual Featurescript to extrude the tube profiles.
+  Use o Featurescript Extrude Individual para efetuar a extrusão dos perfis dos tubos.
 
   ![](../img/1b/exercises/exercise3/parts-3.webp)
-  Use the Tube Converter Featurescript to convert the rectangles into hole patterned 1x1 thin-wall tube (1/16" thick wall).
+  Use o Featurescript Tube Converter para transformar os prismas retangulares em tubos 1x1 com padrão de furos e parede fina (espessura de parede de 1/16").
 
   ![](../img/1b/exercises/exercise3/parts-4.webp)
-  Sketch a simple L gusset
+  Desenhe o sketch de um gusset em L simples.
 
   ![](../img/1b/exercises/exercise3/parts-5.webp)
-  Extrude the gusset
+  Faça a extrusão do gusset.
 
   ![](../img/1b/exercises/exercise3/parts-6.webp)
-  Create the gearbox layout sketch on the outer face of the bottom tube. Begin by drawing the two gears, a 60T and 20T gear. The 60T gear is the output, and we would like to constrain it to a specific location given by the 2" and 4.5" dimensions.
+  Crie o layout sketch da gearbox na face externa do tubo inferior. Comece desenhando as duas engrenagens: uma de 60T e outra de 20T. A engrenagem de 60T é a de saída, e queremos restringi-la a uma posição específica definida pelas cotas de 2" e 4,5".
 
   ![](../img/1b/exercises/exercise3/parts-7.webp)
-  Next, draw the 5mm pitch 12T and 36T pulleys. Use a line to connect the two pulleys. Use the #PulleyPD_5mm() function from the Origin Cube featurescript you inserted at the beginning to calculate the pitch diameters of the pulleys. Also space the 36T pulley to be 0.25" from the vertical tube. This step fully constrains the location of the gears.
+  Em seguida, desenhe as polias de passo 5 mm de 12T e 36T. Use uma linha para conectar as duas polias. Use a função #PulleyPD_5mm() do Featurescript Origin Cube inserido no início para calcular os pitch diameters das polias. Dimensione também a polia de 36T para ficar a 0,25" do tubo vertical. Esta etapa restringe totalmente a posição das engrenagens.
 
   ![](../img/1b/exercises/exercise3/parts-8.webp)
-  Add the belt c-c to the layout sketch for a 60T HTD5 belt using the #BeltCTC_5mm() function.
+  Adicione a distância C-C da correia ao layout sketch para uma correia HTD5 de 60T usando a função #BeltCTC_5mm().
 
   ![](../img/1b/exercises/exercise3/parts-9.webp)
-  Optionally draw two tangent lines to connect the two pulley circles. This represents the belt.
+  Opcionalmente, trace duas linhas tangentes para conectar os círculos das duas polias. Isso representa o trajeto da correia.
 
   ![](../img/1b/exercises/exercise3/parts-10.webp)
-  Finally, sketch a 2.5" circle for the motor. Space the motor to be 1/8" away from the slanted tube. The layout sketch is now fully defined.
+  Por fim, desenhe um círculo de 2,5" para o motor. Posicione o motor a 1/8" de distância do tubo inclinado. O layout sketch agora está totalmente definido.
 
   ![](../img/1b/exercises/exercise3/parts-11.webp)
-  Create the plate sketch on the outer face of the bottom tube. Begin by drawing the two 1.125" diameter bearing holes. Add a 1.5" hole for the motor boss so that the 12T pulley on the motor can fit through the hole to assist with real life assembly. This will become more clear when you create the gearbox assembly.
+  Crie o sketch da placa na face externa do tubo inferior. Comece desenhando os dois furos de rolamento com 1,125" de diâmetro. Adicione um furo de 1,5" para o boss do motor, de modo que a polia de 12T montada no motor passe pelo furo facilitando a montagem física real. Isso ficará mais claro quando você criar a montagem da gearbox.
 
   ![](../img/1b/exercises/exercise3/parts-12.webp)
-  Add a 2" bolt circle for the motor with a circular pattern. Constrain the center of the top left hole to be coincident with the center line between the pulleys (coincident uses an infinite extension of the line)
+  Adicione um bolt circle de 2" para o motor com um padrão circular. Restrinja o centro do furo superior esquerdo como coincidente com a linha central entre as polias (a restrição coincidente usa a extensão infinita da linha).
 
   ![](../img/1b/exercises/exercise3/parts-13.webp)
-  Add the tube mounting holes for the plate. Note that the holes reference the edges of the tube and not the holes on the tube. This is to make the model more parametric, as changes in the tube can change the locations of the holes and break the gearbox plate sketch.
+  Adicione os furos de fixação da placa ao tubo. Observe que os furos têm como referência as arestas do tubo, e não os furos do tubo. Isso torna o modelo mais paramétrico, já que alterações no tubo poderiam deslocar os furos e quebrar o sketch da placa da gearbox.
 
   ![](../img/1b/exercises/exercise3/parts-14.webp)
-  Draw the outline for the plate using centerpoint arcs and tangent lines. Space the bottom of the plate 0.25" from the edge of the pitch circle for the 60T gear.
+  Desenhe o contorno da placa usando arcos de ponto central e linhas tangentes. Posicione a parte inferior da placa a 0,25" da aresta do pitch circle da engrenagem de 60T.
 
   ![](../img/1b/exercises/exercise3/parts-15.webp)
-  Add two holes for spacers. The construction circles represent the 3/8" diameter spacer. The top hole is tangent with the left edge of the plate and tangent with the 2.5" motor circle.
+  Adicione dois furos para espaçadores. Os círculos de construção representam o espaçador de 3/8" de diâmetro. O furo superior é tangente à aresta esquerda da placa e tangente ao círculo de 2,5" do motor.
 
   ![](../img/1b/exercises/exercise3/parts-16.webp)
-  Extrude the plate to be 1/4" thick.
+  Faça a extrusão da placa com 1/4" de espessura.
 
   ![](../img/1b/exercises/exercise3/parts-17.webp)
-  On the opposite side, create a sketch for the inner plate. Utilize the Use sketch feature to copy over common geometry (holes, outline). Do not copy the motor holes, as there will be a cutout on the inner plate for the body of the motor.
+  No lado oposto, crie um sketch para a placa interna. Utilize o recurso Use (projetar) do sketch para copiar a geometria comum (furos, contorno). Não copie os furos de montagem do motor, pois haverá um recorte na placa interna para o corpo do motor.
 
   ![](../img/1b/exercises/exercise3/parts-18.webp)
-  Finish the outline of the plate by adding an arc for the motor cutout.
+  Finalize o contorno da placa adicionando um arco para o recorte do motor.
 
   ![](../img/1b/exercises/exercise3/parts-19.webp)
-  Extrude the inner plate to be 1/4" thick.
+  Faça a extrusão da placa interna com 1/4" de espessura.
 
   ![](../img/1b/exercises/exercise3/parts-20.webp)
-  Add a 3/16" radius fillet on the two edges for the motor cutout. The radius is selected to match the 3/8" diameter spacer.
+  Adicione um filete de raio 3/16" nas duas arestas do recorte do motor. O raio é escolhido para corresponder ao espaçador de 3/8" de diâmetro.
 
   ![](../img/1b/exercises/exercise3/parts-21.webp)
-  Model the 3/8" diameter spacer. The Up to Face end condition can be utilized to keep the spacer length parametric.
+  Modele o espaçador de 3/8" de diâmetro. A condição final Up to Face (até a face) pode ser utilizada para manter o comprimento do espaçador paramétrico.
 
   ![](https://www.youtube.com/embed/UBT5AGqBYW4)
-  Use the Belt & Chain Gen Featurescript to create a model of the belt. The pitch of the belt is 5mm and the width is 9mm. Offset the reference plane by 0.5" so that the belt does not collide with the plate. Keep the belt simplified, as turning on teeth modeling will slow down the part studio. Notice that the Belt & Chain Gen Featurescript also calculates the pitch length of the belt which allows us to verify that we calculated the correct C-C in step 7 and 8.
+  Use o Featurescript Belt & Chain Gen para criar o modelo da correia. O passo da correia é de 5 mm e a largura é de 9 mm. Aplique um offset de 0,5" no plano de referência para que a correia não colida com a placa. Mantenha a correia simplificada (sem dentes 3D detalhados), pois modelar dentes deixará o part studio mais lento. Observe que o Featurescript Belt & Chain Gen também calcula o pitch length da correia, permitindo verificar que calculamos a distância C-C correta nas etapas 7 e 8.
 
   ![](../img/1b/exercises/exercise3/parts-23.webp)
-  Use the Robot Shaft Featurescript to create the 1st stage shaft.
+  Use o Featurescript Robot Shaft para criar o eixo do 1º estágio.
 
   ![](../img/1b/exercises/exercise3/parts-24.webp)
-  Use the Robot Shaft Featurescript to create the output shaft.
+  Use o Featurescript Robot Shaft para criar o eixo de saída.
 
   ![](../img/1b/exercises/exercise3/parts-25.webp)
-  Optionally pocket the plates. To begin, create a sketch on the outer face of the motor plate and draw lines to create the struts.
+  Opcionalmente, faça o alívio de peso (pocketing) nas placas. Para começar, crie um sketch na face externa da placa do motor e trace linhas para formar as nervuras.
 
   ![](../img/1b/exercises/exercise3/parts-26.webp)
-  Use the Part Lighten Featurescript to add the pocketing by selecting the previous sketch. Use 0.15" wide ribs and 0.26" tool diameter.
+  Use o Featurescript Part Lighten para adicionar o alívio selecionando o sketch anterior. Use nervuras de 0,15" de largura e diâmetro de ferramenta de 0,26".
 
   ![](../img/1b/exercises/exercise3/parts-27.webp)
-  Create a sketch on the inner plate and draw the strut lines. You can utilize the Use sketch feature to copy over strut lines from the motor plate pocketing sketch.
+  Crie um sketch na placa interna e trace as linhas das nervuras. Você pode utilizar a ferramenta Use (projetar) para copiar as linhas de nervura do sketch de alívio da placa do motor.
 
   ![](../img/1b/exercises/exercise3/parts-28.webp)
-  Use the Part Lighten Featurescript to add the pocketing by selecting the previous sketch. Again, use 0.15" wide ribs and 0.26" tool diameter.
+  Use o Featurescript Part Lighten para aplicar o alívio selecionando o sketch anterior. Novamente, use nervuras de 0,15" de largura e diâmetro de ferramenta de 0,26".
 
   ![](../img/1b/exercises/exercise3/parts-0.webp)
-  Finished part studio. Name the key sketches and parts. Set the material of the plate and spacers to 6061 Aluminum. The tube, gusset, and shafts should have their material automatically set already.
+  Part Studio concluído. Nomeie os sketches e peças principais. Defina o material da placa e espaçadores como 6061 Aluminum. Os tubos, gussets e eixos já devem estar com seus materiais definidos automaticamente.
 </Slides>
 
-### Assembly Instructions
+### Instruções de Montagem (Assembly)
 
-Now that you've completed the part studio, **navigate to the "Exercise #3 Assembly" tab** in your copied document and **follow the instructions in the slides** to finish this exercise.
+Agora que você concluiu o part studio, **navegue até a aba "Exercise #3 Assembly"** no seu documento copiado e **siga as instruções nos slides** para finalizar este exercício.
 
 <Slides>
   ![](../img/1b/exercises/exercise3/assy-0.webp)
-  Final assembly.
+  Montagem final.
 
   ![](https://www.youtube.com/embed/DdvX_09Hd20)
-  Insert the part studio into the assembly and fix only the bottom tube. Use the group mate on the tubes, plates, and gusset. Copy the gusset and mate it to the other side of the tube. Next, mate the spacer to the plate and use the Replicate tool to replicate the spacer.
+  Insira o part studio na montagem e fixe somente o tubo inferior. Use o group mate nos tubos, placas e gusset. Copie o gusset e monte-o no outro lado do tubo. Em seguida, monte o espaçador na placa e use a ferramenta Replicate para replicá-lo.
 
   ![](https://www.youtube.com/embed/Rait0iVbiD0)
-  Assemble the bearings and shafts using parts from FRCDesignLib. Use the Replicate tool to replicate the bearing.
+  Monte os rolamentos e os eixos usando peças da FRCDesignLib. Use a ferramenta Replicate para replicar o rolamento.
 
   ![](https://www.youtube.com/embed/3rhXrBgWlng)
-  Assemble the 36T pulley, belt, motor, and motor pinion pulley using parts from FRCDesignLib. Notice that the motor pinion is offset 1/16" from the bottom of the shaft to better align with the belt. Additionally, notice that the belt requires only a single fasten mate since its orientation was determined by how it was modeled in the part studio.
+  Monte a polia de 36T, a correia, o motor e o pinhão com polia do motor usando peças da FRCDesignLib. Observe que o pinhão do motor é deslocado (offset) em 1/16" da base do eixo para se alinhar melhor à correia. Além disso, observe que a correia requer apenas um único fasten mate, já que sua orientação foi determinada pela forma como foi modelada no part studio.
 
   ![](https://www.youtube.com/embed/j-Tofk8_Nfs)
-  Assemble the shaft spacers and gears using parts from FRCDesignLib. Notice that this time we used a pocketed gear for the 60T gear. Pocketed gears are the same as normal gears except they have some material removed to save weight.
+  Monte os espaçadores de eixo e as engrenagens usando peças da FRCDesignLib. Observe que desta vez usamos uma engrenagem com alívio de peso (pocketed) para a engrenagem de 60T. Engrenagens com alívio são idênticas às engrenagens comuns, com a diferença de terem material removido no centro para reduzir peso.
 
   ![](https://www.youtube.com/embed/0yfIqvglCHw)
-  Assemble the shaft retention bolts using FRCDesignLib parts.
+  Monte os parafusos de retenção dos eixos usando peças da FRCDesignLib.
 
   ![](https://www.youtube.com/embed/h7ABxpXyMbY)
-  Assemble the motor bolts, gearbox bolts, and nuts using FRCDesignLib parts
+  Monte os parafusos do motor, parafusos da gearbox e porcas usando peças da FRCDesignLib.
 
   ![](https://www.youtube.com/embed/fd56NxBZHd8)
-  Assemble the gusset rivets using FRCDesignLib parts.
+  Monte os rebites do gusset usando peças da FRCDesignLib.
 
   ![](../img/1b/exercises/exercise3/assy-0.webp)
-  Finished assembly. Make sure to sort your parts into folders and name your replicate features.
+  Montagem concluída. Certifique-se de organizar suas peças em pastas e nomear suas features de replicação.
 </Slides>
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Your assembly should have 31 instances.
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement) Sua montagem deve ter 31 instâncias.
 </Aside>
 
-In this exercise, you modeled a fairly complex gearbox that was integrated with some frame elements. At this point, you should be begin to feel comfortable with the sketching and extrude tools. You should also familiarize yourself with all the options present in the Featurescripts that you have used up until this point by playing around with different settings.
+Neste exercício, você modelou uma gearbox relativamente complexa e integrada com elementos do chassi. A essa altura, você já deve se sentir mais seguro com as ferramentas de esboço e extrusão. Você também deve se familiarizar com todas as opções presentes nos Featurescripts que utilizou até aqui, experimentando diferentes configurações.
 
+### Modelagem Paramétrica
 
+Para ter uma ideia de quão paramétrico é o seu modelo, experimente alterar certas cotas principais nos layout sketches, como o comprimento dos tubos, o ângulo dos tubos, o comprimento da correia e o tamanho das engrenagens. Explore quais modificações se atualizam sem erros e quais exigem ajustes manuais adicionais no CAD.
 
-### Parametric Modeling
-
-To get a feel for how parametric your model is, you can try and change certain key dimensions in the layout sketches, such as the length of the tubes, angle of the tubes, length of the belt, and the size of the gears. Play around with which modifications will update smoothly and which require additional fixes in the CAD.
-
-You may also be curious as to how things like the hole sizes, materials, etc were selected in each of these designs. You are encouraged to learn more by browsing the [Design Handbook](/design-handbook/) pages which contain in-depth information on a wide range of topics, or by discussing with your team and or other students and mentors on the DDS Discord.
+Você também pode estar curioso sobre como tamanhos de furos, materiais, etc. foram escolhidos em cada um desses projetos. Encorajamos você a aprender mais navegando pelas páginas do [Design Handbook](/design-handbook/), que contêm informações aprofundadas sobre uma ampla variedade de tópicos, ou conversando com sua equipe e outros membros e mentores no Discord do DDS.

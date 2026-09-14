@@ -1,35 +1,34 @@
-﻿---
-title: Torque and Speed
-description: Understanding torque and speed relationships
+---
+title: Torque e Velocidade
+description: Compreendendo a relação entre torque e velocidade
 ---
 
+Ao projetar transmissões de potência, existem duas grandezas interligadas que estamos tentando modificar: torque e velocidade. Torque refere-se à força rotacional aplicada a um objeto, enquanto velocidade indica a rapidez com que esse objeto gira. Na FRC, a unidade comumente usada para velocidade é Rotações Por Minuto (RPM). A unidade usada para torque é tipicamente Newton-Metro (Nm).
 
-When designing power transmissions, there are two interlinked quantities that we are trying to modify: torque and speed. Torque refers to the rotational force applied to an object, while speed denotes how quickly that object rotates. In FRC, the unit used for speed is typically Rotations Per Minute (RPM). The units used for torque is typically Newton-Meters (Nm).
-
-<Aside type="note" title="Torque and Speed">
-Speed and torque are inversely related in mechanical systems. This means that as one increases, the other decreases, and vice versa. For example, if speed is decreased by 4x, torque is increased by 4x. This is because of the principle of conservation of energy: the output energy is the same as the input energy (ignoring losses like friction), so if speed is reduced through mechanical means, torque must increase.
+<Aside type="note" title="Torque e Velocidade">
+Velocidade e torque são grandezas inversamente proporcionais em sistemas mecânicos. Isso significa que, à medida que uma aumenta, a outra diminui, e vice-versa. Por exemplo, se a velocidade for reduzida em 4x, o torque aumentará em 4x. Isso decorre do princípio da conservação de energia: a potência de saída é a mesma que a de entrada (desconsiderando perdas como atrito); portanto, se a velocidade é reduzida por meios mecânicos, o torque deve aumentar.
 </Aside>
 
-### Mechanical Advantage
+### Vantagem Mecânica (Mechanical Advantage)
 
-Many mechanical systems use the principle of the conservation of energy to convert energy from one form to another to produce either larger forces or faster speeds. ***Mechanical advantage*** is the ratio of output force to input force in a system, whether it's a lever, screw, gears, or pulley, mechanical advantage is used to quantify how the force changes.
+Muitos sistemas mecânicos usam o princípio da conservação da energia para converter energia de uma forma para outra, produzindo forças maiores ou velocidades mais altas. A ***vantagem mecânica*** é a razão entre a força de saída e a força de entrada em um sistema — seja uma alavanca, parafuso, engrenagens ou polias, a vantagem mecânica quantifica como a força se transforma.
 
-The ratio between the number of teeth of the input and output gear/sprocket/pulley system represents the mechanical advantage of that system. This is also called the ***gear ratio***, and is the key to understanding how to achieve a needed torque or speed from the specified torque and speed of a given motor.
+A razão entre o número de dentes do sistema de engrenagem/sprocket/polia de entrada e saída representa a vantagem mecânica desse sistema. Isso também é chamado de ***relação de transmissão (gear ratio)*** e é a chave para entender como atingir o torque ou a velocidade necessária a partir do torque e velocidade nominais de um determinado motor.
 
-Gear ratio is typically written in the form `n1:n2`. Since torque and speed are interlinked quantities, the ratio can be understood from the perspective of torque or speed. From the perspective of torque, `n1` is the output torque for `n2` input torque. From the perspective of speed, `n1` is the speed of the input for `n2` speed of the output.
+A relação de transmissão é tipicamente escrita no formato `n1:n2`. Como torque e velocidade são grandezas interligadas, a razão pode ser compreendida sob a perspectiva do torque ou da velocidade. Do ponto de vista do torque, `n1` é o torque de saída para `n2` torque de entrada. Do ponto de vista da velocidade, `n1` é a velocidade da entrada para `n2` velocidade da saída.
 
 <Aside type="example">
-A system has a gear ratio of 4:1. This means the output torque is 4x the input torque and that the output speed is 1/4 the input speed.
+Um sistema tem uma relação de transmissão (gear ratio) de 4:1. Isso significa que o torque de saída é 4x o torque de entrada e que a velocidade de saída é 1/4 da velocidade de entrada.
 </Aside>
 
-For a single stage transmission (only two transmission components), `n1` is the size of the driven component for `n2` size of the driving component.
+Para uma transmissão de estágio único (apenas dois componentes de transmissão), `n1` é o tamanho do componente movido (driven) para `n2` tamanho do componente motor (driving).
 
-### Ratio Applications
+### Aplicações das Relações de Transmissão
 
-An arm mechanism needs very low RPM but a lot of torque to control efficiently, so a large *reduction* of speed might be used to increase torque. This depends on the weight and length of the arm, but can be 30:1 up to even 200:1.
+O mecanismo de um braço precisa de RPM muito baixo, mas de muito torque para ser controlado com eficiência; portanto, uma grande *redução* de velocidade pode ser usada para aumentar o torque. Isso varia com o peso e o comprimento do braço, mas pode ir de 30:1 até 200:1.
 
-Shooter wheels or intake rollers often have little to no reduction, and in some cases may even need to go faster than the motor's free speed. In this case, an *upduction* can be be used to increase the speed, but the output torque gets lower as a consequence. Upductions typically don't get much higher than 1:2 due to the available motors already having a high speed, low torque output. A 1:2 upduction would double the speed and halve the torque of the input.
+Rodas de shooter ou roletes de intake costumam ter pouca ou nenhuma redução e, em alguns casos, podem até precisar girar mais rápido do que a rotação livre (free speed) do motor. Nesses casos, uma *multiplicação (upduction)* pode ser usada para aumentar a velocidade, mas o torque de saída diminui como consequência. Multiplicações normalmente não passam muito de 1:2, pois os motores disponíveis já possuem alta velocidade e baixo torque de saída. Uma multiplicação de 1:2 dobraria a velocidade e cortaria o torque de entrada pela metade.
 
 <Aside type="tip">
-For situations that require higher speed and higher torque than what a single motor can provide, add more motors.
+Para situações que exigem maior velocidade e maior torque do que um único motor pode fornecer, adicione mais motores.
 </Aside>

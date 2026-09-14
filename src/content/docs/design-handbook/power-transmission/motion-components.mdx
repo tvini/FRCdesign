@@ -1,218 +1,221 @@
 ---
-title: "Motion Components"
-description: "A guide on bearings, bushings, and axles used in FRC power transmission."
+title: "Componentes de Movimento"
+description: "Um guia sobre rolamentos, buchas e eixos utilizados na transmissão de potência na FRC."
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-A guide on bearings, bushings, and axles, including the mechanics behind transmission of torque through axles. This page also contains tips on how to manufacture and assemble these parts. 
+Um guia sobre rolamentos (bearings), buchas (bushings) e eixos (axles/shafts), incluindo a mecânica por trás da transmissão de torque através de eixos. Esta página também contém dicas sobre como fabricar e montar essas peças. 
 
-## Radial Bearings
+## Rolamentos Radiais (Radial Bearings)
 
-Radial bearings are the most important and common type of motion component, used by virtually every team. The most common use of bearings is for allowing axles to spin freely with a low friction connection. They are incredibly important for making sure an axle can smoothly rotate, and are much more effective at this than other options like bushings. Bearings are recommended in low torque applications, but can handle high speeds.
+Rolamentos radiais são o tipo de componente de movimento mais importante e comum, utilizado por praticamente todas as equipes. O uso mais comum de rolamentos é permitir que eixos girem livremente com uma conexão de baixo atrito. Eles são incrivelmente importantes para garantir que um eixo possa girar suavemente, e são muito mais eficazes nisso do que outras opções como buchas. Rolamentos são recomendados em aplicações de baixo torque, mas suportam altas velocidades.
 
-There are other applications of bearings, such as in elevator bearing blocks where they slide along a surface to allow for less friction, however this section is dedicated specifically for bearings' use in rotational systems. 
+Existem outras aplicações para rolamentos, como em bearing blocks de elevadores onde deslizam ao longo de uma superfície para reduzir o atrito; no entanto, esta seção é dedicada especificamente ao uso de rolamentos em sistemas rotacionais. 
 
 <Aside type="note">
-An axle on bearings is not a structural or rigid component, which means that it cannot support a structure, unlike a spacer bolted rigidly.
+Um eixo montado sobre rolamentos não é um componente estrutural ou rígido, o que significa que ele não pode sustentar uma estrutura por si só, ao contrário de um espaçador rigidamente parafusado.
 </Aside>
 <ContentFigure src="../img/power-transmission/bearing-context.png" alt="" width="40%">
-  Flanged bearing used on rollers for 1678's 2024 robot.
+  Rolamento com flange (flanged bearing) utilizado em roletes no robô de 2024 da 1678.
 </ContentFigure>
 
-There are several types of bearing used in FRC®. Nearly all FRC bearings are ball bearings, meaning they spin using mini balls held in the structure of a bearing.
+Existem vários tipos de rolamentos usados na FRC®. Quase todos os rolamentos na FRC são rolamentos de esferas (ball bearings), o que significa que eles giram por meio de pequenas esferas contidas na estrutura do rolamento.
 
-### Flanged Bearings
+### Rolamentos com Flange (Flanged Bearings)
 
-They are the most common types of bearings. They have a flange which allows them to securely mount onto plates, thus already supported on one side. They are used in a wide variety of applications like gearboxes, rollers, etc.
+São os tipos mais comuns de rolamentos. Eles possuem uma flange que permite que sejam montados com segurança em placas, ficando assim apoiados por um dos lados. São utilizados em uma ampla variedade de aplicações, como caixas de redução (gearboxes), roletes (rollers), etc.
 
-### Standard Bearings
+### Rolamentos Padrão (Standard Bearings)
 
-They are basically the same flanged bearings, but instead they do not have  a flange. They are usually used in spaces where a flange will not fit or is not necessary. They can be used in much of the same applications as flanged bearings, however extra care is needed to mount them.
+São essencialmente os mesmos rolamentos, mas sem a flange. Costumam ser usados em locais onde uma flange não cabe ou não é necessária. Podem ser usados na maioria das mesmas aplicações que os flanged bearings, mas requerem cuidados adicionais para retenção e montagem.
 
 <ContentFigure src="../img/power-transmission/standard-bearing-context.png" alt="" width="30%">
-  Standard bearing in gearbox. The plate is half pocketed so that the bearing doesn't fall out, and is retained by a custom axle.
+  Rolamento padrão em uma gearbox. A placa possui um rebaixo parcial (pocket) para que o rolamento não caia, sendo retido por um eixo personalizado.
 </ContentFigure>
 
-### Needle Bearings
+### Rolamentos de Agulha (Needle Bearings)
 
-Needle bearings are a special type of bearing which is much thinner than flanged and standard bearings. They can be used in spaces where there is not enough space for a normal bearing and are almost always used for round axles. As a result, they are a common option to use with [dead axle rollers](/learning-course/stage1/1c/exercise2/) as they can be press fit into the end caps. 
+Rolamentos de agulha são um tipo especial de rolamento muito mais fino que rolamentos padrão ou com flange. Podem ser usados em locais onde não há espaço para um rolamento comum e são quase sempre usados com eixos redondos. Como resultado, são uma opção comum para uso com [roletes de dead axle](/learning-course/stage1/1c/exercise2/), pois podem ser inseridos sob pressão (press fit) nas tampas terminais (end caps). 
 
 <ContentFigure src="../img/power-transmission/1540needlebearing.png" alt="" width="40%">
-  Needle bearing used in dead axle rollers for 1540's 2025 intake. Allows roller to spin around a rigid axle.
+  Rolamento de agulha usado em roletes de dead axle no intake de 2025 da 1540. Permite que o rolete gire em torno de um eixo rígido.
 </ContentFigure>
 
-## X-Contact
+## Rolamentos X-Contact
 
-X-Contact bearings operate with completely different use cases and applications than typical ball bearings. They typically have a much larger diameter than most bearings. As a result, they are commonly used in swerve drives or turrets to allow free rotation of these systems. X-Contact bearings are also assembled differently compared to typical bearings.
+Rolamentos X-Contact operam com casos de uso e aplicações completamente diferentes dos rolamentos de esferas convencionais. Eles costumam ter um diâmetro muito maior do que a maioria dos rolamentos. Como consequência, são comumente usados em módulos swerve ou turrets para permitir a rotação livre desses sistemas. Rolamentos X-Contact também são montados de forma diferente em comparação aos rolamentos típicos.
 
 <ContentRow mediaHeight="20rem">
 <ContentFigure src="../img/power-transmission/x-contact-context.png" alt="mk4i swerve module x-contact bearing">
-  X-Contact bearing in an MK4 swerve module. Allows wheel to rotate freely.
+  Rolamento X-Contact em um módulo swerve MK4. Permite que a roda gire livremente em azimute.
 </ContentFigure>
 
 <ContentFigure src="../img/power-transmission/JGKWXv2OdJCRBAJ8O1yNFD2TTZEuUdvi.webp" alt="x-contact bearing contact points">
-  X-Contact bearing setup. The ball is contacted on 4 points instead of 2 in standard bearings.
+  Configuração do rolamento X-Contact. A esfera tem contato em 4 pontos em vez de 2 em rolamentos padrão.
 </ContentFigure>
 
 <ContentFigure src="../img/power-transmission/TypeC.webp" alt="standard bearing contact points">
-  Standard ball bearing setup. Ball is contacted on 2 points vertically.
+  Configuração de rolamento de esferas padrão. A esfera possui contato em 2 pontos verticalmente.
 </ContentFigure>
 </ContentRow>
 
-This setup allows X-Contact bearings to withstand much more [thrust](https://en.wikipedia.org/wiki/Thrust_bearing) force than typical bearings, meaning it can withstand loads laterally rather than rotationally. This is very useful for places where a lot of weight is against the bearing vertically, such as in swerve modules where the bearings must be able to hold the entire weight of the robot. 
+Essa configuração permite que os rolamentos X-Contact suportem muito mais carga axial ([thrust](https://en.wikipedia.org/wiki/Thrust_bearing)) do que rolamentos comuns, o que significa que suportam cargas laterais/axiais em vez de apenas radiais. Isso é muito útil em locais com muito peso aplicado verticalmente contra o rolamento, como em módulos swerve onde os rolamentos precisam suportar todo o peso do robô. 
 
-## Bushings
+## Buchas (Bushings)
 
-A common type of bearing used in FRC are bushings. Bushing are often used for high torque, low speed applications, such as [dead axle pivots](/learning-course/stage2/2b/introduction/). They are much simpler than ball bearings; instead of using balls to allow for smooth rotational movement, axles simply rotate on a self-lubricating surface (i.e. brass). Although bearings are the preferred solution in most cases because they reduce friction and support load most effectively, in low speed applications bushings have the upper hand for being smaller and lighter than bearings. They usually have a flange but other types can be sourced from non-FRC vendors. 
+Um tipo comum de componente de rotação usado na FRC são as buchas (bushings). Buchas são frequentemente usadas para aplicações de alto torque e baixa velocidade, como em [pivôs com dead axle](/learning-course/stage2/2b/introduction/). Elas são muito mais simples do que rolamentos de esferas; em vez de usar esferas para o movimento rotacional suave, os eixos simplesmente giram sobre uma superfície autolubrificante (como latão ou bronze). Embora os rolamentos sejam a solução preferida na maioria dos casos por reduzirem o atrito e suportarem cargas de maneira mais eficaz, em aplicações de baixa velocidade as buchas têm a vantagem de serem menores e mais leves. Elas geralmente possuem uma flange, mas outros formatos podem ser adquiridos em fornecedores industriais. 
 
 <ContentFigure src="../img/power-transmission/citrus-bushing.png" alt="" width="40%">
-  Bushing mounted to 1678 2024 shooter, which allows it to pivot freely around an axle.
+  Bucha montada no shooter de 2024 da 1678, permitindo que pivote livremente em torno de um eixo.
 </ContentFigure>
 
-## Other Bearings
+## Outros Rolamentos
 
-There are a wide variety of bearings with limited use in FRC, such as thrust bearings or linear bearings. These types of bearings usually have specific use cases not relevant to FRC. More information about them can be found on [McMaster-Carr's website](https://www.mcmaster.com/products/bearings/), a common vendor in industry.
+Existe uma grande variedade de rolamentos com uso mais limitado na FRC, como rolamentos axiais (thrust bearings) ou rolamentos lineares (linear bearings). Esses tipos geralmente têm casos de uso específicos menos comuns na FRC. Mais informações podem ser encontradas no [site da McMaster-Carr](https://www.mcmaster.com/products/bearings/), um fornecedor industrial de referência.
 
-## Axles
+## Eixos (Axles / Shafts)
 
-Axles, also known as shafts, are often used to transmit torque in power transmission and facilitate rotational motion. They are one of the most important components in FRC and allow the assembly of everything from rollers and wheels to pivots and arms. There are many types of axles from many vendors, however they can be classified by **material**, **diameter**, and **profile** (i.e. round vs hex). It is critical to consider these variables when designing mechanisms as they can affect the end product immensely. 
+Eixos (axles ou shafts) são usados para transmitir torque em transmissões de potência e facilitar o movimento rotacional. Eles são um dos componentes mais importantes na FRC e permitem a montagem de tudo: de roletes e rodas a pivôs e braços. Existem muitos tipos de eixos de vários fornecedores, mas eles podem ser classificados por **material**, **diâmetro** e **perfil** (por exemplo, redondo vs hex). É fundamental considerar essas variáveis ao projetar mecanismos, pois elas afetam imensamente o produto final. 
 
 <ContentFigure src="../img/power-transmission/axleExample.png" alt="" width="70%">
-  Typical 1/2" rounded hex axle on two bearings, retained with bolts.
+  Eixo hexagonal arredondado (rounded hex) típico de 1/2" sobre dois rolamentos, retido com parafusos.
 </ContentFigure>
 
 ### Material
 
-Nearly all shafts are made from aluminum (7075/6061) or steel. Aluminum is typically the preferred material in all cases for its ease of manufacturing. 7075 Aluminum shafts can be stronger, though harder to cut and work with. 7075 shafts are often used in solid shafts, whereas 6061 is used in hollow shafts. In all, aluminum shafts are used for many applications such as rollers, gearboxes, etc.
+Quase todos os eixos são feitos de alumínio ou aço. O alumínio é o material preferido na maioria dos casos por sua facilidade de fabricação e usinagem, com duas ligas principais usadas na FRC: 6061 e 7075. 
 
-Nearly all shafts are made of aluminum or steel. Aluminum is the preferred material in all cases for its ease of manufacturing, with two major alloys used in FRC: 6061 and 7075. 
+**7075** é usado na maioria dos eixos hexagonais (frequentemente eixos maciços). O alumínio 7075 é útil quando se deseja maior resistência mecânica, porém é mais difícil de cortar e trabalhar. Além disso, pesa ligeiramente mais que o alumínio 6061.
 
-**7075** is used in most hex axles (often solid hex shafts). 7075 aluminum is useful for when a higher strength is desired, however it is harder to cut and work with. In addition, it weighs slightly more than 6061 aluminum.
+**6061** é usado em tubos churro e na maioria dos eixos redondos ou tubulares de grande diâmetro. Embora seja ligeiramente menos resistente que o 7075, ainda é muito útil e tem a vantagem de ser mais fácil de cortar e usinar. 
 
-**6061** is used in churros and most large diameter/round shafts. Although slightly weaker than 7075 aluminum, it is still quite useful; on the plus side, it is easier to cut and machine. 
-
-Steel is useful when the shaft diameter must be smaller yet needs to transmit high torque, like in pivot systems and gearboxes, however it is generally best practice to avoid using it. Steel also weighs significantly more than aluminum, which is necessary to take into account.
+O aço é útil quando o diâmetro do eixo precisa ser menor e ainda assim transmitir alto torque, como em sistemas de pivô e caixas de redução, mas geralmente a melhor prática é evitar usá-lo desnecessariamente. O aço também pesa significativamente mais que o alumínio, o que precisa ser levado em conta no limite de peso do robô.
 
 <Aside type="caution">
-Steel axles often require different manufacturing tools than aluminum axles. For assembly, it can be more difficult to slide wheels and other components onto a steel shaft than aluminum. As useful as it may be, be cautious of using it everywhere. It is not recommended to design for steel axles, but rather use them as swap-in replacements for when aluminum proves to be not strong enough.
+Eixos de aço geralmente exigem ferramentas de usinagem diferentes das usadas para alumínio. Na montagem, pode ser mais difícil deslizar rodas e outros componentes em um eixo de aço do que em um de alumínio. Por mais resistente que seja, tenha cautela ao usá-lo em todo lugar. Não é recomendado projetar diretamente para eixos de aço, mas sim usá-los como substitutos diretos caso o alumínio se mostre insuficiente.
 </Aside>
-### Diameter
 
-The diameters of FRC shafts vary wildly. The majority vary from 3/8" diameter to 1" diameter, however it is possible to source even larger axles from vendors outside FRC. Most of the strength of a shaft comes from its outer diameter, which means large hollow tubes can be strength-to-weight efficient. 
+### Diâmetro
 
-The general rule of thumb is that the higher the torque and load, the larger the shaft should be. If too small of an axle is used, no matter the material, it may be susceptible to twisting under high loads. For large cantilevered arms, wider 2"+ axles are helpful for stability and strength. On the other side, smaller axles can be useful in scenarios where strength isn't as much of an issue for weight savings. 
+Os diâmetros dos eixos na FRC variam bastante. A maioria varia de 3/8" a 1" de diâmetro, mas é possível obter eixos ainda maiores de fornecedores industriais. A maior parte da resistência à torção e flexão de um eixo vem de seu diâmetro externo, o que significa que tubos ocos de grande diâmetro oferecem uma excelente relação resistência/peso. 
+
+A regra prática é: quanto maiores o torque e a carga, maior deve ser o diâmetro do eixo. Se for usado um eixo muito fino, independentemente do material, ele poderá torcer ou empenar sob cargas elevadas. Para braços longos em balanço (cantilever), eixos largos de 2"+ proporcionam excelente estabilidade e resistência. Por outro lado, eixos menores são úteis em locais onde a resistência não é crítica, ajudando a economizar peso. 
 
 <ContentFigure src="../img/power-transmission/hexpivotfun.png" alt="" width="40%">
-  Twisted steel hex axle, 1/2" diameter. Was used for pivoting an extremely large load.
+  Eixo hexagonal de aço de 1/2" retorcido. Foi usado para pivotar uma carga extremamente pesada.
 </ContentFigure>
 
-### Profile
+### Perfil
 
-There are many types of profiles. A common one used in FRC is the **hex profile**, which is useful for its ability to easily transmit rotational forces without any extra tools; gears, pulleys, and other power transmissions only need a hex bore to spin it. There are two types of hex shafts: rounded and standard. The difference is that the edges of the shaft are significantly chamfered in a rounded setup. 
+Existem vários tipos de perfis de eixo. Um dos mais comuns na FRC é o **perfil hexagonal (hex)**, excelente por sua capacidade de transmitir forças rotacionais com facilidade sem peças adicionais; engrenagens, polias e outros componentes de transmissão só precisam de um furo hexagonal para girar junto com ele. Há dois tipos de eixos hexagonais: arredondados (rounded hex) e padrão (regular hex). A diferença é que os cantos do eixo rounded hex são chanfrados significativamente para caber em rolamentos padrão de furo redondo/hex. 
 
-This is in contrast to **round profiles**, where a notch/key is required in order to spin the axle. However, round profiles are especially helpful in dead axle systems where spinning the axle is not needed.
+Isso contrasta com os **perfis redondos (round)**, onde uma chaveta (keyway) ou pino é necessário para acoplar o giro ao eixo. No entanto, perfis redondos são ideais para sistemas de dead axle, onde o eixo não precisa girar.
 
-Other profiles include:
+Outros perfis incluem:
 
-**MAXSpline/SplineXL:** REV/WCP brand. Similar to hex but has a much larger outer diameter can be used both for live axle and dead axle systems. Capable of transmitting large amounts of torque due to its large diameter.
+**MAXSpline / SplineXL:** Marcas da REV e WCP. Semelhante ao hex, mas com diâmetro externo muito maior, podendo ser usado tanto para sistemas de live axle quanto de dead axle. Capaz de transmitir quantidades enormes de torque devido ao seu grande diâmetro.
 
-**Churro/Hex-Lite:** AndyMark/WCP brand. Very similar to hex and works in a pinch but hex is the preferred option.
+**Churro / Hex-Lite:** Marcas da AndyMark e WCP. Muito parecido com hex e quebra um galho, mas o hex padrão é a opção preferida.
 
 <ContentFigure src="../img/power-transmission/typesofshaftprofiles.png" alt="" width="90%">
-  Various types of profiles. Left to right: Churro, Hex (standard), MAXSpline, Round (1")
+  Vários tipos de perfis. Da esquerda para a direita: Churro, Hex (padrão), MAXSpline, Redondo (1").
 </ContentFigure>
 
-## Tips for Manufacturing and Assembly
+## Dicas de Fabricação e Montagem
 
-This section lays out tips and common mishaps with motion components. It also talks about how to assemble bearings and shafts effectively.
+Esta seção apresenta dicas e erros comuns com componentes de movimento. Também aborda como montar rolamentos e eixos de forma eficaz.
 
-### Bearings Retention
+### Retenção de Rolamentos
 
-Most bearings can be press fit into metal parts, like flanged and needle. Other bearings may require special assembly to prevent from falling out, like standard bearings, where they must be retained by a plate. 
+A maioria dos rolamentos pode ser prensada sob pressão (press fit) em peças metálicas, como os rolamentos com flange e rolamentos de agulha. Outros podem exigir montagens especiais para evitar que saiam da posição, como rolamentos padrão, que devem ser retidos por uma placa. 
 
-For bearings on polycarbonate or similarly bendy material, it is good practice to include proper bearing retention using "hats" which are bolted to the material and hold the bearing in place. This is needed due to the flexibility of polycarbonate, which may allow bearings to pop out, and is especially important if there are no spacers to properly support the polycarbonate plate. These hats can be bought by a vendor or custom 3D printed.
+Para rolamentos instalados em policarbonato ou materiais flexíveis similares, é uma boa prática incluir retenção mecânica adequada usando "chapeuzinhos" (bearing hats) parafusados ao material para manter o rolamento no lugar. Isso é necessário devido à flexibilidade do policarbonato, que pode se deformar e deixar os rolamentos saltarem para fora, sendo especialmente crítico se não houver espaçadores apoiando a placa adequadamente. Esses retentores podem ser adquiridos em fornecedores COTS ou impressos em 3D.
 
 <ContentFigure src="../img/power-transmission/bearinghat1540.png" alt="" width="30%">
-  3D printed bearing hat on 1540's 2025 end effector.
+  Retentor de rolamento (bearing hat) impresso em 3D no end effector de 2025 da 1540.
 </ContentFigure>
 
-### Shaft Retention
+### Retenção de Eixos (Shaft Retention)
 
-Shafts must always be retained so they don't slip out of bearings. There are several ways to achieve this.
+Eixos sempre devem ser retidos para que não escorreguem para fora dos rolamentos. Existem várias formas de realizar essa retenção.
 
-**Bolt and Washer**
+**Parafuso e Arruela (Bolt and Washer)**
 
-Tapping a shaft and screwing a bolt with a washer on is typically best practice. It ensures that a shaft is properly retained between bearings without taking up space, as was seen in the example image for axles. However, this requires that the shaft has a center bore/is hollow, so this solution may not work with all shafts. 
+Fazer rosca (macho/tap) na ponta do eixo e colocar um parafuso com arruela é geralmente a melhor prática. Isso garante que o eixo fique devidamente retido entre os rolamentos sem ocupar espaço útil ao longo do eixo, como visto na imagem de exemplo. No entanto, isso exige que o eixo tenha furo central / seja oco, portanto nem todos os eixos aceitam essa solução de imediato. 
 
 <Aside type="tip">
-Locktite should be used to keep the bolt in place, but NEVER use locktite near polycarbonate! It can destroy the material and cause irreversible cracks.
+Trava-rosca (Loctite) deve ser usado para manter o parafuso no lugar, mas NUNCA use trava-rosca perto de policarbonato! O contato com produtos químicos anaeróbicos destrói o policarbonato, causando trincas irreversíveis.
 </Aside>
-**Shaft Collars**
 
-Collars are regarded as a quick and easy way to retain shafts. They hug the shaft by clamping in so the collar can't slide on the shaft. The benefit is that the length of the shaft does not have to be a defined length, unlike with bolt and washer, which makes it great for quick builds/prototypes. However, they are typically not best practice to use and should only be used if needed. In addition, they are almost exclusively used for hex and MAXSpline/SplineXL profiles.
+**Anéis de Fixação / Abraçadeiras de Eixo (Shaft Collars)**
+
+Shaft collars são considerados uma forma rápida e fácil de reter eixos. Eles abraçam o eixo fixando-se por aperto para não deslizar. A vantagem é que o comprimento do eixo não precisa ser pré-determinado com precisão milimétrica, ao contrário da fixação com parafuso e arruela, o que os torna excelentes para protótipos e montagens rápidas. No entanto, costumam não ser a melhor prática definitiva e devem ser usados quando estritamente necessários. Além disso, são quase exclusivamente usados para perfis hex e MAXSpline/SplineXL.
 
 <ContentFigure src="../img/power-transmission/lockcollarexample.png" alt="" width="50%">
-  Shaft collar on 1/2" hex axle.
+  Shaft collar em um eixo hexagonal de 1/2".
 </ContentFigure>
 
-Shaft collars can be useful in scenarios where there is a lot of space on an axle. Instead of spamming spacers, two lock collar can be attached on the inside between bearings to retain the shaft. If the bearing flanges are pointed towards each other, this is an effective way to retain an entire axle using just one lock collar (however this method still requires spacers, as seen in the example with 2910). 
+Shaft collars podem ser úteis em cenários onde há bastante espaço livre no eixo. Em vez de enfileirar dezenas de espaçadores, duas abraçadeiras podem ser fixadas na parte interna entre os rolamentos para reter o eixo. Se as flanges dos rolamentos estiverem voltadas uma para a outra, essa é uma forma eficaz de reter todo o eixo usando apenas um collar (embora esse método ainda exija espaçadores adequados, como visto no exemplo da 2910). 
 
 <ContentFigure src="../img/power-transmission/2910-shaft-tech.webp" alt="" width="50%">
-  Shaft collar retaining a 1/2" hex axle on 2910's climb axles. Note that the flanges of the bearings are pointing towards each, with only one lock collar used.
+  Shaft collar retendo um eixo hex de 1/2" nos eixos do climb da 2910. Observe que as flanges dos rolamentos apontam uma para a outra, com apenas um lock collar utilizado.
 </ContentFigure>
 
-**Clips and Rings**
+**Anéis de Retenção e Travas (Clips and Rings / Circlips)**
 
-Another way of retaining axles is using clips and rings. They are great practice to use, and may be more convenient than bolt; for round axles, they can be incredibly useful. However, they require certain machining capabilities like access to a lathe that not all teams possess. 
+Outra forma de reter eixos é com anéis de retenção (snap rings / retaining rings). Eles são uma excelente prática e podem ser mais convenientes do que parafusos nas pontas; para eixos redondos, são incrivelmente úteis. No entanto, exigem recursos de usinagem, como acesso a um torno mecânico para abrir o canal (groove), algo que nem todas as equipes possuem. 
 
 <ContentFigure src="../img/power-transmission/1540retainingring.png" alt="" width="50%">
-  Machined groove on 1540's 2025 arm shaft, allows a retaining ring to be put on.
+  Canal usinado no eixo do braço de 2025 da 1540, permitindo a instalação de um anel elástico de retenção (retaining ring).
 </ContentFigure>
 
-**Turned Down Axles**
+**Eixos Rebaixados / Torneados (Turned Down Axles)**
 
-Another way of retaining shafts is by physically cutting into the axle partially. This turned down part of the shaft sits in the bearing while the rest keeps the original profile. This retains a shaft without using other tools like bolts or collars, however it does require the ability to manufacture these parts, usually with a lathe. 
+Outra forma de reter eixos é usinar (tornear) parcialmente um rebaixo no próprio eixo. Essa ponta rebaixada se assenta no furo do rolamento enquanto o restante mantém o perfil original com ombro de apoio. Isso retém o eixo sem necessidade de ferramentas extras como parafusos ou collars, mas exige capacidade de usinagem, geralmente em torno. 
 
 <ContentFigure src="../img/power-transmission/6328hexthing.png" alt="" width="50%">
-  Custom hex axle on 6328's pivot gearbox, 2023. Note that the unaffected part of the hex axle holds the bearing in.
+  Eixo hex customizado na caixa de redução do pivô da 6328 em 2023. Note que o ombro do perfil hex mantém o rolamento retido.
 </ContentFigure>
 
 <Aside type="note">
-If using flanged bearings, ensure the flanges are pointing inward towards each other. With proper spacing on the axle, this allows both the axle and bearing to be retained properly.
+Ao usar rolamentos com flange, certifique-se de que as flanges estejam apontando para dentro, uma de frente para a outra. Com o espaçamento correto no eixo, isso permite que tanto o eixo quanto os rolamentos fiquem devidamente retidos.
 </Aside>
-### Shaft Retention with Dead Axles
 
-Dead axles must be rigidly mounted to a part in order to be structural. For tapped shafts, they can just be bolted into a plate, but with other types of axles like round axles, it requires slightly more difficulty. Mounting can be done in many ways:
+### Retenção de Eixo em Dead Axles
 
-**COTS Plugs, Blocks, or Shaft Collars:** For MAXSpline/SplineXL systems, the typical way of mounting is using blocks and retaining with shaft collars. These are vendor specific, for example WCP's billet plugs. For more information, visit [WCP's documentation](https://docs.wcproducts.com/frc-build-system/spline-and-motionx-system/splinexl-accessories) or [REV's documentation](https://docs.revrobotics.com/ion-build/motion/tubes-bushings-axles#application-example). 
+Eixos fixos (dead axles) devem ser montados rigidamente a uma peça para fornecer rigidez estrutural. Para eixos com furo roscado, basta parafusá-los diretamente em uma placa, mas com outros eixos redondos o processo exige um pouco mais de cuidado. A fixação pode ser feita de várias maneiras:
 
-**Tube Nuts:** Hammered into round axles, tube nuts are optimal for low load applications like dead axle rollers. It allows shafts to be bolted directly to a part/plate. They are preferred because they can be easily bought COTS, however they are difficult to use because they must be hammered in precisely; any misalignment can cause inaccuracies and problems down the line. 
+**Plugs, Blocos ou Shaft Collars COTS:** Para sistemas MAXSpline/SplineXL, a forma típica de montagem é usar blocos de fixação retidos com shaft collars. Estes são específicos de cada fornecedor, como os plugs usinados em tarugo (billet) da WCP. Para mais informações, consulte a [documentação da WCP](https://docs.wcproducts.com/frc-build-system/spline-and-motionx-system/splinexl-accessories) ou a [documentação da REV](https://docs.revrobotics.com/ion-build/motion/tubes-bushings-axles#application-example). 
+
+**Tube Nuts (Porcas Estrela / Buchas Expansivas para Tubo):** Inseridas sob pressão ou batidas para dentro de eixos tubulares redondos, as tube nuts são ideais para aplicações de baixa carga como roletes de dead axle. Elas permitem parafusar os eixos diretamente em uma placa. São preferidas por serem facilmente encontradas como COTS, porém exigem precisão ao serem inseridas; qualquer desalinhamento pode causar problemas no funcionamento do mecanismo. 
 
 <Aside type="tip">
-To improve the precision and strength of tube nuts, try putting two into one end. This can help align an axle better and withstand larger loads, which is especially important in large pivots.
+Para melhorar a precisão e resistência das tube nuts, experimente colocar duas em cada extremidade. Isso ajuda a alinhar melhor o eixo e a suportar cargas maiores, o que é especialmente importante em pivôs de maior porte.
 </Aside>
-**Billet Parts:** Many teams create custom, billet parts for mounting dead axles or even replacing them. Although significantly stronger than tube nuts, they require much more manufacturing ability than most teams are capable of. 
+
+**Peças Usinadas em Tarugo (Billet Parts):** Muitas equipes criam plugs usinados sob medida (billet) para fixar dead axles ou até mesmo substituí-los. Embora sejam significativamente mais resistentes que tube nuts, exigem muito mais recursos de fabricação do que a maioria das equipes dispõe. 
 
 <ContentFigure src="../img/power-transmission/billet2910tech.png" alt="" width="50%">
-  Custom billet tube plug on 2910's 2025 robot pivot. Holds one end of 2.5" OD custom dead axle.
+  Plug tubular usinado sob medida no pivô do robô de 2025 da 2910. Sustenta uma extremidade do dead axle customizado de 2.5" OD.
 </ContentFigure>
 
 <Aside type="tip">
-If you are interested in billet tube plugs and have a lathe, it is possible to make a lathed version using spacers. A typical spacer wider than the axle's OD can be machined down into a "plug" similar to 2056's plugs, with a flange for holding it in. This plug can be press fit into the tube and secured with a roll pin or screw. See [2056's discussion on Chief Delphi](https://www.chiefdelphi.com/t/team-2056-op-robotics-2025-technical-binder-release/502550/130) for more information.
+Se você tem interesse em plugs usinados e dispõe de um torno mecânico, é possível fazer uma versão torneada usando espaçadores de estoque. Um espaçador comum com diâmetro maior que o diâmetro externo (OD) do eixo pode ser usinado como um plug com flange similar aos plugs da 2056. Esse plug pode ser prensado no tubo e travado com um pino elástico (roll pin) ou parafuso. Veja a [discussão da 2056 no Chief Delphi](https://www.chiefdelphi.com/t/team-2056-op-robotics-2025-technical-binder-release/502550/130) para mais detalhes.
 </Aside>
+
 <ContentFigure src="../img/power-transmission/2056techplugs.webp" alt="" width="90%">
-  Billet plugs on either end of dead axle for arm of 2056's 2025 robot.
+  Plugs usinados nas extremidades do dead axle do braço do robô de 2025 da 2056.
 </ContentFigure>
 
-### Tolerances
+### Tolerâncias
 
-It is important to keep in mind the tolerances of various components to ensure easy assembly. Often, each manufacturer can have their own tolerances. For example, a hex shaft from WCP may have a different tolerance than a bearing from REV Robotics, and may not fit on that bearing. 
+É essencial ter em mente as tolerâncias dos vários componentes para garantir uma montagem sem problemas. Frequentemente, cada fabricante tem suas próprias tolerâncias. Por exemplo, um eixo hex da WCP pode ter uma tolerância ligeiramente diferente de um rolamento da REV Robotics, e pode não deslizar com facilidade naquele rolamento. 
 
-Any parts made, like 3D printed parts, should have a large enough tolerance so they may slide onto an axle easily. The recommended tolerance is 0.005" to 0.010" of room. Components transmitting torque, like pulleys and gears, should have less tolerance while other components, like spacers, can have more tolerance. 
+Quaisquer peças fabricadas, como peças impressas em 3D, devem ter folga de tolerância suficiente para que possam deslizar suavemente no eixo. A folga recomendada é de 0,005" a 0,010" (aproximadamente 0,12 mm a 0,25 mm). Componentes que transmitem torque, como polias e engrenagens, devem ter tolerâncias mais justas, enquanto outros componentes, como espaçadores, podem ter mais folga. 
 
-### Custom Axles
+### Eixos Personalizados (Custom Axles)
 
-If you have the manufacturing capabilities (i.e. a lathe) or can order it out of house, custom machining axles may be helpful.
+Se a sua equipe possui capacidade de usinagem (como torno mecânico) ou pode terceirizar a fabricação, usinar eixos sob medida pode ser muito vantajoso.
 
-Some vendors, like WCP or AndyMark, sell custom shafts. These [output shafts](https://wcproducts.com/collections/systems-structure/products/output-shafts) are helpful in certain scenarios. However, these are often not necessary and are mostly used to ease assembly or under design constraints.
+Alguns fornecedores, como WCP ou AndyMark, vendem eixos customizados prontos. Esses [eixos de saída (output shafts)](https://wcproducts.com/collections/systems-structure/products/output-shafts) são muito úteis em certos cenários. No entanto, geralmente não são obrigatórios e servem principalmente para facilitar a montagem ou atender a restrições específicas de espaço e peso.

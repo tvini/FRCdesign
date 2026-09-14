@@ -1,35 +1,34 @@
-﻿---
-title: Assembly
-description: Assembling the elevator
+---
+title: Montagem
+description: Montando o elevador
 ---
 
+## Montagem (Assembly)
 
-## Assembly
+Como este subsistema possui múltiplas partes móveis que deslizam linearmente, assim como no pivô em dead axle e no intake slapdown, devemos criar submontagens rígidas separadas para cada estágio.
 
-Because this subsystem has multiple moving parts, just like the dead axle pivot and slapdown intake, separate rigid subassemblies should be created for each stage.
+### Montagem do Estágio Base (Base Stage Assembly)
 
-### Base Stage Assembly
+Crie uma montagem para as partes estáticas e siga o processo padrão para inseri-las e criar um conjunto rígido (Origin Cube, Group Mate, Fasten Mate na origem). Adicione o restante das peças duplicando peças existentes, inserindo da FRCDesignLib e do Standard Content, utilizando Replicate e padrões sempre que possível.
 
-Create an assembly for the static parts and follow the typical process for inserting them and creating a rigid body (origin cube, group, fasten to origin). Add the rest of the parts by duplicating existing parts, FRCDesignLib, and standard content, using replicate and patterns when you can.
+<ContentFigure src="../img/2d/frameSubassembly.webp" alt="Montagem do estágio base concluída" />
 
-<ContentFigure src="../img/2d/frameSubassembly.webp" alt="Finished base stage assembly" />
+### Montagem do Primeiro Estágio (First Stage Assembly)
 
-### First Stage Assembly
+Repita o mesmo procedimento para a submontagem do primeiro estágio intermediário móvel.
 
-Do the same thing for the first stage subassembly.
+<ContentFigure src="../img/2d/stage1Subassembly.webp" alt="Montagem do primeiro estágio concluída" />
 
-<ContentFigure src="../img/2d/stage1Subassembly.webp" alt="Finished first stage assembly" />
+### Montagem do Carrinho (Carriage Assembly)
 
-### Carriage Assembly
+E, finalmente, faça o mesmo para a submontagem do carrinho móvel (carriage).
 
-And finally the carriage subassembly.
+<ContentFigure src="../img/2d/carriageSubassembly.webp" alt="Montagem do carrinho concluída" />
 
-<ContentFigure src="../img/2d/carriageSubassembly.webp" alt="Finished carriage assembly" />
+### Montagem de Nível Superior (Top Level Assembly)
 
-### Top Level Assembly
+Agora crie a montagem de nível superior, insira as submontagens (fixando o Origin Cube da montagem estática na origem da montagem) e use os mate connectors de referência dos Origin Cubes das submontagens para criar mates do tipo `Slider` com limites de curso para definir o movimento linear do elevador.
 
-Now create the top level assembly, insert the subassemblies (fasten the origin cube of the static assembly to the origin), and use the reference mates on the origin cubes from the separate subassemblies to create slider mates with limits to define the motion of the elevator.
+<ContentFigure src="../img/2d/elevatorTopLevel.webp" alt="Montagem Finalizada de Nível Superior do Elevador" />
 
-<ContentFigure src="../img/2d/elevatorTopLevel.webp" alt="Finished Top Level Elevator Assembly" />
-
-Because it's a cascade elevator, you can use the "Linear Relation" assembly tool between the two slider mates with a ratio of 1 to link the motion of the stages together in the same way it would be in real life.
+Por se tratar de um elevador em cascata, você pode usar a ferramenta de montagem `Linear Relation` entre os dois slider mates com uma relação de 1:1, vinculando o movimento linear dos estágios exatamente da mesma forma como eles se comportam na vida real.

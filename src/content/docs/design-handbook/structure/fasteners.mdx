@@ -1,162 +1,150 @@
 ---
-title: Fasteners
-description: A guide on fasteners and fastener standards common in FRC
+title: Fixadores e Parafusos
+description: Um guia completo sobre parafusos, porcas, rebites e padrões de fixação comuns na FRC
 ---
 
-A guide on fasteners and fastener standards common in FRC. They come in all sorts of shapes and sizes for various applications and use cases. At their core, they are used to attach two or more parts together to construct your robot.
+Um guia sobre parafusos, porcas, rebites e os padrões de fixadores mais comuns na FRC. Eles existem nos mais diversos formatos e tamanhos para atender a diferentes esforços mecânicos, tendo como função primordial unir peças de maneira confiável na estrutura do robô.
 
-## Fasteners in CAD
+## Fixadores no CAD
 
-### Why Put Fasteners in CAD?
+### Por que Modelar Parafusos e Fixadores no CAD?
 
-Putting all of your fasteners in your CAD is very important for a few reasons. Hardware in CAD lets you check clearances between parts, build an accurate bill of materials so you know exactly what to order, and makes it easy for your team to assemble the robot.
+Incluir parafusos no CAD é essencial por três motivos: permite checar interferências e folgas físicas entre peças móveis, gera uma lista de materiais (BOM) exata para compras sem desperdício e serve como guia visual claro para os alunos durante a montagem na oficina.
 
-### Best Practices
+### Boas Práticas
 
-Before getting into the different types of fasteners, it is important to discuss CAD best practices. Putting your fasteners into the document in the wrong way can and will lag your document.
+Inserir parafusos de forma incorreta pode sobrecarregar o documento e causar lentidão extrema no Onshape. Siga estas diretrizes:
 
-**FRCDesignLib:** FRCDesignLib is a public library of FRC-relevant CAD parts, including fasteners. It is a great resource for getting started with hardware in CAD, and it has most of the common sizes of bolts and nuts you will need for your robot. It is also well organized and easy to navigate.
+**FRCDesignLib:** Biblioteca pública com modelos de peças e ferragens padrão de FRC. Contém praticamente todos os tamanhos comuns de parafusos e porcas (#10-32, 1/4"-20, etc.) organizados e otimizados.
 
-**Standard Content:** Onshape has a feature called Standard Content that has a wide variety of fasteners ready to import and be used in your assemblies, this is especially useful if its a non-standard size not available in FRCDesignLib.
+**Standard Content:** Recurso nativo do Onshape com um catálogo completo de parafusos, porcas e arruelas prontos para importação direta em montagens (ideal para tamanhos atípicos).
 
-**McMaster-Carr:** Sometimes Standard Content will not have the exact size or type of fastener you need. McMaster-Carr has every type of fastener you can think of, and every single one has a free CAD file to download.
+**McMaster-Carr:** Para fixadores especiais ou medidas raras, o catálogo da McMaster-Carr oferece modelos CAD 3D gratuitos para download direto de cada item.
 
-**Replicate Tool:** You only need to import each unique size of fastener once per assembly. After that, use the Replicate tool to copy that piece of hardware into every place you need it. This massively reduces load times and cleans up your assemblies significantly.
+**Ferramenta Replicate:** Insira cada medida de parafuso apenas uma vez na montagem. Depois, utilize a ferramenta **Replicate** para duplicá-lo automaticamente em todos os furos de mesmo diâmetro e padrão. Isso reduz drasticamente o tempo de carregamento e mantém a árvore limpa.
 
-## Bolts
-
-<ImageTable>
-| Type | Description | Image |
-|---|---|---|
-| **Socket Head Cap Screw (SHCS)** | Standard bolt; hard to strip due to the larger hex key used with it | <ContentFigure src="../img/fasteners/shcs.webp" alt="Socket Head Cap Screw" /> |
-| **Button Head Cap Screw (BHCS)** | Has a wider, lower-profile rounded head than a socket head bolt | <ContentFigure src="../img/fasteners/bhcs.webp" alt="Button Head Cap Screw" /> |
-| **Flathead/Countersunk Screw (FHCS)** | Sits flush with the material surface; requires countersinking the hole it goes into | <ContentFigure src="../img/fasteners/fhcs.webp" alt="Flathead Countersunk Screw" /> |
-| **Shoulder Bolt** | Has a smooth unthreaded portion meant to act as a small shaft for a bearing or bushing | <ContentFigure src="../img/fasteners/shoulder-bolt.webp" alt="Shoulder Bolt" /> |
-</ImageTable>
-
-## Bolt Sizes
-
-### Imperial
-
-Modern FRC primarily uses two imperial bolt sizes: **#10-32** and **1/4"-20**. FRC COTS components almost exclusively use #10-32 fasteners, and with a bit of effort you can design robots that use #10-32 for nearly everything.
-
-- **#10-32** is used for almost everything: retaining shafts, motor mounting, superstructure connections
-- **1/4"-20** is used where more strength is needed than #10-32 can provide
-
-The number after the dash in an imperial fastener designation is the **TPI** (threads per inch). A **#10-32** bolt has a #10 diameter shank with 32 threads in every inch of length, and a **1/4"-20** bolt has a 1/4" diameter shank with 20 threads per inch. Higher TPI means finer threads, which hold better in thin material and resist loosening from vibration. Lower TPI means coarser threads, which install faster and tolerate damage better but strip more easily in thin material. FRC uses fine-pitch threads almost exclusively (#10-32, 1/4"-20).
-
-| Thread Size | Common Uses | Tap Drill Size | Close Fit Drill Size | SHCS Hex Key | BHCS Hex Key |
-|---|---|---|---|---|---|
-| #4-40 | RoboRIO mounting | #43 (0.089") | #32 (0.116") | 3/32" | 1/16" |
-| #6-32 | SB50 clearance fit | #36 (0.1065") | #27 (0.144") | 7/64" | 5/64" |
-| #8-32 | VersaPlanetary gearboxes | #29 (0.136") | #18 (0.1695") | 9/64" | 3/32" |
-| #10-32 | MAX Planetary; NEO, Vortex, Falcon, Kraken motor mounting; swerve drive; tapped rounded hex | #21 (0.159") | #9 (0.196") | 5/32" | 1/8" |
-| 1/4"-20 | High-strength structural connections; tapped churro shaft | #7 (0.201") | F (0.257") | 3/16" | 5/32" |
-| 5/16"-18 | Extra high-strength connections; tapped shoulder bolts | F (0.257") | P (0.323") | 1/4" | 3/16" |
-| 3/8"-16 | Tapped hollow hex shaft | 5/16" (0.3125") | W (0.386") | 5/16" | 7/32" |
-
-<Aside type="note">
-When designing around hardware, it is best to use the [hole tool](https://cad.onshape.com/help/Content/hole.htm) or memorize the standard close fit clearance diameters: **#10-32 → 0.196"**, **1/4"-20 → 0.257"**.
-</Aside>
-
-### Metric
-
-Metric fasteners appear on several older COTS motor products. Most teams use imperial hardware for custom structure and metric only where the COTS component requires it.
-
-| Thread Size | Common Uses | Tap Drill Size | Close Fit Drill Size | SHCS Hex Key | BHCS Hex Key |
-|---|---|---|---|---|---|
-| M3 | NEO 550, Ultraplanetary gearboxes | 2.5 mm | 3.15 mm | M2.5 | M2 |
-| M4 | 775pro, BAG motors | 3.3 mm | 4.2 mm | M3 | M2.5 |
-| M5 | Snowblower motors | 4.2 mm | 5.25 mm | M4 | M3 |
-| M6 | PDP battery lug mount | 5 mm | 6.3 mm | M5 | M4 |
-
-## Bolt Retention
-
-Hardware can loosen over the course of a competition due to vibration and impacts. Two common solutions:
-
-**Nylock Nuts:** The nylon insert grips the threads and prevents loosening without tools. This is the preferred solution for most connections.
-
-**Loctite:** Thread-locking adhesive applied to the bolt threads before assembly. Loctite comes in several strengths, identified by color and product number:
-- Loctite 222 (Purple): Low strength, intended for small fasteners that may need frequent adjustment.
-- Loctite 243 (Blue): Medium strength, the standard general purpose threadlocker for most FRC applications. Removable with hand tools.
-- Loctite 263 (Red): High strength, semi-permanent. Removal typically requires heat. Rarely needed in FRC.
-- Loctite 680 (Green): Retaining compound, designed to bond cylindrical parts like shafts and bearings. Used for securing magnets into swerve module encoder shafts and occasionally for locking gears onto shafts to take up backlash. Less commonly used in FRC.
-
-<Aside type="caution">
-**Most Loctites are not polycarbonate safe.** Contact with Loctite causes polycarbonate to craze and crack, even when the adhesive has not cured. Keep Loctite away from any polycarbonate parts. For connections near polycarbonate, use Loctite 425, a polycarb-safe formula designed for use on and around plastic fasteners and plates or alternative bolt retention methods.
-</Aside>
-
-**Vibra-Tite VC-3:** A threadlocker alternative that is safe to use around polycarbonate. Vibra-Tite is applied to the fastener and left to dry before installation, so it cannot be used for assembly on the spot the way Loctite can. The tradeoff is that pre-treated fasteners can be prepared in advance, stored, and installed normally when needed. It holds with less strength than blue Loctite, which makes it well suited for frequently serviced connections but less useful for joints that need to stay tight under heavy load.
-
-## Nuts
+## Tipos de Parafusos
 
 <ImageTable>
-| Type | Description | Image |
+| Tipo | Descrição | Imagem |
 |---|---|---|
-| **Nylock Nut** | Standard nut with a nylon insert that grips the threads to prevent loosening | <ContentFigure src="../img/fasteners/nylock-nut.webp" alt="Nylock Nut" /> |
-| **Low Profile Nylock Nut** | Thinner than a standard nylock nut; used where space for a full-height nut is limited | <ContentFigure src="../img/fasteners/low-profile-nylock-nut.webp" alt="Low Profile Nylock Nut" /> |
-| **Rivnut** | Installed with a special tool into a pre-drilled hole; acts like a rivet but provides threads for a bolt | <ContentFigure src="../img/fasteners/rivnut.webp" alt="Rivnut" /> |
-| **Heat Set Insert** | Pressed into 3D printed parts with a soldering iron; provides a durable brass thread in plastic | <ContentFigure src="../img/fasteners/heat-set-insert.webp" alt="Heat Set Insert" /> |
-| **Tee Nut** | Pressed into wood; primarily used when fastening bumper backing boards | <ContentFigure src="../img/fasteners/tee-nut.webp" alt="Tee Nut" /> |
-| **Wing Nut** | Tightened by hand; useful for bumper mounting hardware that needs to be removed quickly between matches | <ContentFigure src="../img/fasteners/wing-nut.webp" alt="Wing Nut" /> |
-| **PEM Nut** | Pressed into sheet metal too thin to tap; provides threads without requiring access to the back of the material; See [Fabworks's guide](https://www.fabworks.com/resources/guidelines/hardware) for more information | <ContentFigure src="../img/fasteners/pem-nut.webp" alt="PEM Nut" /> |
+| **Socket Head Cap Screw (SHCS)** | Parafuso cilíndrico sextavado interno (Allen); muito difícil de espanar devido ao soquete sextavado profundo | <ContentFigure src="../img/fasteners/shcs.webp" alt="Socket Head Cap Screw (SHCS)" /> |
+| **Button Head Cap Screw (BHCS)** | Cabeça abaulada de perfil rebaixado; ideal para locais com espaço vertical restrito | <ContentFigure src="../img/fasteners/bhcs.webp" alt="Button Head Cap Screw (BHCS)" /> |
+| **Flathead/Countersunk Screw (FHCS)** | Cabeça cônica escareada; fica totalmente nivelada com a superfície da chapa após escarear o furo | <ContentFigure src="../img/fasteners/fhcs.webp" alt="Flathead Countersunk Screw (FHCS)" /> |
+| **Shoulder Bolt (Parafuso com Ressalto)** | Possui corpo liso e retificado retangular que funciona como eixo de precisão para buchas ou rolamentos | <ContentFigure src="../img/fasteners/shoulder-bolt.webp" alt="Shoulder Bolt" /> |
 </ImageTable>
 
-## Tapping
+## Tamanhos e Padrões de Rosca
 
-Tapping is the process of cutting threads directly into a part so a bolt can thread into the material itself, with no nut required on the back side. A tapped hole turns the part into its own nut.
-Tapping is a great way to save weight and reduce part count by eliminating the need for a nut on the back side of a connection. It is commonly used for attaching COTS components that have tapped holes, such as gearboxes and motor mounting plates.
+### Padrão Imperial (Polegadas)
 
-Use tapping when:
-- You cannot reach the back side of the part with a wrench, like the inside of a closed box tube
-- The connection will be serviced often and you want one-handed installation
-- You want to reduce part count and assembly time on a connection with many bolts
-- The fastener sits in a tight space where a nut will not fit
+A FRC moderna utiliza principalmente dois diâmetros imperiais: **#10-32** e **1/4"-20**. Quase todos os componentes comerciais COTS utilizam parafusos #10-32, e com um bom planejamento você pode padronizar quase todo o robô nesse tamanho.
 
-Use a nut when:
-- The material is too thin to hold threads (see below)
-- You want the option to swap fastener sizes later without retapping
-- The part is made of a soft material, where threads will strip
+- **#10-32**: Utilizado para quase tudo: retenção de eixos, fixação de motores, união de chapas e superestrutura.
+- **1/4"-20**: Utilizado em uniões que exigem resistência à tração ou cisalhamento superior à suportada pelo #10-32.
 
-A tapped hole needs enough material around it to hold full threads under load. A solid tapped hole needs about 5 threads of engagement, calculated as material thickness × TPI.  The first and last threads in a tapped hole are usually partial or damaged, which leaves 3 clean threads in the middle. Those 3 good threads carry roughly 90% of the bolt's rated load.
+O número após o traço indica os **TPI** (fios por polegada - *Threads Per Inch*). Um parafuso **#10-32** tem haste de diâmetro nº 10 com 32 fios por polegada, enquanto o **1/4"-20** tem 1/4" de diâmetro com 20 fios por polegada. Roscas mais finas (maior TPI) mordem melhor em chapas finas e resistem mais à vibração, sendo o padrão adotado na FRC.
 
-You can get away with less in lower-load applications or stronger materials. 1/8" wall (0.125") tapped for #10-32 holds up fine for applications such as bearing retention, even though it falls just below the 5-thread guideline. The 5-thread guideline is a target, not a hard minimum.
+| Tamanho da Rosca | Aplicações Comuns | Broca para Abrir Rosca (Tap) | Broca de Passagem Justa (Close Fit) | Chave Allen (SHCS) | Chave Allen (BHCS) |
+|---|---|---|---|---|---|
+| #4-40 | Fixação do roboRIO | #43 (2,26 mm / 0.089") | #32 (2,95 mm / 0.116") | 3/32" | 1/16" |
+| #6-32 | Conector Anderson SB50 | #36 (2,71 mm / 0.1065") | #27 (3,66 mm / 0.144") | 7/64" | 5/64" |
+| #8-32 | Redutoras VersaPlanetary | #29 (3,45 mm / 0.136") | #18 (4,31 mm / 0.1695") | 9/64" | 3/32" |
+| #10-32 | MAXPlanetary; motores NEO, Vortex, Falcon, Kraken; swerve; eixos hexagonais roscados | #21 (4,04 mm / 0.159") | #9 (4,98 mm / 0.196") | 5/32" | 1/8" |
+| 1/4"-20 | Uniões estruturais de alta carga; perfis estruturais de tubo churro | #7 (5,11 mm / 0.201") | F (6,53 mm / 0.257") | 3/16" | 5/32" |
+| 5/16"-18 | Conexões de altíssima resistência; parafusos de ressalto | F (6,53 mm / 0.257") | P (8,20 mm / 0.323") | 1/4" | 3/16" |
+| 3/8"-16 | Eixos hexagonais ocos roscados | 5/16" (7,94 mm / 0.3125") | W (9,80 mm / 0.386") | 5/16" | 7/32" |
 
 <Aside type="note">
-For thin material that needs full-strength threads, use a **PEM nut** or **rivnut** instead of tapping. Both provide solid threads in material too thin to tap reliably.
+Ao projetar furações para ferragens, use a ferramenta [Hole](https://cad.onshape.com/help/Content/hole.htm) do Onshape ou memorize os diâmetros de passagem justa padrão: **#10-32 → 0.196" (5,0 mm)** e **1/4"-20 → 0.257" (6,5 mm)**.
 </Aside>
 
-## Rivets
+### Padrão Métrico
 
-Rivets are a permanent fastener installed by deforming a piece of soft metal to clamp two parts together. Blind rivets (also called pop rivets) are the standard in FRC because they install from one side of the material, which makes them practical for tube and sheet metal assemblies where you cannot reach the back side. A rivet gun pulls the mandrel through the rivet body, expanding the back end and snapping the mandrel off flush with the head.
+Parafusos métricos aparecem em alguns motores e redutoras específicas. A maioria das equipes utiliza parafusos imperiais na estrutura e métricos apenas onde o componente COTS exige:
 
-The most common rivet size in FRC is 3/16", used for general structural work, gussets, and plate-to-tube connections. A 3/16" rivet also fits cleanly through a #10-32 bolt close fit hole (0.196"), which means rivets and bolts can share the same hole pattern on patterned box tubing and standard plates.
+| Tamanho da Rosca | Aplicações Comuns | Broca para Rosca (Tap) | Broca de Passagem Justa | Chave Allen (SHCS) | Chave Allen (BHCS) |
+|---|---|---|---|---|---|
+| M3 | NEO 550, redutoras UltraPlanetary | 2,5 mm | 3,15 mm | M2.5 | M2 |
+| M4 | Motores 775pro, BAG motor | 3,3 mm | 4,2 mm | M3 | M2.5 |
+| M5 | Motores Snowblower | 4,2 mm | 5,25 mm | M4 | M3 |
+| M6 | Terminais de bateria da PDP | 5,0 mm | 6,3 mm | M5 | M4 |
 
-### Rivets vs. Bolts
+## Travamento de Parafusos (Fixação contra Vibração)
 
-Rivets and bolts each have their place on a robot, and most teams use a mix of both.
+Durante as partidas, choques violentos e vibração de alta frequência tendem a afrouxar fixadores desprotegidos. Duas soluções principais são utilizadas:
 
-Use rivets when:
-- Attaching gussets or plates to box tubing where you cannot reach the back side
-- You want a lightweight, low-profile connection
-- The joint is permanent and will not need to be disassembled for service
-- You need to attach a lot of hardware quickly, since riveting is significantly faster than bolting
+**Porcas Autotravantes com Inserto de Nylon (Nyloc):** O anel interno de nylon morde os filetes da rosca e impede que a porca se solte por vibração sem ferramentas. É a solução preferida em praticamente todas as uniões com porca.
 
-Use bolts when:
-- The connection will see high shear or tensile loads
-- You need to disassemble the joint for service, debugging, or rebuilds between events
-- You are mounting a COTS component that expects threaded hardware
+**Trava-Rosca Químico (Loctite):** Adesivo anaeróbico aplicado nos filetes antes do aperto:
+- **Loctite 222 (Roxo):** Baixo torque, para parafusos muito pequenos que exigem desmontagem frequente sem estragar a fenda.
+- **Loctite 243 (Azul):** Médio torque, o padrão universal para FRC. Fixa com segurança e permite desmontagem com ferramentas manuais normais.
+- **Loctite 263 (Vermelho):** Alto torque (permanente). Exige maçarico ou soprador térmico para desmontar; raramente necessário em robôs.
+- **Loctite 680 (Verde):** Composto de retenção cilíndrica para eixos, rolamentos e ímãs de encoders em módulos swerve.
 
 <Aside type="caution">
-Rivets weaken over a season of vibration and impact, and they perform poorly in shear loading. Any riveted structural connection should include **at least one bolt** alongside the rivets. The bolt carries shear load and holds the joint together if the rivets begin to fail.
+**A maioria dos compostos Loctite comuns destrói o policarbonato.** O contato químico provoca microfissuras e quebra do plástico em segundos. Mantenha Loctite longe de peças de policarbonato! Para juntas próximas a policarbonato, use porcas Nyloc ou o Loctite 425 (apropriado para plásticos).
 </Aside>
 
-### Grip Length
+**Vibra-Tite VC-3:** Excelente alternativa de trava-rosca segura para uso junto a policarbonato. O líquido é aplicado na rosca do parafuso e deve secar antes da instalação, podendo ser preparado previamente para o estoque.
 
-Grip length is the total thickness of material the rivet is clamping. Every rivet has a listed grip range, and the combined thickness of your parts has to fall inside that range. A rivet with too short a grip range will not reach through the material and will fail to set. A rivet with too long a grip range will leave the back end loose against the material, which produces a weak joint that wobbles and pulls apart under load.
+## Tipos de Porcas
 
-Measure your stackup before ordering. A 1/16" wall tube riveted to a 3/32" gusset is a 0.15625" grip, and the rivet you choose needs a grip range that covers that thickness.
+<ImageTable>
+| Tipo | Descrição | Imagem |
+|---|---|---|
+| **Porca Nyloc** | Porca padrão com inserto de nylon que trava os filetes contra vibrações | <ContentFigure src="../img/fasteners/nylock-nut.webp" alt="Porca Nyloc" /> |
+| **Porca Nyloc de Perfil Baixo** | Mais fina que a padrão; usada onde o espaço axial entre peças é milimétrico | <ContentFigure src="../img/fasteners/low-profile-nylock-nut.webp" alt="Porca Nyloc de Perfil Baixo" /> |
+| **Rebite Roscado (Rivnut)** | Instalado com rebitador especial em furos cegos; cria rosca resistente onde não há acesso traseiro | <ContentFigure src="../img/fasteners/rivnut.webp" alt="Rebite com Rosca (Rivnut)" /> |
+| **Inserto Roscado a Quente (Heat-Set)** | Inserido em furos de peças impressas em 3D com a ponta de um ferro de solda; garante roscas de latão duráveis no plástico | <ContentFigure src="../img/fasteners/heat-set-insert.webp" alt="Inserto Heat-Set" /> |
+| **Porca Garra (Tee Nut)** | Cobre e trava com garras na madeira; muito usada na base de madeira dos para-choques (*bumpers*) | <ContentFigure src="../img/fasteners/tee-nut.webp" alt="Porca Garra (Tee Nut)" /> |
+| **Porca Borboleta (Wing Nut)** | Apertada manualmente sem chave; ótima para troca rápida de bumpers entre partidas | <ContentFigure src="../img/fasteners/wing-nut.webp" alt="Porca Borboleta" /> |
+| **Porca PEM (PEM Nut)** | Prensada em chapas de metal finas demais para abrir rosca direta | <ContentFigure src="../img/fasteners/pem-nut.webp" alt="Porca PEM" /> |
+</ImageTable>
+
+## Rosqueamento Direto em Peças (Tapping)
+
+Abrir rosca (*tapping*) com macho diretamente na peça elimina a necessidade de porcas na face posterior, transformando a própria chapa ou perfil em sua porca de retenção.
+
+É ideal quando:
+- Não há acesso à face traseira da peça (como o interior de um tubo fechado)
+- A conexão é revisada com frequência e você precisa apertar com apenas uma mão livre
+- Você precisa reduzir o peso total e o número de itens na montagem
+- O espaço é compacto demais para acomodar a altura de uma porca
+
+Prefira usar porcas quando:
+- O material for fino demais para sustentar rosca (menos de 3 a 5 fios de engrenamento)
+- A peça for feita de material muito macio ou plástico onde a rosca espanaria facilmente
+
+Para que uma rosca direta suporte a carga nominal do parafuso, a regra prática é ter pelo menos **5 fios de engrenamento** (espessura do material × TPI). Em chapas de 1/8" (0.125") roscadas em #10-32 (4 fios), a união já é plenamente confiável para tampas e retenção de rolamentos.
 
 <Aside type="note">
-Multi-grip rivets cover a wide range of material thicknesses in a single part number, which simplifies inventory and forgives small stackup variations. A single multi-grip 3/16" rivet [such as this one](https://www.blindrivetsupply.com/Marson-Klik-Fast-AB63-67MGV-Multi-Grip-Blind-Rivet-316-Inch-0187-Inch-0187--0437-Inch-Grip-Button-Head-AluminumSteel-Plain_p_1335.html) can handle grips anywhere from roughly 0.187" to 0.437". They cost slightly more per rivet but reduce the number of sizes a team has to stock.
+Em chapas finas (1/16" ou menos), não abra rosca direta: utilize **insertos PEM** ou **Rivnuts** para obter roscas metálicas de alta resistência.
 </Aside>
+
+## Rebites (Rivets)
+
+Rebites cegos (ou de repuxo / *pop rivets*) são fixadores mecânicos permanentes instalados de um único lado da peça por deformação mecânica. São a espinha dorsal de montagens estruturais rápidas na FRC.
+
+O tamanho padrão absoluto de rebite na FRC é **3/16" (~4,8 mm)**. A vantagem genial do rebite de 3/16" é que ele passa exatamente pelo mesmo diâmetro de furo de folga justa de um parafuso #10-32 (0.196" / 5,0 mm), permitindo que rebites e parafusos compartilhem a mesma furação padronizada nas chapas e tubos!
+
+### Rebites vs. Parafusos
+
+**Use rebites quando:**
+- Estiver unindo gussets a tubos ocos fechados sem acesso à face interna
+- Desejar uma união extremamente leve e de perfil quase plano
+- A junta for definitiva e não exigir desmontagem em manutenção de rotina
+- Precisar montar uma estrutura rapidamente (rebitar é muito mais veloz que parafusar)
+
+**Use parafusos quando:**
+- A união for submetida a esforços intensos de cisalhamento ou tração contínua
+- O mecanismo precisar ser desmontado para troca rápida de peças entre partidas
+- Estiver montando redutoras ou peças COTS comerciais
+
+<Aside type="caution">
+Rebites enfraquecem ao longo de uma temporada inteira de impactos repetidos e possuem menor resistência ao cisalhamento do que parafusos de aço. Toda união estrutural crítica de tubos rebitados deve incluir **pelo menos um parafuso de reforço** entre os rebites para absorver choques diretos.
+</Aside>
+
+### Faixa de Aperto do Rebite (Grip Range)
+
+Cada rebite possui uma faixa de espessura de aperto (*grip range*). Se o rebite for curto demais, a ponta não sairá do outro lado para expandir; se for longo demais, ele não comprimirá as chapas com firmeza, deixando a união frouxa. Meça sempre a espessura total somada das chapas antes de rebitar.

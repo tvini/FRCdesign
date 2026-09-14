@@ -1,23 +1,22 @@
-﻿---
-title: Ball Trajectory
-description: Understanding ball trajectory in shooters
+---
+title: Trajetória da Bola
+description: Compreendendo a trajetória da bola em shooters
 ---
 
+## Trajetória da Bola (Ball Trajectory)
 
-## Ball Trajectory
+Em um shooter de bolas, a trajetória balística é determinada principalmente pelo ângulo de saída (exit angle) e pela velocidade de saída (exit velocity) da peça de jogo — o que se traduz diretamente em quão forte você lança e para qual ângulo o shooter aponta.
 
-In a ball shooter, the trajectory is primarily determined by the exit angle and exit velocity of the game piece, which translates to how hard you launch and where you point the shooter.
+<ContentFigure src="../img/2a/shot-trajectory.webp" gif width="70%" alt="Trajetória da bola no shooter da equipe 1678 em 2022">Trajetória da bola no shooter da equipe 1678 em 2022.</ContentFigure>
 
-<ContentFigure src="../img/2a/shot-trajectory.webp" gif width="70%" alt="Team 1678's 2022 shooter ball trajectory">Team 1678's 2022 shooter ball trajectory.</ContentFigure>
+### Projeto de Referência
 
-### Reference Design
+Para a temporada de 2020, a linha de iniciação (Initiation Line) na arena pode servir como um excelente ponto de referência fixo para estimar a posição e o ângulo de disparo do robô. A abertura do alvo de pontuação possui uma tolerância dimensional razoável para absorver pequenas variações de posicionamento, tornando o alinhamento exato menos crítico. Utilizando uma calculadora de balística de tiro, é possível estimar os parâmetros ideais de lançamento.
 
-For 2020, the initiation line on the field can serve as a reference point to estimate your shooting position and angle. The goal's scoring area is forgiving enough to accommodate slight variations in position, making precise alignment less critical. By using a shot distance calculator, you can estimate the optimal shooting parameters.
+### Calculadora de Trajetória
 
-### Trajectory Calculator
+Explore [esta calculadora de trajetória para o jogo de 2020](https://www.desmos.com/calculator/euvciqv3tr) para verificar como ajustes no ângulo e na velocidade afetam o trajeto do seu disparo. Você consegue identificar uma combinação de ângulo e velocidade que proporcione acertos consistentes mesmo com pequenas variações de distância na arena?
 
-Explore [this 2020 trajectory calculator](https://www.desmos.com/calculator/euvciqv3tr) to see how adjustments to angle and speed affect your shot. Can you identify a combination of angle and speed that allows for consistent scoring even with some positional variation?
-
-<Aside type="example" title="Calculator">
+<Aside type="example" title="Calculadora">
   <iframe src="https://www.desmos.com/calculator/5fil8alfmd?embed" frameborder="0"></iframe>
 </Aside>

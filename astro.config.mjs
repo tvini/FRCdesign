@@ -21,9 +21,16 @@ export default defineConfig({
     socialCards(),
     starlight({
       title: 'FRCDesign.org',
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'Português do Brasil',
+          lang: 'pt-BR',
+        },
+      },
       logo: {
         src: './src/assets/universal/book.svg',
-        alt: 'FRCDesign.org logo',
+        alt: 'Logotipo do FRCDesign.org',
       },
       customCss: [
         './src/styles/global.css',

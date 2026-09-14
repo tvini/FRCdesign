@@ -1,149 +1,142 @@
 ---
-title: Contributing to Mechanism Examples
-description: A guide to contributing mechanism examples to the website.
+title: Contribuindo com Exemplos de Mecanismos
+description: Guia para contribuir com exemplos e estudos de caso de mecanismos para o site.
 ---
 
-The [mechanism examples](/mechanism-examples/) pages are the ones that would benefit the most from outside contribution. You can add examples from other teams, of course, but adding your own mechanism and going behind the design and performance on it will be ideal. If adding an example from another team, try to interview them for their input and more accurate information.
+As páginas de [exemplos de mecanismos](/mechanism-examples/) são as que mais se beneficiam de contribuições da comunidade. Você pode catalogar exemplos de outras equipes ou, idealmente, documentar os mecanismos da sua própria equipe analisando a fundo o projeto (*Behind the Design*) e seu desempenho real em competição. Se estiver adicionando um mecanismo de outra equipe, tente entrevistá-los para obter informações autênticas e precisas.
 
-**Criteria for Mechanism Examples:**
+**Critérios para Exemplos de Mecanismos:**
 
-- It must have been actually built and used at a competition
-- You must show both the good parts and the bad parts. What was it designed for? Why were certain decisions made? How easy was it to build and manufacture? How did it actually perform? What went well and what would be changed if it was redesigned?
-- Go into detail about specific parts of the design, such as the materials and parts used and why, any specific mechanisms or processes, etc.
-- Detailed pictures of the CAD and/or the actual robot. Preferably public CAD made in or uploaded to Onshape.
-- Extra media and links if available and applicable.
+- O mecanismo deve ter sido efetivamente construído e utilizado em uma competição oficial de FRC
+- Apresente tanto os pontos fortes quanto os pontos fracos. Para que ele foi projetado? Por que certas escolhas de engenharia foram feitas? Qual foi a facilidade de fabricação e montagem? Como foi o desempenho em campo? O que funcionou bem e o que seria mudado em uma eventual revisão?
+- Detalhe partes específicas: materiais utilizados, peças COTS escolhidas, processos de fabricação, cálculos, etc.
+- Imagens detalhadas do CAD e/ou do robô real. De preferência, link público do modelo no Onshape.
+- Mídias adicionais (vídeos de partidas, fotos de detalhes) quando aplicável.
 
-## Adding Mechanism Examples
+## Como Adicionar Exemplos
 
-As was described in [methods of contributing](/contribution/methods-of-contributing/), there are two methods:
+Conforme descrito em [Formas de Contribuir](/contribution/methods-of-contributing/), existem dois caminhos:
 
-1. Writing the contribution on a separate platform (such as Google Docs) and getting an internal contributor to add it to the website
-2. Forking and making a pull request on GitHub
+1. Redigir o conteúdo em uma plataforma separada (como Google Docs) para que um mantenedor faça a publicação no site
+2. Fazer um fork do repositório e enviar um Pull Request no GitHub (veja o guia técnico [Adicionando uma Página](/contribution/adding-a-page/))
 
-The first method is pretty self explanatory, but if you choose to fork and make a pull request on GitHub, refer to the [Adding a Page](/contribution/adding-a-page/) guide for the technical setup, then follow the structure below.
+## Adicionando um Exemplo de Mecanismo
 
-## Adding a Mechanism Example
+Se você possui apenas uma imagem e o link do CAD, não precisa criar uma página dedicada inteira! É possível adicionar a referência diretamente ao `index.mdx` da categoria. Uma página completa é justificada quando há conteúdo suficiente para um artigo aprofundado (*Behind the Design*).
 
-If you only have an image and a CAD link, you don't need a dedicated page! You can add the example directly to the category's `index.mdx`. A full page is worthwhile when you have enough content to write a "Behind the Design" section.
+### Adicionando ao Índice da Categoria (Avançado)
 
-### Adding to the Category Index (Advanced)
-
-To add a CAD reference without a full page, add an entry to the `exampleCards` array in the category's `index.mdx`. First, import your thumbnail at the top of the file (after the other imports), then add the card object:
+Para adicionar uma referência em CAD sem criar uma página avulsa, adicione uma entrada à matriz `exampleCards` no arquivo `index.mdx` da categoria correspondente. Importe sua miniatura no topo do arquivo e insira o objeto do card:
 
 ```mdx
-import myMechImage from './img/your-image.webp';
+import myMechImage from './img/sua-imagem.webp';
 ```
 
 ```ts
 export const exampleCards = [
-  // ...existing entries...
+  // ...entradas existentes...
   {
-    title: "Team XXXX Mechanism Name",
+    title: "Nome do Mecanismo da Equipe XXXX",
     href: 'https://cad.onshape.com/...',
     image: myMechImage,
-    imageAlt: 'Brief description of the image',
-    description: 'One or two sentences about the design.',
+    imageAlt: 'Descrição resumida da imagem',
+    description: 'Uma ou duas frases resumindo as características do design.',
   },
 ];
 ```
 
-If `exampleCards` doesn't exist in the index yet, add the export and a `## CAD References` section with `<MechanismCardGrid cards={exampleCards} />` below the existing writeup grid.
+Se `exampleCards` ainda não existir no índice, exporte a matriz e adicione uma seção `## Referências em CAD` contendo `<MechanismCardGrid cards={exampleCards} />` logo abaixo da grade de artigos.
 
-### Creating a Full Page
+### Criando uma Página Completa
 
-Create a new `.mdx` file in the appropriate category folder. Use this template as a starting point:
+Crie um novo arquivo `.mdx` na pasta da categoria correspondente usando este modelo:
 
 ```mdx
 ---
-title: Team XXXX Mechanism Name
-description: Brief description of the mechanism.
+title: Nome do Mecanismo da Equipe XXXX
+description: Breve descrição do mecanismo.
 template: splash
 ---
 
-<ContentFigure src="./img/thumb/main-image.webp" alt="Mechanism name CAD render" width="80%" />
+<ContentFigure src="./img/thumb/imagem-principal.webp" alt="Render CAD do mecanismo" width="80%" />
 
 <LinkButton href="https://cad.onshape.com/...">
-  CAD Document
+  Documento no Onshape
 </LinkButton>
 
-## Behind the Design
+## Por Trás do Design (Behind the Design)
 
-Content about the design decisions, tradeoffs, performance, and lessons learned.
+Conteúdo explicando as decisões de projeto, compensações (tradeoffs), desempenho em campo e lições aprendidas.
 ```
 
-### Images
+### Imagens e Miniaturas
 
-Images for a mechanism example page go in an `img/` folder next to the `.mdx` file. Thumbnail images used by the mechanism examples landing page go in `img/thumb/`.
+As imagens da página do exemplo devem ficar na pasta `img/` ao lado do `.mdx`. As miniaturas usadas na página inicial de mecanismos ficam em `img/thumb/`.
 
-Use `.webp` format, compress with [squoosh](https://squoosh.app/) before adding.
+Utilize formato `.webp` comprimido via [Squoosh](https://squoosh.app/).
 
-For thumbnail images, use a **1:1.545 or 1.545:1 aspect ratio**. This matches the aspect ratio of Onshape's "print" output using tabloid paper size (landscape for wide, portrait for tall).
+Para miniaturas, utilize uma **proporção de aspecto de 1:1.545 ou 1.545:1**, correspondente à proporção de impressão tabloide do Onshape (paisagem para peças largas, retrato para peças altas).
 
 <Aside type="tip">
-To crop an existing image to the right aspect ratio, use GIMP (or any image editor) to find the pixel dimensions from your image's shorter side and add pixels to reach the target ratio.
+Para cortar uma imagem na proporção exata, use um editor de imagens (como GIMP ou Photoshop) para identificar a menor dimensão e ajustar a maior para atingir a proporção correta.
 </Aside>
 
-## Adding a Mechanism Category (Optional)
+## Adicionando uma Nova Categoria de Mecanismos (Opcional)
 
-If the mechanism type you're adding doesn't have a category yet, you'll need to create one first. Adding a category involves two parts: the MDX content files, and updating an Astro component that powers the landing page. The content files are straightforward; the component edit requires some TypeScript familiarity.
+Se o mecanismo que você deseja adicionar ainda não possui categoria, será necessário criá-la. Isso envolve os arquivos de conteúdo MDX e a atualização de um componente Astro:
 
 <Aside type="note">
-If you're not comfortable editing Astro components, you can skip the landing page step and note in your pull request or Google Doc that an internal contributor should handle it.
+Se você não tiver familiaridade com TypeScript ou componentes Astro, crie os arquivos de texto e avise em seu Pull Request que um mantenedor cuidará da inclusão no componente da landing page.
 </Aside>
 
-### Content Files
+### Arquivos de Conteúdo
 
-1. Create a new folder under `src/content/docs/mechanism-examples/` named after the mechanism type. If there are multiple subtypes (like elevators having cascade and continuous), create subfolders for each.
-
-2. Create an `index.mdx` landing page in the folder using this template:
+1. Crie uma nova pasta sob `src/content/docs/mechanism-examples/` com o nome da categoria. Se houver subtipos (como elevadores contínuos e em cascata), crie subpastas.
+2. Crie um arquivo `index.mdx` na pasta:
 
 ```mdx
 ---
-title: Category Name
-description: Description of the mechanism category.
+title: Nome da Categoria
+description: Descrição da categoria de mecanismos.
 template: splash
 ---
 
-# Category Name
+# Nome da Categoria
 
-Description of the mechanism category and what examples are included.
+Descrição da categoria e quais tipos de exemplos estão inclusos.
 ```
 
-3. Add the category and its pages to `src/config/sidebarConfig.ts` under the mechanism examples section.
+3. Cadastre a categoria em `src/config/sidebarConfig.ts`.
 
-### Landing Page Component (Advanced)
+### Componente da Página Principal (Avançado)
 
-The [mechanism examples landing page](/mechanism-examples/) is powered by `src/components/content/MechanismExamplesLanding.astro`. To make the new category appear as a card on that page, find the `categories` array in the component and add a new entry:
+A página principal de [Exemplos de Mecanismos](/mechanism-examples/) é gerenciada por `src/components/content/MechanismExamplesLanding.astro`. Para que a nova categoria apareça como um card, localize o array `categories` e adicione a nova entrada:
 
 ```ts
 {
-  title: 'Category Name',
-  href: '/mechanism-examples/your-category/',
-  imageAlt: 'Brief image description',
-  description: 'One or two sentences describing the category.',
+  title: 'Nome da Categoria',
+  href: '/mechanism-examples/sua-categoria/',
+  imageAlt: 'Descrição da imagem',
+  description: 'Uma ou duas frases descrevendo a categoria.',
   links: [
-    { label: 'Subcategory name', href: '/mechanism-examples/your-category/subtype/' },
+    { label: 'Nome da subcategoria', href: '/mechanism-examples/sua-categoria/subtipo/' },
   ],
 },
 ```
 
-The `links` array determines which `img/thumb/` images are pulled in for the card. If the category has no subtypes, use the category's own path. The card image is automatically taken from the first thumbnail found under that path, with no extra configuration needed.
+## Destacando um Exemplo como Artigo em Destaque (Avançado)
 
-## Setting a Featured In-Depth Example (Advanced)
-
-The landing page has a featured section that highlights a small number of particularly detailed, well-documented examples. Getting added there requires editing `src/components/content/MechanismExamplesLanding.astro`, specifically the `inDepthExamples` array near the top of the frontmatter:
+A página de abertura possui uma seção que destaca exemplos de altíssimo nível técnico. Para incluí-lo, edite o array `inDepthExamples` em `src/components/content/MechanismExamplesLanding.astro`:
 
 ```ts
 {
-  title: "Team XXXX Mechanism Name",
-  href: '/mechanism-examples/your-category/your-page/',
-  image: imageByLabel('your thumb image filename without extension'),
-  imageAlt: 'Brief image description',
-  category: 'Category label shown on the card',
-  description: 'Two to three sentences summarizing what makes this example worth featuring.',
+  title: "Nome do Mecanismo da Equipe XXXX",
+  href: '/mechanism-examples/sua-categoria/sua-pagina/',
+  image: imageByLabel('palavra_chave_do_arquivo_thumb'),
+  imageAlt: 'Descrição da imagem',
+  category: 'Etiqueta da categoria mostrada no card',
+  description: 'Duas ou três frases resumindo por que este exemplo se destaca.',
 },
 ```
 
-The `imageByLabel` call does a loose match on thumbnail filenames. Use a distinctive word from your thumbnail's filename. This is a component edit, so the same note applies: flag it in your pull request if you'd prefer an internal contributor to handle it.
-
-Thanks for your contribution!
+Obrigado por ajudar a enriquecer o acervo técnico da comunidade!

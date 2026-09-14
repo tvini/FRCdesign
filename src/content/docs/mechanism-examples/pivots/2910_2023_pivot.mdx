@@ -1,61 +1,60 @@
-﻿---
-title: 2910's 2023 Dead Axle Pivot
-description: A custom dead-axle pivot with creative chain tensioning
+---
+title: Pivô com Dead Axle da 2910 em 2023
+description: Um pivô customizado com dead axle e sistema criativo de tensionamento de corrente
 socialCard:
   image: ./img/2910/2910_2023_pivot.webp
 ---
 
-
-<a href="https://cad.onshape.com/documents/9b839dcfb57e2325343c7e68/w/d4eb9bd29f2760b8b1531c60/e/f0179551d0ae559b6caa8dd6"><ContentFigure src="./img/2910/2910_2023_pivot.webp" alt="2910 Dead Axle Pivot" width="60%">A custom dead-axle pivot with a creative chain tensioning solution.</ContentFigure></a>
+<a href="https://cad.onshape.com/documents/9b839dcfb57e2325343c7e68/w/d4eb9bd29f2760b8b1531c60/e/f0179551d0ae559b6caa8dd6"><ContentFigure src="./img/2910/2910_2023_pivot.webp" alt="Pivô com Dead Axle da 2910" width="60%">Um pivô customizado com dead axle e uma solução extremamente criativa para tensionamento de corrente.</ContentFigure></a>
 
 ### Links
 
 <LinkButton href="https://cad.onshape.com/documents/9b839dcfb57e2325343c7e68/w/d4eb9bd29f2760b8b1531c60/e/f0179551d0ae559b6caa8dd6" center>
-  CAD Document
+  Documento CAD no Onshape
 </LinkButton>
 
-(Thanks to JB of FRC6995 for cleaning the OnShape document up!)
+*(Agradecimentos a JB da equipe FRC 6995 por organizar e limpar o documento do Onshape!)*
 
-- [CAD and Tech Binder Release ChiefDelphi Thread](https://www.chiefdelphi.com/t/2910-cad-and-tech-binder-release-2023/436653)
-- [Match Video](https://www.youtube.com/watch?v=LzgU0rbpWqY)
+- [Tópico oficial de lançamento do CAD e Tech Binder no ChiefDelphi](https://www.chiefdelphi.com/t/2910-cad-and-tech-binder-release-2023/436653)
+- [Vídeo de Partida do Robô em Ação](https://www.youtube.com/watch?v=LzgU0rbpWqY)
 
-## Behind the Design
+## Por Dentro do Projeto
 
-The pivot is driven by 2 mirrored dual falcon 500 gearboxes. These gearboxes are incredibly compact and thoughtful design decisions have been made throughout the whole pivot to reduce part count. One method utilized in this gearbox is to use a Thunderhex bearing retention technique in which each shaft is turned down from 1/2" Hex to 13.75mm (Thunderhex diameter) on each end, which fully constrains each flange bearing as long as the two plates are compressed.
-
-<Slides>
-  ![2910 Gearbox](./img/2910/2910gearbox.webp)
-  Dual Falcon 500 gearbox design
-
-  ![Thunderhex bearing retention](./img/2910/thunderhex_example.webp)
-  Thunderhex bearing retention technique utilizing turned hex flanges, bearing flanges, and fixed plates.
-
-  ![Exploded view](./img/2910/2910_exploded.webp)
-  Exploded view showing assembly
-</Slides>
-
-All of these plates are heavily lightened to increase the robots top speed and acceleration capabilities (F=ma), and to keep the center of gravity low. The gearboxes and even motor placement on the gearboxes are as low and central as possible to improve the robots center of mass.
-
-### Mechanical Link
-
-<ContentFigure src="./img/2910/pivot_link.webp" alt="Pivot Link" width="60%" />
-
-The second stage shaft runs across the robot to link the two gearboxes, which is essential to eliminate any torsion in the arm that would be caused by unevenly driving each side of the pivot independently.
-
-### Chain Tensioning
-
-The third stage is an additional reduction that doubles as a tensioning mechanism, reusing the mechanical link shaft as an idler shaft to pivot around, adjusting the center to center distance of the final chain run.
-
-<ContentFigure src="./img/2910/planetgear_idler.webp" alt="Chain tensioning mechanism" width="50%"/>
-
-### Triangular Superstructure
+O pivô é tracionado por 2 caixas de redução espelhadas, cada uma com 2 motores Falcon 500. Essas gearboxes são incrivelmente compactas, e decisões cuidadosas de engenharia foram tomadas em todo o conjunto para reduzir a quantidade de peças. Um método engenhoso utilizado nessa caixa é a retenção de rolamentos por eixos rebaixados (técnica Thunderhex): cada eixo tem suas pontas torneadas de perfil hex de 1/2" para 13,75 mm de diâmetro externo, travando completamente os rolamentos com flange enquanto as duas placas externas estiverem comprimidas e parafusadas.
 
 <Slides>
-  ![Triangular structure](./img/2910/triangles.webp)
-  Triangles are strong! This superstructure is incompressible.
+  ![Caixa de redução da 2910](./img/2910/2910gearbox.webp)
+  Projeto da caixa de redução com dois motores Falcon 500
 
-  ![Triangular structure detail](./img/2910/triangles2.webp)
-  When a force is applied to compress any side there is always an opposite side in tension to counteract that force.
+  ![Retenção de rolamento Thunderhex](./img/2910/thunderhex_example.webp)
+  Técnica de retenção de rolamento Thunderhex utilizando o ressalto do eixo sextavado torneado, as flanges dos rolamentos e as placas fixas.
+
+  ![Vista explodida](./img/2910/2910_exploded.webp)
+  Vista explodida mostrando a montagem do conjunto
 </Slides>
 
-The main pivot itself is a massive dead axle fixed into the triangular superstructure. This dead axle assembly is very simple, with 3 custom parts that are all easily manually machineable on a lathe.
+Todas as placas contam com alívios profundos de peso usinados para aumentar a aceleração do robô (F = m · a) e manter o centro de gravidade o mais baixo possível. A posição das caixas de redução e até mesmo a orientação dos motores foram rebaixadas e centralizadas para otimizar o centro de massa do robô.
+
+### Barra de Ligação Mecânica (Mechanical Link)
+
+<ContentFigure src="./img/2910/pivot_link.webp" alt="Barra de Ligação do Pivô" width="60%" />
+
+O eixo do segundo estágio de redução atravessa toda a largura do robô para ligar mecanicamente as duas gearboxes laterais. Isso é crucial para eliminar qualquer torção assimétrica no braço que ocorreria se cada lado do pivô fosse tracionado de forma independente.
+
+### Tensionamento de Corrente
+
+O terceiro estágio consiste em uma redução adicional que funciona simultaneamente como esticador de corrente: ele reutiliza o eixo de ligação mecânica como um eixo loco (idler) em torno do qual o conjunto bascula, ajustando com precisão a distância entre centros da transmissão final por corrente.
+
+<ContentFigure src="./img/2910/planetgear_idler.webp" alt="Mecanismo de tensionamento de corrente" width="50%"/>
+
+### Superestrutura Triangular
+
+<Slides>
+  ![Estrutura triangular](./img/2910/triangles.webp)
+  Triângulos são indeformáveis! Essa superestrutura é totalmente rígida à compressão.
+
+  ![Detalhe da estrutura triangular](./img/2910/triangles2.webp)
+  Quando uma força atua comprimindo qualquer um dos lados, sempre haverá um elemento oposto sob tração para equilibrar e anular o esforço.
+</Slides>
+
+O pivô central em si é um dead axle maciço e rígido fixado na superestrutura triangular. Essa montagem de eixo estático é extremamente simples, contando com apenas 3 peças customizadas que podem ser facilmente fabricadas manualmente em um torno mecânico convencional.

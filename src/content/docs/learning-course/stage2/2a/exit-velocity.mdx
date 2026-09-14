@@ -1,43 +1,42 @@
-﻿---
-title: Exit Velocity
-description: Understanding exit velocity in shooters
+---
+title: Velocidade de Saída
+description: Compreendendo a velocidade de saída em shooters
 ---
 
+## Velocidade de Saída (Exit Velocity)
 
-## Exit Velocity
+### Velocidade Periférica (Surface Speed)
 
-### Surface Speed
+A velocidade de saída da peça de jogo é controlada primordialmente pela velocidade periférica (surface speed) da roda de inércia (flywheel). A velocidade periférica é determinada pelas rotações por minuto (RPM) da roda e pelo seu diâmetro externo. Aumentar o diâmetro costuma ser muito mais eficiente, pois atinge a mesma velocidade linear periférica com um RPM mais baixo do motor. Uma escolha muito comum na FRC são rodas de 4 polegadas de diâmetro. Dentre todas as variáveis físicas, o RPM do motor e, opcionalmente, o ângulo do hood/shooter são os únicos fatores ajustáveis via software em tempo real.
 
-The exit velocity of the game piece is primarily controlled by the surface speed of the flywheel. Surface speed is determined by the wheel's rotations per minute (RPM) and its diameter. Increasing the diameter is often more efficient because it achieves the same surface speed with a lower RPM. A common choice is a 4-inch diameter wheel. Among all variables, RPM and, optionally, shot angle are the only controllable factors in software.
+Para flywheel shooters, dois motores brushless da classe CIM são comumente empregados.
 
-For flywheel shooters, two CIM-class brushless motors are commonly used.
+### Inércia
 
-### Inertia
+Ao disparar uma peça de jogo por vez, opções tradicionais para as rodas do flywheel incluem stealth wheels, rodas Colson e rodas maciças de uretano/silicone (solid rollers). Essas opções armazenam energia mecânica suficiente para um disparo consistente e possuem grande durabilidade. Evite o uso de compliant wheels (rodas de aletas flexíveis) ou rodas com banda de rodagem de borracha pregada (treaded), pois elas tendem a expandir radialmente ou se soltar em altíssimas rotações, gerando disparos erráticos.
 
-When shooting a single game piece at a time, common choices for flywheel wheels include stealth wheels, Colsons, and solid roller wheels. These options store enough energy for a consistent shot while being durable. Avoid using compliant or treaded wheels, as they tend to expand or fail at high speeds, leading to inconsistent performance.
-
-Each time a game piece is launched, the flywheel loses energy and slows down as the game piece accelerates to match the wheel's speed. When shooting multiple game pieces, this can result in delays between shots. Adding mass to the flywheel increases its [moment of inertia](https://en.wikipedia.org/wiki/Moment_of_inertia), which reduces the time between shots by minimizing the energy loss per shot. The tradeoff is a longer spin-up time to reach the target speed initially.
+Cada vez que uma bola é lançada, o flywheel transfere energia mecânica para acelerar o objeto e perde rotação instantaneamente (RPM drop). Ao atirar múltiplas bolas em sequência rápida, essa desaceleração pode exigir um tempo de recuperação entre disparos. Adicionar massa ao volante de inércia aumenta seu [momento de inércia](https://pt.wikipedia.org/wiki/Momento_de_in%C3%A9rcia), o que minimiza a queda de RPM a cada bola e reduz o tempo de espera entre tiros consecutivos. O contraponto é que um volante mais pesado exige um tempo inicial de aceleração (spin-up time) maior até atingir a velocidade nominal.
 
 <Slides>
-  ![Team 2056 shooting quickly](../img/2a/2056.webp)
-  Team 2056 shooting quickly by utilizing a high moment of inertia shooter wheel
+  ![Equipe 2056 disparando rapidamente](../img/2a/2056.webp)
+  A equipe FRC 2056 atirando em alta cadência utilizando uma roda de shooter com elevado momento de inércia
 
-  ![Team 118 shooting quickly](../img/2a/118.webp)
-  Team 118 shooting quickly by utilizing a high moment of inertia shooter wheel
+  ![Equipe 118 disparando rapidamente](../img/2a/118.webp)
+  A equipe FRC 118 atirando em alta cadência graças ao elevado momento de inércia da roda de lançamento
 </Slides>
 
-Acceleration and recovery times can be improved by properly gearing down your motors or adding additional motors.
+Os tempos de aceleração e de recuperação de RPM podem ser aprimorados aplicando uma redução adequada nos motores ou adicionando mais motores ao sistema.
 
-### Reference Design
+### Projeto de Referência
 
-In the reference design, two Kraken X60 motors are employed, though any brushless CIM-class motor will suffice.
+No projeto de referência, dois motores Kraken X60 são utilizados, embora qualquer motor brushless moderno da classe CIM atenda muito bem aos requisitos.
 
-<ContentFigure src="../img/2a/motorsAndFlywheels.webp" alt="Two Krakens driving the shooter" width="40%"/>
+<ContentFigure src="../img/2a/motorsAndFlywheels.webp" alt="Dois motores Kraken acionando o shooter" width="40%"/>
 
-### Flywheel Calculator
+### Calculadora de Flywheel
 
-A useful tool for determining the optimal gear ratio is the [ReCalc Flywheel Calculator](https://www.reca.lc/flywheel). This tool calculates spin-up time, recovery time, and estimated projectile speed based on input parameters. You can adjust the target shooter RPM, gear ratio, and flywheel mass to optimize performance, while ensuring the projectile speed remains above 12 m/s for this game. For this shooter design, [the calculations](https://www.reca.lc/flywheel?currentLimit=%7B%22s%22%3A40%2C%22u%22%3A%22A%22%7D&efficiency=90&flywheelMomentOfInertia=%7B%22s%22%3A24.688%2C%22u%22%3A%22in2%2Albs%22%7D&flywheelRadius=%7B%22s%22%3A4%2C%22u%22%3A%22in%22%7D&flywheelRatio=%7B%22magnitude%22%3A1%2C%22ratioType%22%3A%22Reduction%22%7D&flywheelWeight=%7B%22s%22%3A3.086%2C%22u%22%3A%22lbs%22%7D&motor=%7B%22quantity%22%3A2%2C%22name%22%3A%22Kraken%20X60%2A%22%7D&motorRatio=%7B%22magnitude%22%3A1.33333%2C%22ratioType%22%3A%22Reduction%22%7D&projectileRadius=%7B%22s%22%3A2%2C%22u%22%3A%22in%22%7D&projectileWeight=%7B%22s%22%3A5%2C%22u%22%3A%22oz%22%7D&shooterMomentOfInertia=%7B%22s%22%3A16.056%2C%22u%22%3A%22in2%2Albs%22%7D&shooterRadius=%7B%22s%22%3A4%2C%22u%22%3A%22in%22%7D&shooterTargetSpeed=%7B%22s%22%3A3000%2C%22u%22%3A%22rpm%22%7D&shooterWeight=%7B%22s%22%3A2.007%2C%22u%22%3A%22lbs%22%7D&useCustomFlywheelMoi=0&useCustomShooterMoi=0) were performed with ReCalc, leading to the selection of a 4:3 reduction for the 4-inch shooter wheels and two 4-inch brass flywheels.
+Uma ferramenta fantástica para determinar a relação ideal de redução é a [Calculadora de Flywheel do ReCalc](https://www.reca.lc/flywheel). Ela calcula o tempo de aceleração inicial (spin-up time), o tempo de recuperação entre disparos (recovery time) e a velocidade estimada do projétil com base nos parâmetros inseridos. Você pode ajustar o RPM desejado, a relação de transmissão e a massa do volante de inércia para otimizar o mecanismo, garantindo que a velocidade do projétil permaneça acima de 12 m/s para este jogo. Para este projeto de shooter, [os cálculos](https://www.reca.lc/flywheel?currentLimit=%7B%22s%22%3A40%2C%22u%22%3A%22A%22%7D&efficiency=90&flywheelMomentOfInertia=%7B%22s%22%3A24.688%2C%22u%22%3A%22in2%2Albs%22%7D&flywheelRadius=%7B%22s%22%3A4%2C%22u%22%3A%22in%22%7D&flywheelRatio=%7B%22magnitude%22%3A1%2C%22ratioType%22%3A%22Reduction%22%7D&flywheelWeight=%7B%22s%22%3A3.086%2C%22u%22%3A%22lbs%22%7D&motor=%7B%22quantity%22%3A2%2C%22name%22%3A%22Kraken%20X60%2A%22%7D&motorRatio=%7B%22magnitude%22%3A1.33333%2C%22ratioType%22%3A%22Reduction%22%7D&projectileRadius=%7B%22s%22%3A2%2C%22u%22%3A%22in%22%7D&projectileWeight=%7B%22s%22%3A5%2C%22u%22%3A%22oz%22%7D&shooterMomentOfInertia=%7B%22s%22%3A16.056%2C%22u%22%3A%22in2%2Albs%22%7D&shooterRadius=%7B%22s%22%3A4%2C%22u%22%3A%22in%22%7D&shooterTargetSpeed=%7B%22s%22%3A3000%2C%22u%22%3A%22rpm%22%7D&shooterWeight=%7B%22s%22%3A2.007%2C%22u%22%3A%22lbs%22%7D&useCustomFlywheelMoi=0&useCustomShooterMoi=0) foram realizados no ReCalc, resultando na escolha de uma redução de 4:3 para as rodas de lançamento de 4 polegadas e dois volantes de latão de 4 polegadas.
 
 <Aside type="note">
-Reductions or upductions should be done with belts due to their high efficiency and low maintenance. Use pulleys larger than 24 teeth on the flywheel and ensure high tooth engagement to maximize energy transfer and prevent belt skipping.
+Reduções ou multiplicações em shooters devem ser feitas sempre com correias sincronizadoras (timing belts), devido à alta eficiência mecânica, silêncio e baixa manutenção. Utilize polias maiores que 24 dentes no eixo do volante e garanta alto engrenamento de dentes (tooth wrap) para maximizar a transferência de torque e evitar que a correia salte dentes em acelerações fortes.
 </Aside>

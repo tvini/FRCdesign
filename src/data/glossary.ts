@@ -20,187 +20,187 @@ export const glossaryTerms: GlossaryTerm[] = [
   // Vendors
   {
     term: "WCP",
-    definition: "West Coast Products"
+    definition: "West Coast Products - Fornecedor especializado em componentes para FRC"
   },
   {
     term: "REV",
-    definition: "REV Robotics"
+    definition: "REV Robotics - Fornecedora de sistemas de controle e peças para robótica"
   },
   {
     term: "TTB",
-    definition: "The Thrifty Bot"
+    definition: "The Thrifty Bot - Fornecedora de componentes acessíveis para equipes de FRC"
   },
   {
     term: "Redux",
-    definition: "Redux Robotics"
+    definition: "Redux Robotics - Fabricante de sensores e eletrônicos para FRC"
   },
   {
     term: "MCM",
-    definition: "McMaster Carr"
+    definition: "McMaster-Carr - Grande fornecedor industrial de fixadores e materiais"
   },
 
   // Intake styles
   {
     term: "OTB",
-    definition: "\"Over the Bumper\" - A style of intake where you lift the piece over the bumper"
+    definition: "\"Over the Bumper\" - Estilo de intake que recolhe a peça passando por cima do para-choque"
   },
   {
     term: "UTB",
-    definition: "\"Under the Bumper\" - A style of intake where you move the piece under the bumper"
+    definition: "\"Under the Bumper\" - Estilo de intake que recolhe a peça puxando-a por baixo do para-choque"
   },
 
   // Parts & Components
   {
     term: "COTS",
-    definition: "Commercial Off the Shelf - Parts you can buy from a vendor"
+    definition: "\"Commercial Off The Shelf\" - Peças comerciais padronizadas prontas para compra"
   },
   {
     term: "V4B",
-    definition: "\"Virtual 4 Bar\" - Where a second degree of freedom is directly geared off a previous degree of freedom instead of being moved independently or by a linkage"
+    definition: "\"Virtual 4-Bar\" - Mecanismo em que um segundo grau de liberdade é acionado por polias/engrenagens sincronizadas a partir do primeiro"
   },
   {
     term: "C-C",
-    definition: "\"Center to Center\" distance"
+    definition: "Distância entre centros (Center-to-Center) entre dois eixos"
   },
   {
     term: "turnbuckle",
-    definition: "A threaded part that goes in between chain links to tension the chain"
+    definition: "Esticador com roscas opostas instalado entre elos para ajustar a tensão da corrente"
   },
   {
     term: "4Bar",
-    definition: "A type of linkage characterized by its 4 pivot points"
+    definition: "Mecanismo articulado de quatro barras (quadrilátero articulado) com 4 pontos de pivô"
   },
   {
     term: "Tube-Nut",
-    definition: "Also known as a \"Star Nut\" - Provides an easy way to put a thread in end of a hollow tube allowing you to bolt the tube to another part"
+    definition: "Também conhecida como \"Star Nut\" - Inserto de rosca para extremidade de tubos que permite parafusar diretamente no topo do perfil"
   },
   {
     term: "Gusset",
-    definition: "Reinforcement plate, usually made of aluminum, used to strengthen connections between two tubes"
+    definition: "Chapa de reforço, normalmente de alumínio usinado, utilizada para unir perfis tubulares"
   },
 
   // Physics & Engineering concepts
   {
     term: "COG",
-    definition: "Center of Gravity, also referred to as COM (Center of Mass)"
+    definition: "Centro de gravidade (Center of Gravity), também chamado de COM (Centro de massa)"
   },
   {
     term: "Cantilever",
-    definition: "Horizontal element that's supported by one side only"
+    definition: "Elemento ou eixo em balanço, suportado apenas por uma das extremidades"
   },
   {
     term: "Shear",
-    definition: "When forces are applied parallel to the plane of a material, causing breaking of fasteners due to excessive force and stress"
+    definition: "Tensão de cisalhamento - Forças paralelas ao plano da peça que tendem a romper parafusos ou pinos"
   },
   {
     term: "Torque",
-    definition: "Force that produces rotational movement"
+    definition: "Momento de força que produz ou tende a produzir rotação ao redor de um eixo"
   },
   {
     term: "DP",
-    definition: "Diametral pitch - The number of teeth per inch of the pitch circle"
+    definition: "Diametral Pitch (passo diametral) - Número de dentes por polegada do diâmetro primitivo da engrenagem"
   },
   {
     term: "Backlash",
-    definition: "'Slop' in a power transmission system; can wiggle back and forth without engaging the whole system"
+    definition: "Folga mecânica entre engrenagens ou dentes de correia antes do acoplamento do movimento"
   },
 
   // Axle types
   {
     term: "Deadaxle",
-    definition: "A type of axle setup where the axle is fixed in place and/or is not transferring the torque of the system through it"
+    definition: "Eixo estático/morto fixo na estrutura, sobre o qual polias e engrenagens giram com rolamentos próprios sem torção no eixo"
   },
   {
     term: "Liveaxle",
-    definition: "A type of axle setup where the main torque transfer is through the axle"
+    definition: "Eixo giratório/vivo que transmite o torque principal do sistema diretamente para as peças conectadas"
   },
   {
     term: "Zombie-Axle",
-    definition: "Typically used on pivots - A zombie axle spins with the mechanism, but is transferring little to no torque through it. Commonly used to put an encoder on the pivot point"
+    definition: "Eixo que gira junto com o mecanismo mas transmite pouco ou nenhum torque útil, muito usado para acoplar encoders absolutos"
   },
 
   // Electronics
   {
     term: "PDH",
-    definition: "Power Distribution Hub"
+    definition: "Power Distribution Hub - Módulo de distribuição de energia para os circuitos do robô"
   },
   {
     term: "SparkMAX",
-    definition: "Motor controller for REV motors"
+    definition: "Controlador de motor da REV Robotics para motores brushless e brushed"
   },
   {
     term: "PWM",
-    definition: "Pulse Width Modulation cable"
+    definition: "Cabo de modulação por largura de pulso (Pulse Width Modulation) para controle de velocidade e servos"
   },
   {
     term: "RIO",
-    definition: "roboRIO - The brain of the robot"
+    definition: "roboRIO - O computador principal e cérebro de controle do robô"
   },
   {
     term: "Blinkin",
-    definition: "LED controller for REV"
+    definition: "Controlador de fitas de LED endereçáveis da REV Robotics"
   },
   {
     term: "Radio",
-    definition: "Device that helps the robot communicate with the driver station"
+    definition: "Dispositivo de comunicação Wi-Fi entre o robô, a Driver Station e o campo oficial"
   },
 
   // Manufacturing & Materials
   {
     term: "3DP",
-    definition: "Abbreviation for 3D printed or 3D printing"
+    definition: "Abreviação para impressão 3D (3D printing) ou peças impressas em 3D"
   },
   {
     term: "Poly",
-    definition: "Abbreviation for polycarbonate"
+    definition: "Abreviação comum para policarbonato, plástico de altíssima resistência a impacto"
   },
   {
     term: "PC",
-    definition: "Abbreviation for polycarbonate"
+    definition: "Abreviação técnica para policarbonato"
   },
   {
     term: "Stripping",
-    definition: "Process of removing threads or bolt heads, often due to excessive force or wear"
+    definition: "Espanamento de roscas ou fendas de parafusos por torque excessivo ou alinhamento incorreto"
   },
   {
     term: "Tapping",
-    definition: "The process of creating threads in a hole using a tap tool"
+    definition: "Processo de criar roscas internas em um furo utilizando uma ferramenta macho (macho de rosca)"
   },
   {
     term: "Billet",
-    definition: "Component machined down from a solid block of material"
+    definition: "Componente usinado a partir de um bloco sólido de metal ou material bruto"
   },
   {
-  term: "TPI",
-  definition: "Threads per inch is the number of thread peaks in one inch of a fastener, used to describe imperial thread pitch (e.g. #10-32 has 32 TPI)"
+    term: "TPI",
+    definition: "Threads Per Inch - Fios por polegada; define o passo de roscas no padrão imperial (ex: parafuso #10-32 tem 32 TPI)"
   },
 
   // Robot structure
   {
     term: "Brainpan",
-    definition: "Flipped electronics bellypan"
+    definition: "Chapa superior ou invertida de montagem de eletrônicos (bellypan invertido)"
   },
   {
     term: "Bellypan",
-    definition: "Plate for mounting electronics on the underside of your drivebase"
+    definition: "Chapa de fechamento inferior do chassi usada para fixação dos eletrônicos"
   },
   {
     term: "Hardstop",
-    definition: "A physical limit designed to prevent a mechanism or component from moving beyond a certain point"
+    definition: "Batente mecânico físico projetado para restringir o deslocamento além de um limite seguro"
   },
   {
     term: "Softstop",
-    definition: "A software-based limit or control mechanism that restricts the movement of a mechanism or component to prevent it from exceeding certain parameters"
+    definition: "Limite de curso definido no código de controle para frear o mecanismo antes do impacto mecânico"
   },
 
   // Design concepts
   {
     term: "Packaging",
-    definition: "The way in which you fit parts of your robot together in a space"
+    definition: "Disposição e acomodação compacta de peças, motores e sensores dentro do espaço limitado do robô"
   },
   {
     term: "Parametric",
-    definition: "Designed in a way that uses relationships between steps to maintain design intent"
+    definition: "Modelagem paramétrica baseada em relações e equações que atualizam o modelo ao modificar parâmetros"
   },
 ];
 

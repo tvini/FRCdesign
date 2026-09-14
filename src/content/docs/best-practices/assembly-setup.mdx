@@ -1,104 +1,103 @@
-﻿---
-title: Assembly Best Practices
-description: The best practices for inserting parts into assemblies and organizing them.
+---
+title: Boas Práticas de Montagem (Assembly)
+description: Melhores práticas para inserção, fixação e organização de peças em montagens no Onshape.
 ---
 
+Se você já nomeou suas peças e manteve seus Part Studios organizados, criar uma montagem eficiente e ágil no Onshape torna-se um processo direto e descomplicado.
 
-Assuming you have already named your parts and organized your work within the rest of the document, creating a well-organized assembly is very straightforward.
+### O Cubo de Origem (Origin Cube)
 
-### The Origin Cube
-
-The `Origin Cube` Featurescript inserts a 2" transparent cube at the origin of the part studio. The cube has a mate connector at the origin. Because this part will never change and always stays at the origin of the part studio, using it to group and fasten parts to the origin will always be more **robust and parametric** than fixing or using a mate connector attached to another part, in case that part changes or is deleted.
+O FeatureScript `Origin Cube` insere um cubo translúcido de 2" diretamente na origem do Part Studio. O cubo já vem com um Mate Connector centralizado na origem. Como esse sólido nunca se move e sempre permanece ancorado na origem do Part Studio, utilizá-lo como base para agrupar (*Group*) e fixar peças com *Fastened Mate* na origem é infinitamente mais **robusto e paramétrico** do que usar a ferramenta "Fix" ou ancorar em uma peça modelada que pode ser editada, renomeada ou excluída futuramente.
 
 <LinkButton href="https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/df3afdbec8d1356c2af15e4b?renderMode=0&uiState=6637caa6ccbcaa36badca03a" center>
-  Origin Cube Featurescript
+  FeatureScript Origin Cube
 </LinkButton>
 
-<ContentFigure src="./img/originCubeFeature.webp" alt="Inserting the Origin Cube feature" width="60%">Inserting the Origin Cube feature</ContentFigure>
+<ContentFigure src="./img/originCubeFeature.webp" alt="Inserindo o recurso Origin Cube" width="60%">Inserindo o recurso Origin Cube</ContentFigure>
 
 <Aside type="tip">
-The origin cube has the option of importing a number of useful constants and functions, including bolt hole sizes, gear outer diameter, and a center-to-center calculator.
+O Origin Cube também conta com a opção de importar automaticamente constantes e variáveis úteis para o projeto, incluindo diâmetros de furação para parafusos, diâmetros primitivos e calculadoras de distância entre centros.
 </Aside>
 
-### Process for Inserting Parts
+### Processo para Inserção de Peças
 
-As is described in [Sub-Document Setup](../sub-document-setup/#subsystems-with-multiple-degrees-of-freedom), subsystems with no degrees of freedom will only have one assembly, while subsystems with multiple moving parts are separated into rigid assemblies. The process for inserting parts and finishing assemblies is similar for both circumstances.
+Conforme abordado em [Configuração de Sub-Documentos](../sub-document-setup/#subsystems-with-multiple-degrees-of-freedom), mecanismos sem graus de liberdade móveis adicionais precisam de apenas uma montagem rígida, enquanto subsistemas articulados ou com estágios múltiplos são separados em submontagens rígidas. O passo a passo é o mesmo em ambos os casos:
 
-1. Create the origin cube in your part studio
-2. Insert the related parts and origin cube for a rigid subassembly
-3. Use the "group" tool on all parts
-4. Fasten the origin mate connector to the origin
-5. Duplicate and fasten any duplicate parts
-6. Insert standard hardware and COTS components
-7. Sort the instances into folders (i.e. tubes, swerve modules, spacers)
+1. Crie o Origin Cube no seu Part Studio
+2. Na aba de montagem, insira todas as peças fabricadas e o Origin Cube correspondente àquela submontagem rígida
+3. Utilize a ferramenta **Group (Agrupar)** selecionando todas essas peças juntas
+4. Aplique um **Fastened Mate** unindo o Mate Connector do Origin Cube à origem da montagem
+5. Duplique e monte peças repetidas que foram modeladas uma única vez
+6. Insira os parafusos, porcas e componentes comerciais COTS necessários
+7. Organize as instâncias da árvore em pastas lógicas (ex: tubos, módulos swerve, espaçadores, ferragens)
 
 <Aside type="tip">
-As you add more parts in the part studio, you can insert them individually into the assembly with the green checkmark, double click on the initial group, and add the part to the group to avoid mating it. This means that new part will always stay in the same place relative to where it was designed in the part studio.
+Conforme você modela novas peças no Part Studio, insira-as individualmente na montagem com o botão de confirmação verde, dê duplo clique no grupo inicial e simplesmente adicione a nova peça ao grupo. Isso garante que a peça permaneça exatamente na mesma posição em que foi projetada no Part Studio, sem necessidade de criar múltiplos mates manuais.
 </Aside>
 
-If the subsystem has multiple moving parts (like an over-the-bumper intake or elevator), create a mate connector on the main layout sketch for each degree of freedom. This may be a pivot point or the starting point of a slider mate (in the case of an elevator). Make each mate connector owned by the origin cube.
+Se o subsistema contiver peças móveis (como um intake articulado ou um elevador), crie um Mate Connector sobre o esboço mestre de layout para cada eixo de movimento. Pode ser o centro de rotação de um pivô ou a origem de deslocamento de um elevador. Defina o Origin Cube como proprietário (*owner*) de cada um desses Mate Connectors.
 
-Repeat steps 4-7 of the process for all other rigid subassemblies, if applicable. This will result in each subassembly being rigid, with the origin cube fastened to the origin and all the parts in the same place as in the part studio. Each subassembly will also contain the mate connectors owned by the origin cube.
+Repita os passos de 4 a 7 para as demais submontagens rígidas. Como resultado, cada submontagem será completamente rígida, com seu cubo de origem travado e todas as peças perfeitamente alinhadas com o Part Studio, carregando seus respectivos pontos de articulação.
 
-Now create a top-level subsystem assembly and insert each subassembly into it. Fasten the origin cube of the static subassembly to the origin, and use the other mate connectors to mate the other subassemblies together.
+Por fim, crie a montagem de nível superior do subsistema e insira cada submontagem rígida nela. Trave o Origin Cube da submontagem estática na origem do sistema e una as submontagens móveis através de relações rotativas (*Revolute Mate*) ou deslizantes (*Slider Mate*) usando os Mate Connectors previamente preparados.
 
-### Example: Stage 2C - Slapdown Intake
+### Exemplo: Etapa 2C - Intake Slapdown
 
-The Stage 2C Slapdown Intake is a subsystem with a static portion and a pivoting portion. An extra mate connector is added for the pivot on the main layout sketch, owned by the origin cube.
+O Intake Slapdown da Etapa 2C é um mecanismo composto por uma base estática e um braço articulado móvel. Um Mate Connector adicional é inserido no ponto de pivô do layout sketch, pertencente ao Origin Cube.
 
 <LinkButton href="https://cad.onshape.com/documents/17302d787e092ce11015f7ee/w/f7cf5c02c7655f0328a3a74a/e/f1456325e0175c4c081008c2" center>
-  Stage 2C - Slapdown Intake
+  Etapa 2C - Intake Slapdown
 </LinkButton>
 
 <ContentFigure src="./img/slapdown-intake-example/slapdown-intake-mate-connector.webp" />
 
-This mate connector exists in both subassemblies.
+Esse mesmo Mate Connector existe em ambas as submontagens.
 
 <ContentFigure src="./img/slapdown-intake-example/slapdown-intake-static-connectors.webp" />
 
 <ContentFigure src="./img/slapdown-intake-example/slapdown-intake-arm-connectors.webp" />
 
-The static assembly is fastened to the origin and the arm assembly revolves using the pivot mate connector owned by both instances of the origin cube.
+A montagem estática é fixada à origem e o braço gira livremente através do Revolute Mate posicionado exatamente no Mate Connector do pivô em ambos os cubos de origem.
 
 <ContentFigure src="./img/slapdown-intake-example/slapdown-intake-top-level.webp" />
 
-### Example: Stage 2D - Cascade Elevator
+### Exemplo: Etapa 2D - Elevador em Cascata
 
-The Stage 2D Cascade Elevator is a subsystem with a static portion and two subassemblies that slide linearly. This contains a part studio, a static frame/gearbox assembly, assemblies for the first stage and carriage, and a top-level assembly combining the 3 subassemblies with slider mates.
+O Elevador em Cascata da Etapa 2D é composto por uma base fixa e duas submontagens com deslizamento linear. Ele integra um Part Studio, uma montagem estática da estrutura, montagens para o primeiro estágio e carrinho, e uma montagem geral unindo os 3 estágios com Slider Mates.
 
 <LinkButton href="https://cad.onshape.com/documents/da5aef9e6bf6e869f4a51a45/w/5a0f4a3426876db0ba214277/e/f8fd8133abcb12800eacb5d1" center>
-  Stage 2D - Cascade Elevator
+  Etapa 2D - Elevador em Cascata
 </LinkButton>
 
 <ContentFigure src="./img/elevatorAssembly.webp" />
 
-### Example: 3647 Millennium Falcons 2024 Intake
+### Exemplo: Intake 2024 da Equipe 3647 Millennium Falcons
 
-<ContentFigure src="./img/0200-A.webp" alt="Top Level Assembly: 0200-A-Intake. Notice that there is only two mates. The revolute is between the two intake pivot mate connectors, which are attached to the respective origin cubes." />
+<ContentFigure src="./img/0200-A.webp" alt="Montagem Top-Level: 0200-A-Intake. Note que existem apenas dois mates. O revolute une os conectores de pivô vinculados aos respectivos cubos de origem." />
 
-<ContentFigure src="./img/0210-A.webp" alt="Stationary Components Assembly: 0210-A-Intake Base. The components are group mated and the origin cube is fastened to the origin." />
+<ContentFigure src="./img/0210-A.webp" alt="Montagem dos Componentes Estáticos: 0210-A-Intake Base. As peças são unidas por Group Mate e o Origin Cube é fixado à origem." />
 
-<ContentFigure src="./img/0210-PS.webp" alt="Stationary Components PS: 0210-A-Intake Base. Notice the intake pivot mate connector, derived from the orange main layout sketch." />
+<ContentFigure src="./img/0210-PS.webp" alt="Part Studio Estático: 0210-A-Intake Base. Observe o Mate Connector do pivô derivado do layout sketch laranja." />
 
-<ContentFigure src="./img/0220-A.webp" alt="Moving Components Assembly: 0220-A-Intake Arm. The components are group mated and the origin cube is fastened to the origin." />
+<ContentFigure src="./img/0220-A.webp" alt="Montagem dos Componentes Móveis: 0220-A-Intake Arm. As peças são agrupadas e o Origin Cube está ancorado." />
 
-<ContentFigure src="./img/0220-PS.webp" alt="Moving Components PS: 0220-Intake Arm. Notice the intake pivot mate connector, derived from the orange main layout sketch." />
+<ContentFigure src="./img/0220-PS.webp" alt="Part Studio Móvel: 0220-Intake Arm. Note o conector de pivô derivado do layout sketch mestre." />
 
-### Simplified Models
+### Modelos Simplificados e Otimização
 
-Make sure to minimize primitives in your assembly. Primitives are a measure of how complex the object is and how hard it is for Onshape to render. The more primitives there are, the more laggy your assembly will be.
+Procure sempre minimizar a quantidade de primitivas gráficas (*primitives*) em suas montagens. As primitivas medem o grau de complexidade geométrica e a carga necessária para o navegador renderizar o modelo no Onshape. Quanto maior o número de triângulos e faces desnecessárias, mais lenta será a navegação.
 
-Use simplified modules from FRCDesignLib wherever possible to minimize primitives: electronics, swerve modules, motors, etc.
+Utilize modelos simplificados da biblioteca **FRCDesignLib** sempre que possível para componentes como baterias, módulos de swerve, controladores, motores e rádios:
 
 <ContentFigure src="L089T-SnQ5A" />
 
-### Other Small Things
+### Outras Dicas Valiosas
 
-- Import COTS parts from FRCDesignLib
-- Use the **replicate tool** for adding hardware!
-- Minimize the number of mates you use; this lowers the solve time
-- Stay organized with folders
+- Importe peças comerciais COTS diretamente da FRCDesignLib
+- Use a ferramenta **Replicate** para inserir rapidamente parafusos, arruelas e rebites em múltiplos furos padronizados
+- Reduza o número de mates na árvore; montagens com menos relações resolvem muito mais rápido
+- Mantenha tudo catalogado em pastas
 
-See a well-organized assembly here:
+Exemplo de montagem estruturada e limpa:
 
 <ContentFigure src="./img/assembly.webp" />

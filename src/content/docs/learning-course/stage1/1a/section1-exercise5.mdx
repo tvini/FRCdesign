@@ -1,87 +1,85 @@
-﻿---
-title: "1A: Onshape Fundamentals - Section 1"
-description: Build a box tube superstructure
+---
+title: "1A: Fundamentos do Onshape - Seção 1"
+description: Construa uma superestrutura de tubos em formato de pórtico
 ---
 
+## Exercício 5: Construindo uma Superestrutura em Tubos
 
-## Exercise 5: Building a Box Superstructure
+### Introdução
 
-### Introduction
+Pórticos e torres feitos de tubos estruturais podem ser montados no topo de um chassi para dar suporte elevado a subsistemas como lançadores (shooters), elevadores ou braços articulados.
 
-Frames made out of box tube can be added to the top of a drivetrain for extra mounting for more parts of subsystems, like a shooter or an arm.
+<ContentFigure src="../img/1a/exercise-5-973-example.webp" alt="Superestrutura da 973 em 2022" width="50%" border>Superestrutura da equipe 973 em 2022</ContentFigure>
 
-<ContentFigure src="../img/1a/exercise-5-973-example.webp" alt="973's 2022 Superstructure" width="50%" border>973's 2022 Superstructure</ContentFigure>
+Neste exercício, adicionaremos uma estrutura simples de tubos ao topo do chassi modelado anteriormente.
 
-In this exercise we'll be adding a simple box tube frame to the drivetrain you made previously.
-
-<ContentFigure src="../img/1a/exercise5-frame.webp" alt="Final Box Tube Frame" width="60%">Final Box Tube Frame</ContentFigure>
+<ContentFigure src="../img/1a/exercise5-frame.webp" alt="Estrutura de tubos final" width="60%">Estrutura de tubos final</ContentFigure>
 
 ---
 
-### Layout Sketch and Drivetrain
+### Sketch de Layout e Chassi
 
-1. To properly plan this out, we must create a side layout sketch (the one used previously in Exercise 5).
-2. Start by inserting the **origin cube featurescript** that you added in [required course tools](/learning-course/course-setup/required-course-tools/featurescripts). Remember you can look things up using `Alt + C`!
-3. Make a new sketch, select the `right plane`, and start copying this sketch. Figure out the constraints you need yourself to replicate it perfectly.
+1. Para planejar adequadamente essa estrutura, precisamos criar um sketch de layout lateral (Side Layout Sketch).
+2. Comece inserindo o **FeatureScript Origin Cube** que você instalou na etapa de [ferramentas obrigatórias](/learning-course/course-setup/required-course-tools/featurescripts). Lembre-se de que pode pesquisar qualquer ferramenta usando `Alt + C`!
+3. Crie um novo sketch, selecione o plano lateral (`Right Plane`) e replique o desenho deste sketch. Deduza as restrições geométricas necessárias para que ele fique 100% definido (linhas pretas).
 
-<ContentFigure src="../img/1a/exercise5-frame-sketch.webp" alt="Box superstructure sketch">Box superstructure sketch</ContentFigure>
+<ContentFigure src="../img/1a/exercise5-frame-sketch.webp" alt="Sketch da superestrutura">Sketch da superestrutura</ContentFigure>
 
-<Aside type="note" title="Origin Placement">
-The wheels are the 1.75-inch blocks on the corners of the tube. If that's the case, where is the origin placed in the side layout sketch? Why do you think it's placed there? Imagine if you looked at the robot in real life to the side.
+<Aside type="note" title="Posicionamento da Origem">
+As rodas são representadas pelos blocos de 1,75" nos cantos inferiores do chassi. Sendo assim, onde a origem está posicionada no sketch de layout lateral? Por que você acha que ela fica nesse ponto exato? Imagine você olhando para o robô real de lado, apoiado no chão da arena.
 </Aside>
 
-4. After the side layout sketch is done, create the swerve drivetrain frame in your part studio according to what you remember from the last exercise. (Remember to select the mate connector!)
+4. Após concluir o sketch de layout lateral, modele os tubos do chassi no seu Part Studio de acordo com o que aprendeu no exercício anterior. (Lembre-se de selecionar o Mate Connector do Origin Cube!)
 
 <Aside type="tip">
-If you struggle, refer to the previous video after trying
+Se tiver dúvidas, consulte o vídeo do exercício anterior para relembrar o procedimento.
 </Aside>
 
-<Aside type="note" title="Design Intent">
-Let's make this drivetrain a square. How would you approach your top sketch to avoid using any unnecessary dimensions? You should only need to define your swerve gap, the distance between your cross tubes (8 inches), and your tube offset.
+<Aside type="note" title="Intenção de Projeto (Design Intent)">
+Vamos fazer com que este chassi seja perfeitamente quadrado. Como você desenharia o sketch de topo para evitar cotas desnecessárias? Você só precisa definir o vão livre do módulo swerve, a distância entre as vigas transversais (8 polegadas) e a folga da borda.
 </Aside>
 
-**Hint:** What length is already defined/constrained? Can you use the equal constraint?
+**Dica:** Que comprimento já está definido/restringido? Você pode usar a restrição de igualdade (`Equal`)?
 
-### Modeling the Frame
+### Modelando a Torre
 
-So far, sketches have been created on default planes and mate connectors. In order to model the box tube for the frame on top of the cross tubes, the sketch to create the tubes should be created on the face of the cross tube, because that's where you want that tube to be, even if the cross tube changes position.
+Até agora, os sketches foram criados sobre planos padrão e mate connectors. Para modelar os tubos verticais da torre apoiados sobre as vigas transversais, o sketch dos novos tubos deve ser criado diretamente na **face superior da viga transversal**, garantindo que a torre permaneça perfeitamente apoiada nela mesmo se a viga mudar de posição.
 
-<Aside type="tip" title="Design Intent">
-This is called modeling with "design intent." There are many different ways to model something, but you can choose specific ways based on what your intent for a part or the overall design is. This can also help you avoid creative blocks and keep your CAD from creating errors when the design changes.
+<Aside type="tip" title="Intenção de Projeto">
+Isso é o que chamamos de modelar com "intenção de projeto" (design intent). Existem várias formas de modelar algo, mas escolher amarrações geométricas inteligentes garante que seu modelo seja robusto e não quebre quando você ajustar as dimensões principais do robô.
 </Aside>
 
-<ContentFigure src="../img/1a/side profile.webp" alt="Box superstructure sketch" width="50%">Box superstructure sketch</ContentFigure>
+<ContentFigure src="../img/1a/side profile.webp" alt="Perfil lateral da superestrutura" width="50%">Perfil lateral da superestrutura</ContentFigure>
 
-Watch a demonstration of this sketching technique below.
+Assista à demonstração dessa técnica de sketch abaixo:
 
-<ContentFigure src="_b2Gf8IiEEA">Sketching on a tube face</ContentFigure>
+<ContentFigure src="_b2Gf8IiEEA">Desenhando na face de um tubo</ContentFigure>
 
-Now that you've seen a demonstration, **try to complete the box tube structure** by creating a sketch on the face of the cross tube and projecting lines from the layout sketch into the new sketch with the `use` tool.
+Agora que você viu a demonstração prática, **complete a estrutura de tubos** criando um sketch na face superior da viga transversal e projetando as linhas do sketch de layout mestre com a ferramenta de projeção `Use` (atalho `U`).
 
-### Requirements
+### Requisitos
 
-- The box frame should be made using 0 new dimensions total, both in the sketch and the extrude
-- Edit tube converter to use 1/16" thick walls and change "centered on tube" to "auto offset"
+- A torre de tubos deve ser criada usando **zero novas cotas numéricas**, tanto no sketch quanto na extrusão
+- Configure o Tube Converter para espessura de parede de 1/16" e altere de "centered on tube" para "auto offset"
 
-<Aside type="caution" title="Tube Offsets">
-The distance between the edge of your tube and your hole differs for drivetrains and typical use. If you use "centered on tube" for your regular box tubes your hole spacing wont be correct. Only use "Centered on tube" for your drivetrain rails!
+<Aside type="caution" title="Offsets de Furação de Tubos">
+A distância entre a borda do tubo e o primeiro furo difere entre tubos de tração e tubos de uso comum em mecanismos. Se você usar "centered on tube" em tubos normais, o padrão de furos para parafusos não baterá nas junções. Use "centered on tube" apenas para os tubos externos do chassi de tração!
 </Aside>
 
 ---
 
-### Finishing Up
+### Finalização
 
-Once you finish, **take a 5-minute break**.
+Assim que concluir a modelagem, **faça uma pausa de 5 minutos**.
 
-After you come back, **try to improve or correct any mistakes you find**. Once you finish, compare your workflow with the solution. **What thought process led you to do something different?**
+Ao retornar, **inspecione seu trabalho e corrija qualquer erro detectado**. Em seguida, compare seu modelo com a solução oficial. **Que linha de raciocínio levou você a adotar uma abordagem diferente?**
 
 <LinkButton href="https://cad.onshape.com/documents/5f1057b0e7579ff9dd5811fe/w/4c6a1a1d9747b8ea76b238a3/e/b89eed09a1d075135ee83667" center>
-  Solution Document
+  Documento com a Solução de Referência
 </LinkButton>
 
-Follow the short video below to learn how to rename your features, then rename the sketches and features in your part studio. Moving forward, we want to **always name our sketches and features**.
+Assista ao breve vídeo abaixo para aprender como renomear operações e, em seguida, renomeie todos os sketches e features no seu Part Studio. A partir de agora, **vamos sempre renomear nossos sketches e operações com nomes descritivos**.
 
-<ContentFigure src="ELdwPyFnm4Y">Renaming features in Onshape</ContentFigure>
+<ContentFigure src="ELdwPyFnm4Y">Renomeando operações no Onshape</ContentFigure>
 
-
-After you're done renaming your features, move on to the next exercise.
+Após renomear todas as suas features, avance para o próximo exercício.

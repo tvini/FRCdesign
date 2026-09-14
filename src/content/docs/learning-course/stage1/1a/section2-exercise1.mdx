@@ -1,76 +1,74 @@
-﻿---
-title: "1A: Onshape Fundamentals - Section 2"
-description: Learn the plate workflow in Onshape
+---
+title: "1A: Fundamentos do Onshape - Seção 2"
+description: Aprenda o fluxo de trabalho profissional para modelagem de chapas e placas (plates) no Onshape
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-## Introduction
+## Introdução
 
-At this point you should be an expert at making tubing frames of various shapes and sizes. These frames will not stay together without something to attach to. That's where plates come in. This section will be primarily focused around how to model plates for various purposes.
+Neste ponto, você já domina a criação de estruturas de tubos em diversos formatos e tamanhos. No entanto, essas estruturas não se sustentam sozinhas: precisam de elementos de fixação e reforço. É aí que entram as chapas e placas (plates). Esta seção é dedicada a ensinar o fluxo de modelagem de chapas para as mais variadas funções no robô.
 
-### What Are Plates?
+### O que São Chapas e Placas (Plates)?
 
-In FRC, plates are used everywhere and are made out of a couple different materials.
+Na FRC, placas usinadas são onipresentes e geralmente fabricadas em dois materiais principais: alumínio e policarbonato.
 
-Plates have two main functions in FRC: they allow you to **connect structural pieces together** and **mount transmission components like motors, axles, or mechanisms to the frame**. A plate used solely to connect two pieces together is also sometimes referred to as a gusset or bracket.
+Elas exercem duas funções vitais no robô: permitem **unir e reforçar elementos estruturais entre si** e **fixar componentes mecânicos e transmissões (motores, caixas de redução, eixos e rolamentos) à estrutura**. Uma chapa plana utilizada exclusivamente para unir tubos também é chamada de **gusset** ou cantoneira/suporte.
 
-Below are two examples of plates being used in FRC.
+Veja abaixo dois exemplos de chapas em robôs de FRC:
 
 <ContentRow>
-  <ContentFigure src="../img/1a/9442-plate.webp">Photo Credit: FRC 9442</ContentFigure>
-  <ContentFigure src="../img/1a/604-plate.webp" >Photo Credit: FRC 604</ContentFigure>
+  <ContentFigure src="../img/1a/9442-plate.webp">Foto: Equipe FRC 9442</ContentFigure>
+  <ContentFigure src="../img/1a/604-plate.webp" >Foto: Equipe FRC 604</ContentFigure>
 </ContentRow>
 :::center
-*Gussets being used to mount mechanisms and hold frames together*
+*Chapas e gussets utilizados para suportar mecanismos e travar a estrutura do robô*
 :::
 
-### Background
+### Contexto e Princípios de Projeto
 
-Since your tubes are always in 0.5-inch increments, your plates allow you to bridge the gap between uneven distances. This is possible because plates are CNC manufactured allowing for completely arbitrary hole spacings.
+Como os tubos estruturais padronizados costumam ter furações em passos fixos (geralmente a cada 0,5 polegada), as chapas planas funcionam como a ponte adaptadora perfeita para quaisquer distâncias arbitrárias. Isso é viável porque as chapas são usinadas em fresadoras CNC router ou cortadas a laser, permitindo qualquer distância entre furos com tolerância micrométrica.
 
-It's this arbitrary hole spacing that is key to think about when designing plates. The purpose of a plate is to place mounting holes where you want them; the material that makes up the plate only exists to position mounting holes and create lines of support, like when using a triangle gusset.
+Essa liberdade posicional é o conceito central no projeto de placas. O objetivo de uma chapa plana é posicionar furos de montagem e eixos exatamente onde a mecânica exige; o material de contorno da chapa existe apenas para conectar esses pontos e criar linhas de tração e compressão estrutural (como em um gusset triangular).
 
-A plate sketch is composed of circles for the holes, arcs for larger corner fillets, and lines to complete the shape. When making the shape of a plate think about the shape that would be made by tying a string around all of the mounting holes on a given plate. Here is a video demonstrating this concept for a very basic plate. No need to follow along here, just watch.
+O sketch de uma chapa é composto por círculos para os furos, arcos de concordância para os cantos arredondados e linhas tangentes que fecham o perímetro. Ao conceber o contorno externo de uma chapa, imagine o formato gerado ao esticar um barbante elástico ao redor de todos os furos de montagem. O vídeo a seguir demonstra esse conceito na prática (apenas assista com atenção, não precisa modelar ainda):
 
-<ContentFigure src="mXzX9wmipV8">Plate workflow demonstration</ContentFigure>
+<ContentFigure src="mXzX9wmipV8">Demonstração do fluxo de modelagem de chapas (Plate Workflow)</ContentFigure>
 
-This video also shows off the `tangent` constraint! This is one of the most frequently used constraints when designing plates since each mounting hole will have an arc around it to form the perimeter of the plate. The tangent constraint allows us to create a tangent line for an arc or circle. This is important to "smooth" out our plate. We don't want sharp edges!
+Esse vídeo também apresenta a restrição geométrica de **Tangência (`Tangent`)**! Ela é uma das ferramentas mais utilizadas na modelagem de chapas, pois cada furo de fixação terá um arco de contorno ao seu redor formando o perímetro da peça. A restrição tangencial garante transições suaves entre linhas e arcos, eliminando cantos vivos ou quinas pontiagudas perigosas.
 
 ---
 
-## Exercise 1: Plate Workflow
+## Exercício 1: Fluxo de Trabalho com Chapas (Plate Workflow)
 
-**Your task is to make a very simple plate with two bearing holes.** Bearings come up everywhere in FRC to help reduce friction on moving components. This is the same type of plate as shown in the prior video.
+**Sua tarefa é desenhar uma chapa simples com dois furos para rolamento.** Rolamentos aparecem em todo lugar na FRC para reduzir o atrito em eixos móveis. Este é o mesmo formato apresentado no vídeo demonstrativo.
 
-To get started, find the "Exercise 1: Plates" part studio in the "Section 2" folder in your copy of the template document and follow the plate workflow below to practice making a couple plate shapes.
+Para começar, abra o Part Studio "Exercise 1: Plates" na pasta "Section 2" da sua cópia do documento de exercícios e siga o passo a passo abaixo para praticar o contorno de chapas:
 
-<Aside type="example" title="Plate Workflow">
+<Aside type="example" title="Fluxo de Trabalho de Chapas (Plate Workflow)">
 
-1. Draw an arc around each bearing hole, dimension one of the arcs to be 0.25" away from the hole
-2. Set the two arcs to be equal in radius by using the equal constraint.
-3. Draw lines connecting the arcs
-4. Set the lines tangent to the arcs to align everything.
+1. Desenhe um arco de centro e extremidades (`Center point arc`) ao redor de cada furo de rolamento e defina a distância de um deles como 0,25" em relação à borda do furo.
+2. Defina que os dois arcos tenham o mesmo raio utilizando a restrição de igualdade (`Equal` - tecla `E`).
+3. Desenhe linhas conectando os arcos entre si.
+4. Aplique a restrição de tangência (`Tangent` - tecla `T`) entre cada linha e seus respectivos arcos para alinhar tudo perfeitamente.
 
 </Aside>
 
 <Aside type="note">
+Restrições podem se formar automaticamente por engano ao desenhar (por exemplo, um ponto do arco ficar travado acidentalmente na horizontal ou vertical).
 
-Constraints can form accidentally when sketching. Part of an arc might accidentally get horizontally or vertically constrained.
+**Você pode excluir qualquer restrição**: passe o cursor sobre a linha ou arco, clique no pequeno ícone da restrição indesejada (as entidades envolvidas ficarão em destaque) e pressione a tecla `Delete` no teclado.
 
-**You can delete constraints** by hovering over a sketch entity (line, arc, circle, etc.), clicking the icon of the constraint you want to delete (the involved entities will be highlighted), and clicking the `delete` key on your keyboard.
-
-**Holding shift when creating geometry also turns off auto constraining.**
-If you get stuck you can refer back to the video for guidance.
-
+**Segurar a tecla `Shift` enquanto desenha desativa momentaneamente a criação de restrições automáticas.**
+Se tiver dúvidas, consulte o vídeo para rever o processo.
 </Aside>
 
 ---
 
-### Complete?
+### Concluiu?
 
-After finishing, delete your plate outline, and **repeat these steps 2-3 times or until the process feels natural** and you do not need to reference the steps. You can close the workflow dropdown if it helps you stop looking at it.
+Após terminar, apague o contorno da chapa e **repita esse processo 2 a 3 vezes, até que a sequência de passos pareça completamente natural** e você não precise mais consultar a lista.
 
-**Try adding a third bearing hole into the plate!** You will end up making dozens of plates over even just a single FRC season, so getting comfortable with these steps is a must.
+**Experimente adicionar um terceiro furo de rolamento formando um triângulo!** Você modelará dezenas de chapas ao longo de uma temporada competitiva de FRC, portanto dominar esse fluxo é indispensável.
 
-Once you've gotten comfortable with the workflow, feel free to move on to the next exercise.
+Assim que se sentir seguro com esse método, avance para o próximo exercício.

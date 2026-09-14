@@ -1,37 +1,36 @@
-﻿---
-title: Basic Shooter Introduction
-description: Introduction to designing a basic shooter mechanism
+---
+title: Introdução ao Shooter Básico
+description: Introdução ao projeto de um mecanismo de shooter básico
 ---
 
+Bem-vindo ao Stage 2! Esta seção aborda o projeto detalhado de mecanismos de robôs da FRC, enfatizando habilidades avançadas de CAD, melhores práticas e conceitos essenciais de engenharia mecânica. Cada guia de projeto explica os critérios e decisões de engenharia adotados, incentivando um trabalho de CAD mais independente e com menos instruções passo a passo.
 
-Welcome to Stage 2! This section covers FRC mechanism design, emphasizing CAD skills, best practices, and key engineering concepts. Each project guide explains design decisions and criteria, promoting independent CAD work with less step-by-step instruction.
+## Mecanismos de Shooter
 
-## Shooter Mechanisms
+Shooters (lançadores) são utilizados em jogos da FRC quando é necessário pontuar em alvos altos e distantes onde as regras não permitem alcançar fisicamente com braços ou elevadores. Um volante de inércia / roda de lançamento (flywheel) é o método mais comum e eficaz de pontuação, conforme ilustrado abaixo.
 
-Shooters are used in FRC games when you need to score in high places but are not allowed to physically reach up to the scoring position. A flywheel is the most common method of scoring as illustrated below.
-
-While most shooting games involve launching a ball, the fundamentals between ball shooters and shooters for non-spherical objects (discs or rings) remain roughly the same.
-
-<Slides>
-  ![Team 2910's 2021 Robot Launching Game Pieces](../img/2a/2910shooter.webp)
-  FRC Team 2910's 2021 Robot Launching Game Pieces
-
-  ![Team 1690's 2021 Robot Launching Game Pieces](../img/2a/1690shooter.webp)
-  FRC Team 1690's 2021 Robot Launching Game Pieces
-</Slides>
-
-### Flywheel Shooters
-
-The most common way to launch game pieces is with flywheel shooters. Other methods, such as catapults or punchers, tend be more challenging to execute with the required accuracy/fire rate and rely on different concepts than flywheel shooters.
+Embora a maioria dos jogos de arremesso envolva o lançamento de bolas, os fundamentos mecânicos entre lançadores de bolas e lançadores de objetos não esféricos (como discos ou anéis) permanecem praticamente os mesmos.
 
 <Slides>
-  ![1678's 2022 Flywheel Shooter](../img/2a/1678_2022_shooter.webp)
-  1678's 2022 Flywheel Shooter - launched 9.5" diameter inflated balls
+  ![Robô da equipe 2910 lançando peças de jogo em 2021](../img/2a/2910shooter.webp)
+  Robô da equipe FRC 2910 lançando peças de jogo em 2021
 
-  ![1678's 2024 Flywheel Shooter](../img/2a/1678-2024-shooter.webp)
-  1678's 2024 Flywheel Shooter - launched 14" diameter foam rings
+  ![Robô da equipe 1690 lançando peças de jogo em 2021](../img/2a/1690shooter.webp)
+  Robô da equipe FRC 1690 lançando peças de jogo em 2021
 </Slides>
 
-[This video](https://youtu.be/QZKDnRvLhrA) is a good slow-motion look at how a ball gets propelled out of a shooter.
+### Shooters com Flywheel
 
-Other mechanism examples and deep dives for shooters can be found on the [ball shooters page](/mechanism-examples/shooter/). The design handbook page will have a deeper dive when the shooter design page is completed.
+A forma mais comum de lançar peças de jogo na FRC é com shooters baseados em flywheel (rodas de inércia girando em alta rotação). Outros métodos mecânicos, como catapultas ou disparadores por impacto (punchers), costumam ser muito mais desafiadores de calibrar com a precisão, repetibilidade e cadência de tiro exigidas, além de dependerem de conceitos físicos diferentes dos volantes de inércia.
+
+<Slides>
+  ![Flywheel Shooter da 1678 em 2022](../img/2a/1678_2022_shooter.webp)
+  Flywheel Shooter da equipe 1678 em 2022 — lançava bolas infláveis de 9,5" de diâmetro
+
+  ![Flywheel Shooter da 1678 em 2024](../img/2a/1678-2024-shooter.webp)
+  Flywheel Shooter da equipe 1678 em 2024 — lançava anéis de espuma de 14" de diâmetro (Notes)
+</Slides>
+
+[Este vídeo](https://youtu.be/QZKDnRvLhrA) oferece uma ótima visão em câmera lenta de como uma bola é comprimida e propelida para fora de um shooter com flywheel.
+
+Outros exemplos práticos e análises detalhadas de mecanismos de shooter podem ser encontrados na [página de shooters de bola](/mechanism-examples/shooter/). O Design Handbook trará uma análise teórica ainda mais aprofundada.

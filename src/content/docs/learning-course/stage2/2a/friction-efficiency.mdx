@@ -1,50 +1,49 @@
-﻿---
-title: Friction & Efficiency
-description: Understanding friction and efficiency in shooters
+---
+title: Atrito e Eficiência
+description: Compreendendo atrito e eficiência em shooters
 ---
 
+## Atrito e Eficiência (Friction & Efficiency)
 
-## Friction & Efficiency
+O atrito dissipa energia mecânica valiosa convertendo-a em calor e impondo uma carga de torque desnecessária aos motores. O atrito mecânico excessivo impede o flywheel de alcançar a rotação desejada, causa inconsistências graves nos tiros e pode sobreaquecer ou queimar os motores.
 
-Friction reduces efficiency by converting energy into heat and adding unnecessary load to the motor. Excessive friction can prevent the flywheel from reaching speed, causing shot inconsistencies, and may overheat or damage the motors.
+### Minimizando o Atrito
 
-### Minimizing Friction
+Abaixo estão práticas fundamentais que devem ser seguidas para mitigar o atrito mecânico.
 
-The following are all practices that should be followed to reduce friction.
+#### Tensão de Correia
+Reduza ligeiramente a tensão da correia encurtando a distância de centro a centro calculada em cerca de 0,01" a 0,02" (center-to-center tension drop) para diminuir perdas por atrito e aumentar a eficiência do sistema.
 
-#### Belt Tension
-Slightly reduce belt tension by shortening the center-to-center distance (0.01-0.02") to improve efficiency.
+#### Espaçadores
+Use sempre espaçadores entre componentes giratórios e rolamentos. Peças móveis nunca devem encostar ou esfregar na pista externa (outer race) do rolamento.
 
-#### Spacers
-Use spacers between components on shafts and bearings. Components should not contact the outer race of the bearing to avoid friction.
+<ContentFigure src="../img/2a/hexspacers.webp" alt="Espaçador COTS hex de 1/2 pol em delrin" width="40%"/>
 
-<ContentFigure src="../img/2a/hexspacers.webp" alt="COTS 1/2 hex delrin spacer" width="40%"/>
-
-#### Shaft Support
-Don't over-constrain shafts by using more than 2 fixed bearing points to hold a shaft; small misalignments can cause massive friction with the bearings.
+#### Suporte de Eixo
+Nunca hiper-restrinja eixos mecânicos utilizando mais de 2 pontos fixos de apoio de rolamento no mesmo eixo reto; desalinhamentos mínimos de usinagem geram um atrito colossal e travamento dos rolamentos.
 
 <Aside type="example">
 <Slides>
-  ![Overconstrained shaft example](../img/2a/overconstrained-shaft.webp)
-  Example of a shaft being overconstrained by having a fixed bearing in the middle of the shaft.
+  ![Exemplo de eixo hiper-restringido](../img/2a/overconstrained-shaft.webp)
+  Exemplo de um eixo hiper-restringido por ter um rolamento fixo no meio do eixo além das pontas.
 
-  ![Properly constrained shaft example](../img/2a/proper-constraint.webp)
-  Example of a shaft being properly constrained with two fixed bearings.
+  ![Exemplo de eixo devidamente restringido](../img/2a/proper-constraint.webp)
+  Exemplo de um eixo devidamente apoiado utilizando apenas dois rolamentos fixos nas extremidades.
 </Slides>
 </Aside>
 
-#### Bent Shafts
-Bent shafts reduce efficiency. Prevent bending by avoiding excessive cantilevering and ensuring proper alignment of bearings. Keep pulleys close to bearings.
+#### Eixos Empenados (Bent Shafts)
+Eixos tortos ou empenados destroem a eficiência mecânica. Evite empenamentos minimizando balanços em balanço (cantilever excessivo) e assegurando o alinhamento rigoroso dos furos de rolamentos. Mantenha as polias de alto esforço sempre o mais próximo possível dos mancais/rolamentos.
 
-#### Tolerance Stackup
-Minimize tolerance stackup, which occurs when multiple parts connect and introduce friction. Improve precision in fabrication or reduce the number of connections. Generally its best to keep belt runs on the same plate. In this design, a single manufactured plate for bearing holes and center-to-center distances helps reduce tolerance stackup.
+#### Acúmulo de Tolerâncias (Tolerance Stackup)
+Minimize o acúmulo de erros de tolerância, que ocorre quando múltiplas peças e montagens intermediárias se conectam em cadeia gerando desalinhamento. Sempre que possível, mantenha o percurso completo da correia na mesma placa estrutural de referência usinada em CNC única. No projeto deste shooter, uma placa lateral única contendo todos os furos de rolamento e distâncias C-C reduz drasticamente o tolerance stackup.
 
-#### Larger Wheels
-Larger shooter wheels mean lower RPMs are necessary for the same surface speed, which reduces the amount of friction throughout the system. Additionally, gearing your motors down and running them at not max speeds is better for the motor.
+#### Rodas de Diâmetro Maior
+Rodas de shooter maiores exigem rotações (RPM) menores para atingir a mesma velocidade linear periférica, o que reduz o atrito e a vibração em todo o conjunto motriz. Além disso, aplicar reduções adequadas aos motores permitindo que trabalhem em rotações saudáveis preserva os enrolamentos e a vida útil do motor.
 
-#### Last Resort
-If necessary, throw another motor at your shooter. This is the easiest way to deal with your problems in case you have slightly too much friction and need something that works without too much effort.
+#### Último Recurso
+Se for estritamente necessário em um mecanismo com atrito residual difícil de eliminar, adicione mais um motor ao shooter. Essa é a maneira mais simples e comprovada de lidar com perdas térmicas e de atrito quando você precisa de um mecanismo confiável sem redesenhar tudo do zero.
 
 <Aside type="note">
-These tips for reducing friction can be applied to all power transmissions.
+Essas diretrizes práticas para reduzir atrito se aplicam a absolutamente qualquer transmissão de potência na FRC.
 </Aside>

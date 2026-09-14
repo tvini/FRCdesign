@@ -1,114 +1,113 @@
-﻿---
-title: "1A: Onshape Fundamentals - Section 1"
-description: Learn sketching fundamentals in Onshape
+---
+title: "1A: Fundamentos do Onshape - Seção 1"
+description: Aprenda os fundamentos essenciais de sketching no Onshape
 ---
 
+## Exercício 3: Múltiplas Extrusões
 
-## Exercise 3: More Extrudes
+Neste exercício, você extrudará quatro retângulos por duas polegadas simetricamente — e os converterá em tubos.
+Tente usar apenas uma única operação de extrusão (`Extrude`). O que acontece?
 
-In this exercise, you'll extrude four rectangles by two inches symmetrically — and turn them into tubes.
-Use just one extrude feature. What happens?
+<ContentFigure src="../img/1a/exercise3-rectangles.webp" alt="Configuração inicial com quatro retângulos." width="70%">Configuração inicial com quatro retângulos.</ContentFigure>
 
-<ContentFigure src="../img/1a/exercise3-rectangles.webp" alt="Starting setup with four rectangles." width="70%">Starting setup with four rectangles.</ContentFigure>
-
-Don't forget: use the Tube Converter after extruding.
-
----
-
-### Looks a bit weird?
-
-If you followed the instructions and used a single extrude, all four rectangles probably merged into one big block.
-In real life, you don't want parts fused together like this unless you meant to.
-
-> Can you figure out how to extrude them **individually** to keep them separate?
-
-If you need to restart, here's a quick video showing how to delete your bad tubes:
-
-<ContentFigure src="2Jzb1Xr6NBE">How to delete extrudes</ContentFigure>
+Não se esqueça: aplique o Tube Converter após a extrusão.
 
 ---
 
-### Fixed your extrude?
+### Ficou um pouco estranho?
 
-Manually doing four extrudes is tedious. There's a better way!
+Se você seguiu as instruções e usou uma única extrusão convencional, os quatro retângulos provavelmente se fundiram em um único grande bloco sólido contínuo.
+No mundo real, não queremos tubos fundidos entre si dessa forma.
 
-- Delete your old extrudes.
-- Use the `Extrude Individual` Featurescript you added in [required course tools](/learning-course/course-setup/required-course-tools/featurescripts).
-- (Hit `Alt+C` and search "extrude individual" if needed.)
+> Você consegue deduzir como extrudá-los **individualmente** para que permaneçam como peças separadas?
 
-This tool lets you extrude multiple sketch regions separately, all in one step.
+Se precisar recomeçar, assista a este vídeo rápido mostrando como excluir operações com erro:
 
-Also, if you click the "Symmetric" option inside Extrude Individual, you can force symmetry.
-
-<ContentFigure src="../img/1a/extrude-individual.webp" alt="Using Symmetric inside Extrude Individual.">Using "Symmetric" inside Extrude Individual.</ContentFigure>
+<ContentFigure src="2Jzb1Xr6NBE">Como excluir operações de extrusão</ContentFigure>
 
 ---
 
-## Exercise 3.1: Sketching Basics
+### Consertou sua extrusão?
 
-In the last exercise, you extruded an existing sketch. Now it's your turn to **create the sketch yourself**.
+Fazer quatro operações de extrusão manuais separadas é demorado e ineficiente. Existe uma solução muito melhor!
 
-When we sketch, we use rectangles to represent box tubes in 2D, and use **dimensions** and **constraints** to lock everything into place.
+- Exclua as extrusões antigas.
+- Use o FeatureScript `Extrude Individual` que você instalou nas [ferramentas obrigatórias](/learning-course/course-setup/required-course-tools/featurescripts).
+- (Pressione `Alt + C` e digite "extrude individual" se precisar localizá-lo rapidamente.)
 
-Follow along with the video below to practice sketching fundamentals in Onshape.
+Essa ferramenta permite extrudar múltiplas regiões de sketch como peças totalmente independentes em uma única etapa inteligente.
 
-<ContentFigure src="ftbpbvuZklc">Sketching fundamentals in Onshape</ContentFigure>
+Além disso, ativando a opção "Symmetric" dentro do Extrude Individual, a extrusão se expande igualmente para ambos os lados do plano.
 
-<Aside type="tip" title="Key Sketching Points">
+<ContentFigure src="../img/1a/extrude-individual.webp" alt="Utilizando a opção Symmetric no Extrude Individual.">Utilizando a opção "Symmetric" dentro do Extrude Individual.</ContentFigure>
 
-- **Dimensions** control distances (like making a rectangle exactly 5 inches wide).
-- **Constraints** define relationships (like locking a rectangle edge to another).
-- **Yellow dotted lines** show automatic constraints — use them!
-- **The Origin** is your anchor. Attach sketches to the origin whenever possible.
-- **Blue is bad** — a blue sketch means it's not fully defined yet. Everything should turn black.
-- **Less is better** — use the fewest dimensions necessary to fully lock down your design.
+---
+
+## Exercício 3.1: Fundamentos de Sketching (Esboços)
+
+No exercício anterior, você extrudou um sketch pronto. Agora é hora de **você mesmo criar o sketch do zero**.
+
+Ao desenhar no sketch, usamos retângulos para representar as seções dos tubos em 2D, e aplicamos **dimensões (cotas)** e **restrições geométricas (constraints)** para travar tudo com precisão matemática.
+
+Acompanhe o vídeo abaixo para praticar os conceitos fundamentais de sketch no Onshape:
+
+<ContentFigure src="ftbpbvuZklc">Fundamentos de sketch no Onshape</ContentFigure>
+
+<Aside type="tip" title="Pontos-Chave de Sketching">
+
+- **Dimensões (Dimension - atalho D)** controlam distâncias e tamanhos (ex: definir um retângulo com exatas 5 polegadas de largura).
+- **Restrições geométricas (Constraints)** definem comportamentos e relações (como fixar a aresta de um tubo alinhada ou colinear à outra).
+- **Linhas amarelas pontilhadas** indicam inferências automáticas do Onshape — aproveite-as!
+- **A Origem (Origin)** é a sua âncora no espaço. Sempre amarre seus sketches principais à origem.
+- **Azul indica indefinição** — linhas azuis têm graus de liberdade soltos. Seu objetivo é sempre deixar **tudo 100% preto**.
+- **Menos é mais** — utilize o menor número possível de cotas dimensionais, aproveitando simetria, igualdade e alinhamentos para definir o modelo.
 
 </Aside>
 
 ---
 
-### What You Learned
+### O que Você Aprendeu
 
-- How to extrude multiple tubes separately
-- How to create and constrain a sketch
-- How to make rectangles properly
-- How to use basic dimensions and relationships
-- How to mirror using construction lines
+- Como extrudar múltiplos tubos separados com uma só operação
+- Como criar e restringir completamente um sketch
+- Como desenhar retângulos com precisão geométrica
+- Como aplicar relações geométricas básicas e cotas
+- Como espelhar geometrias (Mirror) utilizando linhas de construção
 
 ---
 
-## Exercise 3.2: Adding Rails
+## Exercício 3.2: Adicionando Vigas ao Chassi
 
-<ContentFigure src="../img/1a/3-2-sketch.webp" alt="Edit this sketch">Edit this sketch</ContentFigure>
+<ContentFigure src="../img/1a/3-2-sketch.webp" alt="Edite este sketch">Edite este sketch</ContentFigure>
 
-Now let's apply this to the robot.
+Agora vamos aplicar esse conhecimento no chassi do robô.
 
-Open the Top Tube Sketch in the Exercise 3.2 part studio and **add two cross tubes** that are **8 inches apart**.
+Abra o sketch `Top Tube Sketch` no Part Studio do Exercício 3.2 e **adicione duas vigas transversais** com **8 polegadas de distância entre si**.
 
 <Aside type="tip">
-Double-click the sketch in the feature tree to edit it.
+Dê um duplo clique no sketch na árvore de operações (feature list) para editá-lo.
 </Aside>
 
-Draw the new rails yourself. Only use **one new dimension** total.
+Desenhe você mesmo os novos retângulos das vigas. Adicione apenas **uma única nova cota dimensional** em todo o sketch!
 
-The only numbers you should see:
+Os únicos números que devem aparecer cotados no sketch são:
 
-- 4.25" (gap between modules)
-- 1" (tube width)
-- 8" (distance between cross rails)
+- 4.25" (vão livre para os módulos swerve)
+- 1" (largura do perfil do tubo)
+- 8" (distância entre as vigas transversais)
 
-<ContentFigure src="../img/1a/drivetrain-crossrail-sketch2.webp" alt="Final cross rail sketch setup." width="60%">Final cross rail sketch setup.</ContentFigure>
+<ContentFigure src="../img/1a/drivetrain-crossrail-sketch2.webp" alt="Configuração final do sketch das vigas transversais." width="60%">Configuração final do sketch das vigas transversais.</ContentFigure>
 
 ---
 
-### Check Your Work
+### Confira seu Trabalho
 
-Here's an optimized way to sketch it:
+Veja uma forma elegante e otimizada de desenhar esse arranjo:
 
-<ContentFigure src="ktKuSFVV10U">Optimized cross rail sketch</ContentFigure>
+<ContentFigure src="ktKuSFVV10U">Sketch otimizado das vigas transversais</ContentFigure>
 
-Compare your approach to the video.
-> What did you do differently?
-> How would you avoid mistakes like that next time?
+Compare a sua abordagem com a do vídeo:
+> O que você fez de diferente?
+> Que restrição geométrica você poderia ter usado para evitar cotas desnecessárias?
 
-After you're done checking your work and reviewing your approach, move on to the next exercise.
+Depois de revisar seu sketch e validar o resultado, avance para o próximo exercício.

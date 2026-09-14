@@ -1,25 +1,24 @@
-﻿---
-title: Project Overview
-description: Overview of the design methodology project
+---
+title: Visão Geral do Projeto
+description: Visão geral do projeto de metodologia de projeto
 sidebar:
   order: 2
 ---
 
+## Visão Geral do Projeto
 
-## Project Overview
+Nesta etapa, você projetará um chassi swerve (swerve drivebase). O chassi é a plataforma móvel sobre a qual todos os outros mecanismos são projetados e fixados. Com o surgimento de módulos swerve comerciais (COTS) confiáveis, projetar uma base swerve tornou-se infinitamente mais simples, tornando-se o tipo de drivetrain mais usado competitivamente na FRC.
 
-In this stage, you will be designing a swerve drivebase. A drivebase is the mobile platform on which all our other mechanisms are designed around and attached to. With the advent of reliable COTS swerve, designing a swerve drivebase has been made significantly easier and has become the most commonly used competitive drivetrain in FRC.
+Um chassi swerve é composto por quatro *módulos swerve*. Cada módulo possui dois motores: um para tracionar a roda e outro para esterçá-la (girar o ângulo da roda). Isso permite que o robô se desloque em qualquer direção no plano de forma independente da sua rotação angular (holonômico). Neste projeto, usaremos os [módulos SDS MK4i](https://www.swervedrivespecialties.com/products/mk4i-swerve-module). Existem muitas outras opções COTS disponíveis no mercado, cada uma com seus próprios prós e contras.
 
-A swerve drivebase is composed of four *swerve modules*. Each module has two motors: one for spinning the wheel and one for steering it. This enables the robot to translate in any direction independent of the rotation of the robot. In this project, we'll be using [SDS MK4i modules](https://www.swervedrivespecialties.com/products/mk4i-swerve-module). There are many other COTS options available, each with their own advantages and tradeoffs.
+<ContentFigure src="../img/1d/drivetrain-assembly.webp" alt="Swerve drivebase do Stage 1D">Projeto do chassi swerve do Stage 1D.</ContentFigure>
 
-<ContentFigure src="../img/1d/drivetrain-assembly.webp" alt="Stage 1D swerve drivebase" >Stage 1D swerve drivebase project.</ContentFigure>
+Assim como nos exercícios anteriores, o projeto concluído está disponível como referência. Se precisar de ajuda, fique à vontade para perguntar no [nosso Discord](https://discord.gg/frcdesign)!
 
-As with previous exercises, the finished project is available for reference. If you need help, please feel free to ask on [the Discord](https://discord.gg/frcdesign)!
+<LinkButton href="https://cad.onshape.com/documents/6c6044229091a87cf359270b/w/ed9648f0c04c639a2561615a/e/67a7ed0c6038787281325a51" external center>Referência do Drivebase do 1D</LinkButton>
 
-<LinkButton href="https://cad.onshape.com/documents/6c6044229091a87cf359270b/w/ed9648f0c04c639a2561615a/e/67a7ed0c6038787281325a51" external center>1D Drivebase Reference</LinkButton>
+### Estrutura do Chassi (Drivebase Frame)
 
-### Drivebase Frame
+Conforme introduzido no Stage 1A, as estruturas dos robôs são tipicamente fabricadas a partir de tubos quadrados ou retangulares de alumínio (box tubing). O chassi não é exceção a essa regra. A maioria das equipes opta por tubos com um padrão padrão de furos de 0,196" de diâmetro com espaçamento de 0,5" entre centros. Isso possibilita modularidade e permite a fácil integração de muitos componentes COTS, como gussets.
 
-As was introduced in Stage 1A, robot structures are typically constructed out of aluminum box tubing. The drivebase is no exception to this. Most teams will opt to design their box tubing with a standard 0.5" spacing pattern of 0.196" diameter holes. This enables modularity and allows for easy integration of many COTS components like gussets.
-
-Box tubing extrusions can be purchased at most metal suppliers, but many FRC vendors including [WCP](https://wcproducts.com/collections/systems-structure/products/punched-tubing), [TTB](https://www.thethriftybot.com/products/thrifty-box-extrusion), and [REV](https://www.revrobotics.com/MAXTube/) sell box tubing with pre-cut hole patterns which can significantly reduce manufacturing time and equipment requirements.
+Tubos de alumínio sem furação podem ser adquiridos em distribuidores de metais comuns, mas diversos fornecedores da FRC, como [WCP](https://wcproducts.com/collections/systems-structure/products/punched-tubing), [TTB](https://www.thethriftybot.com/products/thrifty-box-extrusion) e [REV](https://www.revrobotics.com/MAXTube/), vendem tubos com furação pré-cortada de fábrica (patterned tubing), o que reduz drasticamente o tempo de usinagem e as ferramentas necessárias na oficina da equipe.

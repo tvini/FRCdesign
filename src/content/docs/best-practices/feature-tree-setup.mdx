@@ -1,40 +1,39 @@
-﻿---
-title: Part Studio Best Practices
-description: The best practices for part studio feature trees in each mechanism document.
+---
+title: Boas Práticas de Part Studio
+description: Melhores práticas para a árvore de recursos (Feature Tree) e organização de Part Studios no Onshape.
 ---
 
+### O que incluir no Part Studio
 
-### What to Include in the Part Studio
+O Part Studio deve conter **todas as peças que precisam ser fabricadas pela sua equipe**. Isso inclui chapas usinadas sob medida, eixos cortados no comprimento correto, peças COTS modificadas na oficina, peças impressas em 3D, etc. Peças comerciais COTS que não sofrem alterações físicas devem ser inseridas diretamente na montagem (Assembly) correspondente — não há necessidade de duplicá-las ou modelá-las no Part Studio.
 
-The part studio should contain **all parts that need to be manufactured by your team**. This could include fully custom plates, shafts cut to length, modified COTS parts, etc. Unmodified COTs parts should be imported directly into the corresponding assembly - no modification inside the part studio is required.
-
-Also **avoid duplicating identical parts and over-using intensive featurescripts**, such as tube converter. These practices can make your part studio loading times high and navigation and changes very laggy. Creating only one of each part in the part studio means you can simply duplicate it when assembling while your part studio performance will be greatly improved.
+Também **evite duplicar peças idênticas e usar FeatureScripts pesados em excesso**, como o Tube Converter repetidas vezes. Esses hábitos tornam o tempo de regeneração do Part Studio lento e a navegação truncada. Modele apenas uma unidade de cada componente no Part Studio e depois duplique-a conforme necessário dentro da montagem, mantendo o Part Studio leve e responsivo.
 
 <Aside type="tip">
-Instead of deriving COTS parts for reference, usually you can add simple measurements in your sketches (like a pitch circle instead of a derived gear); this is faster both in the moment and overall with load times. You can derive parts from your other subsystems (such as the frame and simplified modules from your drivetrain part studio into your intake part studio) and make them closed composites for easy reference, but keep it to a minimum.
+Em vez de importar peças COTS complexas via *Derived* apenas para referência, utilize construções geométricas simples em seus sketches (como uma circunferência primitiva com o diâmetro primitivo em vez de derivar uma engrenagem 3D inteira). Isso é muito mais rápido no momento e mantém o arquivo leve. Quando precisar derivar partes de outros subsistemas (como o chassi e módulos simplificados para projetar um intake), una-os como um corpo compósito fechado (*closed composite*) para referência rápida, mas mantenha isso no mínimo necessário.
 </Aside>
 
-### Feature Tree Organization
+### Organização da Árvore de Recursos (Feature Tree)
 
-Every part studio feature tree should start with a derive command, pulling down the relevant main layout sketches. This is what you will build on.
+Toda árvore de recursos de um Part Studio deve começar com um recurso **Derived (Derivar)**, importando os esboços de layout mestre pertinentes. Eles formam a base paramétrica sobre a qual você construirá suas peças.
 
-**Sort and name the features, parts, and tabs and use folders** to make your CAD more understandable for other people working on the robot. One of the biggest benefits of Onshape is its collaborative capability, but unnamed and unsorted documents eliminate that point entirely. Sorting and naming in real time can also make it easier to go back and change things (which you will inevitably need to do). Some teams even use a part naming system to assist with organizing manufacturing and assembly.
+**Nomeie e organize recursos, peças e abas em pastas** para que qualquer colega de equipe compreenda o projeto sem esforço. Uma das maiores vantagens do Onshape é o trabalho colaborativo simultâneo, mas documentos desorganizados e com recursos sem nome anulam esse benefício. Renomear e organizar em tempo real facilita modificações futuras inevitáveis. Algumas equipes utilizam inclusive um sistema padronizado de codificação de peças para sincronizar fabricação e montagem.
 
-See an example of a well-organized part studio here:
+Exemplo de um Part Studio exemplarmente organizado:
 
 <ContentFigure src="./img/organized-part-studio.webp" />
 
-### The Importance of Intelligent Origins
+### A Importância de Origens Inteligentes
 
-As with many good practices in CAD, smart origins are another good practice to make future you's life easier. Intelligent origins allow designers to leverage default geometry (Front/Right/Top Planes, Origin Point) for robust axes of symmetry and references in their models.
+Assim como outras boas práticas de CAD, o posicionamento estratégico da origem facilita enormemente o trabalho futuro. Origens inteligentes permitem utilizar a geometria padrão (planos Frontal, Direito, Superior e o Ponto de Origem) como eixos de simetria naturais e planos de espelhamento (*mirror*).
 
-For FRC CAD, the purpose of using the same origin as the main layout sketch across all studios and assemblies is twofold:
+No CAD de FRC, usar uma origem única e consistente entre todos os Part Studios e montagens tem dois objetivos fundamentais:
 
-1. The origin will always be a consistent central point you can reference. This helps keep things parametric too.
-2. To unify the robot CAD and robot software origin point. By having the same origin in CAD and code, the robot can be seamlessly exported to [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope) and camera transformations more easily measured.
+1. A origem será sempre uma referência central constante e confiável, mantendo a parametrização sólida.
+2. Unificar a origem do CAD com a origem do código e software do robô. Com a mesma origem na modelagem e na programação, o modelo do robô pode ser exportado perfeitamente para ferramentas como o [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope), facilitando a medição exata das transformações de câmeras (visão computacional / AprilTags) e odometria.
 
 <Aside type="note">
-Although definitions may vary from team to team, the origin of an FRC robot is typically defined as ***the center of the drivebase, on floor level***.
+Embora cada equipe possa definir suas convenções, a origem padrão de um robô de FRC é quase universalmente definida como ***o centro geométrico da base de tração, ao nível do chão***.
 </Aside>
 
-One way to help achieve this is to use the [Origin Cube Featurescript](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/df3afdbec8d1356c2af15e4b?renderMode=0&uiState=6637caa6ccbcaa36badca03a), which is further explained in the [assembly best practices page](../assembly-setup/). If using the origin cube, make the origin cube the first feature in all part studios.
+Uma excelente forma de padronizar isso é utilizar o [FeatureScript Origin Cube](https://cad.onshape.com/documents/321c197a842fc5f1a29e6621/w/fc3cdd5ca7edcd93e02f13cc/e/df3afdbec8d1356c2af15e4b?renderMode=0&uiState=6637caa6ccbcaa36badca03a), explicado detalhadamente na página de [boas práticas de montagem](../assembly-setup/). Caso utilize o cubo de origem, defina-o como o primeiro recurso no topo de todos os Part Studios.

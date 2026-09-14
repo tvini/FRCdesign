@@ -1,36 +1,35 @@
-﻿---
-title: Strength
-description: Understanding strength in pivot mechanisms
+---
+title: Resistência Mecânica
+description: Compreendendo a resistência mecânica em mecanismos de pivô
 ---
 
+## Resistência Mecânica (Strength)
 
-## Strength
+As principais considerações para a resistência de um pivô são a rigidez à flexão (resistência ao encurvamento) e a rigidez à torção. Eixos mortos (dead axles) oferecem resistência estrutural vastamente superior aos eixos vivos (live axles) pelo fato de não transmitirem torque de rotação diretamente pelo eixo, podendo ser rigidamente parafusados e integrados ao chassi ou à torre do robô.
 
-The primary considerations for the strength of a pivot are the rigidity (resistance to bending) and resistance to twisting. Dead axles provide superior strength to live axles due to the way they don't transmit any load and can be fastened to the rest of the structure.
-
-Large round tubes, such as 3/4" and 7/8" diameter, are preferred over 1/2" hex for their strength-to-weight ratio and resistance to twisting. The primary reason 3/4" and 7/8" tube diameters are chosen is those sizes have bushings with a 1.125" OD available, which means they fit almost all COTS sprockets. Live axles can be utilized in some situations for low load applications.
+Tubos redondos de grande diâmetro, como 3/4" e 7/8", são amplamente preferidos em relação a eixos hexagonais de 1/2" pela sua excelente relação resistência-peso e rigidez torcional. O motivo primordial da escolha de tubos de 3/4" e 7/8" é que esses tamanhos contam com buchas comerciais (bushings) de diâmetro externo de 1,125" (1-1/8"), o que significa que encaixam com precisão no furo central da quase totalidade dos sprockets COTS do mercado. Eixos vivos (live axles) podem ser utilizados apenas em situações de esforços mecânicos muito baixos.
 
 <Aside type="tip">
-Click through the slides to see how much each axle bends given the same load. **Deformation is exaggerated by 100 times**.
+Navegue pelos slides para visualizar a deformação por flexão de cada tipo de eixo sob uma mesma carga idêntica. **A deformação está exagerada em 100 vezes** para facilitar a comparação visual.
 </Aside>
 
 <Slides>
-  ![1/2 inch Hex deflection](../img/2b/12hex.webp)
-  1/2" Hex
+  ![Deflexão em Hex de 1/2 pol](../img/2b/12hex.webp)
+  Eixo Hex de 1/2"
 
-  ![3/4 inch Tube deflection](../img/2b/34tube.webp)
-  3/4" Tube
+  ![Deflexão em Tubo de 3/4 pol](../img/2b/34tube.webp)
+  Tubo Redondo de 3/4"
 
-  ![7/8 inch Tube deflection](../img/2b/78tube.webp)
-  7/8" Tube
+  ![Deflexão em Tubo de 7/8 pol](../img/2b/78tube.webp)
+  Tubo Redondo de 7/8"
 
-  ![SplineXL deflection](../img/2b/splinexl.webp)
-  SplineXL
+  ![Deflexão em SplineXL](../img/2b/splinexl.webp)
+  Eixo Estriado SplineXL
 
-  ![2 inch Tube deflection](../img/2b/2tube.webp)
-  2" Tube
+  ![Deflexão em Tubo de 2 pol](../img/2b/2tube.webp)
+  Tubo Redondo de 2"
 </Slides>
 
-### Reference Design
+### Projeto de Referência
 
-The reference design utilizes 7/8" OD round tube for the arm pivot, which is a good balance of strength and size.
+O projeto de referência utiliza um tubo redondo de 7/8" de diâmetro externo para o pivô do braço, proporcionando um equilíbrio excelente entre alta rigidez e facilidade de empacotamento.

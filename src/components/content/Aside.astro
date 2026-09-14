@@ -18,15 +18,15 @@ interface Props {
 const { type = 'note', title, collapse = false, class: className } = Astro.props;
 
 const titles: Record<string, string> = {
-  note: 'Note',
-  tip: 'Tip',
-  caution: 'Warning',
-  danger: 'Danger',
-  example: 'Example',
-  video: 'Video',
+  note: 'Nota',
+  tip: 'Dica',
+  caution: 'Atenção',
+  danger: 'Perigo',
+  example: 'Exemplo',
+  video: 'Vídeo',
 };
 
-const displayTitle = title || titles[type] || 'Note';
+const displayTitle = title || titles[type] || 'Nota';
 
 const icons: Record<string, string> = {
   note: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>`,

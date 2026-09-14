@@ -1,48 +1,47 @@
-﻿---
-title: Performance Tuning
-description: Optimizing Onshape performance for your system
+---
+title: Otimização de Desempenho
+description: Otimizando o desempenho do Onshape no seu computador e navegador
 ---
 
+## Otimização de Desempenho
 
-## Performance Tuning
-
-After your initial account setup, Onshape will run a browser check to ensure compatibility. Depending on your browser, additional steps can be taken to improve performance.
+Após a configuração inicial da conta, o Onshape realiza uma verificação automática do navegador para checar a compatibilidade com aceleração gráfica WebGL. Dependendo do seu navegador e placa de vídeo, algumas configurações adicionais podem aumentar drasticamente o desempenho e a fluidez de renderização.
 
 <Aside type="tip">
-You can test your current performance at the [Onshape Compatibility Check Page](https://cad.onshape.com/check).
+Você pode testar a velocidade e compatibilidade gráfica do seu sistema na [Página de Verificação de Compatibilidade do Onshape](https://cad.onshape.com/check).
 </Aside>
 
 <Aside type="note">
-If the browser check fails, you may want to try a different browser. Currently, chromium browsers like Chrome, Edge, Opera, and Arc are the best supported browsers for Onshape, but Firefox usually works with no issues as well. Safari is not well supported.
+Se o teste do navegador falhar, recomendamos experimentar outro navegador. Atualmente, navegadores baseados em Chromium (como Google Chrome, Microsoft Edge, Opera, Brave e Arc) oferecem o melhor suporte e desempenho para o Onshape, mas o Mozilla Firefox também funciona muito bem. O Safari costuma ter compatibilidade e desempenho mais limitados.
 </Aside>
 
-### Improving Chrome Performance
+### Melhorando o Desempenho no Google Chrome
 
-If you are using Chrome, You can try modifying the following settings to improve rendering speeds.
+Se você usa o Google Chrome, pode ajustar as seguintes configurações para acelerar a renderização 3D:
 
-- First, type `chrome://settings/` in your search bar to navigate to chrome settings. Make sure that "Use graphics acceleration when available" is enabled. Relaunch chrome if you have updated it to enable it.
+- Primeiro, digite `chrome://settings/` na barra de endereços para abrir as configurações do Chrome. Vá em "Sistema" e certifique-se de que a opção "Usar aceleração de gráficos quando disponível" esteja ativada. Reinicie o navegador se precisar ativá-la.
 
-  <ContentFigure src="../img/performance-tuning/graphicsacceleration.webp" alt="Graphics acceleration setting" />
+  <ContentFigure src="../img/performance-tuning/graphicsacceleration.webp" alt="Configuração de aceleração de gráficos" />
 
-- Go to `chrome://flags/` and enable "Override Software Rendering List":
+- Acesse `chrome://flags/` e ative a flag "Override Software Rendering List":
 
-  <ContentFigure src="../img/performance-tuning/override-rendering-list.webp" alt="Override rendering list" />
+  <ContentFigure src="../img/performance-tuning/override-rendering-list.webp" alt="Ativação de substituição da lista de renderização por software" />
 
-- Finally, Try adjusting your ANGLE graphics backend:
+- Por fim, experimente ajustar o backend gráfico do ANGLE (`chrome://flags/#use-angle`):
 
-  <ContentFigure src="../img/performance-tuning/ANGLE-backend.webp" alt="ANGLE backend" />
+  <ContentFigure src="../img/performance-tuning/ANGLE-backend.webp" alt="Seleção de backend gráfico ANGLE" />
 
-Please note that performance will depend on your individual computer setup. We suggest the following process:
+Lembre-se de que o desempenho ideal varia conforme o hardware de cada computador (placa de vídeo integrada vs dedicada). Sugerimos o seguinte processo de teste:
 
-- Choose an ANGLE graphics backend: `chrome://flags/#use-angle`
-- Click the Relaunch button
-- [Check your performance](https://cad.onshape.com/check)
+- Selecione uma opção de backend do ANGLE em `chrome://flags/#use-angle` (ex: D3D11, OpenGL, etc.)
+- Clique no botão "Relaunch" para reiniciar o Chrome
+- [Acesse o teste de desempenho do Onshape](https://cad.onshape.com/check)
 
-Repeat these steps for each backend and use whichever is the most performant. Here are some examples all taken from the same machine.
+Repita o teste para cada opção disponível e utilize a que apresentar a maior taxa de quadros e menor tempo de resposta. Veja alguns exemplos comparativos realizados na mesma máquina:
 
 <Slides>
   ![](../img/performance-tuning/default.webp)
-  The default configuration
+  Configuração padrão (Default)
 
   ![](../img/performance-tuning/opengl.webp)
   OpenGL
@@ -57,4 +56,4 @@ Repeat these steps for each backend and use whichever is the most performant. He
   Direct3D 11 on 12
 </Slides>
 
-In the above example, Direct3D 11 narrowly beats out OpenGL, but that won't always be the case.
+No exemplo acima, o Direct3D 11 superou o OpenGL por uma pequena margem, mas isso depende do modelo exato da sua GPU e dos drivers instalados.

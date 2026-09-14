@@ -1,111 +1,109 @@
-﻿---
-title: "Exercise 2: Dead Axle Rollers"
-description: Model dead axle rollers
+---
+title: "Exercício 2: Roletes em Dead Axle"
+description: Modelar roletes em dead axle
 ---
 
+Neste exercício, você modelará roletes em dead axle (eixo fixo/morto). Para fazer girar elementos — sejam roletes, rodas ou até mesmo braços articulados —, dois tipos de eixos podem ser utilizados: eixos "vivos" (live axle) e eixos "mortos" (dead axle).
 
-In this exercise, you will be modeling some dead axle rollers. To spin things, whether it be rollers, wheels, or even arms, two types of axles can be utilized: "live" and "dead" axles.
+## Roletes em Live Axle vs Dead Axle
 
-## Live and Dead Axle Rollers
+Você aprenderá mais sobre o projeto de eixos vivos e mortos no Stage 2, mas, por enquanto, tudo o que você precisa saber é que no **live axle** nós acionamos o próprio eixo para girar nosso mecanismo, enquanto no **dead axle** nós acionamos diretamente o componente rotativo.
+No live axle, o eixo gira apoiado em rolamentos fixos na estrutura; no dead axle, o eixo permanece estático e os rolamentos ficam alojados dentro do componente que gira. Veja o esquema abaixo para entender melhor a diferença.
 
-You'll learn more about live and dead axle design in Stage 2, but for now, all you need know is that live axle means we power the shaft to spin our mechanism, whereas with dead axle, we directly power the spinning component.
-For live axle, the shaft spins on fixed bearings, while for dead axle, the bearings are on the spinning component. Take a look at the visual below to better understand.
-
-<Aside type="example" title="Live vs Dead Axle Rollers">
-<ContentFigure src="../img/1c/dead-axle-rollers/dead-vs-live.webp" alt="Dead vs Live Axle comparison" width="40%">Section view of a dead axle (left) and live axle (right) roller. The dead axle roller sits on bearings and needs to be directly powered (in this case, through the integrated pulley). The live axle roller is powered from a pulley farther down the hex shaft.</ContentFigure>
+<Aside type="example" title="Roletes em Live Axle vs Dead Axle">
+<ContentFigure src="../img/1c/dead-axle-rollers/dead-vs-live.webp" alt="Comparação entre Dead Axle e Live Axle" width="40%">Corte em seção de um rolete em dead axle (esquerda) e live axle (direita). O rolete em dead axle é montado sobre rolamentos e precisa ser acionado diretamente (neste caso, através da polia integrada). O rolete em live axle é acionado a partir de uma polia fixada mais adiante no próprio eixo hex.</ContentFigure>
 </Aside>
 
-## Part Studio Instructions
+## Instruções do Part Studio
 
-**Navigate to the "Exercise #2 Part Studio" tab** in your copied document and **follow the instructions in the slides** to complete the part studio for this exercise.
+**Navegue até a aba "Exercise #2 Part Studio"** no seu documento copiado e **siga as instruções nos slides** para concluir o part studio deste exercício.
 
 <Slides>
   ![](../img/1c/dead-axle-rollers/parts-0.webp)
-  Final Part Studio.
+  Part Studio finalizado.
 
   ![](../img/1c/dead-axle-rollers/parts-1.webp)
-  Create a new sketch on the right plane for the Layout Sketch. Start by sketching a pivot axle hole with a bolt pattern around it.
+  Crie um novo sketch no plano Right para o Layout Sketch. Comece esboçando o furo do eixo pivô com um padrão de furação ao seu redor.
 
   ![](../img/1c/dead-axle-rollers/parts-2.webp)
-  Sketch the first belt run between rollers to the left of the pivot hole.
+  Esboce o trajeto da primeira correia entre roletes à esquerda do furo do pivô.
 
   ![](../img/1c/dead-axle-rollers/parts-3.webp)
-  Create a second belt run of the same length as the first.
+  Crie um segundo trajeto de correia com o mesmo comprimento do primeiro.
 
   ![](../img/1c/dead-axle-rollers/parts-4.webp)
-  Add 2" circles around the ends of the belt runs to represent the rollers.
+  Adicione círculos de 2" ao redor das extremidades dos trajetos de correia para representar os roletes.
 
   ![](../img/1c/dead-axle-rollers/parts-5.webp)
-  Sketch the motor belt run off the first roller angled back towards the pivot point.
+  Esboce o trajeto da correia do motor partindo do primeiro rolete e apontando de volta para o ponto do pivô.
 
   ![](../img/1c/dead-axle-rollers/parts-6.webp)
-  Add a 60mm circle to represent the motor, this will be useful information when making the plate.
+  Adicione um círculo de 60 mm para representar o motor — essa informação visual será útil ao projetar a placa.
 
   ![](../img/1c/dead-axle-rollers/parts-7.webp)
-  Create the plate sketch offset from the layout sketch. This is similar to the previous exercise.
+  Crie o sketch da placa com deslocamento (offset) em relação ao layout sketch, assim como no exercício anterior.
 
   ![](../img/1c/dead-axle-rollers/parts-8.webp)
-  Start the plate sketch by copying the bolt pattern and pivot axle hole, and adding bolt holes for the rollers. Also add the bolt pattern for the motor, this should be done in the same way as the previous exercise but with a 6 hole pattern. Like before we will only make 3 of these real holes. The rest will be construction circles.
+  Inicie o sketch da placa copiando o padrão de furação e o furo do eixo do pivô, e adicionando os furos dos parafusos para os roletes. Adicione também o padrão de furos para o motor; isso deve ser feito da mesma forma que no exercício anterior, mas com um padrão de 6 furos. Assim como antes, tornaremos apenas 3 deles em furos reais; os outros serão círculos de construção.
 
   ![](../img/1c/dead-axle-rollers/parts-9.webp)
-  Draw the plate outline based on the holes created in the previous slide.
+  Desenhe o contorno da placa com base nos furos criados no slide anterior.
 
   ![](../img/1c/dead-axle-rollers/parts-10.webp)
-  Extrude the plate in the "Right" direction.
+  Faça a extrusão da placa na direção "Right".
 
   ![](../img/1c/dead-axle-rollers/parts-11.webp)
-  Use Belt & Chain Gen to make the motor belt. The offsets don't matter here since you will be mating the belts to the pulleys.
+  Use o Belt & Chain Gen para gerar a correia do motor. Os offsets não importam aqui, já que você posicionará as correias diretamente nas polias durante a montagem.
 
   ![](../img/1c/dead-axle-rollers/parts-12.webp)
-  Use Belt & Chain Gen to make the first roller belt.
+  Use o Belt & Chain Gen para gerar a correia do primeiro rolete.
 
   ![](../img/1c/dead-axle-rollers/parts-13.webp)
-  Use Belt & Chain Gen to make the second roller belt.
+  Use o Belt & Chain Gen para gerar a correia do segundo rolete.
 
   ![](../img/1c/dead-axle-rollers/parts-0.webp)
-  Finish the part studio by naming your features and organizing them into folders. Assign the plate material to be polycarbonate.
+  Finalize o part studio nomeando suas features e organizando-as em pastas. Defina o material da placa como policarbonato (polycarbonate).
 </Slides>
 
-## Assembly Instructions
+## Instruções de Montagem (Assembly)
 
-**Next, navigate to the "Exercise #2 Assembly" tab** in your copied document and **follow the instructions in the slides** to complete this exercise.
+**Em seguida, navegue até a aba "Exercise #2 Assembly"** no seu documento copiado e **siga as instruções nos slides** para concluir este exercício.
 
 <Slides>
   ![](../img/1c/dead-axle-rollers/assy-0.webp)
-  Final assembly.
+  Montagem final.
 
   ![](https://www.youtube.com/embed/fDDM02mGCvg)
-  Start the assembly by inserting the part studio and grouping the origin cube and plate together. Then fasten the cube to the origin.
+  Inicie a montagem inserindo o part studio e agrupando com Group Mate o cubo de origem e a placa. Em seguida, fixe (Fasten Mate) o cubo na origem da montagem.
 
   ![](https://www.youtube.com/embed/0k2pSyg_nA0)
-  Use Assembly Mirror to copy the plate to the other side.
+  Use o Assembly Mirror para copiar a placa para o outro lado.
 
   ![](https://www.youtube.com/embed/J_dtYxcaCL8)
-  Insert a roller from FRCDesignLib. Make sure the length is set to 24", and has bolt endcaps set to the HTD option. You can mate the first roller to one of the holes in the side plate. You can replicate the single roller to the other two holes. Make sure you select the whole assembly for the replicate as shown.
+  Insira um rolete a partir da FRCDesignLib. Certifique-se de definir o comprimento como 24" e as tampas de extremidade (bolt endcaps) com a opção HTD. Monte o primeiro rolete em um dos furos da placa lateral. Você pode replicar esse único rolete para os outros dois furos usando a ferramenta Replicate. Certifique-se de selecionar todo o subconjunto na replicação, conforme mostrado.
 
   ![](https://www.youtube.com/embed/DqiNcoXHYNE)
-  Mate the belts to the rollers using the center mate point for the belts, and the roller pulleys.
+  Posicione as correias nos roletes utilizando o ponto central das correias e as polias dos roletes.
 
   ![](https://www.youtube.com/embed/BnFXhMRt_us)
-  Insert the Motor, Pulley, Shaft Spacers, and Shaft Bolt. Assemble the motor components together and mate the pulley to the center of the belt.
+  Insira o motor, a polia, os espaçadores de eixo e o parafuso do eixo. Monte os componentes do motor juntos e posicione a polia alinhada ao centro da correia.
 
   ![](https://www.youtube.com/embed/WUW7gB-it7I)
-  Measure the distance between the plate and motor by clicking the face of each component. Copy this distance to your clipboard. Open the FRCDesignLib Inserter and insert a custom round ID spacer with the length you copied. There is no need to change other configurations. Attach this spacer to the plate and use replicate to add it to the other three plate holes.
+  Meça a distância entre a placa e o motor clicando na face de cada componente. Copie essa distância para a área de transferência. Abra o Inserter da FRCDesignLib e insira um espaçador cilíndrico personalizado com o comprimento copiado. Não é necessário alterar outras configurações. Fixe esse espaçador na placa e use o Replicate para adicioná-lo aos outros três furos da placa.
 
   ![](https://www.youtube.com/embed/FkXr6tEHoSc)
-  Add fasteners to your assembly. Note the use of washers on each bolts When bolting to polycarbonate plates it is best practice to use washers. This helps prevent the plates from cracking. The Rollers should be attached with 1/2" #10-32 bolts, and the motor with 1.75" #10-32 bolts.
+  Adicione os fixadores à sua montagem. Observe o uso de arruelas (washers) em cada parafuso. Ao parafusar em placas de policarbonato, é melhor prática usar arruelas para evitar que as placas trinquem. Os roletes devem ser fixados com parafusos #10-32 de 1/2", e o motor com parafusos #10-32 de 1,75".
 
   ![](../img/1c/dead-axle-rollers/assy-0.webp)
-  Organize your assembly with folders
+  Organize sua montagem em pastas.
 </Slides>
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement).
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement)
 </Aside>
 
-## Minimizing Unique Part Count
+## Minimizando a Quantidade de Peças Únicas
 
-You may have noticed that the 3rd roller has a 24T pulley on both ends despite there only being a belt connected to one end.
-While the configurable roller does allow you to choose no pulley for the end with no belt, it can be advantageous to still keep the pulley in situations like this to reduce the number of unique parts.
-By doing so, all three rollers are identical, making part tracking and spare parts easier.
-
+Você deve ter notado que o 3º rolete possui uma polia de 24T em ambas as extremidades, mesmo havendo uma correia conectada a apenas um dos lados.
+Embora o rolete configurável permita escolher não ter polia no lado sem correia, pode ser muito vantajoso manter a polia instalada em situações como essa para reduzir a quantidade de peças únicas (unique part count) no robô.
+Ao fazer isso, todos os três roletes tornam-se rigorosamente idênticos, facilitando o inventário, a fabricação e as peças sobressalentes.

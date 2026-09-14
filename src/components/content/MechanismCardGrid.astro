@@ -20,12 +20,12 @@ const { cards } = Astro.props;
 
 <div class:list={['mechanism-card-grid', { 'is-single': cards.length === 1 }]}>
   {cards.map((card) => (
-    <a href={card.href} class="mechanism-card" aria-label={`Open ${card.title}`}>
+    <a href={card.href} class="mechanism-card" aria-label={`Abrir ${card.title}`}>
       <span class="mechanism-card-media">
         <Image src={card.image} alt={card.imageAlt} loading="lazy" data-no-lightbox />
       </span>
       <span class="mechanism-card-body">
-        <span class="mechanism-card-meta">{card.href.startsWith('http') ? 'CAD reference' : 'In-depth guide'}</span>
+        <span class="mechanism-card-meta">{card.href.startsWith('http') ? 'Referência em CAD' : 'Guia detalhado'}</span>
         <span class="mechanism-card-title">{card.title}</span>
         <span class="mechanism-card-description" set:html={renderGlossaryDescription(card.description)} />
       </span>

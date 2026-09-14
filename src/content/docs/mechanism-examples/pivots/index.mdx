@@ -1,6 +1,6 @@
 ---
-title: Pivots
-description: Examples of pivots from FRC robots
+title: Pivôs e Braços Articulados
+description: Exemplos de pivôs e articulações de robôs da FRC
 socialCard:
   image: ./img/2910/2910_2023_pivot.webp
 ---
@@ -13,44 +13,44 @@ import pivot5460 from './img/5460_2023_pivot.webp';
 
 export const writeupCards = [
   {
-    title: '6328 A-Frame Pivot',
+    title: 'Pivô em Estrutura A-Frame da 6328',
     href: './6328_2023_pivot/',
     image: pivot6328,
-    imageAlt: '6328 A-frame pivot CAD render',
-    description: 'A double-jointed A-frame pivot writeup covering force analysis, a custom MAXSpline gearbox, and mitee-bite dead-axle clamping.',
+    imageAlt: 'Render CAD do pivô em estrutura A-frame da 6328',
+    description: 'Um artigo detalhado sobre um braço articulado duplo em torre A-frame, cobrindo análise estática de forças, caixa de redução MAXSpline sob medida e fixação de dead axle com grampos mitee-bite.',
   },
   {
-    title: '2910 Dead Axle Pivot',
+    title: 'Pivô com Dead Axle da 2910',
     href: './2910_2023_pivot/',
     image: pivot2910,
-    imageAlt: '2910 dead axle pivot CAD render',
-    description: 'A custom dead-axle pivot writeup covering chain tensioning, packaging, structure, and serviceability.',
+    imageAlt: 'Render CAD do pivô com dead axle da 2910',
+    description: 'Um artigo detalhado sobre um pivô customizado com dead axle, cobrindo tensionamento engenhoso de corrente, empacotamento, rigidez estrutural e facilidade de manutenção.',
   },
 ];
 
 export const exampleCards = [
   {
-    title: '1690 Lantern Gear Pivot',
+    title: 'Pivô com Engrenagem Lanterna da 1690',
     href: 'https://cad.onshape.com/documents/065fb1a7f111b2de05ba208b/w/67f48a3bae8c68dc38e22239/e/e16d7c04df2851292695e2e5',
     image: pivot1690,
-    imageAlt: '1690 lantern gear pivot CAD render',
-    description: 'A unique sector lantern gear driven pivot for low backlash.',
+    imageAlt: 'Render CAD do pivô com engrenagem lanterna da 1690',
+    description: 'Um pivô exclusivo acionado por setor circular de pinos (lantern gear) para obter folga mecânica (backlash) praticamente nula.',
   },
   {
-    title: '5460 Charged Up Belt Pivot',
+    title: 'Pivô com Correia da 5460 no Charged Up',
     href: 'https://cad.onshape.com/documents/0b20b359a25b9a8142fe9631/w/263949fda713f005d5add009/e/9ff2797a21aae7b8fea3933c',
     image: pivot5460,
-    imageAlt: '5460 Charged Up belt pivot CAD render',
-    description: 'A high torque belt driven pivot for a double jointed arm.',
+    imageAlt: 'Render CAD do pivô por correia da 5460 no Charged Up',
+    description: 'Um pivô de alto torque acionado por correia dentada reforçada para um braço articulado duplo.',
   },
 ];
 
-Pivots come in all sorts of shapes and sizes, and their designs are highly dependent on mechanism requirements. These examples provide some insight into different solutions for the many challenges of designing pivots.
+Pivôs e articulações assumem os mais diversos formatos e tamanhos, e seus projetos dependem estritamente dos requisitos de carga e alcance do mecanismo. Estes exemplos práticos oferecem soluções comprovadas para superar os grandes desafios de projetar pivôs resistentes e precisos.
 
-## In-depth Writeups
+## Guias Detalhados
 
 <MechanismCardGrid cards={writeupCards} />
 
-## CAD References
+## Referências em CAD
 
 <MechanismCardGrid cards={exampleCards} />

@@ -50,77 +50,77 @@ const imageByLabel = (labelPart: string) =>
 
 const inDepthExamples = [
   {
-    title: '6328 A-Frame Pivot',
+    title: 'Pivô em Estrutura A do 6328',
     href: '/mechanism-examples/pivots/6328_2023_pivot/',
     image: imageByLabel('6328 2023 pivot'),
-    imageAlt: '6328 A-frame pivot CAD render',
-    category: 'Pivot',
-    description: 'A triple-pivoted A-frame arm with notes on torque analysis, custom gearbox packaging, dead-axle clamping, and serviceable joints.',
+    imageAlt: 'Render CAD do pivô em estrutura A do 6328',
+    category: 'Pivô',
+    description: 'Braço articulado em estrutura A de pivô triplo com notas sobre análise de torque, acomodação de caixa de redução personalizada (packaging), fixação de dead-axle e articulações de fácil manutenção.',
   },
   {
-    title: "1678's Rapid React Shooter",
+    title: "Shooter do 1678 na Rapid React",
     href: '/mechanism-examples/shooter/1678_2022_shooter/',
     image: imageByLabel('1678 2022 shooter'),
-    imageAlt: '1678 Rapid React shooter CAD render',
+    imageAlt: 'Render CAD do shooter do 1678 na Rapid React',
     category: 'Shooter',
-    description: 'A hooded shooter breakdown covering backrollers, flywheel mass, hood actuation, spin control, and practical design tradeoffs.',
+    description: 'Análise detalhada de shooter com capô (hood), abordando roletes traseiros (backrollers), inércia do volante (flywheel), acionamento do capô, controle de spin e compensações práticas de projeto.',
   },
   {
-    title: '2910 Dead Axle Pivot',
+    title: 'Pivô com Dead Axle do 2910',
     href: '/mechanism-examples/pivots/2910_2023_pivot/',
     image: imageByLabel('2910 2023 pivot'),
-    imageAlt: '2910 dead axle pivot CAD render',
-    category: 'Pivot',
-    description: 'A custom dead-axle pivot with notes on chain tensioning, load paths, electronics packaging, and serviceable structure.',
+    imageAlt: 'Render CAD do pivô com dead axle do 2910',
+    category: 'Pivô',
+    description: 'Pivô personalizado com dead-axle, com notas sobre tensionamento de corrente, caminhos de carga, acomodação da eletrônica e facilidade de manutenção estrutural.',
   },
 ];
 
 const categories = [
   {
-    title: 'Drivebases',
+    title: 'Bases de Tração (Drivebases)',
     href: '/mechanism-examples/drivebase/swerve/',
-    imageAlt: 'Swerve drivebase CAD render',
-    description: 'Swerve drivebases, bellypans, electronics packaging, frame geometry, and module integration.',
+    imageAlt: 'Render CAD de chassi swerve',
+    description: 'Bases de tração swerve, bellypans, montagem e organização da eletrônica, geometria da estrutura e integração dos módulos.',
     links: [
-      { label: 'Swerve drivebases', href: '/mechanism-examples/drivebase/swerve/' },
+      { label: 'Bases de tração swerve', href: '/mechanism-examples/drivebase/swerve/' },
     ],
   },
   {
     title: 'Intakes',
     href: '/mechanism-examples/intake/slapdown/',
-    imageAlt: 'Pivoting intake CAD render',
-    description: 'Over-the-bumper intake layouts, pivoting intakes, linkage deployments, roller placement, and acquisition geometry.',
+    imageAlt: 'Render CAD de intake articulado',
+    description: 'Layouts de intake sobre o para-choque (over-the-bumper), intakes articulados, desdobramento por quadrilátero articulado (linkage), posicionamento de roletes e geometria de captura.',
     links: [
-      { label: 'Pivoting intakes', href: '/mechanism-examples/intake/slapdown/' },
-      { label: 'Linkage intakes', href: '/mechanism-examples/intake/linkage/' },
+      { label: 'Intakes articulados', href: '/mechanism-examples/intake/slapdown/' },
+      { label: 'Intakes por articulação', href: '/mechanism-examples/intake/linkage/' },
     ],
   },
   {
     title: 'Shooters',
     href: '/mechanism-examples/shooter/',
-    imageAlt: 'Shooter CAD render',
-    description: 'Flywheels, hoods, backrollers, note and ball launchers, and examples from multiple FRC games.',
+    imageAlt: 'Render CAD de shooter',
+    description: 'Volantes de inércia (flywheels), capôs direcionadores (hoods), roletes traseiros (backrollers), lançadores de notas e bolas e exemplos de diversos jogos da FRC.',
     links: [
       { label: 'Shooters', href: '/mechanism-examples/shooter/' },
     ],
   },
   {
-    title: 'Elevators',
+    title: 'Elevadores',
     href: '/mechanism-examples/elevator/continuous/',
-    imageAlt: 'Continuous elevator CAD render',
-    description: 'Continuous and cascade elevator layouts, bearing blocks, rigging choices, carriages, and COTS elevator kits.',
+    imageAlt: 'Render CAD de elevador contínuo',
+    description: 'Layouts de elevador contínuo e em cascata, blocos de rolamento, opções de amarração (rigging), carrinhos e kits de elevador COTS.',
     links: [
-      { label: 'Continuous elevators', href: '/mechanism-examples/elevator/continuous/' },
-      { label: 'Cascade elevators', href: '/mechanism-examples/elevator/cascade/' },
+      { label: 'Elevadores contínuos', href: '/mechanism-examples/elevator/continuous/' },
+      { label: 'Elevadores em cascata', href: '/mechanism-examples/elevator/cascade/' },
     ],
   },
   {
-    title: 'Pivots',
+    title: 'Pivôs',
     href: '/mechanism-examples/pivots/',
-    imageAlt: 'Dead axle pivot CAD render',
-    description: 'Dead-axle pivots, belt pivots, chain tensioning, arm structure, and packaging for rotating mechanisms.',
+    imageAlt: 'Render CAD de pivô com dead axle',
+    description: 'Pivôs com dead-axle, pivôs por correia, tensionamento de corrente, estrutura de braços e acomodação de componentes para mecanismos rotativos.',
     links: [
-      { label: 'Pivots', href: '/mechanism-examples/pivots/' },
+      { label: 'Pivôs', href: '/mechanism-examples/pivots/' },
     ],
   },
 ].map((category) => {
@@ -134,17 +134,17 @@ const categories = [
 });
 ---
 
-<h1 id="_top" class="mechanism-page-title-sr">Mechanism Examples</h1>
+<h1 id="_top" class="mechanism-page-title-sr">Exemplos de Mecanismos</h1>
 
 <section class="mechanism-hero">
   <div class="mechanism-hero-copy">
-    <p class="mechanism-eyebrow">Mechanism examples</p>
+    <p class="mechanism-eyebrow">Exemplos de mecanismos</p>
     <blockquote>
       <p>Steal from the best, invent the rest.</p>
-      <cite>-Mike Corsetto, Team 1678</cite>
+      <cite>-Mike Corsetto, Equipe 1678</cite>
     </blockquote>
     <p class="hero-copy">
-      Don't be afraid to take inspiration from robots that already solved hard design problems. This library collects in-depth writeups and CAD references so teams can study real mechanisms, compare approaches, and build better designs faster.
+      Não tenha receio de se inspirar em robôs que já solucionaram desafios complexos de design. Esta biblioteca reúne artigos detalhados e referências em CAD para que as equipes possam estudar mecanismos reais, comparar abordagens e construir projetos melhores com mais rapidez.
     </p>
   </div>
   <div class="mechanism-hero-media" data-hero-rotator>
@@ -163,20 +163,20 @@ const categories = [
 
 <section class="mechanism-contribution">
   <div>
-    <p class="mechanism-eyebrow">Contribute</p>
-    <h2>Help make the library deeper.</h2>
+    <p class="mechanism-eyebrow">Contribuir</p>
+    <h2>Ajude a expandir a biblioteca.</h2>
     <p>
-      This library gets better when teams share what worked. Add examples with images and CAD links, or help turn existing references into Behind the Design writeups with the reasoning, packaging choices, and tradeoffs that made the mechanism work.
+      Esta biblioteca fica cada vez melhor quando as equipes compartilham o que funcionou. Adicione exemplos com imagens e links de CAD, ou ajude a transformar referências existentes em artigos detalhados explicando o raciocínio, decisões de acomodação de componentes (packaging) e compromissos que fizeram o mecanismo ter sucesso.
     </p>
   </div>
-  <a href="/contribution/methods-of-contributing/">Contribute an example</a>
+  <a href="/contribution/methods-of-contributing/">Contribuir com um exemplo</a>
 </section>
 
 <section id="in-depth-examples" class="mechanism-section">
   <div class="section-heading">
-    <p class="mechanism-eyebrow">Start here</p>
-    <h2>In-depth writeups</h2>
-    <p>These examples go beyond a CAD document and explain why the mechanism was designed the way it was.</p>
+    <p class="mechanism-eyebrow">Comece por aqui</p>
+    <h2>Artigos detalhados</h2>
+    <p>Estes exemplos vão além de um documento CAD e explicam os motivos de o mecanismo ter sido projetado dessa forma.</p>
   </div>
 
   <div class="featured-grid">
@@ -197,9 +197,9 @@ const categories = [
 
 <section id="browse-library" class="mechanism-section">
   <div class="section-heading">
-    <p class="mechanism-eyebrow">Browse by mechanism</p>
-    <h2>Mechanism library</h2>
-    <p>Each section displays in-depth writeups first followed by CAD references when available.</p>
+    <p class="mechanism-eyebrow">Navegar por mecanismo</p>
+    <h2>Biblioteca de mecanismos</h2>
+    <p>Cada seção exibe artigos detalhados primeiro, seguidos por referências de CAD quando disponíveis.</p>
   </div>
 
   <div class="library-grid">

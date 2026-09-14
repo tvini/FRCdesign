@@ -1,159 +1,158 @@
-﻿---
-title: "Exercise 1: Flat Intake"
-description: Model a flat intake
+---
+title: "Exercício 1: Intake Plano"
+description: Modelar um intake plano
 ---
 
 import ContentRow from '@components/content/ContentRow.astro';
 
-In this exercise, you will be modeling a sort of flat game piece manipulator. This mechanism features live-axle compliant wheels, a belt reduction, and tube plugs.
+Neste exercício, você modelará uma espécie de manipulador plano de peças de jogo (game pieces). Este mecanismo apresenta rodas de conformidade (compliant wheels) em eixo vivo (live-axle), uma redução por correia e tube plugs (tampas de extremidade de tubo).
 
 ## Tube Plugs
-Tube plugs are a great way to build simple and robust structures.
-Many vendors including [WCP](https://wcproducts.com/products/tube-plugs), [REV](https://www.revrobotics.com/MAXTube-Endcaps/), [Andymark](https://www.andymark.com/products/tube-plugs), and [Last Anvil](https://lastanvil.com/products/1-x-1-x-0-0625-end-cap) offer in various tubing sizes.
-They can be used to connect plates to the open face of tubes or to connect tubes to each other without the use of a gusset.
+Tube plugs são uma excelente maneira de construir estruturas simples e robustas.
+Muitos fornecedores, incluindo [WCP](https://wcproducts.com/products/tube-plugs), [REV](https://www.revrobotics.com/MAXTube-Endcaps/), [Andymark](https://www.andymark.com/products/tube-plugs) e [Last Anvil](https://lastanvil.com/products/1-x-1-x-0-0625-end-cap), os oferecem em vários tamanhos de tubos.
+Eles podem ser usados para fixar chapas à face aberta de tubos ou para conectar tubos entre si sem a necessidade de um gusset.
 
 <Aside type="example" title="Tube Plugs">
 <ContentRow>
-  <ContentFigure src="../img/1c/flat-intake/high-tide-tube-plugs.webp" alt="Tube to tube connection" />
-  <ContentFigure src="../img/1c/flat-intake/miso-tube-plug.webp" alt="Tube to plate connection" />
+  <ContentFigure src="../img/1c/flat-intake/high-tide-tube-plugs.webp" alt="Conexão tubo a tubo" />
+  <ContentFigure src="../img/1c/flat-intake/miso-tube-plug.webp" alt="Conexão tubo a chapa" />
 </ContentRow>
 
-Tube plugs can be used to create gusset-less tube to tube (left) and tube to plate (right) connections. (Photo Credits: FRC 4414, FRC 9442)
+Tube plugs podem ser usados para criar conexões sem gusset de tubo a tubo (esquerda) e de tubo a chapa (direita). (Créditos das fotos: FRC 4414, FRC 9442)
 </Aside>
 
-## Bolt and Rivet Usage
-Throughout the exercises in 1C you'll pick up several usage techniques for bolts and rivets for different kinds of structures and materials in order to build a strong intuition.
+## Uso de Parafusos e Rebites
+Ao longo dos exercícios do 1C, você aprenderá várias técnicas de aplicação de parafusos (bolts) e rebites (rivets) para diferentes tipos de estruturas e materiais, desenvolvendo uma intuição sólida de engenharia.
 
-Bolts are strong, and people often use more bolts and rivets than are necessary. When using only bolts, usually you can use 3-4 to fasten corners of a part and be fine, but you may prefer to use rivets to minimize weight or because they don't go all the way through a tube. In these cases, you can use a number of rivets easily spaced out as long as you have at least **one bolt/nut pair per attachment to prevent the rivets from loosening over time**. This is done for both this exercise and exercise 8.
+Parafusos são muito resistentes, e com frequência as pessoas utilizam mais parafusos e rebites do que o necessário. Ao usar apenas parafusos, normalmente 3 a 4 são suficientes para fixar os cantos de uma peça; no entanto, você pode preferir usar rebites para minimizar peso ou porque eles não atravessam o tubo de ponta a ponta. Nesses casos, você pode usar uma série de rebites espaçados, contanto que mantenha pelo menos **um par de parafuso e porca por fixação para evitar que os rebites afrouxem com o tempo**. Isso é feito tanto neste exercício quanto no Exercício 8.
 
-<ContentFigure src="../img/1c/flat-intake/bolt-and-rivet.webp" alt="Bolt and rivet usage" />
+<ContentFigure src="../img/1c/flat-intake/bolt-and-rivet.webp" alt="Uso de parafuso e rebite" />
 
-## Part Studio Instructions
+## Instruções do Part Studio
 
-**Navigate to the "Exercise #1 Part Studio" tab** in your copied document and **follow the instructions in the slides** to complete the part studio for this exercise.
+**Navegue até a aba "Exercise #1 Part Studio"** no seu documento copiado e **siga as instruções nos slides** para concluir o part studio deste exercício.
 
 <Slides>
   ![](../img/1c/flat-intake/parts-0.webp)
-  Final Part Studio.
+  Part Studio finalizado.
 
   ![](../img/1c/flat-intake/parts-1.webp)
-  Start the layout sketch on the Right plane. Begin by sketching the shape of the bottom tube.
+  Inicie o layout sketch no plano Right. Comece esboçando a seção do tubo inferior.
 
   ![](../img/1c/flat-intake/parts-2.webp)
-  Draw a rectangle on top of the tube to represent the floor of this intake
+  Desenhe um retângulo sobre o tubo para representar o piso (chão) deste intake.
 
   ![](../img/1c/flat-intake/parts-3.webp)
-  Create a circle to represent the wheels, and a circle to represent the motor. Use the origin cube belt ctc function to position them correctly, this is similar to the layout sketch in 1B Exercise 3
+  Crie um círculo para representar as rodas e um círculo para representar o motor. Use a função `#BeltCTC_5mm` do Origin Cube para posicioná-los corretamente, de forma similar ao layout sketch do Exercício 3 do Stage 1B.
 
   ![](../img/1c/flat-intake/parts-4.webp)
-  Draw the pitch circles for both pulleys and add connecting lines for them to represent the belt path. Use the origin cube PulleyPD function to define the pulley circles
+  Desenhe os pitch circles para ambas as polias e adicione linhas conectando-os para representar o trajeto da correia. Use a função `#PulleyPD_5mm` do Origin Cube para definir os círculos das polias.
 
   ![](../img/1c/flat-intake/parts-5.webp)
-  Draw a rectangle to represent a 2x1 tube. This should be dimensioned above from the wheels and aligned with the edge of the bottom tube.
+  Desenhe um retângulo para representar um tubo 2x1. Ele deve ser cotado acima das rodas e alinhado com a aresta do tubo inferior.
 
   ![](../img/1c/flat-intake/parts-6.webp)
-  Create a new sketch using a mate connector offset from the origin. This sketch should be offset in the "Right" direction as shown.
+  Crie um novo sketch usando um mate connector com deslocamento (offset) a partir da origem. Este sketch deve ser deslocado na direção "Right", conforme mostrado.
 
   ![](../img/1c/flat-intake/parts-7.webp)
-  Transfer the rectangles for the tubes from the layout sketch using the "Use" tool. Make sure these are not construction lines as you will need to extrude them.
+  Transfira os retângulos dos tubos do layout sketch usando a ferramenta "Use" (projetar). Certifique-se de que não sejam linhas de construção, pois você precisará extrudá-los.
 
   ![](../img/1c/flat-intake/parts-8.webp)
-  Extrude the bottom tube by 1" towards the origin and apply Tube Converter to it
+  Faça a extrusão do tubo inferior em 1" em direção à origem e aplique o Tube Converter nele.
 
   ![](../img/1c/flat-intake/parts-9.webp)
-  Start a sketch on the Right side of the 1x1 tube. Make sure to disable imprinting. Add circles centered on the motor and wheel circles from the layout sketch. Also transfer the CTC line with the use tool.
+  Inicie um sketch no lado direito (Right) do tubo 1x1. Certifique-se de desmarcar "imprinting" (Disable imprinting). Adicione círculos centralizados nos círculos do motor e das rodas do layout sketch. Transfira também a linha CTC com a ferramenta Use.
 
   ![](../img/1c/flat-intake/parts-10.webp)
-  Create the bolt circle pattern by drawing a circle on the CTC line, then use the pattern tool to duplicate it around the motor center point. This pattern should have 8 holes, and have a diameter of 2" to match the standard 2" motor bolt circle. We only need 3 of the 8 holes on this pattern so make the rest construction holes.
+  Crie o padrão de furação (bolt circle) desenhando um círculo sobre a linha CTC e, em seguida, use o padrão circular para duplicá-lo ao redor do ponto central do motor. Este padrão deve ter 8 furos e diâmetro de 2" para coincidir com o bolt circle padrão de motor de 2". Precisamos apenas de 3 dos 8 furos neste padrão, portanto transforme os demais em furos de construção.
 
   ![](../img/1c/flat-intake/parts-11.webp)
-  Add mounting holes along the bottom tube, spaced 2" apart. Add two more hole centered on the top tube spaced 1" apart.
+  Adicione furos de montagem ao longo do tubo inferior, espaçados em 2". Adicione mais dois furos centralizados no tubo superior com espaçamento de 1".
 
   ![](../img/1c/flat-intake/parts-12.webp)
-  Draw the plate outline around the holes. Draw arcs around all of the edge holes and connect them with tangent lines.
+  Desenhe o contorno da placa ao redor dos furos. Trace arcos ao redor de todos os furos de borda e conecte-os com linhas tangentes.
 
   ![](../img/1c/flat-intake/parts-13.webp)
-  Extrude to create the plate. If you properly disabled imprinting on slide 9 you should only have one face to select to extrude this plate.
+  Faça a extrusão para criar a placa. Se você desativou o imprinting corretamente no slide 9, terá apenas uma face para selecionar na extrusão desta placa.
 
   ![](../img/1c/flat-intake/parts-14.webp)
-  Mirror this plate across the Right plane to create a reference plate. You should color this plate an abnormal color so it is easily distinguishable from the main plate. Name this reference plate "zREF Plate". This will make it appear at the bottom of the insert menu, making it harder to accidentally use in the assembly.
+  Espelhe esta placa através do plano Right para criar uma placa de referência. Pinte essa placa de uma cor chamativa/anormal para que ela seja facilmente distinguível da placa principal. Nomeie esta placa de referência como "zREF Plate". Isso fará com que ela apareça no final do menu de inserção, tornando mais difícil usá-la por engano na montagem.
 
   ![](../img/1c/flat-intake/parts-15.webp)
-  Extrude the top tube shape. Make sure to use the "Up to Face" setting to extrude the tube parametrically to the reference plate.
+  Faça a extrusão do formato do tubo superior. Certifique-se de usar a condição "Up to Face" para extrudar o tubo parametricamente até a placa de referência.
 
   ![](../img/1c/flat-intake/parts-16.webp)
-  Use Tube Converter on this new tube.
+  Aplique o Tube Converter neste novo tubo.
 
   ![](../img/1c/flat-intake/parts-17.webp)
-  Make a sketch on top of the 1x1 tube, again making sure to disable imprinting. Sketch the plate as shown.
+  Crie um sketch no topo do tubo 1x1, desativando o imprinting novamente. Desenhe a placa conforme ilustrado.
 
   ![](../img/1c/flat-intake/parts-18.webp)
-  Use the `Belt & Chain Gen` Featurescript to make a belt between the motor and wheel holes. Pay close attention to the starting offset and the construction circles you select.
+  Use o Featurescript `Belt & Chain Gen` para criar a correia entre os furos do motor e da roda. Preste bastante atenção ao offset inicial e aos círculos de construção que você selecionar.
 
   ![](../img/1c/flat-intake/parts-19.webp)
-  Create the wheel shaft using the Robot Shaft Featurescript. The start mate connector should be placed in the middle of the belt and run up to the left face of the reference plate. The shaft should be offset from the end by 1/16" to account for the bearing flange. The shaft should also have a starting offset of 9/32" to put it through the wheel pulley.
+  Crie o eixo da roda usando o Featurescript Robot Shaft. O mate connector inicial deve ser posicionado no meio da correia e seguir até a face esquerda da placa de referência. O eixo deve ter um offset de 1/16" na extremidade para acomodar a flange do rolamento, além de um offset inicial de 9/32" para atravessar a polia da roda.
 
   ![](../img/1c/flat-intake/parts-20.webp)
-  Now that our parts are all done, we can pocket the side plate. Create a sketch on the Right side of the plate, and draw the rib lines. The top left line is dimensioned away from the top bolt holes.
+  Agora que as peças estão prontas, podemos aliviar a placa lateral (pocketing). Crie um sketch no lado direito da placa e desenhe as linhas de nervura. A linha superior esquerda é cotada em relação aos furos superiores dos parafusos.
 
   ![](../img/1c/flat-intake/parts-21.webp)
-  Use the Part Lighten Featurescript to pocket the plate. Select the face of the plate, and the entire rib line sketch as shown.
+  Use o Featurescript Part Lighten para aliviar a placa. Selecione a face da placa e todo o sketch de linhas de nervura conforme mostrado.
 
   ![](../img/1c/flat-intake/parts-0.webp)
-  Make sure to organize your part studio features into appropriate folders.
+  Certifique-se de organizar as features do seu part studio em pastas apropriadas.
 </Slides>
 
-## Assembly Instructions
+## Instruções de Montagem (Assembly)
 
-**Next, navigate to the "Exercise #1 Assembly" tab** in your copied document and **follow the instructions in the slides** to complete this exercise.
+**Em seguida, navegue até a aba "Exercise #1 Assembly"** no seu documento copiado e **siga as instruções nos slides** para concluir este exercício.
 
 <Slides>
   ![](../img/1c/flat-intake/assy-0.webp)
-  Final assembly.
+  Montagem final.
 
   ![](https://www.youtube.com/embed/H6y1S_cHLKk)
-  Insert the part studio and delete the reference plate. Group all of these components together, and fasten the origin cube to the assembly origin
+  Insira o part studio e delete a placa de referência (zREF Plate). Agrupe todos esses componentes com Group Mate e fixe com Fasten Mate o cubo de origem (Origin Cube) na origem da montagem.
 
   ![](https://www.youtube.com/embed/_CIzPllEGyU)
-  Use the Assembly Mirror tool to copy the bottom tube and plate over to the other side. You can use a mate connector in the middle of the origin cube's edge as a mirror plane
+  Use a ferramenta Assembly Mirror para copiar o tubo inferior e a placa para o outro lado. Você pode usar um mate connector no meio da aresta do Origin Cube como plano de espelhamento.
 
   ![](https://www.youtube.com/embed/pz9FJVzkWjg)
-  Insert 2x1 Tube plugs with a the 1/16" Sleeve to fit the top tube. Mate these tube plugs to the ends of the top tube.
+  Insira Tube Plugs 2x1 com luva de 1/16" para encaixar no tubo superior. Monte esses tube plugs nas extremidades do tubo superior.
 
   ![](https://www.youtube.com/embed/aNM9l2OV1fY)
-  Insert the motor, pulley and shaft spacers. Assemble the motor shaft parts together and mate it to the side plate on the Right side.
+  Insira o motor, a polia e os espaçadores de eixo. Monte as peças do eixo do motor juntas e fixe-o na placa lateral do lado direito.
 
   ![](https://www.youtube.com/embed/iQ3y-yqWeA4)
-  Insert two hex bearings for the wheel shaft and mate them to the plates.
+  Insira dois rolamentos hexagonais para o eixo da roda e monte-os nas placas.
 
   ![](https://www.youtube.com/embed/RMAst7Xcz4Y)
-  Insert a 1" Hex Spacer and a 2" Compliant wheel. Mate them together, and then to the right bearing. Use a Linear Pattern to copy the wheel and spacer across the shaft. Put a final 1/2" Spacer at the end of the wheels to fully constrain them.
+  Insira um espaçador hex de 1" e uma compliant wheel de 2". Monte-os juntos e, em seguida, no rolamento direito. Use um Linear Pattern para copiar a roda e o espaçador ao longo do eixo. Coloque um espaçador final de 1/2" no final das rodas para restringi-las totalmente.
 
   ![](https://www.youtube.com/embed/xrIZ7Ph1DAo)
-  Insert shaft end screws and mate one to each side of the wheel shaft.
+  Insira parafusos de extremidade de eixo (shaft end screws) e monte um em cada lado do eixo da roda.
 
   ![](https://www.youtube.com/embed/quIf3misSe4)
-  Use nuts, bolts and rivets to fasten the structure pieces together. You can make use of assembly mirror to speed up the process since the fasteners are mostly symmetrical.
+  Use porcas, parafusos e rebites para fixar as peças da estrutura. Você pode fazer uso de Assembly Mirror para acelerar o processo, já que os fixadores são quase todos simétricos.
 
   ![](../img/1c/flat-intake/assy-0.webp)
-  Finish your assembly by organizing the parts into folders and naming your replicates.
+  Finalize sua montagem organizando as peças em pastas e nomeando suas replicações.
 </Slides>
 
-<Aside type="tip" title="Verification">
-Make sure to have you and/or a more experienced member/mentor of your team [**review your CAD!**](/learning-course/stage1/1a/focusing-on-improvement)
+<Aside type="tip" title="Verificação">
+Certifique-se de que você e/ou um membro/mentor mais experiente da sua equipe [**façam uma revisão do seu CAD!**](/learning-course/stage1/1a/focusing-on-improvement)
 </Aside>
 
-## Parametric Modeling
+## Modelagem Paramétrica
 
-Some of the steps we took to complete this exercise could have been simplified.
-For instance, we didn't necessarily *need* to make the shaft properly positioned/aligned in the part studio.
-We didn't *need* to use an "Up to face" extrude for the upper tube.
+Alguns dos passos que adotamos neste exercício poderiam ter sido simplificados.
+Por exemplo, não precisávamos necessariamente ter posicionado e alinhado o eixo com tanta precisão dentro do part studio.
+Também não *precisávamos* ter usado uma extrusão "Up to face" para o tubo superior.
 
-However, we practice these techniques because, while they may marginally increase modeling time upfront, they can save ***significant*** amounts of time when going back and editing.
-CAD is an iterative process - your models and designs won't be perfect the first time around, so making your model easier to modify and more robust to changes (e.g., changing the width of this intake) will save you time and effort in the long run.
-As you use best practices, they'll become second nature.
+No entanto, praticamos essas técnicas porque, embora possam aumentar ligeiramente o tempo inicial de modelagem, elas economizam ***quantidades enormes*** de tempo quando precisamos fazer modificações posteriores.
+O CAD é um processo iterativo — seus modelos e projetos não serão perfeitos na primeira tentativa, portanto tornar seu modelo fácil de editar e robusto a alterações (como mudar a largura deste intake) poupará muito esforço no longo prazo.
+Ao aplicar as melhores práticas, elas logo se tornarão naturais para você.
 
-<Aside type="note" title="Tweaking Your Model">
-Try playing around to get a feel for what things are and aren't parametric in exercise 1. You can try changing things like the width, length, tube positions, or gear ratio. Which dimensions are easy to change and which are difficult? Which dimension changes cause rebuild or assembly error?
+<Aside type="note" title="Ajustando seu Modelo">
+Experimente fazer alterações para sentir o que é e o que não é paramétrico no Exercício 1. Tente modificar itens como a largura, comprimento, posições dos tubos ou a relação de transmissão. Quais cotas são fáceis de alterar e quais são difíceis? Quais mudanças causam erros de reconstrução ou de montagem?
 </Aside>
-
